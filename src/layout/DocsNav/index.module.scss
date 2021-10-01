@@ -1,0 +1,56 @@
+@use "@scss/common" as *;
+
+.docsNav {
+  position: sticky;
+  top: base(2);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-light-gray);
+  padding: base();
+}
+
+.title {
+  font-weight: bold;
+}
+
+.itemLabel {
+  font-weight: normal;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupItems {
+  padding-left: base(0.5);
+  border-left: var(--color-gray) solid var(--stroke-width);
+}
+
+.toggler {
+  @include button-reset;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chevron {
+  margin-right: base(0.25);
+}
+
+.link {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.linkBullet {
+  width: 3px;
+  height: 3px;
+  background-color: var(--color-gray);
+  border-radius: 100%;
+}
+
+.linkLabel {
+  margin-left: base(0.5);
+}

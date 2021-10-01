@@ -1,0 +1,54 @@
+$html-font-size: 16;
+$html-line-height: 34;
+$html-font-size-mobile: 16;
+$html-line-height-mobile: 24;
+
+$fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+
+$blockContainerWidth: 1400px;
+
+$color-dark-green: #18666a;
+$color-green: #0d8a92;
+$color-light-green: #ccfff3;
+
+$color-dark-blue: #1f556b;
+$color-blue: #49869a;
+$color-light-blue: #d1fdfe;
+
+$color-dark-red: #a42d30;
+$color-red: #df4c4c;
+$color-light-red: #ffe5e7;
+
+$color-dark-purple: #67324b;
+$color-purple: #af7591;
+$color-light-purple: #f7e7ff;
+
+$color-dark-gray: #4f5152;
+$color-gray: #d4d4d4;
+$color-light-gray: #f4f4f4;
+
+$color-white: #ffffff;
+$color-black: #333434;
+
+$breakpoint-s-width: 768px;
+$breakpoint-m-width: 1024px;
+$breakpoint-l-width: 1400px;
+$breakpoint-xl-width: 1680px;
+
+// IMPORTANT: must keep GridProvider settings in _app.js synced
+$mobile-gutter: 20px;
+$desktop-gutter: 20px;
+
+$modal-trans-time: 250ms; // match value in any ModalProvider (./pages/_app.tsx)
+$default-trans-time: 150ms;
+$slider-trans-time: 750ms;
+$page-trans-time: 750ms; // match timeout value in 'PageTransition' component
+
+$modal-z-index: 2;
+$header-z-index: 3;
+
+$stroke-width: 1px;
+$stroke-width-bold: 2px;
+
+$shadow-xs: 0px 2px 4px rgba(0, 0, 0, 0.05);
+$shadow-s: 0px 4px 10px rgba(0, 0, 0, 0.05);

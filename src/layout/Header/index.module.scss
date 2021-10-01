@@ -1,0 +1,30 @@
+@use "@scss/common" as *;
+
+.header {
+  width: 100%;
+  margin-top: base(2);
+  margin-bottom: base();
+}
+
+.wrapper {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+
+  & > *:not(:last-child) {
+    margin-right: base();
+  }
+}
+
+.logo {
+  margin-right: base();
+}

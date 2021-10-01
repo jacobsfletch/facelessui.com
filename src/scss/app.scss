@@ -1,0 +1,161 @@
+@use "./mixins.scss" as *;
+@use "./functions.scss" as *;
+@use "./queries.scss" as *;
+@use "./vars.scss" as *;
+@use "./type.scss" as *;
+@import "./fonts.scss";
+
+#__next {
+  height: 100%;
+}
+
+:root {
+  --html-font-size: #{$html-font-size};
+  --html-line-height: #{$html-line-height};
+
+  --font-family: #{$fontFamily};
+
+  --color-dark-green: #{$color-dark-green};
+  --color-green: #{$color-green};
+  --color-light-green: #{$color-light-green};
+
+  --color-dark-blue: #{$color-dark-blue};
+  --color-blue: #{$color-blue};
+  --color-light-blue: #{$color-light-blue};
+
+  --color-dark-red: #{$color-dark-red};
+  --color-red: #{$color-red};
+  --color-light-red: #{$color-light-red};
+
+  --color-dark-purple: #{$color-dark-purple};
+  --color-purple: #{$color-purple};
+  --color-light-purple: #{$color-light-purple};
+
+  --color-dark-gray: #{$color-dark-gray};
+  --color-gray: #{$color-gray};
+  --color-light-gray: #{$color-light-gray};
+
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+
+  --breakpoint-s-width: #{$breakpoint-s-width};
+  --breakpoint-m-width: #{$breakpoint-m-width};
+  --breakpoint-l-width: #{$breakpoint-l-width};
+  --breakpoint-xl-width: #{$breakpoint-xl-width};
+
+  --modal-trans-time: #{$modal-trans-time};
+  --default-trans-time: #{$default-trans-time};
+  --slider-trans-time: #{$slider-trans-time};
+  --page-trans-time: #{$page-trans-time};
+
+  --mobile-gutter: #{$mobile-gutter};
+  --desktop-gutter: #{$desktop-gutter};
+
+  --modal-z-index: #{$modal-z-index};
+
+  --stroke-width: #{$stroke-width};
+  --stroke-width-bold: #{$stroke-width-bold};
+
+  --shadow-xs: #{$shadow-xs};
+  --shadow-s: #{$shadow-s};
+
+  --col-gap: 2rem;
+
+  --gutter-h: #{base(2)};
+  --gutter-v: #{base(1)};
+
+  @include mid-break {
+    --gutter-h: #{base(1)};
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+}
+
+html {
+  color: $color-dark-gray;
+  font-family: $fontFamily;
+  font-size: calc(#{var(--html-font-size)} * 1px);
+  line-height: calc(#{var(--html-line-height)} * 1px);
+  -webkit-font-smoothing: antialiased;
+
+  @include mid-break {
+    @at-root {
+      :root {
+        --html-font-size: #{$html-font-size-mobile};
+        --html-line-height: #{$html-line-height-mobile};
+      }
+    }
+  }
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+h6 {
+  @include h6;
+}
+
+p {
+  @include p;
+}
+
+ul {
+  @include ul;
+}
+
+li {
+  @include li;
+}
+
+small {
+  font-size: 75%;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid currentColor;
+  margin: 0;
+}
+
+a {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+input,
+textarea,
+select {
+  margin: 0;
+}
+
+svg {
+  path,
+  circle,
+  line {
+    vector-effect: non-scaling-stroke;
+  }
+}

@@ -1,0 +1,6 @@
+@use "./vars.scss" as *;
+@use "sass:math";
+
+@function base($multiplier: 1) {
+  @return calc(((var(--html-line-height) / var(--html-font-size)) * #{$multiplier}) * 1rem);
+}

@@ -1,0 +1,56 @@
+@use "@scss/common" as *;
+
+.icon {
+  width: base(0.5);
+  height: base(0.5);
+  overflow: visible;
+}
+
+.stroke {
+  stroke-width: var(--stroke-width);
+  fill: none;
+  stroke: currentColor;
+}
+
+.small {
+  width: base(0.25);
+  height: base(0.25);
+}
+
+.large {
+  height: base();
+  width: base();
+}
+
+.huge {
+  height: base(3);
+  width: base(3);
+}
+
+.bold {
+  &:local() {
+    .stroke {
+      stroke-width: var(--stroke-width-bold);
+    }
+  }
+}
+
+.red {
+  color: var(--color-red);
+}
+
+.green {
+  color: var(--color-green);
+}
+
+.purple {
+  color: var(--color-purple);
+}
+
+.blue {
+  color: var(--color-blue);
+}
+
+.white {
+  color: var(--color-white);
+}

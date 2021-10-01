@@ -1,0 +1,8 @@
+@use "@scss/common" as *;
+
+.blockContainer {
+  width: 100%;
+  @include mid-break {
+    padding: 0 var(--mobile-gutter);
+  }
+}

@@ -1,0 +1,141 @@
+@use "./functions.scss" as *;
+@use "./queries.scss" as *;
+@use "./vars.scss" as *;
+
+@mixin jumbo {
+  font-size: base(3.25);
+  line-height: 1.125;
+  font-weight: 600;
+  margin: base(2) 0;
+  letter-spacing: -2px;
+
+  @include extra-large-break {
+    font-size: base(2);
+  }
+
+  @include mid-break {
+    font-size: base(1.5);
+  }
+}
+
+@mixin h1 {
+  font-size: base(2.75);
+  line-height: 1.125;
+  margin: 0 0 base();
+  font-weight: 200;
+  letter-spacing: 1px;
+
+  @include extra-large-break {
+    font-size: base(2);
+  }
+
+  @include mid-break {
+    font-size: base(1.35);
+  }
+}
+
+@mixin h2 {
+  font-size: base(2);
+  line-height: 1.25;
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin: base(1.5) 0 base(0.5);
+
+  @include extra-large-break {
+    font-size: base(1.5);
+  }
+
+  @include mid-break {
+    font-size: base(1.1);
+  }
+}
+
+@mixin h3 {
+  font-size: base(1.65);
+  line-height: 1.25;
+  font-weight: 200;
+  margin: base(1.5) 0 base(0.5);
+  letter-spacing: 1px;
+
+  @include extra-large-break {
+    font-size: base(1.4);
+  }
+
+  @include mid-break {
+    font-size: base(0.8);
+  }
+}
+
+@mixin h4 {
+  font-size: base(1.35);
+  line-height: 1.25;
+  font-weight: 600;
+  margin: base() 0 base(0.5);
+  letter-spacing: 1px;
+
+  @include extra-large-break {
+    font-size: base(1.15);
+  }
+
+  @include mid-break {
+    font-size: base(0.95);
+  }
+}
+
+@mixin h5 {
+  font-size: base(0.75);
+  line-height: 1.25;
+  font-weight: 600;
+  margin: base() 0 base(0.25);
+
+  @include extra-large-break {
+    font-size: base(0.95);
+  }
+
+  @include mid-break {
+    font-size: base(0.85);
+  }
+}
+
+@mixin h6 {
+  font-size: base(0.625);
+  line-height: 1.25;
+  margin: base() 0 base(0.25);
+
+  @include extra-large-break {
+    font-size: base(0.75);
+  }
+
+  @include mid-break {
+    font-size: base(0.65);
+  }
+}
+
+@mixin p {
+  margin: base() 0 base(0.15);
+  @include mid-break {
+    margin: base(0.5) 0 base(0.15);
+  }
+}
+
+@mixin a {
+  margin: base() 0 base(0.1);
+}
+
+@mixin ol {
+  margin: base() 0 base(0.1);
+}
+
+@mixin ul {
+  margin: base() 0 base(0.15);
+}
+
+@mixin li {
+  margin-bottom: base(0.35);
+}
+
+@mixin small {
+  font-size: 14px;
+  line-height: 1.15;
+  letter-spacing: 0.5px;
+}

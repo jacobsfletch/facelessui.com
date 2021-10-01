@@ -1,0 +1,121 @@
+@use '@scss/functions' as *;
+@use '@scss/type' as *;
+@use '@scss/vars' as *;
+
+@mixin form-field-psuedo {
+  &::-webkit-input-placeholder {
+    color: var(--color-gray);
+    font-weight: normal;
+    font-size: 1rem;
+  }
+  &::-moz-placeholder {
+    color: var(--color-gray);
+    font-weight: normal;
+    font-size: 1rem;
+  }
+  &:hover {
+    border-color: darken($color-light-gray, 10%);
+  }
+  &:focus,
+  &:active {
+    border-color: var(--color-gray);
+    outline: 0;
+  }
+  &:disabled {
+    background: lighten($color-light-gray, 5%);
+    color: darken($color-gray, 5%);
+
+    &:hover {
+      border-color: var(--color-light-gray);
+    }
+  }
+}
+
+@mixin form-field($isDark: false) {
+  @include body-18;
+  @include form-field-psuedo;
+  font-family: "Open Sans", sans-serif;
+  padding: base(0.15) base(0.5);
+  border: 1px solid;
+  border-radius: 0;
+  color: var(--color-black);
+  background-color: transparent;
+  min-height: base(1.75);
+  line-height: calc(#{base(1.75)} - (2 * #{base(0.15)}) - 2px);
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  @if ($isDark) {
+    color: var(--color-white);
+  }
+}
+
+@mixin form-field-wrap($type: "default") {
+  position: relative;
+  margin-bottom: base(0.75);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+
+  input,
+  select,
+  textarea {
+    @include form-field;
+  }
+
+  textarea {
+    height: unset;
+    min-height: base(1.75);
+    max-height: 150px;
+    overflow: auto;
+  }
+
+  @if ($type == "minimal") {
+    min-height: base(0.75);
+    margin-bottom: base(1.25);
+
+    label {
+      @include body-18;
+      position: absolute;
+      transform: translateY(50%);
+      bottom: 50%;
+      transition: $default-trans-time ease;
+      margin-bottom: 0;
+      color: var(--color-gray);
+      line-height: unset;
+      text-transform: unset;
+      padding: 0;
+      padding-bottom: base(0.35);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      pointer-events: none;
+    }
+
+    &.hasValue {
+      label {
+        bottom: 100%;
+        transform: translateY(0);
+        font-size: base(0.4);
+        padding-bottom: base(0.15);
+        z-index: -1;
+      }
+    }
+
+    input,
+    select,
+    textarea {
+      border: none;
+      border-bottom: 1px solid;
+      padding: 0;
+      padding-bottom: base(0.25);
+      min-height: base(1.15);
+      line-height: calc(#{base(1.15)} - #{base(0.25)} - 1px);
+    }
+  }
+}
