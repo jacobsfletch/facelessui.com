@@ -1,0 +1,22 @@
+@use "@scss/common" as *;
+
+.marginGrid {
+  margin: base(-1);
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: calc(100% - #{base(2)});
+
+  & > * {
+    margin: base();
+  }
+}
+
+.small {
+  margin: base(-0.25);
+  width: calc(100% - #{base(0.5)});
+
+  & > * {
+    margin: base(0.25);
+  }
+}

@@ -23,11 +23,6 @@ export const Header: React.FC = () => {
                 Docs
               </Hyperlink>
             </div>
-            <div>
-              <Hyperlink href="/showcase">
-                Showcase
-              </Hyperlink>
-            </div>
           </menu>
         </div>
       </BlockContainer>

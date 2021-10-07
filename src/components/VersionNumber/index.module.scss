@@ -1,0 +1,9 @@
+@use "@scss/common" as *;
+
+.small {
+  @include small;
+}
+
+.gray {
+  color: var(--color-gray);
+}

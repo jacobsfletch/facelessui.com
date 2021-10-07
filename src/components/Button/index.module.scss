@@ -60,13 +60,13 @@
   }
 }
 
-.type--text {
-  &:local() {
-    .contents {
-      text-decoration: underline;
-    }
-  }
-}
+// .type--text {
+//   &:local() {
+//     .contents {
+//       text-decoration: underline;
+//     }
+//   }
+// }
 
 .size--small {
   @include small;

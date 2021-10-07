@@ -22,7 +22,7 @@ export type GitHubJumplist = GitHubJumplistItem[];
 
 const defaultHeaders = {
   Accept: 'application/vnd.github.v3+json.html',
-  Authorization: `token ${process.env.GITHUB_ACCESS_TOKEN}`,
+  Authorization: `token ${process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN}`,
 };
 
 export const getGitHubMasterTree = async (repoName: string): Promise<GitHubTree> => {
@@ -64,3 +64,21 @@ export const getGitHubFile = async (fileName: string): Promise<GitHubFile> => {
 
   throw new Error(message);
 };
+
+export const getGitHubVersionNumber = async (repo: string): Promise<string> => {
+  const res = await fetch(`https://api.github.com/repos/faceless-ui/${repo}/releases/latest`, {
+    method: 'GET',
+    headers: defaultHeaders
+  });
+
+  const json = await res.json();
+  const { message } = json;
+
+  if (res.status === 200) {
+    const { name } = json; // name of version
+    return name;
+  }
+
+  console.warn(message);
+  return 'Unreleased';
+}

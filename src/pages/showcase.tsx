@@ -22,11 +22,11 @@ const Showcase: NextPage = () => {
               colsL={12}
               colsM={8}
             >
-              <h2 style={{ marginTop: 0 }}>
-                Used in dozens of production-level websites and apps.
-              </h2>
+              <h1>
+                Make any interface.
+              </h1>
               <p>
-                {'Here are just a few: '}
+                {'Faceless UI is used all over the web, hidden under the skin of its brand. Here are just a few notable places that you can find it actively used in production: '}
               </p>
             </Cell>
           </Grid>

@@ -1,4 +1,4 @@
-import type { AppProps } from 'next/app'
+import App, { AppContext, AppProps } from 'next/app';
 import { AppHead } from '../components/AppHead';
 import { Footer } from '../layout/Footer';
 import { Header } from '../layout/Header';
@@ -6,19 +6,29 @@ import { GridProvider } from '@faceless-ui/css-grid'
 import { ModalProvider, ModalContainer } from '@faceless-ui/modal';
 import { Fragment } from 'react';
 import { NextPage } from 'next';
-import GettingStarted from './docs/getting-started';
+import { Doc } from '@root/layout/Doc';
+import { Versions as VersionsType } from '../providers/Versions';
 
 import '../scss/app.scss';
+import { getGitHubVersionNumber } from '@root/github-api';
+import VersionsProvider from '@root/providers/Versions';
 
 type NextPageWithLayout = NextPage & {
-  Layout?: typeof GettingStarted
+  Layout?: typeof Doc
 }
 
 type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
+  Component: NextPageWithLayout,
+  versions: VersionsType
 }
 
-function FacelessApp({ Component, pageProps }: AppPropsWithLayout) {
+const FacelessApp = (appProps: AppPropsWithLayout) => {
+  const {
+    Component,
+    pageProps,
+    versions
+  } = appProps;
+
   const Layout = Component.Layout || Fragment;
 
   return (
@@ -35,14 +45,14 @@ function FacelessApp({ Component, pageProps }: AppPropsWithLayout) {
         rowGap={{
           s: '1rem',
           m: '1rem',
-          l: '4rem',
-          xl: '4rem',
+          l: '2rem',
+          xl: '2rem',
         }}
         colGap={{
           s: '10px',
           m: '10px',
-          l: 'columnWidth',
-          xl: 'columnWidth',
+          l: '2rem',
+          xl: '2rem',
         }}
         cols={{
           s: 8,
@@ -51,16 +61,45 @@ function FacelessApp({ Component, pageProps }: AppPropsWithLayout) {
           xl: 14,
         }}
       >
-        <AppHead />
-        <Header />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-        <ModalContainer />
-        <Footer />
+        <VersionsProvider versions={versions}>
+          <Fragment>
+            <AppHead />
+            <Header />
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+            <ModalContainer />
+            <Footer />
+          </Fragment>
+        </VersionsProvider>
       </GridProvider>
     </ModalProvider>
   )
 }
 
-export default FacelessApp
+FacelessApp.getInitialProps = async (appContext: AppContext) => {
+  const appProps = await App.getInitialProps(appContext);
+
+  const windowInfoVersion = await getGitHubVersionNumber('window-info');
+  const scrollInfoVersion = await getGitHubVersionNumber('scroll-info');
+  const mouseInfoVersion = await getGitHubVersionNumber('mouse-info');
+  const sliderVersion = await getGitHubVersionNumber('slider');
+  const cssGridVersion = await getGitHubVersionNumber('css-grid');
+  const modalVersion = await getGitHubVersionNumber('modal');
+  const collapsiblesVersion = await getGitHubVersionNumber('collapsibles');
+
+  return {
+    ...appProps,
+    versions: {
+      'window-info': windowInfoVersion,
+      'scroll-info': scrollInfoVersion,
+      'mouse-info': mouseInfoVersion,
+      slider: sliderVersion,
+      'css-grid': cssGridVersion,
+      modal: modalVersion,
+      collapsibles: collapsiblesVersion,
+    }
+  };
+};
+
+export default FacelessApp;

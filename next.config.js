@@ -21,4 +21,13 @@ module.exports = {
     return configCopy;
   },
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  async redirects() {
+    return [
+      {
+        source: '/docs/getting-started',
+        destination: '/docs/getting-started/what-is-faceless-ui',
+        permanent: true,
+      },
+    ]
+  },
 }

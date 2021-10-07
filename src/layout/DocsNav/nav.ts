@@ -3,13 +3,21 @@ export type Item = {
   label: string
   items?: Item[]
   href?: string
+  versionName?: string
 }
 
 export const nav: Item[] = [
   {
-    type: 'link',
+    type: 'group',
     href: "/docs/getting-started",
-    label: 'Getting started'
+    label: 'Getting Started',
+    items: [
+      {
+        type: 'link',
+        href: "/docs/getting-started/what-is-faceless-ui",
+        label: 'What is Faceless UI?'
+      },
+    ]
   },
   {
     type: 'title',
@@ -23,7 +31,8 @@ export const nav: Item[] = [
       {
         type: 'link',
         href: "/docs/window-info/installation",
-        label: 'Installation'
+        label: 'Installation',
+        versionName: 'window-info',
       },
       {
         type: 'link',
@@ -45,7 +54,8 @@ export const nav: Item[] = [
       {
         type: 'link',
         href: "/docs/scroll-info/installation",
-        label: 'Installation'
+        label: 'Installation',
+        versionName: 'scroll-info',
       },
       {
         type: 'link',
@@ -67,7 +77,8 @@ export const nav: Item[] = [
       {
         type: 'link',
         href: "/docs/mouse-info/installation",
-        label: 'Installation'
+        label: 'Installation',
+        versionName: 'mouse-info',
       },
       {
         type: 'link',
@@ -87,57 +98,14 @@ export const nav: Item[] = [
   },
   {
     type: 'group',
-    href: "/docs/css-grid",
-    label: 'CSS Grid',
-    items: [
-      {
-        type: 'link',
-        href: "/docs/css-grid/installation",
-        label: 'Installation'
-      },
-      {
-        type: 'link',
-        href: "/docs/css-grid/examples",
-        label: 'Examples'
-      },
-      {
-        type: 'link',
-        href: "/docs/css-grid/api",
-        label: 'API Reference'
-      },
-    ]
-  },
-  {
-    type: 'group',
-    href: "/docs/collapsibles",
-    label: 'Mouse Info',
-    items: [
-      {
-        type: 'link',
-        href: "/docs/collapsibles/installation",
-        label: 'Installation'
-      },
-      {
-        type: 'link',
-        href: "/docs/collapsibles/examples",
-        label: 'Examples'
-      },
-      {
-        type: 'link',
-        href: "/docs/collapsibles/api",
-        label: 'API Reference'
-      },
-    ]
-  },
-  {
-    type: 'group',
     href: "/docs/modal",
     label: 'Modal',
     items: [
       {
         type: 'link',
         href: "/docs/modal/installation",
-        label: 'Installation'
+        label: 'Installation',
+        versionName: 'modal',
       },
       {
         type: 'link',
@@ -153,13 +121,37 @@ export const nav: Item[] = [
   },
   {
     type: 'group',
+    href: "/docs/css-grid",
+    label: 'CSS Grid',
+    items: [
+      {
+        type: 'link',
+        href: "/docs/css-grid/installation",
+        label: 'Installation',
+        versionName: 'css-grid',
+      },
+      {
+        type: 'link',
+        href: "/docs/css-grid/examples",
+        label: 'Examples'
+      },
+      {
+        type: 'link',
+        href: "/docs/css-grid/api",
+        label: 'API Reference'
+      },
+    ]
+  },
+  {
+    type: 'group',
     href: "/docs/slider",
     label: 'Slider',
     items: [
       {
         type: 'link',
         href: "/docs/slider/installation",
-        label: 'Installation'
+        label: 'Installation',
+        versionName: 'slider',
       },
       {
         type: 'link',
@@ -169,6 +161,29 @@ export const nav: Item[] = [
       {
         type: 'link',
         href: "/docs/slider/api",
+        label: 'API Reference'
+      },
+    ]
+  },
+  {
+    type: 'group',
+    href: "/docs/collapsibles",
+    label: 'Collapsibles',
+    items: [
+      {
+        type: 'link',
+        href: "/docs/collapsibles/installation",
+        label: 'Installation',
+        versionName: 'collapsibles',
+      },
+      {
+        type: 'link',
+        href: "/docs/collapsibles/examples",
+        label: 'Examples'
+      },
+      {
+        type: 'link',
+        href: "/docs/collapsibles/api",
         label: 'API Reference'
       },
     ]
