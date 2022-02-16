@@ -1,0 +1,26 @@
+@use "@scss/common" as *;
+
+.nextInDocs {
+  will-change: border-color;
+  background-color: var(--color-lightest-gray);
+  padding: base() base();
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-weight: normal;
+  border: 1px solid var(--color-cursor);
+  transition: border-color linear vaR(--default-trans-time);
+
+  &.isDark {
+    background-color: var(--color-black);
+  }
+
+  &:hover {
+    border: 1px solid var(--color-cursor-highlight);
+  }
+}
+
+.label {
+  margin: 0;
+}

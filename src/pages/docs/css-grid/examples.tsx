@@ -11,6 +11,9 @@ const CSSGridExamples = () => {
       <h1>
         Collapsibles Examples
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }

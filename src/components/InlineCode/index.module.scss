@@ -1,0 +1,14 @@
+@use "@scss/common" as *;
+
+.code {
+  background-color: var(--color-lighter-gray);
+  padding: 4px;
+  border-radius: 2px;
+  font-size: smaller;
+  letter-spacing: 0.5px;
+}
+
+.darkMode {
+  background-color: var(--color-darkest-gray);
+  color: var(--color-white);
+}

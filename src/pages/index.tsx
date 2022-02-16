@@ -1,16 +1,29 @@
 import type { NextPage } from 'next'
-import { Fragment } from 'react'
+import { Fragment, useEffect } from 'react'
 import Meta from '../components/Meta'
 import { BlockContainer } from '../layout/BlockContainer';
 import { Button } from '@components/Button';
 import { Cell, Grid } from '@faceless-ui/css-grid';
 import { MarginGrid } from '@components/MarginGrid';
-import { Card } from '@components/Card';
-import { HorizontalRule } from '@components/HorizontalRule';
 import Margin from '@components/Margin';
-import { VersionNumber } from '@components/VersionNumber';
+import { Heading } from '@components/Heading';
+import { Hyperlink } from '@components/Hyperlink';
+import { CallToAction } from '@components/CallToAction';
+import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 
 const Home: NextPage = () => {
+  const {
+    setShowCustomCursor,
+    setHighlightCursor
+  } = useCustomCursor();
+
+  useEffect(() => {
+    setShowCustomCursor(true)
+    return () => {
+      setShowCustomCursor(false)
+    }
+  }, [setShowCustomCursor])
+
   return (
     <Fragment>
       <Meta>
@@ -20,155 +33,126 @@ const Home: NextPage = () => {
       </Meta>
       <main>
         <BlockContainer>
-          <Grid>
-            <Cell
-              cols={10}
-              colsL={12}
-              colsM={8}
+          <Margin
+            top="small"
+            bottom="large"
+          >
+            <div
+              style={{
+                minHeight: '50vh',
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center'
+              }}
             >
-              <Margin bottom="small">
-                <h1 style={{ marginTop: 0 }}>
-                  Make any interface.
-                </h1>
-                <p style={{ marginBottom: 0 }}>
-                  A React UI library that looks like nothing, but can do anything.
-                </p>
-              </Margin>
-            </Cell>
-          </Grid>
-          <MarginGrid size="small">
-            <Button
-              href="/docs/getting-started/what-is-faceless-ui"
-              label="Get started"
-              appearance="primary"
-            />
-            <Button
-              href="/showcase"
-              appearance="text"
-              label="See who's using it."
-            />
-          </MarginGrid>
+              <Grid>
+                <Cell
+                  cols={10}
+                  colsL={12}
+                  colsM={12}
+                >
+                  <Margin bottom="small">
+                    <Heading
+                      element="h2"
+                      as="jumbo"
+                      marginTop={false}
+                    >
+                      Make any interface for any brand.
+                    </Heading>
+                    <Heading
+                      element="h1"
+                      as="h6"
+                      marginBottom={false}
+                    >
+                      An unstyled and accessible React+TypeScript UI library.
+                    </Heading>
+                  </Margin>
+                </Cell>
+              </Grid>
+              <MarginGrid size="small">
+                <Button
+                  href="/docs"
+                  label="Get started"
+                  appearance="primary"
+                  onMouseEnter={() => {
+                    setHighlightCursor(true)
+                  }}
+                  onMouseLeave={() => {
+                    setHighlightCursor(false)
+                  }}
+                />
+              </MarginGrid>
+            </div>
+          </Margin>
         </BlockContainer>
         <BlockContainer>
-          <HorizontalRule />
-        </BlockContainer>
-        <BlockContainer>
-          <Grid>
-            <Cell
-              cols={10}
-              colsM={8}
-            >
-              <Margin bottom="small">
+          <Margin
+            bottom="small"
+          >
+            <Grid>
+              <Cell
+                cols={8}
+                colsL={10}
+                colsM={8}
+              >
                 <h3 style={{ marginTop: 0 }}>
-                  It's easy to learn Faceless UI.
+                  Focus on the aesthetics of your user interface
                 </h3>
                 <p style={{ marginBottom: 0 }}>
-                  Use a few underlying utilities and components and create entires libraries.
+                  Rapidly develop custom user interfaces and experiences. And since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
                 </p>
-              </Margin>
-            </Cell>
-          </Grid>
-          <Grid>
-            <Cell
-              cols={4}
-              colsM={8}
-            >
-              <Card href="/docs/window-info">
-                <VersionNumber
-                  size="small"
-                  name="window-info"
-                />
-                <h3 style={{ margin: 0 }}>
-                  Window Info
-                </h3>
-              </Card>
-            </Cell>
-            <Cell
-              cols={4}
-              colsM={8}
-            >
-              <Card href="/docs/scroll-info">
-                <VersionNumber
-                  size="small"
-                  name="scroll-info"
-                />
-                <h3 style={{ margin: 0 }}>
-                  Scroll Info
-                </h3>
-              </Card>
-            </Cell>
-            <Cell
-              cols={4}
-              colsM={8}
-            >
-              <Card href="/docs/mouse-info" >
-                <VersionNumber
-                  size="small"
-                  name="mouse-info"
-                />
-                <h3 style={{ margin: 0 }}>
-                  Mouse Info
-                </h3>
-              </Card>
-            </Cell>
-            <Cell
-              cols={3}
-              colsM={8}
-            >
-              <Card href="/docs/modal">
-                <VersionNumber
-                  size="small"
-                  name="modal"
-                />
-                <h3 style={{ margin: 0 }}>
-                  Modal
-                </h3>
-              </Card>
-            </Cell>
-            <Cell
-              cols={3}
-              colsM={8}
-            >
-              <Card href="/docs/slider">
-                <VersionNumber
-                  size="small"
-                  name="slider"
-                />
-                <h3 style={{ margin: 0 }}>
-                  Slider
-                </h3>
-              </Card>
-            </Cell>
-            <Cell
-              cols={3}
-              colsM={8}
-            >
-              <Card href="/docs/css-grid" >
-                <VersionNumber
-                  size="small"
-                  name="css-grid"
-                />
-                <h3 style={{ margin: 0 }}>
-                  CSS Grid
-                </h3>
-              </Card>
-            </Cell>
-            <Cell
-              cols={3}
-              colsM={8}
-            >
-              <Card href="/docs/collapsibles">
-                <VersionNumber
-                  size="small"
-                  name="collapsibles"
-                />
-                <h3 style={{ margin: 0 }}>
-                  Collapsibles
-                </h3>
-              </Card>
-            </Cell>
-          </Grid>
+              </Cell>
+            </Grid>
+          </Margin>
         </BlockContainer>
+        <BlockContainer>
+          <Margin bottom="large">
+            <Grid>
+              <Cell
+                cols={6}
+                colsM={8}
+              >
+                <Heading
+                  element="h5"
+                  marginTop={false}
+                >
+                  Who is this for?
+                </Heading>
+                <Heading
+                  marginBottom={false}
+                  element="p"
+                >
+                  Front-end developers who are want to deliver highly-designed interfaces, quickly. If you know React, you know Faceless UI.
+                </Heading>
+              </Cell>
+              <Cell
+                cols={6}
+                colsM={8}
+              >
+                <Heading
+                  element="h5"
+                  marginTop={false}
+                >
+                  Who&apos;s using Faceless UI
+                </Heading>
+                <Heading
+                  marginBottom={false}
+                  element="p"
+                >
+                  {'Check out the ever-growing '}
+                  <Hyperlink
+                    underline
+                    href="/showcase"
+                  >
+                    showcase
+                  </Hyperlink>
+                  {' of Faceless UI deployed in production.'}
+                </Heading>
+              </Cell>
+            </Grid>
+          </Margin>
+        </BlockContainer>
+        <CallToAction />
       </main >
     </Fragment >
   )

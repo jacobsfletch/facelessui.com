@@ -1,4 +1,8 @@
-@use '@scss/common' as *;
+@use "@scss/common" as *;
+
+.top-xs {
+  margin-top: base();
+}
 
 .top-small {
   margin-top: base(2);
@@ -18,8 +22,12 @@
   }
 }
 
+.bottom-xs {
+  margin-bottom: base(0.5);
+}
+
 .bottom-small {
-  margin-bottom: base(2);
+  margin-bottom: base();
 }
 
 .bottom-medium {

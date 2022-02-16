@@ -1,0 +1,84 @@
+@use "@scss/common" as *;
+
+.installationCode {
+  position: relative;
+}
+
+.codeBlockWrapper {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  background-color: $color-darkest-gray;
+  cursor: pointer;
+}
+
+.codeBlock {
+  width: 100%;
+  display: inline-flex;
+  padding: base(0.5) base();
+  padding-right: 0;
+  margin-right: base(2.5);
+  background-color: none;
+  border: 1px solid transparent;
+  overflow: auto;
+  position: relative;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    right: 0;
+    width: base();
+    height: 100%;
+    top: 0;
+    background: linear-gradient(
+      to right,
+      rgba(red($color-darkest-gray), green($color-darkest-gray), blue($color-darkest-gray), 0),
+      rgba(red($color-darkest-gray), green($color-darkest-gray), blue($color-darkest-gray), 1)
+    );
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.pre {
+  margin: 0;
+  margin-right: base();
+}
+
+.code {
+  color: white;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: base();
+  margin-left: base();
+  transform: translate3d(0, -50%, 0);
+  pointer-events: none;
+}
+
+.darkMode {
+  &:local() {
+    .managerButton {
+      color: var(--color-gray);
+    }
+  }
+}
+
+.managerSwitch {
+  flex-shrink: 0;
+}
+
+.managerButton {
+  background-color: transparent;
+  background: none;
+  border: none;
+  color: inherit;
+  color: var(--color-dark-gray);
+  cursor: pointer;
+  text-decoration: underline;
+}

@@ -1,21 +1,27 @@
-export type Item = {
-  type: 'title' | 'link' | 'group'
+export type NavItem = {
+  type: 'title' | 'link' | 'group' | 'overview'
   label: string
-  items?: Item[]
+  items?: NavItem[]
   href?: string
   versionName?: string
 }
 
-export const nav: Item[] = [
+export type DocsNav = NavItem[];
+
+export const nav: DocsNav = [
+  {
+    type: 'title',
+    label: 'Documentation'
+  },
   {
     type: 'group',
     href: "/docs/getting-started",
     label: 'Getting Started',
     items: [
       {
-        type: 'link',
-        href: "/docs/getting-started/what-is-faceless-ui",
-        label: 'What is Faceless UI?'
+        type: 'overview',
+        href: "/docs/getting-started",
+        label: 'Overview',
       },
     ]
   },
@@ -29,15 +35,15 @@ export const nav: Item[] = [
     label: 'Window Info',
     items: [
       {
+        type: 'overview',
+        href: "/docs/window-info",
+        label: 'Overview',
+      },
+      {
         type: 'link',
         href: "/docs/window-info/installation",
         label: 'Installation',
         versionName: 'window-info',
-      },
-      {
-        type: 'link',
-        href: "/docs/window-info/examples",
-        label: 'Examples'
       },
       {
         type: 'link',
@@ -52,15 +58,15 @@ export const nav: Item[] = [
     label: 'Scroll Info',
     items: [
       {
+        type: 'overview',
+        href: "/docs/scroll-info",
+        label: 'Overview',
+      },
+      {
         type: 'link',
         href: "/docs/scroll-info/installation",
         label: 'Installation',
         versionName: 'scroll-info',
-      },
-      {
-        type: 'link',
-        href: "/docs/scroll-info/examples",
-        label: 'Examples'
       },
       {
         type: 'link',
@@ -75,15 +81,15 @@ export const nav: Item[] = [
     label: 'Mouse Info',
     items: [
       {
+        type: 'overview',
+        href: "/docs/mouse-info",
+        label: 'Overview',
+      },
+      {
         type: 'link',
         href: "/docs/mouse-info/installation",
         label: 'Installation',
         versionName: 'mouse-info',
-      },
-      {
-        type: 'link',
-        href: "/docs/mouse-info/examples",
-        label: 'Examples'
       },
       {
         type: 'link',
@@ -101,6 +107,11 @@ export const nav: Item[] = [
     href: "/docs/modal",
     label: 'Modal',
     items: [
+      {
+        type: 'overview',
+        href: "/docs/modal",
+        label: 'Overview',
+      },
       {
         type: 'link',
         href: "/docs/modal/installation",
@@ -125,6 +136,11 @@ export const nav: Item[] = [
     label: 'CSS Grid',
     items: [
       {
+        type: 'overview',
+        href: "/docs/css-grid",
+        label: 'Overview',
+      },
+      {
         type: 'link',
         href: "/docs/css-grid/installation",
         label: 'Installation',
@@ -148,6 +164,11 @@ export const nav: Item[] = [
     label: 'Slider',
     items: [
       {
+        type: 'overview',
+        href: "/docs/slider",
+        label: 'Overview',
+      },
+      {
         type: 'link',
         href: "/docs/slider/installation",
         label: 'Installation',
@@ -170,6 +191,11 @@ export const nav: Item[] = [
     href: "/docs/collapsibles",
     label: 'Collapsibles',
     items: [
+      {
+        type: 'overview',
+        href: "/docs/collapsibles",
+        label: 'Overview',
+      },
       {
         type: 'link',
         href: "/docs/collapsibles/installation",

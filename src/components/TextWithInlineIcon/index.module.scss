@@ -1,0 +1,11 @@
+@use "@scss/common" as *;
+
+.iconWrapper {
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.span {
+  display: inline-block;
+}

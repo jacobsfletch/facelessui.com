@@ -3,7 +3,6 @@
 @use "./queries.scss" as *;
 @use "./vars.scss" as *;
 @use "./type.scss" as *;
-@import "./fonts.scss";
 
 #__next {
   height: 100%;
@@ -12,31 +11,22 @@
 :root {
   --html-font-size: #{$html-font-size};
   --html-line-height: #{$html-line-height};
+  --html-line-height: #{$html-line-height};
 
   --font-family: #{$fontFamily};
 
-  --color-dark-green: #{$color-dark-green};
-  --color-green: #{$color-green};
-  --color-light-green: #{$color-light-green};
-
-  --color-dark-blue: #{$color-dark-blue};
-  --color-blue: #{$color-blue};
-  --color-light-blue: #{$color-light-blue};
-
-  --color-dark-red: #{$color-dark-red};
-  --color-red: #{$color-red};
-  --color-light-red: #{$color-light-red};
-
-  --color-dark-purple: #{$color-dark-purple};
-  --color-purple: #{$color-purple};
-  --color-light-purple: #{$color-light-purple};
-
-  --color-dark-gray: #{$color-dark-gray};
-  --color-gray: #{$color-gray};
-  --color-light-gray: #{$color-light-gray};
-
   --color-white: #{$color-white};
+  --color-lightest-gray: #{$color-lightest-gray};
+  --color-lighter-gray: #{$color-lighter-gray};
+  --color-light-gray: #{$color-light-gray};
+  --color-gray: #{$color-gray};
+  --color-dark-gray: #{$color-dark-gray};
+  --color-darker-gray: #{$color-darker-gray};
+  --color-darkest-gray: #{$color-darkest-gray};
+  --color-almost-black: #{$color-almost-black};
   --color-black: #{$color-black};
+  --color-html: #{$color-almost-black};
+  --color-html-bg: #{$color-white};
 
   --breakpoint-s-width: #{$breakpoint-s-width};
   --breakpoint-m-width: #{$breakpoint-m-width};
@@ -79,7 +69,8 @@ body {
 }
 
 html {
-  color: $color-dark-gray;
+  background-color: var(--color-html-bg);
+  color: var(--color-html);
   font-family: $fontFamily;
   font-size: calc(#{var(--html-font-size)} * 1px);
   line-height: calc(#{var(--html-line-height)} * 1px);
@@ -144,6 +135,11 @@ hr {
 a {
   font-weight: 600;
   text-decoration: underline;
+}
+
+code {
+  font-family: "JetBrains Mono", monospace !important;
+  font-size: 14px !important;
 }
 
 input,

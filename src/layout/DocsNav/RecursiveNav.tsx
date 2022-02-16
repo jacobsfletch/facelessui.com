@@ -1,6 +1,6 @@
 import { Hyperlink } from "@components/Hyperlink";
 import { Collapsible, CollapsibleContent, CollapsibleGroup, CollapsibleToggler } from "@faceless-ui/collapsibles";
-import { Item } from "@root/layout/DocsNav/nav";
+import { NavItem } from "@root/layout/DocsNav/nav";
 import { Chevron } from "@root/icons/Chevron";
 import { Fragment } from "react";
 import classes from './index.module.scss';
@@ -8,7 +8,7 @@ import { useRouter } from "next/dist/client/router";
 import { VersionNumber } from "@components/VersionNumber";
 
 export const RecursiveNav: React.FC<{
-  items?: Item[]
+  items?: NavItem[]
 }> = (props) => {
   const {
     items
@@ -42,29 +42,30 @@ export const RecursiveNav: React.FC<{
               )
             }
 
-            if (type === 'link') {
+            if (type === 'link' || type === 'overview') {
+              const isActiveLink = Boolean(href && asPath === href);
+
               return (
                 <Hyperlink
                   key={index}
                   href={href}
                   className={classes.link}
                 >
-                  <div className={classes.linkBullet} />
                   <div
                     className={[
                       classes.itemLabel,
-                      classes.linkLabel
+                      classes.linkLabel,
+                      isActiveLink && classes.itemIsActive
                     ].filter(Boolean).join(' ')}
                   >
+                    <div className={classes.linkBullet} />
                     {label}
                     {versionName && (
                       <Fragment>
-                        {' - '}
+                        &nbsp;
                         <VersionNumber
                           name={versionName}
                           element="span"
-                          size="small"
-                          color="dark-gray"
                         />
                       </Fragment>
                     )}
@@ -74,28 +75,35 @@ export const RecursiveNav: React.FC<{
             }
 
             if (type === 'group') {
+              const isCurrentSection = href === asPath || groupItems?.some(({ href: itemHref }) => itemHref === asPath)
+
               return (
                 <Collapsible
                   key={index}
-                  openOnInit={href ? asPath.startsWith(href) : undefined}
+                  openOnInit={isCurrentSection}
+                  open={isCurrentSection}
                 >
                   {/* @ts-ignore */}
                   {({ isOpen }) => {
                     return (
                       <div className={classes.group}>
-                        <CollapsibleToggler className={classes.toggler}>
+                        <CollapsibleToggler
+                          className={classes.toggler}
+                          disable={isCurrentSection}
+                        >
                           <Chevron
                             className={classes.chevron}
                             rotation={isOpen ? 0 : 180}
                             size="small"
                           />
                           <Hyperlink
-                            key={index}
                             href={href}
+                            className={[
+                              classes.itemLabel,
+                              isCurrentSection && classes.itemIsActive
+                            ].filter(Boolean).join(' ')}
                           >
-                            <div className={classes.itemLabel}>
-                              {label}
-                            </div>
+                            {label}
                           </Hyperlink>
                         </CollapsibleToggler>
                         <CollapsibleContent>

@@ -11,6 +11,9 @@ const CSSGridAPI = () => {
       <h1>
         CSS Grid API
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }

@@ -27,7 +27,8 @@
       "@root/*": [
         "./src/*"
       ]
-    }
+    },
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",

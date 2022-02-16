@@ -1,20 +1,30 @@
 import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
+import { VersionNumber } from '@components/VersionNumber';
+import { InstallationCode } from '@components/InstallationCode';
 
-const SliderInfoInstallation = () => {
+const SliderInstallation = () => {
   return (
     <Fragment>
       <Meta
-        title="Slider Info installation"
+        title="Slider Installation"
       />
+      <div>
+        {'Slider - '}
+        <VersionNumber
+          name="slider"
+          element="span"
+        />
+      </div>
       <h1>
-        Slider Info Installation
+        Installation
       </h1>
+      <InstallationCode name="slider" />
     </Fragment>
   )
 }
 
-SliderInfoInstallation.Layout = Doc;
+SliderInstallation.Layout = Doc;
 
-export default SliderInfoInstallation;
+export default SliderInstallation;

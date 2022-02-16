@@ -1,0 +1,26 @@
+@use "@scss/common" as *;
+
+.notificationsContainer {
+  position: fixed;
+  bottom: base();
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-almost-black);
+}
+
+.notification {
+  @include small;
+  color: white;
+  padding: base(0.5) base();
+  display: "flex";
+  align-items: "center";
+  border-radius: 2px;
+  box-shadow: var(--shadow-s);
+  &:not(:last-child) {
+    margin-bottom: base(0.5);
+  }
+}

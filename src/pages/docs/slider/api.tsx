@@ -11,6 +11,9 @@ const SliderAPI = () => {
       <h1>
         Slider API
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }

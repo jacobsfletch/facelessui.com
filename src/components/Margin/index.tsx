@@ -2,8 +2,8 @@ import React from 'react';
 import classes from './index.module.scss';
 
 const Margin: React.FC<{
-  top?: 'small' | 'medium' | 'large'
-  bottom?: 'small' | 'medium' | 'large'
+  top?: 'xs' | 'small' | 'medium' | 'large'
+  bottom?: 'xs' | 'small' | 'medium' | 'large'
   style?: React.CSSProperties
   id?: string
 }> = (props) => {

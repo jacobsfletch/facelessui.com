@@ -1,4 +1,21 @@
 .hyperlink {
   color: currentColor;
   text-decoration: none;
+  font-weight: normal;
+}
+
+.underlineOnHover {
+  &:hover {
+    text-decoration: underline;
+    & * {
+      text-decoration: underline;
+    }
+  }
+}
+
+.underline {
+  text-decoration: underline;
+  & * {
+    text-decoration: underline;
+  }
 }

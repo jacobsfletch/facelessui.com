@@ -1,0 +1,11 @@
+@use "@scss/common" as *;
+
+.pre {
+  background: var(--color-black) !important;
+  padding: base(1) !important;
+  margin: 0 !important;
+}
+
+.darkMode {
+  background: var(--color-black) !important;
+}

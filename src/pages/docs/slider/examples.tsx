@@ -11,6 +11,9 @@ const SliderExamples = () => {
       <h1>
         Slider Examples
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }

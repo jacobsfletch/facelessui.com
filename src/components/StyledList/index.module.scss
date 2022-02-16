@@ -1,0 +1,26 @@
+@use "@scss/common" as *;
+
+.list {
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  padding-left: base(0.5);
+}
+
+.item {
+  padding: none;
+  margin-bottom: 0;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    left: base(-0.5);
+    top: 16px;
+    width: 4px;
+    height: 4px;
+    background-color: var(--color-gray);
+  }
+}

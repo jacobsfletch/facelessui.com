@@ -1,0 +1,49 @@
+@use "@scss/common" as *;
+
+.h1 {
+  @include h1;
+}
+
+.h2 {
+  @include h2;
+}
+
+.h3 {
+  @include h3;
+}
+
+.h4 {
+  @include h4;
+}
+
+.h5 {
+  @include h5;
+}
+
+.h6 {
+  @include h6;
+}
+
+.p {
+  @include p;
+}
+
+.small {
+  @include small;
+}
+
+.jumbo {
+  @include jumbo;
+}
+
+.noMargin {
+  margin: 0;
+}
+
+.noMarginTop {
+  margin-top: 0;
+}
+
+.noMarginBottom {
+  margin-bottom: 0;
+}

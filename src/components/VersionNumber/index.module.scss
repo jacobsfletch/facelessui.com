@@ -1,9 +1,39 @@
 @use "@scss/common" as *;
 
-.small {
+.versionNumber {
   @include small;
+  padding: 2px 4px;
+  background-color: var(--color-light-gray);
+}
+
+.lightest-gray {
+  background-color: var(--color-lightest-gray);
+}
+
+.lighter-gray {
+  background-color: var(--color-lighter-gray);
+}
+
+.light-gray {
+  background-color: var(--color-light-gray);
 }
 
 .gray {
-  color: var(--color-gray);
+  background-color: var(--color-gray);
+}
+
+.dark-gray {
+  background-color: var(--color-dark-gray);
+}
+
+.darker-gray {
+  background-color: var(--color-darker-gray);
+}
+
+.darkest-gray {
+  background-color: var(--color-darkest-gray);
+}
+
+.black {
+  background-color: var(--color-black);
 }

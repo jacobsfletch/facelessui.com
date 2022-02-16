@@ -1,11 +1,18 @@
+import { EditOnGitHub } from '@components/EditOnGitHub';
+import Margin from '@components/Margin';
+import { NextInDocs } from '@components/NextInDocs';
 import { Cell, Grid } from '@faceless-ui/css-grid';
 import React from 'react';
 import { BlockContainer } from '../BlockContainer';
 import { DocsNav } from '../DocsNav';
 
 export const Doc: React.FC<{
+  githubUrl?: string
 }> = (props) => {
-  const { children } = props;
+  const {
+    githubUrl,
+    children
+  } = props;
 
   return (
     <BlockContainer>
@@ -21,6 +28,12 @@ export const Doc: React.FC<{
           colsM={8}
         >
           {children}
+          <Margin top="small">
+            <EditOnGitHub href={githubUrl} />
+          </Margin>
+          <Margin top="xs">
+            <NextInDocs />
+          </Margin>
         </Cell>
       </Grid>
     </BlockContainer>

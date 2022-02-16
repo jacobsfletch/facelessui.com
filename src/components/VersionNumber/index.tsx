@@ -1,30 +1,34 @@
-import { useVersions, Versions } from '@root/providers/Versions';
+import { useDarkMode } from '@root/providers/DarkMode';
+import { useVersions } from '@root/providers/Versions';
 import React, { ElementType } from 'react'
 import classes from './index.module.scss';
 
 export const VersionNumber: React.FC<{
   name: string
   element?: ElementType
-  size?: 'small' | string
   color?: string
 }> = (props) => {
   const {
     name,
     element: Element = 'div',
-    size,
-    color
+    color: colorFromProps
   } = props;
 
   const { versions } = useVersions();
   const version = versions?.[name];
+
+  const { isDark } = useDarkMode();
+  let colorToUse = colorFromProps;
+  if (!colorFromProps) {
+    colorToUse = isDark ? 'darker-gray' : 'lighter-gray'
+  }
 
   if (version) {
     return (
       <Element
         className={[
           classes.versionNumber,
-          size && classes[size],
-          color && classes[color]
+          colorToUse && classes[colorToUse]
         ].filter(Boolean).join(' ')}
       >
         {version}

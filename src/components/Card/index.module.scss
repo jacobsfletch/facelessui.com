@@ -4,15 +4,28 @@
   display: flex;
   flex-direction: column;
   padding: base();
-  background-color: var(--color-light-gray);
+  background-color: var(--color-lightest-gray);
   height: 100%;
   justify-content: flex-end;
 
+  & > *:not(:last-child) {
+    margin-bottom: base(0.5);
+  }
+
   &:hover {
-    background-color: var(--color-gray);
+    background-color: var(--color-light-gray);
   }
 }
 
 .title {
+  margin: 0;
+}
+
+.leader {
+  margin-bottom: base(0.5);
+}
+
+.description {
+  @include small;
   margin: 0;
 }

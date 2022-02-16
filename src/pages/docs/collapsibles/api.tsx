@@ -11,6 +11,9 @@ const CollapsiblesAPI = () => {
       <h1>
         Collapsibles API
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }

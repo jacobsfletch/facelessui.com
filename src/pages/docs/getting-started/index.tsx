@@ -1,22 +1,22 @@
 import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
-
-const GettingStarted = () => {
+const GettingStartedDoc = () => {
   return (
     <Fragment>
-      <Meta>
-        <title>
-          Getting Started
-        </title>
-      </Meta>
+      <Meta
+        title="Getting Started"
+      />
       <h1>
         Getting Started
       </h1>
+      <p>
+        This page has no content.
+      </p>
     </Fragment>
   )
 }
 
-GettingStarted.Layout = Doc;
+GettingStartedDoc.Layout = Doc;
 
-export default GettingStarted;
+export default GettingStartedDoc;

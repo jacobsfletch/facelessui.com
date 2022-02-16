@@ -1,0 +1,37 @@
+@use "@scss/common" as *;
+
+.top-small {
+  padding-top: base(2);
+}
+
+.top-medium {
+  padding-top: base(3);
+  @include mid-break {
+    padding-top: base(2);
+  }
+}
+
+.top-large {
+  padding-top: base(4);
+  @include mid-break {
+    padding-top: base(2);
+  }
+}
+
+.bottom-small {
+  padding-bottom: base(2);
+}
+
+.bottom-medium {
+  padding-bottom: base(3);
+  @include mid-break {
+    padding-bottom: base(2);
+  }
+}
+
+.bottom-large {
+  padding-bottom: base(4);
+  @include mid-break {
+    padding-bottom: base(2);
+  }
+}

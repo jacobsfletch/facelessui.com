@@ -9,18 +9,31 @@ export const BlockContainer: React.FC<{
   className?: string
   cellClassName?: string
   style?: React.CSSProperties
+  onMouseEnter?: () => void
+  onMouseLeave?: () => void
 }> = (props) => {
   const {
     id,
     children,
     className,
     cellClassName,
-    style
+    style,
+    onMouseEnter,
+    onMouseLeave
   } = props;
 
   return (
     <Grid
-      className={classes.blockContainer}
+      id={id}
+      className={[
+        classes.blockContainer,
+        className
+      ].filter(Boolean).join(' ')}
+      style={style}
+      htmlAttributes={{
+        onMouseEnter,
+        onMouseLeave
+      }}
     >
       <Cell
         className={cellClassName}

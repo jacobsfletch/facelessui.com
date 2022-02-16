@@ -1,4 +1,4 @@
-$html-font-size: 16;
+$html-font-size: 18;
 $html-line-height: 34;
 $html-font-size-mobile: 16;
 $html-line-height-mobile: 24;
@@ -7,28 +7,16 @@ $fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue
 
 $blockContainerWidth: 1400px;
 
-$color-dark-green: #18666a;
-$color-green: #0d8a92;
-$color-light-green: #ccfff3;
-
-$color-dark-blue: #1f556b;
-$color-blue: #49869a;
-$color-light-blue: #d1fdfe;
-
-$color-dark-red: #a42d30;
-$color-red: #df4c4c;
-$color-light-red: #ffe5e7;
-
-$color-dark-purple: #67324b;
-$color-purple: #af7591;
-$color-light-purple: #f7e7ff;
-
-$color-dark-gray: #4f5152;
-$color-gray: #d4d4d4;
-$color-light-gray: #f4f4f4;
-
 $color-white: #ffffff;
-$color-black: #333434;
+$color-lightest-gray: #f7fafc;
+$color-lighter-gray: #ebf0f5;
+$color-light-gray: #b4bfcc;
+$color-gray: #8b949e;
+$color-dark-gray: #282f38;
+$color-darker-gray: #1d2227;
+$color-darkest-gray: #1c2027;
+$color-almost-black: #060606;
+$color-black: #000000;
 
 $breakpoint-s-width: 768px;
 $breakpoint-m-width: 1024px;

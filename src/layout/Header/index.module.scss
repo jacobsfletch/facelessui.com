@@ -3,7 +3,7 @@
 .header {
   width: 100%;
   margin-top: base(2);
-  margin-bottom: base();
+  margin-bottom: base(2);
 }
 
 .wrapper {
@@ -25,6 +25,11 @@
   }
 }
 
+.logoWrapper {
+  display: flex;
+}
+
 .logo {
   margin-right: base();
+  // margin-left: base(0.5);
 }

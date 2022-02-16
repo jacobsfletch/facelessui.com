@@ -11,6 +11,9 @@ const ModalExamples = () => {
       <h1>
         Modal Examples
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }

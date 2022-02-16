@@ -1,3 +1,4 @@
+import { DarkModeToggler } from '@components/DarkModeToggler';
 import { Hyperlink } from '@components/Hyperlink';
 import React from 'react';
 import { BlockContainer } from '../BlockContainer';
@@ -8,7 +9,7 @@ export const Footer: React.FC = () => {
     <div className={classes.footer}>
       <BlockContainer>
         <div className={classes.content}>
-          <div>
+          <div className={classes.copyright}>
             Copyright
             &nbsp;&copy;&nbsp;
             {`${new Date().getFullYear()}`}
@@ -19,7 +20,11 @@ export const Footer: React.FC = () => {
           </div>
           <menu className={classes.menu}>
             <div>
+              <DarkModeToggler />
+            </div>
+            <div>
               <Hyperlink
+                newTab
                 href="https://www.npmjs.com/org/faceless-ui"
               >
                 NPM
@@ -27,7 +32,8 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <Hyperlink
-                href="https://github.com/faceless-ui/website/docs"
+                newTab
+                href="https://github.com/faceless-ui"
               >
                 GitHub
               </Hyperlink>

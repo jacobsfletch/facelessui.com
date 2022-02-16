@@ -1,0 +1,51 @@
+@use "@scss/common" as *;
+
+.customCursor {
+  position: fixed;
+  border-radius: 100%;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.line {
+  position: absolute;
+  will-change: background-color;
+  background-color: var(--color-cursor);
+  transition: background-color var(--default-trans-time) linear;
+
+  &.isHighlighted {
+    background-color: var(--color-cursor-highlight);
+  }
+
+  &:nth-child(1) {
+    width: 1px;
+    height: 200vh;
+    bottom: base(0.25);
+    left: 0;
+  }
+
+  &:nth-child(2) {
+    width: 200vh;
+    height: 1px;
+    left: base(0.25);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:nth-child(3) {
+    width: 1px;
+    height: 200vh;
+    top: base(0.25);
+    left: 0;
+  }
+
+  &:nth-child(4) {
+    width: 200vh;
+    height: 1px;
+    right: base(0.25);
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}

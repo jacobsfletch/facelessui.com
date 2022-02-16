@@ -5,8 +5,6 @@
   top: base(2);
   display: flex;
   flex-direction: column;
-  background-color: var(--color-light-gray);
-  padding: base();
 }
 
 .title {
@@ -14,7 +12,20 @@
 }
 
 .itemLabel {
+  position: relative;
   font-weight: normal;
+  color: var(--color-gray);
+
+  &:hover {
+    color: var(--color-dark-gray);
+  }
+}
+
+.itemIsActive {
+  color: var(--color-darker-gray);
+  &:hover {
+    color: var(--color-darker-gray);
+  }
 }
 
 .nav {
@@ -24,7 +35,7 @@
 
 .groupItems {
   padding-left: base(0.5);
-  border-left: var(--color-gray) solid var(--stroke-width);
+  border-left: var(--color-light-gray) solid var(--stroke-width);
 }
 
 .toggler {
@@ -47,10 +58,31 @@
 .linkBullet {
   width: 3px;
   height: 3px;
-  background-color: var(--color-gray);
+  background-color: currentColor;
   border-radius: 100%;
+  position: absolute;
+  left: base(-0.5);
+  top: base(0.5);
 }
 
 .linkLabel {
   margin-left: base(0.5);
+}
+
+.darkMode {
+  &:local() {
+    .itemLabel {
+      color: var(--color-gray);
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+
+    .itemIsActive {
+      color: var(--color-white);
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+  }
 }

@@ -12,6 +12,8 @@ export const Hyperlink: React.FC<{
   onMouseLeave?: () => void
   onClick?: () => void
   newTab?: boolean
+  underline?: boolean
+  underlineOnHover?: boolean
 }> = (props) => {
   const {
     className,
@@ -20,7 +22,9 @@ export const Hyperlink: React.FC<{
     onMouseEnter,
     onMouseLeave,
     onClick,
-    newTab
+    newTab,
+    underline,
+    underlineOnHover
   } = props;
 
   let href = hrefFromProps;
@@ -32,6 +36,8 @@ export const Hyperlink: React.FC<{
     className: [
       className,
       classes.hyperlink,
+      underline && classes.underline,
+      (underline !== true && underlineOnHover) && classes.underlineOnHover,
     ].filter(Boolean).join(' '),
     onMouseEnter,
     onMouseLeave,

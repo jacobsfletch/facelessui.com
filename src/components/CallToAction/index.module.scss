@@ -1,0 +1,51 @@
+@use "@scss/common" as *;
+
+.callToAction {
+  position: relative;
+}
+
+.link {
+  position: relative;
+  display: block;
+  padding: base(6) 0;
+  position: relative;
+
+  @include mid-break {
+    padding: base(4) 0;
+  }
+}
+
+.background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundGrid {
+  height: 100%;
+}
+
+.backgroundColor {
+  height: 100%;
+  border: 1px solid var(--color-cursor-highlight);
+  background-color: var(--color-lightest-gray);
+}
+
+.content {
+  position: relative;
+}
+
+.title {
+  @include h1;
+  text-align: center;
+}
+
+.isDark {
+  :local {
+    .backgroundColor {
+      background-color: var(--color-black);
+    }
+  }
+}

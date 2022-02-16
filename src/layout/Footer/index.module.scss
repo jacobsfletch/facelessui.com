@@ -11,6 +11,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @include mid-break {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+.copyright {
+  @include mid-break {
+    margin-bottom: base(0.25);
+  }
 }
 
 .menu {
@@ -23,5 +35,15 @@
 
   & > *:not(:last-child) {
     margin-right: base();
+  }
+
+  @include mid-break {
+    flex-direction: column;
+    align-items: flex-start;
+
+    & > *:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: base(0.25);
+    }
   }
 }

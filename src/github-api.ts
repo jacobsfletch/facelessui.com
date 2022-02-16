@@ -80,5 +80,5 @@ export const getGitHubVersionNumber = async (repo: string): Promise<string> => {
   }
 
   console.warn(message);
-  return 'Unreleased';
+  return '';
 }

@@ -1,0 +1,30 @@
+@use "@scss/common" as *;
+
+.eye {
+  width: base();
+  height: base();
+  border: 1px solid var(--color-almost-black);
+  border-radius: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.retina {
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  width: base(0.75);
+  height: base(0.75);
+  border: 1px solid var(--color-almost-black);
+  border-radius: 100%;
+}
+
+.pupil {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  width: 4px;
+  height: 4px;
+  background-color: var(--color-almost-black);
+  border-radius: 100%;
+}

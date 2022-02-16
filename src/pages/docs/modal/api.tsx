@@ -11,6 +11,9 @@ const ModalAPI = () => {
       <h1>
         Modal API
       </h1>
+      <div>
+        This page has no content.
+      </div>
     </Fragment>
   )
 }
