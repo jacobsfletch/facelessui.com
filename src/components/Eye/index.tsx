@@ -1,5 +1,4 @@
 import { useMouseInfo } from '@faceless-ui/mouse-info'
-import { Fragment, useEffect, useState } from 'react';
 import classes from './index.module.scss';
 
 export const Eye: React.FC = () => {

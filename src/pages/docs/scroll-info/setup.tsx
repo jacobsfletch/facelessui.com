@@ -1,8 +1,6 @@
 import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
-import { VersionNumber } from '@components/VersionNumber';
-import { InstallationCode } from '@components/InstallationCode';
 import { Hyperlink } from '@components/Hyperlink';
 import { CodeBlock } from '@components/CodeBlock';
 import { InlineCode } from '@components/InlineCode';
@@ -12,21 +10,8 @@ const ScrollInfoInstallation = () => {
   return (
     <Fragment>
       <Meta
-        title="Scroll Info installation"
+        title="Scroll Info Basic Setup"
       />
-      <div>
-        {'Scroll Info '}
-        <VersionNumber
-          name="scroll-info"
-          element="span"
-        />
-      </div>
-      <h1>
-        Installation
-      </h1>
-      <Margin bottom="xs">
-        <InstallationCode name="scroll-info" />
-      </Margin>
       <h4>
         Basic Setup
       </h4>

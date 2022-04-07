@@ -1,5 +1,5 @@
 export type NavItem = {
-  type: 'title' | 'link' | 'group' | 'overview'
+  type: 'title' | 'link' | 'group' | 'overview' | 'jumplist'
   label: string
   items?: NavItem[]
   href?: string
@@ -33,6 +33,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/window-info",
     label: 'Window Info',
+    versionName: 'window-info',
     items: [
       {
         type: 'overview',
@@ -41,9 +42,8 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/window-info/installation",
-        label: 'Installation',
-        versionName: 'window-info',
+        href: "/docs/window-info/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
@@ -56,6 +56,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/scroll-info",
     label: 'Scroll Info',
+    versionName: 'scroll-info',
     items: [
       {
         type: 'overview',
@@ -64,9 +65,8 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/scroll-info/installation",
-        label: 'Installation',
-        versionName: 'scroll-info',
+        href: "/docs/scroll-info/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
@@ -79,6 +79,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/mouse-info",
     label: 'Mouse Info',
+    versionName: 'mouse-info',
     items: [
       {
         type: 'overview',
@@ -87,9 +88,8 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/mouse-info/installation",
-        label: 'Installation',
-        versionName: 'mouse-info',
+        href: "/docs/mouse-info/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
@@ -106,6 +106,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/modal",
     label: 'Modal',
+    versionName: 'modal',
     items: [
       {
         type: 'overview',
@@ -114,19 +115,35 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/modal/installation",
-        label: 'Installation',
-        versionName: 'modal',
+        href: "/docs/modal/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
-        href: "/docs/modal/examples",
-        label: 'Examples'
+        href: "/docs/modal/routing",
+        label: 'Routing'
       },
       {
-        type: 'link',
+        type: 'jumplist',
         href: "/docs/modal/api",
-        label: 'API Reference'
+        label: 'API Reference',
+        items: [
+          {
+            type: 'link',
+            href: "/docs/modal/api#provider",
+            label: 'ModalProvider'
+          },
+          {
+            type: 'link',
+            href: "/docs/modal/api#container",
+            label: 'ModalContainer'
+          },
+          {
+            type: 'link',
+            href: "/docs/modal/api#modal",
+            label: 'Modal'
+          },
+        ]
       },
     ]
   },
@@ -134,6 +151,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/css-grid",
     label: 'CSS Grid',
+    versionName: 'css-grid',
     items: [
       {
         type: 'overview',
@@ -142,9 +160,8 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/css-grid/installation",
-        label: 'Installation',
-        versionName: 'css-grid',
+        href: "/docs/css-grid/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
@@ -152,9 +169,26 @@ export const nav: DocsNav = [
         label: 'Examples'
       },
       {
-        type: 'link',
+        type: 'jumplist',
         href: "/docs/css-grid/api",
-        label: 'API Reference'
+        label: 'API Reference',
+        items: [
+          {
+            type: 'link',
+            href: "/docs/css-grid/api#provider",
+            label: 'GridProvider'
+          },
+          {
+            type: 'link',
+            href: "/docs/css-grid/api#grid",
+            label: 'Grid'
+          },
+          {
+            type: 'link',
+            href: "/docs/css-grid/api#cell",
+            label: 'Cell'
+          },
+        ]
       },
     ]
   },
@@ -162,6 +196,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/slider",
     label: 'Slider',
+    versionName: 'slider',
     items: [
       {
         type: 'overview',
@@ -170,9 +205,8 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/slider/installation",
-        label: 'Installation',
-        versionName: 'slider',
+        href: "/docs/slider/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
@@ -180,9 +214,26 @@ export const nav: DocsNav = [
         label: 'Examples'
       },
       {
-        type: 'link',
+        type: 'jumplist',
         href: "/docs/slider/api",
-        label: 'API Reference'
+        label: 'API Reference',
+        items: [
+          {
+            type: 'link',
+            href: "/docs/slider/api#provider",
+            label: 'SliderProvider'
+          },
+          {
+            type: 'link',
+            href: "/docs/slider/api#track",
+            label: 'SliderTrack'
+          },
+          {
+            type: 'link',
+            href: "/docs/slider/api#slide",
+            label: 'Slide'
+          },
+        ]
       },
     ]
   },
@@ -190,6 +241,7 @@ export const nav: DocsNav = [
     type: 'group',
     href: "/docs/collapsibles",
     label: 'Collapsibles',
+    versionName: 'collapsibles',
     items: [
       {
         type: 'overview',
@@ -198,19 +250,41 @@ export const nav: DocsNav = [
       },
       {
         type: 'link',
-        href: "/docs/collapsibles/installation",
-        label: 'Installation',
-        versionName: 'collapsibles',
+        href: "/docs/collapsibles/setup",
+        label: 'Basic Setup',
       },
       {
         type: 'link',
         href: "/docs/collapsibles/examples",
         label: 'Examples'
       },
+
       {
-        type: 'link',
+        type: 'jumplist',
         href: "/docs/collapsibles/api",
-        label: 'API Reference'
+        label: 'API Reference',
+        items: [
+          {
+            type: 'link',
+            href: "/docs/collapsibles/api#collapsible",
+            label: 'Collapsible'
+          },
+          {
+            type: 'link',
+            href: "/docs/collapsibles/api#content",
+            label: 'CollapsibleContent'
+          },
+          {
+            type: 'link',
+            href: "/docs/collapsibles/api#toggler",
+            label: 'CollapsibleToggler'
+          },
+          {
+            type: 'link',
+            href: "/docs/collapsibles/api#group",
+            label: 'CollapsibleGroup'
+          },
+        ]
       },
     ]
   },

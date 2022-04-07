@@ -5,6 +5,7 @@ import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { Hyperlink } from '@components/Hyperlink';
 import { InlineCode } from '@components/InlineCode';
+import { InstallationCode } from '@components/InstallationCode';
 
 const ScrollInfoAPI = () => {
   return (
@@ -15,6 +16,12 @@ const ScrollInfoAPI = () => {
       <h1>
         Scroll Info API
       </h1>
+      <p>
+        Installation
+      </p>
+      <Margin bottom="xs">
+        <InstallationCode name="scroll-info" />
+      </Margin>
       <h4>
         Provider
       </h4>
@@ -71,7 +78,7 @@ export const MyApp = () = (
         Last number of pixels scrolled along the y-axis
       </p>
       <InlineCode>
-        xPercentag
+        xPercentage
       </InlineCode>
       <p>
         Percentage scrolled along the x-axis

@@ -2,22 +2,19 @@ import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 
-const ModalExamples = () => {
+const CSSGridInstallation = () => {
   return (
     <Fragment>
       <Meta
-        title="Modal examples"
+        title="CSS Grid Basic Setup"
       />
       <h1>
-        Modal Examples
+        Basic Setup
       </h1>
-      <div>
-        This page has no content.
-      </div>
     </Fragment>
   )
 }
 
-ModalExamples.Layout = Doc;
+CSSGridInstallation.Layout = Doc;
 
-export default ModalExamples;
+export default CSSGridInstallation;

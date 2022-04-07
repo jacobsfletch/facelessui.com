@@ -11,7 +11,7 @@ export const RecursiveNav: React.FC<{
   items?: NavItem[]
 }> = (props) => {
   const {
-    items
+    items,
   } = props;
 
   const { asPath } = useRouter();
@@ -55,27 +55,18 @@ export const RecursiveNav: React.FC<{
                     className={[
                       classes.itemLabel,
                       classes.linkLabel,
-                      isActiveLink && classes.itemIsActive
+                      isActiveLink && classes.itemIsActive,
                     ].filter(Boolean).join(' ')}
                   >
                     <div className={classes.linkBullet} />
                     {label}
-                    {versionName && (
-                      <Fragment>
-                        &nbsp;
-                        <VersionNumber
-                          name={versionName}
-                          element="span"
-                        />
-                      </Fragment>
-                    )}
                   </div>
                 </Hyperlink>
               )
             }
 
             if (type === 'group') {
-              const isCurrentSection = href === asPath || groupItems?.some(({ href: itemHref }) => itemHref === asPath)
+              const isCurrentSection = asPath.startsWith(href || '');
 
               return (
                 <Collapsible
@@ -93,7 +84,7 @@ export const RecursiveNav: React.FC<{
                         >
                           <Chevron
                             className={classes.chevron}
-                            rotation={isOpen ? 0 : 180}
+                            rotation={isOpen ? 180 : 90}
                             size="small"
                           />
                           <Hyperlink
@@ -104,6 +95,15 @@ export const RecursiveNav: React.FC<{
                             ].filter(Boolean).join(' ')}
                           >
                             {label}
+                            {isOpen && versionName && (
+                              <Fragment>
+                                &nbsp;
+                                <VersionNumber
+                                  name={versionName}
+                                  element="span"
+                                />
+                              </Fragment>
+                            )}
                           </Hyperlink>
                         </CollapsibleToggler>
                         <CollapsibleContent>
@@ -117,8 +117,91 @@ export const RecursiveNav: React.FC<{
                 </Collapsible>
               )
             }
-          })
-          }
+
+            if (type === 'jumplist') {
+              const isCurrentSection = asPath.startsWith(href || '');
+
+              return (
+                <Collapsible
+                  key={index}
+                  openOnInit={isCurrentSection}
+                  open={isCurrentSection}
+                >
+                  {/* @ts-ignore */}
+                  {({ isOpen }) => {
+                    return (
+                      <div className={classes.jumplist}>
+                        <CollapsibleToggler
+                          className={classes.toggler}
+                          disable={isCurrentSection}
+                        >
+                          <Hyperlink
+                            href={href}
+                            className={[
+                              classes.itemLabel,
+                              isCurrentSection && classes.itemIsActive
+                            ].filter(Boolean).join(' ')}
+                          >
+                            <Chevron
+                              className={classes.chevron}
+                              rotation={isOpen ? 0 : 180}
+                              size="small"
+                            />
+                            {label}
+                            {isOpen && versionName && (
+                              <Fragment>
+                                &nbsp;
+                                <VersionNumber
+                                  name={versionName}
+                                  element="span"
+                                />
+                              </Fragment>
+                            )}
+                          </Hyperlink>
+                        </CollapsibleToggler>
+                        <CollapsibleContent>
+                          <div className={classes.jumplistContent}>
+                            {groupItems?.map((item, jumplistItemIndex) => {
+                              const {
+                                type,
+                                label: jumplistItemLabel,
+                                href: itemHref
+                              } = item;
+
+                              if (type === 'link') {
+                                const isActiveLink = Boolean(itemHref && asPath === itemHref);
+
+                                return (
+                                  <Hyperlink
+                                    key={`${index}-${jumplistItemIndex}`}
+                                    href={itemHref}
+                                    className={classes.jumplistLink}
+                                  >
+                                    <div
+                                      className={[
+                                        classes.jumplistLinkLabel,
+                                        isActiveLink && classes.itemIsActive,
+                                      ].filter(Boolean).join(' ')}
+                                    >
+                                      <div className={classes.jumplistBullet} />
+                                      <small>
+                                        {jumplistItemLabel}
+                                      </small>
+                                    </div>
+                                  </Hyperlink>
+                                )
+                              }
+                              return null
+                            })}
+                          </div>
+                        </CollapsibleContent>
+                      </div>
+                    )
+                  }}
+                </Collapsible>
+              )
+            }
+          })}
         </nav>
       </CollapsibleGroup>
     )

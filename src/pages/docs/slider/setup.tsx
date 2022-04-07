@@ -2,29 +2,27 @@ import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { VersionNumber } from '@components/VersionNumber';
-import { InstallationCode } from '@components/InstallationCode';
 
-const CSSGridInstallation = () => {
+const SliderInstallation = () => {
   return (
     <Fragment>
       <Meta
-        title="CSS Grid Installation"
+        title="Slider Basic Setup"
       />
       <div>
-        {'CSS Grid '}
+        {'Slider - '}
         <VersionNumber
-          name="modal"
+          name="slider"
           element="span"
         />
       </div>
       <h1>
-        Installation
+        Basic Setup
       </h1>
-      <InstallationCode name="css-grid" />
     </Fragment>
   )
 }
 
-CSSGridInstallation.Layout = Doc;
+SliderInstallation.Layout = Doc;
 
-export default CSSGridInstallation;
+export default SliderInstallation;

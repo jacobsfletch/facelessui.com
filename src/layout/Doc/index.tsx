@@ -29,10 +29,10 @@ export const Doc: React.FC<{
         >
           {children}
           <Margin top="small">
-            <EditOnGitHub href={githubUrl} />
-          </Margin>
-          <Margin top="xs">
             <NextInDocs />
+          </Margin>
+          <Margin top="small">
+            <EditOnGitHub href={githubUrl} />
           </Margin>
         </Cell>
       </Grid>

@@ -55,14 +55,37 @@
   align-items: center;
 }
 
+.jumplist {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: base(0.125);
+}
+
+.jumplistContent {
+  padding-left: base(0.5);
+}
+
+.jumplistLinkLabel {
+  position: relative;
+  line-height: 1.5;
+}
+
 .linkBullet {
   width: 3px;
   height: 3px;
   background-color: currentColor;
-  border-radius: 100%;
   position: absolute;
   left: base(-0.5);
   top: base(0.5);
+}
+
+.jumplistBullet {
+  width: 4px;
+  height: 1px;
+  background-color: currentColor;
+  position: absolute;
+  left: base(-0.5);
+  top: 15px;
 }
 
 .linkLabel {

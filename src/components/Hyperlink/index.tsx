@@ -14,6 +14,7 @@ export const Hyperlink: React.FC<{
   newTab?: boolean
   underline?: boolean
   underlineOnHover?: boolean
+  colored?: boolean
 }> = (props) => {
   const {
     className,
@@ -24,7 +25,8 @@ export const Hyperlink: React.FC<{
     onClick,
     newTab,
     underline,
-    underlineOnHover
+    underlineOnHover,
+    colored
   } = props;
 
   let href = hrefFromProps;
@@ -38,6 +40,7 @@ export const Hyperlink: React.FC<{
       classes.hyperlink,
       underline && classes.underline,
       (underline !== true && underlineOnHover) && classes.underlineOnHover,
+      colored && classes.colored
     ].filter(Boolean).join(' '),
     onMouseEnter,
     onMouseLeave,

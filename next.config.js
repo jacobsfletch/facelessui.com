@@ -21,4 +21,11 @@ module.exports = {
     return configCopy;
   },
   extensions: ['.js', '.jsx', '.ts', '.tsx'],
+  redirects: async () => ([
+    {
+      source: '/docs',
+      destination: '/docs/getting-started',
+      permanent: false
+    }
+  ])
 }

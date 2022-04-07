@@ -7,6 +7,7 @@ import { useScrollInfo } from '@faceless-ui/scroll-info';
 import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
+import { InstallationCode } from '@components/InstallationCode';
 
 const ScrollInfoDoc = () => {
   const scrollInfo = useScrollInfo();
@@ -19,6 +20,12 @@ const ScrollInfoDoc = () => {
       <h1>
         Scroll Info
       </h1>
+      <p>
+        Installation
+      </p>
+      <Margin bottom="xs">
+        <InstallationCode name="scroll-info" />
+      </Margin>
       <p>
         This component:
       </p>

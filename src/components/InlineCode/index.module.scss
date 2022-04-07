@@ -2,10 +2,11 @@
 
 .code {
   background-color: var(--color-lighter-gray);
-  padding: 4px;
+  padding: 4px 8px;
   border-radius: 2px;
-  font-size: smaller;
+  font-size: 14px;
   letter-spacing: 0.5px;
+  font-family: "JetBrains Mono", monospace;
 }
 
 .darkMode {

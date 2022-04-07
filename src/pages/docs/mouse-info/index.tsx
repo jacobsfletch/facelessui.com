@@ -7,6 +7,7 @@ import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import { useMouseInfo } from '@faceless-ui/mouse-info';
 import Margin from '@components/Margin';
+import { InstallationCode } from '@components/InstallationCode';
 
 const MouseInfoDoc = () => {
   const mouseInfo = useMouseInfo();
@@ -19,6 +20,12 @@ const MouseInfoDoc = () => {
       <h1>
         Mouse Info
       </h1>
+      <p>
+        Installation
+      </p>
+      <Margin bottom="xs">
+        <InstallationCode name="mouse-info" />
+      </Margin>
       <p>
         This component:
       </p>

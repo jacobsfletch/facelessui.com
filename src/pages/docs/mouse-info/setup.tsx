@@ -1,32 +1,17 @@
 import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
-import { VersionNumber } from '@components/VersionNumber';
-import { InstallationCode } from '@components/InstallationCode';
 import { CodeBlock } from '@components/CodeBlock';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 
-const WindowInfoInstallation = () => {
+const MouseInfoInstallation = () => {
   return (
     <Fragment>
       <Meta
-        title="Window Info installation"
+        title="Mouse Info Basic Setup"
       />
-      <div>
-        {'Window Info '}
-        <VersionNumber
-          name="window-info"
-          element="span"
-        />
-      </div>
-      <h1>
-        Installation
-      </h1>
-      <Margin bottom="xs">
-        <InstallationCode name="window-info" />
-      </Margin>
       <h4>
         Basic Setup
       </h4>
@@ -35,20 +20,13 @@ const WindowInfoInstallation = () => {
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { WindowInfoProvider } from \'@faceless-ui/window-info\';
+          {`import { MouseInfoProvider } from \'@faceless-ui/mouse-info\';
 
 export const App = () => {
   return (
-    <WindowInfoProvider
-      breakpoints={{
-        s: '(max-width: 768px)',
-        m: '(max-width: 1024px)',
-        l: '(max-width: 1680px)',
-        xl: '(max-width: 1920px)',
-      }}
-    >
+    <MouseInfoProvider>
       ...
-    </WindowInfoProvider>
+    </MouseInfoProvider>
   )
 }`}
         </CodeBlock>
@@ -56,19 +34,19 @@ export const App = () => {
       <p>
         {'Then, consume the context however you need. The '}
         <InlineCode>
-          useWindowInfo
+          useMouseInfo
         </InlineCode>
         {' hook is the most common use case:'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { useWindowInfo } from \'@faceless-ui/window-info\';
+          {`import { useMouseInfo } from \'@faceless-ui/mouse-info\';
 
 export const MyComponent = (props) => {
-    const windowInfo = useWindowInfo();
-    return (
-      ...
-    );
+  const mouseInfo = useMouseInfo();
+  return (
+    ...
+  )
 }`}
         </CodeBlock>
       </Margin>
@@ -76,7 +54,7 @@ export const MyComponent = (props) => {
         {'For more advanced setups, see the full '}
         <Hyperlink
           underline
-          href="/docs/window-info/api"
+          href="/docs/mouse-info/api"
         >
           API reference
         </Hyperlink>
@@ -95,6 +73,6 @@ const DocLayout = (props: any) => {
   )
 };
 
-WindowInfoInstallation.Layout = DocLayout;
+MouseInfoInstallation.Layout = DocLayout;
 
-export default WindowInfoInstallation;
+export default MouseInfoInstallation;

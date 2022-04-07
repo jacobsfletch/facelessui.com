@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
           </div>
           <menu className={classes.menu}>
             <div>
-              <Hyperlink href="/docs">
+              <Hyperlink href="/docs/getting-started">
                 Docs
               </Hyperlink>
             </div>

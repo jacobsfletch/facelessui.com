@@ -2,7 +2,7 @@ import { useDarkMode } from '@root/providers/DarkMode';
 import React from 'react';
 import classes from './index.module.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 export const CodeBlock: React.FC = (props) => {
   const { children } = props;
@@ -11,7 +11,7 @@ export const CodeBlock: React.FC = (props) => {
   return (
     <SyntaxHighlighter
       language="javascript"
-      style={vscDarkPlus}
+      style={isDark ? vscDarkPlus : vs}
       className={[
         classes.pre,
         isDark && classes.darkMode

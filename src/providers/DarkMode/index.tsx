@@ -32,7 +32,7 @@ const DarkModeProvider: React.FC<{
     const root = document.documentElement;
     if (isDark) {
       localStorage.setItem('isDark', 'true');
-      root.style.setProperty('--color-html', 'var(--color-white)');
+      root.style.setProperty('--color-html', 'var(--color-cream)');
       root.style.setProperty('--color-html-bg', 'var(--color-almost-black)');
       root.style.setProperty('--color-cursor', 'var(--color-darker-gray)');
       root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');

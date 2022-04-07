@@ -7,7 +7,6 @@ import { Cell, Grid } from '@faceless-ui/css-grid';
 import { MarginGrid } from '@components/MarginGrid';
 import Margin from '@components/Margin';
 import { Heading } from '@components/Heading';
-import { Hyperlink } from '@components/Hyperlink';
 import { CallToAction } from '@components/CallToAction';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 
@@ -71,7 +70,7 @@ const Home: NextPage = () => {
               </Grid>
               <MarginGrid size="small">
                 <Button
-                  href="/docs"
+                  href="/docs/getting-started"
                   label="Get started"
                   appearance="primary"
                   onMouseEnter={() => {
@@ -87,7 +86,7 @@ const Home: NextPage = () => {
         </BlockContainer>
         <BlockContainer>
           <Margin
-            bottom="small"
+            bottom="large"
           >
             <Grid>
               <Cell
@@ -99,55 +98,8 @@ const Home: NextPage = () => {
                   Focus on the aesthetics of your user interface
                 </h3>
                 <p style={{ marginBottom: 0 }}>
-                  Rapidly develop custom user interfaces and experiences. And since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
+                  If you know React, you know Faceless UI. And since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
                 </p>
-              </Cell>
-            </Grid>
-          </Margin>
-        </BlockContainer>
-        <BlockContainer>
-          <Margin bottom="large">
-            <Grid>
-              <Cell
-                cols={6}
-                colsM={8}
-              >
-                <Heading
-                  element="h5"
-                  marginTop={false}
-                >
-                  Who is this for?
-                </Heading>
-                <Heading
-                  marginBottom={false}
-                  element="p"
-                >
-                  Front-end developers who are want to deliver highly-designed interfaces, quickly. If you know React, you know Faceless UI.
-                </Heading>
-              </Cell>
-              <Cell
-                cols={6}
-                colsM={8}
-              >
-                <Heading
-                  element="h5"
-                  marginTop={false}
-                >
-                  Who&apos;s using Faceless UI
-                </Heading>
-                <Heading
-                  marginBottom={false}
-                  element="p"
-                >
-                  {'Check out the ever-growing '}
-                  <Hyperlink
-                    underline
-                    href="/showcase"
-                  >
-                    showcase
-                  </Hyperlink>
-                  {' of Faceless UI deployed in production.'}
-                </Heading>
               </Cell>
             </Grid>
           </Margin>

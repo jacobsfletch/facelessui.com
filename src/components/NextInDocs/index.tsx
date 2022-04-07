@@ -29,7 +29,7 @@ const filterNavLinks = (initialNav: DocsNav): NavLink[] => {
           type
         } = item;
 
-        if ((type === 'group' || type === 'link') && href) {
+        if ((type === 'group' || type === 'link' || type === 'jumplist') && href) {
           links.push({
             label,
             href,
@@ -63,7 +63,8 @@ export const NextInDocs: React.FC<{
   const [nextNavItem, setNextNavItem] = useState<NavItem | null>();
 
   const router = useRouter();
-  const { asPath } = router;
+  const { asPath: asPathFromRouter } = router;
+  const asPath = asPathFromRouter.split('#')[0];
 
   useEffect(() => {
     const activeNavIndex = navLinks.findIndex((item) => {
@@ -104,7 +105,7 @@ export const NextInDocs: React.FC<{
         ].filter(Boolean).join(' ')}
       >
         <div>
-          Up next:
+          Next:
         </div>
         <div>
           <TextWithInlineIcon

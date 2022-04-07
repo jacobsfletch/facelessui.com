@@ -1,9 +1,11 @@
 @use "@scss/common" as *;
 
 .versionNumber {
-  @include small;
   padding: 2px 4px;
   background-color: var(--color-light-gray);
+  border-radius: 2px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
 }
 
 .lightest-gray {

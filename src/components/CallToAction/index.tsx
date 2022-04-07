@@ -28,7 +28,7 @@ export const CallToAction: React.FC<{
     >
       <BlockContainer>
         <Hyperlink
-          href="/docs"
+          href="/docs/getting-started"
           className={classes.link}
           onMouseEnter={() => setHighlightCursor(true)}
           onMouseLeave={() => setHighlightCursor(false)}

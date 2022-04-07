@@ -7,6 +7,7 @@ import { useWindowInfo } from '@faceless-ui/window-info';
 import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
+import { InstallationCode } from '@components/InstallationCode';
 
 const WindowInfoDoc = () => {
   const windowInfo = useWindowInfo();
@@ -20,8 +21,11 @@ const WindowInfoDoc = () => {
         Window Info
       </h1>
       <p>
-        This component:
+        Installation
       </p>
+      <Margin bottom="xs">
+        <InstallationCode name="window-info" />
+      </Margin>
       <Margin bottom="xs">
         <StyledList
           items={[
@@ -54,18 +58,20 @@ const WindowInfoDoc = () => {
       <p>
         Resize your window to see the effect:
       </p>
-      <div>
-        <LogProps {...windowInfo} />
-      </div>
-      <Hyperlink
-        href="https://window-info.faceless-ui.com"
-        underline
-        newTab
-      >
-        <small>
-          Demo in playground
-        </small>
-      </Hyperlink>
+      <Margin bottom="small">
+        <div>
+          <LogProps {...windowInfo} />
+        </div>
+        <Hyperlink
+          href="https://window-info.faceless-ui.com"
+          underline
+          newTab
+        >
+          <small>
+            Demo in playground
+          </small>
+        </Hyperlink>
+      </Margin>
     </Fragment>
   )
 }
