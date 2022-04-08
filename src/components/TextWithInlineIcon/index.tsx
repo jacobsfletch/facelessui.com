@@ -1,4 +1,4 @@
-import React, { ElementType, Fragment } from 'react';
+import React, { Fragment } from 'react';
 import classes from './index.module.scss';
 
 export const TextWithInlineIcon: React.FC<{
@@ -6,7 +6,7 @@ export const TextWithInlineIcon: React.FC<{
   className?: string
   text: string
   icon: any
-  element?: ElementType
+  element?: keyof JSX.IntrinsicElements
 }> = (props) => {
   const {
     className,

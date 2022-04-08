@@ -1,11 +1,11 @@
 import { useDarkMode } from '@root/providers/DarkMode';
 import { useVersions } from '@root/providers/Versions';
-import React, { ElementType } from 'react'
+import React from 'react'
 import classes from './index.module.scss';
 
 export const VersionNumber: React.FC<{
   name: string
-  element?: ElementType
+  element?: keyof JSX.IntrinsicElements
   color?: string
 }> = (props) => {
   const {

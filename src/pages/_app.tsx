@@ -30,7 +30,7 @@ type AppPropsWithLayout = AppProps & {
   versions: VersionsType
 }
 
-const FacelessApp = (appProps: AppPropsWithLayout) => {
+const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
   const {
     Component,
     pageProps,
@@ -89,6 +89,7 @@ const FacelessApp = (appProps: AppPropsWithLayout) => {
                           <AppHead />
                           <Header />
                           <Layout>
+                            {/* @ts-ignore TODO: fix this, its a typescript error */}
                             <Component {...pageProps} />
                           </Layout>
                           <ModalContainer />

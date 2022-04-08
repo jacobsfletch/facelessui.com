@@ -1,8 +1,8 @@
-import React, { ElementType } from 'react';
+import React from 'react';
 import classes from './index.module.scss';
 
 export const Heading: React.FC<{
-  element?: ElementType
+  element?: keyof JSX.IntrinsicElements
   as?: string
   margin?: boolean
   marginTop?: boolean
