@@ -144,7 +144,7 @@ export const RecursiveNav: React.FC<{
                           >
                             <Chevron
                               className={classes.chevron}
-                              rotation={isOpen ? 0 : 180}
+                              rotation={isOpen ? 180 : 90}
                               size="small"
                             />
                             {label}

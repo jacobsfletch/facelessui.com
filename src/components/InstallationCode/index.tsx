@@ -12,8 +12,8 @@ export const InstallationCode: React.FC<{
   const { isDark } = useDarkMode();
   const [manager, setManager] = useState<'npm' | 'yarn'>('yarn');
 
-  let command = `npm i @faceless-ui/${name}@latest`;
-  if (manager === 'yarn') command = `yarn add @faceless-ui/${name}@latest`
+  let command = `npm i @faceless-ui/${name}`;
+  if (manager === 'yarn') command = `yarn add @faceless-ui/${name}`
 
   const { setNotification } = useNotifications();
 

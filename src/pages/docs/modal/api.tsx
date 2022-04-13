@@ -359,12 +359,12 @@ export const MyApp = () = (
         {' above.'}
       </p>
       <h4>
-        useWindowInfo
+        useModal
       </h4>
       <p>
         {'This is a hook you can use to access the '}
         <Hyperlink
-          href={`/docs/window-info/api#context`}
+          href={`/docs/modal/api#context`}
           underline
           colored
         >
@@ -375,37 +375,10 @@ export const MyApp = () = (
       <Margin bottom="xs">
         <CodeBlock>
           {`import react from 'react';
-import { useWindowInfo } from '@faceless-ui/window-info;
+import { useModal } from '@faceless-ui/modal;
 
 export const MyComponent = () => {
-  const windowInfo = useWindowInfo();
-  return (
-    ...
-  )
-};`}
-        </CodeBlock>
-      </Margin>
-      <h4>
-        withWindowInfo
-      </h4>
-      <p>
-        {'This is a higher-order component you can use to access the '}
-        <Hyperlink
-          href={`/docs/window-info/api#context`}
-          underline
-          colored
-        >
-          context
-        </Hyperlink>
-        .
-      </p>
-      <Margin bottom="xs">
-        <CodeBlock>
-          {`import react from 'react';
-import { withWindowInfo } from '@faceless-ui/window-info;
-
-export const MyComponent = withWindowInfo((props) => {
-  const { windowInfo } = props;
+  const modal = useModal();
   return (
     ...
   )
@@ -420,7 +393,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/api.tsx`}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/api.tsx`}
     />
   )
 };
