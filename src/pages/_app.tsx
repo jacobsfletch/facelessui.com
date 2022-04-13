@@ -8,7 +8,6 @@ import { Fragment } from 'react';
 import { NextPage } from 'next';
 import { Doc } from '@root/layout/Doc';
 import { Versions as VersionsType } from '../providers/Versions';
-import { getGitHubVersionNumber } from '@root/github-api';
 import VersionsProvider from '@root/providers/Versions';
 import { NotificationsProvider } from '@root/providers/Notifications';
 import { WindowInfoProvider } from '@faceless-ui/window-info';
@@ -20,6 +19,7 @@ import { CustomCursor } from '@components/CustomCursor';
 import cssVariables from '../../cssVariables';
 import '../scss/app.scss';
 import { ScrollToTopOnRouteChange } from '@components/ScrollToTopOnRouteChange';
+import { getNPMVersionNumber } from '@root/npm-api';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -112,13 +112,13 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
 FacelessApp.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext);
 
-  const windowInfoVersion = await getGitHubVersionNumber('window-info');
-  const scrollInfoVersion = await getGitHubVersionNumber('scroll-info');
-  const mouseInfoVersion = await getGitHubVersionNumber('mouse-info');
-  const sliderVersion = await getGitHubVersionNumber('slider');
-  const cssGridVersion = await getGitHubVersionNumber('css-grid');
-  const modalVersion = await getGitHubVersionNumber('modal');
-  const collapsiblesVersion = await getGitHubVersionNumber('collapsibles');
+  const windowInfoVersion = await getNPMVersionNumber('window-info');
+  const scrollInfoVersion = await getNPMVersionNumber('scroll-info');
+  const mouseInfoVersion = await getNPMVersionNumber('mouse-info');
+  const sliderVersion = await getNPMVersionNumber('slider');
+  const cssGridVersion = await getNPMVersionNumber('css-grid');
+  const modalVersion = await getNPMVersionNumber('modal');
+  const collapsiblesVersion = await getNPMVersionNumber('collapsibles');
 
   return {
     ...appProps,
