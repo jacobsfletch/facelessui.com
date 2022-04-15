@@ -93,6 +93,13 @@
   resolved "https://registry.yarnpkg.com/@faceless-ui/css-grid/-/css-grid-1.0.7.tgz#efcf86c79a910db9c1321536d74a4796c6c42846"
   integrity sha512-wU3XSV2tjBASCYUi3uOfi7o+2MlCUbzaUpYCiZxjaccYzJux3xY8LbgEaf7nBV74FcY0RsOpZFFT2DgNAGqpkg==
 
+"@faceless-ui/jumplist@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@faceless-ui/jumplist/-/jumplist-0.0.5.tgz#81d03c24dc2763fc262ec5de40aa8d3f9a6aaccd"
+  integrity sha512-Z5+oN6L1WIapuQ/1BOineY13PKLx2oxogjWp+JlEU2qaVwhjZ4qoCdffFWRo2JV7rURom97EeLcXoqs/cDu4oA==
+  dependencies:
+    animated-scroll-to "^2.0.4"
+
 "@faceless-ui/modal@^1.1.4":
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/@faceless-ui/modal/-/modal-1.1.5.tgz#d8054b7339e00c6308fff0a1d723ca9a10759c83"
@@ -413,6 +420,11 @@ ajv@^8.0.1:
     json-schema-traverse "^1.0.0"
     require-from-string "^2.0.2"
     uri-js "^4.2.2"
+
+animated-scroll-to@^2.0.4:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/animated-scroll-to/-/animated-scroll-to-2.2.0.tgz#0aea20d4d800e3e8bfd1504041091276f9593360"
+  integrity sha512-VVhwrii9tMXwP1GlQacLplUrh/0x2IbU/JxTUMBvzam6lJpJ9jMCw8PKHOvqMJ52vYmBDfcf9lNDuSeoWCD/mw==
 
 anser@1.4.9:
   version "1.4.9"
@@ -1222,11 +1234,6 @@ eslint-plugin-jsx-a11y@^6.4.1:
     jsx-ast-utils "^3.2.1"
     language-tags "^1.0.5"
     minimatch "^3.0.4"
-
-eslint-plugin-next@^0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-next/-/eslint-plugin-next-0.0.0.tgz#f9ef680e8f68763c716ab44697c4b3cc3e0b2069"
-  integrity sha512-IldNDVb6WNduggwRbYzSGZhaskUwVecJ6fhmqwX01+S1aohwAWNzU4me6y47DDzpD/g0fdayNBGxEdt9vKkUtg==
 
 eslint-plugin-react-hooks@^4.2.0:
   version "4.4.0"

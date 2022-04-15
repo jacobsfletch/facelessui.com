@@ -110,7 +110,7 @@ export const NextInDocs: React.FC<{
         <div>
           <TextWithInlineIcon
             className={classes.label}
-            element="h6"
+            element="h5"
             text={label}
             icon={(<ArrowIcon bold />)}
           />

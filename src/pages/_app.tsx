@@ -13,13 +13,13 @@ import { NotificationsProvider } from '@root/providers/Notifications';
 import { WindowInfoProvider } from '@faceless-ui/window-info';
 import { MouseInfoProvider } from '@faceless-ui/mouse-info';
 import { ScrollInfoProvider } from '@faceless-ui/scroll-info';
+import { JumplistProvider } from '@faceless-ui/jumplist';
 import DarkModeProvider from '@root/providers/DarkMode';
 import { CustomCursorProvider } from '@root/providers/CustomCursorProvider';
 import { CustomCursor } from '@components/CustomCursor';
 import cssVariables from '../../cssVariables';
 import '../scss/app.scss';
 import { ScrollToTopOnRouteChange } from '@components/ScrollToTopOnRouteChange';
-import { getNPMVersionNumber } from '@root/npm-api';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -53,53 +53,55 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
           <ScrollInfoProvider>
             <MouseInfoProvider>
               <NotificationsProvider>
-                <ModalProvider
-                  zIndex={99}
-                  transTime={250}
-                >
-                  <GridProvider
-                    breakpoints={{
-                      s: 768,
-                      m: 1024,
-                      l: 1400,
-                    }}
-                    rowGap={{
-                      s: '1rem',
-                      m: '1rem',
-                      l: '2rem',
-                      xl: '2rem',
-                    }}
-                    colGap={{
-                      s: '10px',
-                      m: '10px',
-                      l: '2rem',
-                      xl: '2rem',
-                    }}
-                    cols={{
-                      s: 8,
-                      m: 8,
-                      l: 14,
-                      xl: 14,
-                    }}
+                <JumplistProvider>
+                  <ModalProvider
+                    zIndex={99}
+                    transTime={250}
                   >
-                    <VersionsProvider versions={versions}>
-                      <CustomCursorProvider>
-                        <Fragment>
-                          <ScrollToTopOnRouteChange />
-                          <AppHead />
-                          <Header />
-                          <Layout>
-                            {/* @ts-ignore TODO: fix this, its a typescript error */}
-                            <Component {...pageProps} />
-                          </Layout>
-                          <ModalContainer />
-                          <Footer />
-                          <CustomCursor />
-                        </Fragment>
-                      </CustomCursorProvider>
-                    </VersionsProvider>
-                  </GridProvider>
-                </ModalProvider>
+                    <GridProvider
+                      breakpoints={{
+                        s: 768,
+                        m: 1024,
+                        l: 1400,
+                      }}
+                      rowGap={{
+                        s: '1rem',
+                        m: '1rem',
+                        l: '2rem',
+                        xl: '2rem',
+                      }}
+                      colGap={{
+                        s: '10px',
+                        m: '10px',
+                        l: '2rem',
+                        xl: '2rem',
+                      }}
+                      cols={{
+                        s: 8,
+                        m: 8,
+                        l: 14,
+                        xl: 14,
+                      }}
+                    >
+                      <VersionsProvider versions={versions}>
+                        <CustomCursorProvider>
+                          <Fragment>
+                            <ScrollToTopOnRouteChange />
+                            <AppHead />
+                            <Header />
+                            <Layout>
+                              {/* @ts-ignore TODO: fix this, its a typescript error */}
+                              <Component {...pageProps} />
+                            </Layout>
+                            <ModalContainer />
+                            <Footer />
+                            <CustomCursor />
+                          </Fragment>
+                        </CustomCursorProvider>
+                      </VersionsProvider>
+                    </GridProvider>
+                  </ModalProvider>
+                </JumplistProvider>
               </NotificationsProvider>
             </MouseInfoProvider>
           </ScrollInfoProvider>
@@ -111,27 +113,10 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
 
 FacelessApp.getInitialProps = async (appContext: AppContext) => {
   const appProps = await App.getInitialProps(appContext);
-
-  const windowInfoVersion = await getNPMVersionNumber('window-info');
-  const scrollInfoVersion = await getNPMVersionNumber('scroll-info');
-  const mouseInfoVersion = await getNPMVersionNumber('mouse-info');
-  const sliderVersion = await getNPMVersionNumber('slider');
-  const cssGridVersion = await getNPMVersionNumber('css-grid');
-  const modalVersion = await getNPMVersionNumber('modal');
-  const collapsiblesVersion = await getNPMVersionNumber('collapsibles');
-
+  // app-wide data fetching here
   return {
     ...appProps,
-    versions: {
-      'window-info': windowInfoVersion,
-      'scroll-info': scrollInfoVersion,
-      'mouse-info': mouseInfoVersion,
-      slider: sliderVersion,
-      'css-grid': cssGridVersion,
-      modal: modalVersion,
-      collapsibles: collapsiblesVersion,
-    }
   };
-};
+}
 
 export default FacelessApp;

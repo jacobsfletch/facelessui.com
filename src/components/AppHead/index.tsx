@@ -12,7 +12,7 @@ export const AppHead: React.FC = () => {
         href="/favicon.png"
       />
       <link
-        href="http://fonts.cdnfonts.com/css/jetbrains-mono"
+        href="https://fonts.cdnfonts.com/css/jetbrains-mono"
         rel="stylesheet"
       />
     </NextHead>

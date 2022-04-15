@@ -4,9 +4,43 @@ export type NavItem = {
   items?: NavItem[]
   href?: string
   versionName?: string
+  id?: string
 }
 
 export type DocsNav = NavItem[];
+
+export const modalJumplistNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/modal/api#provider",
+    id: 'provider',
+    label: 'ModalProvider'
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/api#container",
+    id: 'container',
+    label: 'ModalContainer'
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/api#modal",
+    id: 'modal',
+    label: 'Modal'
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/api#toggler",
+    id: 'toggler',
+    label: 'ModalToggler'
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/api#useModal",
+    id: 'useModal',
+    label: 'useModal'
+  },
+];
 
 export const nav: DocsNav = [
   {
@@ -54,33 +88,7 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/modal/api",
         label: 'API Reference',
-        items: [
-          {
-            type: 'link',
-            href: "/docs/modal/api#provider",
-            label: 'ModalProvider'
-          },
-          {
-            type: 'link',
-            href: "/docs/modal/api#container",
-            label: 'ModalContainer'
-          },
-          {
-            type: 'link',
-            href: "/docs/modal/api#modal",
-            label: 'Modal'
-          },
-          {
-            type: 'link',
-            href: "/docs/modal/api#toggler",
-            label: 'ModalToggler'
-          },
-          {
-            type: 'link',
-            href: "/docs/modal/api#useModal",
-            label: 'useModal'
-          },
-        ]
+        items: modalJumplistNav
       },
     ]
   },

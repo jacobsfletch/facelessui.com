@@ -18,9 +18,9 @@ const ModalRouting = () => {
       <p>
         You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to content that is rendered within a modal. There are two ways to do this:
       </p>
-      <h4>
+      <h5>
         History API
-      </h4>
+      </h5>
       <p>
         {'Allow the modal to handle URL changes using the '}
         <Hyperlink
@@ -36,9 +36,9 @@ const ModalRouting = () => {
         </InlineCode>
         {' to the ModalProvider.'}
       </p>
-      <h4>
+      <h5>
         Custom router
-      </h4>
+      </h5>
       <p>
         {`If your app already uses a router, send a callback function to `}
         <InlineCode>

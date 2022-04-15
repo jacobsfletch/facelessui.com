@@ -19,10 +19,6 @@
   margin: 0 0 base();
   font-weight: 600;
 
-  @include extra-large-break {
-    font-size: base(2);
-  }
-
   @include mid-break {
     font-size: base(1.35);
   }
@@ -33,10 +29,6 @@
   line-height: 1.25;
   font-weight: 600;
   margin: 0 0 base(1);
-
-  @include extra-large-break {
-    font-size: base(1.5);
-  }
 
   @include mid-break {
     font-size: base(1.1);
@@ -49,58 +41,32 @@
   font-weight: 600;
   margin: 0 0 base(1);
 
-  @include extra-large-break {
-    font-size: base(1.4);
-  }
-
   @include mid-break {
     font-size: base(0.8);
   }
 }
 
 @mixin h4 {
-  font-size: base(1.35);
+  font-size: base(1.25);
   line-height: 1.25;
   font-weight: 600;
   margin: 0 0 base(0.5);
 
-  @include extra-large-break {
-    font-size: base(1.15);
-  }
-
   @include mid-break {
-    font-size: base(0.95);
+    font-size: base(0.75);
   }
 }
 
 @mixin h5 {
-  font-size: base(0.75);
-  line-height: 1.25;
+  font-size: base(0.7);
   font-weight: 600;
   margin: 0 0 base(0.5);
-
-  @include extra-large-break {
-    font-size: base(0.95);
-  }
-
-  @include mid-break {
-    font-size: base(0.85);
-  }
 }
 
 @mixin h6 {
-  font-size: base(0.625);
-  line-height: 1.25;
+  font-size: base(0.5);
+  font-weight: 600;
   margin: 0 0 base(0.5);
-  letter-spacing: normal;
-
-  @include extra-large-break {
-    font-size: base(0.75);
-  }
-
-  @include mid-break {
-    font-size: base(0.65);
-  }
 }
 
 @mixin large {
@@ -109,10 +75,6 @@
   margin: 0 0 base(0.75);
   letter-spacing: normal;
   font-weight: normal;
-
-  @include extra-large-break {
-    font-size: base(0.75);
-  }
 
   @include mid-break {
     font-size: base(0.65);

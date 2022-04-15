@@ -5,6 +5,8 @@ import { CodeBlock } from '@components/CodeBlock';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
+import { VersionNumber } from '@components/VersionNumber';
+import { InstallationCode } from '@components/InstallationCode';
 
 const ModalSetupDoc = () => {
   return (
@@ -15,6 +17,16 @@ const ModalSetupDoc = () => {
       <h4>
         Basic Setup
       </h4>
+      <p>
+        {'Installation '}
+        <VersionNumber
+          name="modal"
+          element='span'
+        />
+      </p>
+      <Margin bottom="xs">
+        <InstallationCode name="modal" />
+      </Margin>
       <p>
         First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is also where your options are defined:
       </p>

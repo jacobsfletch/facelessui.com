@@ -6,6 +6,7 @@ import { RecursiveNav } from './RecursiveNav';
 
 export const DocsNav: React.FC = () => {
   const { isDark } = useDarkMode();
+
   return (
     <div
       className={[

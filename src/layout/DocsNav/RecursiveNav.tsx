@@ -6,6 +6,7 @@ import { Fragment } from "react";
 import classes from './index.module.scss';
 import { useRouter } from "next/dist/client/router";
 import { VersionNumber } from "@components/VersionNumber";
+import { useJumplist } from '@faceless-ui/jumplist'
 
 export const RecursiveNav: React.FC<{
   items?: NavItem[]
@@ -14,6 +15,8 @@ export const RecursiveNav: React.FC<{
     items,
   } = props;
 
+  const { activeJumplistIndex } = useJumplist();
+  console.log(activeJumplistIndex)
   const { asPath } = useRouter();
 
   const hasItems = items && Array.isArray(items) && items.length > 0;
@@ -169,7 +172,7 @@ export const RecursiveNav: React.FC<{
                               } = item;
 
                               if (type === 'link') {
-                                const isActiveLink = Boolean(itemHref && asPath === itemHref);
+                                const isActiveLink = activeJumplistIndex === jumplistItemIndex;
 
                                 return (
                                   <Hyperlink

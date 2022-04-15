@@ -77,6 +77,7 @@ html {
   font-size: calc(#{var(--html-font-size)} * 1px);
   line-height: calc(#{var(--html-line-height)} * 1px);
   -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
 
   @include mid-break {
     @at-root {

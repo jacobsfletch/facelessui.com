@@ -21,6 +21,12 @@
   }
 }
 
+.jumplistLinkLabel {
+  color: var(--color-gray);
+  position: relative;
+  line-height: 1.5;
+}
+
 .itemIsActive {
   color: var(--color-darker-gray);
   &:hover {
@@ -63,11 +69,6 @@
 
 .jumplistContent {
   padding-left: base(0.5);
-}
-
-.jumplistLinkLabel {
-  position: relative;
-  line-height: 1.5;
 }
 
 .linkBullet {
