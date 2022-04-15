@@ -1,6 +1,9 @@
+import { getAllVersionNumbers } from '@root/npm-api';
 import React, {
   createContext,
   useContext,
+  useEffect,
+  useState,
 } from 'react';
 
 export type Versions = {
@@ -15,15 +18,27 @@ export const VersionsContext = createContext<IVersions>({} as IVersions);
 export const useVersions = (): IVersions => useContext(VersionsContext);
 
 const VersionsProvider: React.FC<{
-  children?: React.ReactChild | ((context: IVersions) => JSX.Element)
+  children?: React.ReactChild | ((context: IVersions) => JSX.Element) // eslint-disable-line no-unused-vars
   versions: Versions
 }> = (props) => {
   const {
     children,
-    versions
+    versions: versionsFromProps
   } = props;
 
-  const context = { versions };
+  const [versions, setVersions] = useState(versionsFromProps || {})
+
+  useEffect(() => {
+    const doFetch = async () => {
+      const allVersions = await getAllVersionNumbers();
+      setVersions(allVersions);
+    }
+    doFetch();
+  }, [])
+
+  const context = {
+    versions
+  }
 
   return (
     <VersionsContext.Provider value={context} >
