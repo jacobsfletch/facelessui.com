@@ -21,14 +21,34 @@ const MouseInfoDoc = () => {
         Mouse Info
       </h1>
       <p>
-        Installation
+        {'This is a utility to efficiently subscribe to window mouse events. As components in your application interact with mouse position, they compound mouse listeners which can be expensive to handle. To get around this, the '}
+        <InlineCode>
+          useMouseInfo
+        </InlineCode>
+        {' hook reads context from the '}
+        <InlineCode>
+          {'<MouseInfoProvider>'}
+        </InlineCode>
+        &nbsp;
+        &mdash;
+        {' which attaches only a single event listener to the window. These events are also piped through '}
+        <InlineCode>
+          requestAnimationFrame
+        </InlineCode>
+        {' so they are already optimized for performance.'}
+      </p>
+      <p>
+        This utility also conveniently interprets mouse data for you, such as direction of mouse movement and percentage within viewport.
       </p>
       <Margin bottom="xs">
+        <h5>
+          Installation
+        </h5>
         <InstallationCode name="mouse-info" />
       </Margin>
-      <p>
-        This component:
-      </p>
+      <h5>
+        Key features
+      </h5>
       <Margin bottom="xs">
         <StyledList
           items={[

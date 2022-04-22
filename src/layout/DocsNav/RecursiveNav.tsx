@@ -16,7 +16,6 @@ export const RecursiveNav: React.FC<{
   } = props;
 
   const { activeJumplistIndex } = useJumplist();
-  console.log(activeJumplistIndex)
   const { asPath } = useRouter();
 
   const hasItems = items && Array.isArray(items) && items.length > 0;

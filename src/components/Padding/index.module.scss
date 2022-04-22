@@ -2,36 +2,42 @@
 
 .top-small {
   padding-top: base(2);
+  @include mid-break {
+    padding-top: base();
+  }
 }
 
 .top-medium {
   padding-top: base(3);
   @include mid-break {
-    padding-top: base(2);
+    padding-top: base();
   }
 }
 
 .top-large {
   padding-top: base(4);
   @include mid-break {
-    padding-top: base(2);
+    padding-top: base();
   }
 }
 
 .bottom-small {
   padding-bottom: base(2);
+  @include mid-break {
+    padding-bottom: base();
+  }
 }
 
 .bottom-medium {
   padding-bottom: base(3);
   @include mid-break {
-    padding-bottom: base(2);
+    padding-bottom: base();
   }
 }
 
 .bottom-large {
   padding-bottom: base(4);
   @include mid-break {
-    padding-bottom: base(2);
+    padding-bottom: base();
   }
 }

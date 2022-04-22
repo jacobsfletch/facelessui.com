@@ -1,4 +1,5 @@
-import { createContext, useState, useContext } from "react"
+import { useWindowInfo } from "@faceless-ui/window-info";
+import { createContext, useState, useContext, useEffect } from "react"
 
 type ICustomCursorContext = {
   showCustomCursor: boolean,
@@ -15,6 +16,18 @@ export const CustomCursorProvider: React.FC = (props) => {
 
   const [showCustomCursor, setShowCustomCursor] = useState(false);
   const [highlightCursor, setHighlightCursor] = useState(false);
+
+  const {
+    breakpoints: {
+      m: midBreak
+    } = {}
+  } = useWindowInfo();
+
+  useEffect(() => {
+    if (midBreak) {
+      setShowCustomCursor(false);
+    }
+  }, [midBreak]);
 
   return (
     <CustomCursorContext.Provider

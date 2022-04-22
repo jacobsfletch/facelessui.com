@@ -1,0 +1,16 @@
+@use "@scss/common" as *;
+
+.mainHero {
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: base(4);
+  margin-bottom: base(4);
+
+  @include mid-break {
+    min-height: unset;
+    padding-top: 0;
+    margin-bottom: base(2);
+  }
+}

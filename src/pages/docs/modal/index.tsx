@@ -5,6 +5,7 @@ import { StyledList } from '@components/StyledList';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { InlineCode } from '@components/InlineCode';
+import { InstallationCode } from '@components/InstallationCode';
 
 const ModalDoc = () => {
   return (
@@ -16,7 +17,7 @@ const ModalDoc = () => {
         Modal
       </h1>
       <p>
-        This package includes a powerful set of hooks and components that make it incredibly easy to create modals of all kinds. Transitions are easily customizable and each modal is fully accessible. Modals can also be controlled via the URL, and easily tie into your existing router.
+        This package includes a powerful set of hooks and components that make it incredibly easy to create modals of all kinds. Transitions come out-of-the-box and are easily customizable. Modals can optionally be controlled via the URL, and easily tie into your existing router. As with all of Faceless UI, modals are highly accessible.
       </p>
       <p>
         Some common uses for this package include:
@@ -49,10 +50,16 @@ const ModalDoc = () => {
       </Margin>
       <Margin bottom="xs">
         <h5>
-          How it works:
+          Installation
+        </h5>
+        <InstallationCode name="modal" />
+      </Margin>
+      <Margin bottom="xs">
+        <h5>
+          How it works
         </h5>
         <p>
-          {'Each modal is wrapper around a '}
+          {'Each modal is wrapper around '}
           <Hyperlink
             underline
             href="https://reactjs.org/docs/portals.html"
@@ -63,32 +70,36 @@ const ModalDoc = () => {
           <InlineCode>
             {'<Modal>'}
           </InlineCode>
-          {' from anywhere in your app to have it portaled into the '}
+          {' from anywhere in your app and it will be portaled into the '}
           <InlineCode>
             {'<ModalContainer>'}
           </InlineCode>
-          {', a component you place anywhere in your app. This lifts them into the out of their current stacking context.'}
+          {'. This lifts them into the out of their current stacking context and makes it possible to apply fullscreen transitions.'}
         </p>
         <p>
           {'Now each modal can be independently controlled using a '}
           <InlineCode>
             {'<ModalToggler>'}
           </InlineCode>
-          {' methods provided by the '}
+          {', the '}
           <InlineCode>
             {'useModal'}
           </InlineCode>
-          {' hook, or even the URL.'}
+          {' hook, or even the URL. When a modal is opened, transition events are fired on both the Modal and ModalContainer simultaneously using '}
+          <Hyperlink
+            underline
+            href="https://reactcommunity.org/react-transition-group"
+          >
+            React Transitions Group
+          </Hyperlink>
+          {'. This is a useful pattern for standardizing modal transitions or creating entirely unique ones.'}
         </p>
         <p>
           {'The final piece to this is the '}
           <InlineCode>
             {'<ModalProvider>'}
           </InlineCode>
-          {' which should wrap your entire app. This provides context for all the components and hooks to work together.'}
-        </p>
-        <p>
-          {'If you need more granular control, there are more advanced ways to set up and interact with these modals. See the '}
+          {' which should wrap your entire app. This provides context for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with these modals. See the '}
           <Hyperlink
             href="/docs/modal/api"
             underline
@@ -99,7 +110,7 @@ const ModalDoc = () => {
         </p>
       </Margin>
       <h5>
-        Key features:
+        Key features
       </h5>
       <Margin bottom="xs">
         <StyledList
@@ -111,12 +122,12 @@ const ModalDoc = () => {
             ),
             (
               <div key={3}>
-                Handles transitions for you, which you style using the css tactics of your app
+                Built-in transitions, agnostic to the css of your app
               </div>
             ),
             (
               <div key={4}>
-                Fully aria accessible ranging from HTMl markup to focus trapping
+                Fully aria accessible
               </div>
             ),
             (
@@ -132,15 +143,6 @@ const ModalDoc = () => {
           ]}
         />
       </Margin>
-      {/* <Hyperlink
-        href="https://modal.faceless-ui.com"
-        underline
-        newTab
-      >
-        <small>
-          Demo in playground
-        </small>
-      </Hyperlink> */}
     </Fragment>
   )
 }

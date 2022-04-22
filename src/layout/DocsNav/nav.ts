@@ -40,6 +40,12 @@ export const modalJumplistNav: NavItem[] = [
     id: 'useModal',
     label: 'useModal'
   },
+  {
+    type: 'link',
+    href: "/docs/modal/api#asModal",
+    id: 'asModal',
+    label: 'asModal'
+  },
 ];
 
 export const nav: DocsNav = [
@@ -200,28 +206,32 @@ export const nav: DocsNav = [
       },
       {
         type: 'jumplist',
-        href: "/docs/slider/api",
+        href: "/docs/jumplist/api",
         label: 'API Reference',
         items: [
           {
             type: 'link',
             href: "/docs/jumplist/api#provider",
-            label: 'JumplistProvider'
+            label: 'JumplistProvider',
+            id: 'provider',
           },
           {
             type: 'link',
-            href: "/docs/jumplist/api#slide",
-            label: 'JumplistNode'
+            href: "/docs/jumplist/api#node",
+            label: 'JumplistNode',
+            id: 'node',
           },
           {
             type: 'link',
             href: "/docs/jumplist/api#track",
-            label: 'JumplistTrack'
+            label: 'JumplistTrack',
+            id: 'track',
           },
           {
             type: 'link',
             href: "/docs/jumplist/api#useJumplist",
-            label: 'useJumplist'
+            label: 'useJumplist',
+            id: 'useJumplist',
           },
         ]
       },

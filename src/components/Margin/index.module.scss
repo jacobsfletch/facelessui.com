@@ -6,19 +6,22 @@
 
 .top-small {
   margin-top: base(2);
+  @include mid-break {
+    margin-top: base();
+  }
 }
 
 .top-medium {
   margin-top: base(3);
   @include mid-break {
-    margin-top: base(2);
+    margin-top: base();
   }
 }
 
 .top-large {
   margin-top: base(4);
   @include mid-break {
-    margin-top: base(2);
+    margin-top: base();
   }
 }
 
@@ -28,18 +31,21 @@
 
 .bottom-small {
   margin-bottom: base();
+  @include mid-break {
+    margin-bottom: base();
+  }
 }
 
 .bottom-medium {
   margin-bottom: base(3);
   @include mid-break {
-    margin-bottom: base(2);
+    margin-bottom: base();
   }
 }
 
 .bottom-large {
   margin-bottom: base(4);
   @include mid-break {
-    margin-bottom: base(2);
+    margin-bottom: base();
   }
 }

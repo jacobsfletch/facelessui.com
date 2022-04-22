@@ -9,16 +9,16 @@ const SliderInstallation = () => {
       <Meta
         title="Slider Basic Setup"
       />
-      <div>
-        {'Slider - '}
-        <VersionNumber
-          name="slider"
-          element="span"
-        />
-      </div>
       <h1>
         Basic Setup
       </h1>
+      <p>
+        {'Latest version: '}
+        <VersionNumber
+          name="slider"
+          element='span'
+        />
+      </p>
     </Fragment>
   )
 }

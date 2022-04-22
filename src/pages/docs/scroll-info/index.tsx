@@ -21,14 +21,34 @@ const ScrollInfoDoc = () => {
         Scroll Info
       </h1>
       <p>
-        Installation
+        {'This is a utility to efficiently subscribe to window scroll events. As components in your application interact with scroll position, they compound scroll listeners which can be expensive to handle. To get around this, the '}
+        <InlineCode>
+          useScrollInfo
+        </InlineCode>
+        {' hook reads context from the '}
+        <InlineCode>
+          {'<ScrollInfoProvider>'}
+        </InlineCode>
+        &nbsp;
+        &mdash;
+        {' which attaches only a single event listener to the window. These events are also piped through '}
+        <InlineCode>
+          requestAnimationFrame
+        </InlineCode>
+        {' so they are already optimized for performance.'}
+      </p>
+      <p>
+        This utility also conveniently interprets scroll data for you, such as direction of scroll and current percentage.
       </p>
       <Margin bottom="xs">
+        <h5>
+          Installation
+        </h5>
         <InstallationCode name="scroll-info" />
       </Margin>
-      <p>
-        This component:
-      </p>
+      <h5>
+        Key features
+      </h5>
       <Margin bottom="xs">
         <StyledList
           items={[

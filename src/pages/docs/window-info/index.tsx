@@ -21,11 +21,34 @@ const WindowInfoDoc = () => {
         Window Info
       </h1>
       <p>
-        Installation
+        {'This is a utility to efficiently subscribe to window resize events. As components in your application interact with window size, they compound resize listeners which can be expensive to handle. To get around this, the '}
+        <InlineCode>
+          useWindowInfo
+        </InlineCode>
+        {' hook reads context from the '}
+        <InlineCode>
+          {'<WindowInfoProvider>'}
+        </InlineCode>
+        &nbsp;
+        &mdash;
+        {' which attaches only a single event listener to the window. These events are also piped through '}
+        <InlineCode>
+          requestAnimationFrame
+        </InlineCode>
+        {' so they are already optimized for performance.'}
+      </p>
+      <p>
+        The window info utility also conveniently watches breakpoints for you. This enables you to write highly-performant js-based media queries, which can match your exact css media queries. This can be useful for conditionally rendering, or any other css-in-js.
       </p>
       <Margin bottom="xs">
+        <h5>
+          Installation
+        </h5>
         <InstallationCode name="window-info" />
       </Margin>
+      <h5>
+        Key features
+      </h5>
       <Margin bottom="xs">
         <StyledList
           items={[

@@ -8,12 +8,13 @@ import Margin from '@components/Margin';
 import { JumplistNode } from '@faceless-ui/jumplist';
 import { useJumplist } from '@faceless-ui/jumplist';
 import { modalJumplistNav } from '@root/layout/DocsNav/nav';
+import { BasicProps } from '@components/BasicProps';
 
 const ModalAPI = () => {
   const { setJumplist } = useJumplist();
 
   useEffect(() => {
-    const jumplist = modalJumplistNav.map((item) => ({ id: item.id || '' }));
+    const jumplist = modalJumplistNav.map((item) => ({ nodeID: item.id || '' }));
     setJumplist(jumplist);
   }, [setJumplist])
 
@@ -25,59 +26,33 @@ const ModalAPI = () => {
       <h1>
         Modal API
       </h1>
-      <JumplistNode id="provider">
+      <JumplistNode nodeID="provider">
         <h4>
-          Provider
+          ModalProvider
         </h4>
+        <p>
+          This component provides the modal context throughout your app. Render it one time in the top-level of your app. It does not have any required props.
+        </p>
         <Margin bottom="xs">
           <CodeBlock>
             {`import react from 'react';
 import ModalProvider from '@faceless-ui/modal;
 
 export const MyApp = () = (
-  <ModalProvider
-    transTime={250}
-  >
+  <ModalProvider>
     ...
   </ModalProvider>
 );`}
           </CodeBlock>
         </Margin>
-        <h6 id="props">
-          <b>
-            Props
-          </b>
-        </h6>
-        <InlineCode id="classPrefix">
-          classPrefix
-        </InlineCode>
-        <p>
-          Send a string to prepend onto every class name, useful for unique namespacing within complex stylesheets. Set to false to disable.
-        </p>
-        <InlineCode id="generateCSS">
-          generateCSS
-        </InlineCode>
-        <p>
-          Generates a tiny CSS stylesheet (~650B) to render at the root of the provider. Used for positioning and transition timing, not visual styling. Relevant to the vast majority of use cases. True by default.
-        </p>
-        <InlineCode id="minifyCSS">
-          minifyCSS
-        </InlineCode>
-        <p>
-          {'Minifies the result of '}
-          <InlineCode >
-            generateCSS
-          </InlineCode>
-        </p>
+        <h5 id="props">
+          Props
+        </h5>
         <InlineCode id="zIndex">
           zIndex
         </InlineCode>
         <p>
-          {'Only used when '}
-          <InlineCode >
-            generateCSS
-          </InlineCode>
-          {' is true. Determines the stacking order of the '}
+          {'Applies z-index to the '}
           <Hyperlink
             href="#modal-container"
             underline
@@ -85,13 +60,17 @@ export const MyApp = () = (
           >
             Modal Container
           </Hyperlink>
-          .
+          {'. If '}
+          <InlineCode >
+            generateCSS
+          </InlineCode>
+          {' is false, this prop is ignored. '}
         </p>
         <InlineCode id="transTime">
           transTime
         </InlineCode>
         <p>
-          Determines the duration by which transition classes are applied, in milliseconds.
+          The transition duration of modals and the modal container, in milliseconds.
         </p>
         <InlineCode id="handleParamChange">
           handleParamChange
@@ -121,13 +100,30 @@ export const MyApp = () = (
           </Hyperlink>
           {'. If sent a callback, will execute your function with a slug for you to process.'}
         </p>
-      </JumplistNode>
-      <JumplistNode id="context">
-        <h6 id="context">
-          <b>
-            Context
-          </b>
-        </h6>
+        <InlineCode id="classPrefix">
+          classPrefix
+        </InlineCode>
+        <p>
+          Send a string to prepend onto every class name, useful for unique namespacing within complex stylesheets. Set to false to disable.
+        </p>
+        <InlineCode id="generateCSS">
+          generateCSS
+        </InlineCode>
+        <p>
+          Generates a tiny CSS stylesheet (~650B) to render at the root of the provider. Used for positioning and transition timing, not visual styling. Relevant to the vast majority of use cases. True by default.
+        </p>
+        <InlineCode id="minifyCSS">
+          minifyCSS
+        </InlineCode>
+        <p>
+          {'Minifies the result of '}
+          <InlineCode >
+            generateCSS
+          </InlineCode>
+        </p>
+        <h5 id="context">
+          Context
+        </h5>
         <InlineCode id="containerRef">
           containerRef
         </InlineCode>
@@ -222,7 +218,11 @@ export const MyApp = () = (
           closeOnBlur
         </InlineCode>
         <p>
-          Enables a click event on the [Modal Container](../ModalContainer/README.md) that will close all modals.
+          {'Enables a click event on the '}
+          <Hyperlink underline>
+            Modal Container
+          </Hyperlink>
+          {' that will close all modals.'}
         </p>
         <InlineCode id="setCloseOnBlur">
           setCloseOnBlur
@@ -343,20 +343,6 @@ export const MyApp = () = (
           </Hyperlink>
           {' the given slug.'}
         </p>
-        <InlineCode id="classPrefix">
-          classPrefix
-        </InlineCode>
-        <p>
-          {'See '}
-          <Hyperlink
-            href="#transTime"
-            underline
-            colored
-          >
-            transTime
-          </Hyperlink>
-          {' above.'}
-        </p>
         <InlineCode id="transTime">
           transTime
         </InlineCode>
@@ -372,7 +358,97 @@ export const MyApp = () = (
           {' above.'}
         </p>
       </JumplistNode>
-      <JumplistNode id="useModal">
+      <JumplistNode nodeID="container">
+        <h4>
+          ModalContainer
+        </h4>
+        <p>
+          This is the component which every modal will portal into. It should be rendered once in the root of your application.
+        </p>
+        <h5>
+          Props
+        </h5>
+        <BasicProps />
+      </JumplistNode>
+      <JumplistNode nodeID="modal">
+        <h4>
+          Modal
+        </h4>
+        <p>
+          Render any number of this component throughout your app. Each one is portaled into the ModalContainer.
+        </p>
+        <CodeBlock>
+          {`import react from 'react';
+import { Modal } from '@faceless-ui/modal;
+
+export const MyModal = () => {
+  return (
+    <Modal slug="my-modal">
+      ...
+    </Modal>
+  )
+};`}
+        </CodeBlock>
+        <h5>
+          Props
+        </h5>
+        <InlineCode id="classPrefix">
+          slug*
+        </InlineCode>
+        <p>
+          Required. A unique identifier for this modal. You will need know this value when you go to open and close a modal.
+        </p>
+        <InlineCode id="classPrefix">
+          closeOnBlur
+        </InlineCode>
+        <p>
+          Required. A unique identifier for this modal. You will need know this value when you go to open and close a modal.
+        </p>
+        closeOnBlur
+        lockBodyScroll
+        classPrefix
+        onOpen
+        onClose
+        onEnter
+        onEntered
+        onEntering
+        onExit
+        onExiting
+        onExited
+        openOnInit
+        <BasicProps />
+      </JumplistNode>
+      <JumplistNode nodeID="toggler">
+        <h4>
+          ModalToggler
+        </h4>
+        <p>
+          This is just a button that will open or close a modal, depending on its current status. It&apos;s just a simple wrapper around useModal hookYou can easily do this yourself, but this component takes the wraps the logic for you.
+        </p>
+        <CodeBlock>
+          {`import react from 'react';
+import { ModalToggler } from '@faceless-ui/modal;
+
+export const MyComponent = () => {
+  return (
+    <ModalToggler slug="my-modal">
+      ...
+    </ModalToggler>
+  )
+};`}
+        </CodeBlock>
+        <h5>
+          Props
+        </h5>
+        <InlineCode>
+          slug*
+        </InlineCode>
+        <p>
+          Required. The unique slug of the modal to open or close.
+        </p>
+        <BasicProps />
+      </JumplistNode>
+      <JumplistNode nodeID="useModal">
         <h4>
           useModal
         </h4>
@@ -400,6 +476,24 @@ export const MyComponent = () => {
 };`}
           </CodeBlock>
         </Margin>
+      </JumplistNode>
+      <JumplistNode nodeID="asModal">
+        <h4>
+          asModal
+        </h4>
+        <p>
+          For advanced setups, there is a higher order component you can use to wrap any React component to have it function as a modal. This is actually what the Modal component is doing behind the scenes, but you can easily do it yourself if needed.
+        </p>
+        <CodeBlock>
+          {`import react from 'react';
+import { asModal } from '@faceless-ui/modal;
+
+export const MyModal = asModal(() => {
+  return (
+    ...
+  )
+}, 'my-modal');`}
+        </CodeBlock>
       </JumplistNode>
     </Fragment>
   )

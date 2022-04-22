@@ -21,7 +21,7 @@ const WindowInfoAPI = () => {
       <Margin bottom="xs">
         <CodeBlock>
           {`import react from 'react';
-import WindowInfoProvider from '@faceless-ui/window-info;
+import WindowInfoProvider from '@faceless-ui/window-info';
 
 export const MyApp = () = (
   <WindowInfoProvider

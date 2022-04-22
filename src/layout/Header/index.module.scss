@@ -2,8 +2,10 @@
 
 .header {
   width: 100%;
-  margin-top: base(2);
-  margin-bottom: base(2);
+  margin: base(2) 0;
+  @include mid-break {
+    margin: base() 0;
+  }
 }
 
 .wrapper {

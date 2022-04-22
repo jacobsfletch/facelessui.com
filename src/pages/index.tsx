@@ -2,18 +2,15 @@ import type { NextPage } from 'next'
 import { Fragment, useEffect } from 'react'
 import Meta from '../components/Meta'
 import { BlockContainer } from '../layout/BlockContainer';
-import { Button } from '@components/Button';
 import { Cell, Grid } from '@faceless-ui/css-grid';
-import { MarginGrid } from '@components/MarginGrid';
 import Margin from '@components/Margin';
-import { Heading } from '@components/Heading';
 import { CallToAction } from '@components/CallToAction';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
+import { MainHero } from '@root/heros';
 
 const Home: NextPage = () => {
   const {
     setShowCustomCursor,
-    setHighlightCursor
   } = useCustomCursor();
 
   useEffect(() => {
@@ -31,59 +28,7 @@ const Home: NextPage = () => {
         </title>
       </Meta>
       <main>
-        <BlockContainer>
-          <Margin
-            top="small"
-            bottom="large"
-          >
-            <div
-              style={{
-                minHeight: '50vh',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
-              }}
-            >
-              <Grid>
-                <Cell
-                  cols={10}
-                  colsL={12}
-                  colsM={12}
-                >
-                  <Margin bottom="small">
-                    <Heading
-                      element="h2"
-                      as="jumbo"
-                      marginTop={false}
-                    >
-                      Make any interface for any brand.
-                    </Heading>
-                    <Heading
-                      element="h1"
-                      as="h6"
-                      marginBottom={false}
-                    >
-                      An unstyled and accessible React+TypeScript UI library.
-                    </Heading>
-                  </Margin>
-                </Cell>
-              </Grid>
-              <MarginGrid size="small">
-                <Button
-                  href="/docs/getting-started"
-                  label="Get started"
-                  appearance="primary"
-                  onMouseEnter={() => {
-                    setHighlightCursor(true)
-                  }}
-                  onMouseLeave={() => {
-                    setHighlightCursor(false)
-                  }}
-                />
-              </MarginGrid>
-            </div>
-          </Margin>
-        </BlockContainer>
+        <MainHero />
         <BlockContainer>
           <Margin
             bottom="large"

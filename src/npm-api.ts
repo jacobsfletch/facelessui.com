@@ -7,7 +7,7 @@ export type NPMDocument = {
   }
 }
 
-export const getNPMVersionNumber = async (packageName: string): Promise<string> => {
+export const getNPMVersion = async (packageName: string): Promise<string> => {
   const res = await fetch(`https://registry.npmjs.org/@faceless-ui/${packageName}`);
   const json = await res.json();
 
@@ -26,22 +26,33 @@ export const getNPMVersionNumber = async (packageName: string): Promise<string> 
 };
 
 
-export const getAllVersionNumbers = async () => {
-  const windowInfoVersion = await getNPMVersionNumber('window-info');
-  const scrollInfoVersion = await getNPMVersionNumber('scroll-info');
-  const mouseInfoVersion = await getNPMVersionNumber('mouse-info');
-  const sliderVersion = await getNPMVersionNumber('slider');
-  const cssGridVersion = await getNPMVersionNumber('css-grid');
-  const modalVersion = await getNPMVersionNumber('modal');
-  const collapsiblesVersion = await getNPMVersionNumber('collapsibles');
-  const jumplistVersion = await getNPMVersionNumber('jumplist');
+export const getAllVersions = async () => {
+  const [
+    windowInfoVersion,
+    scrollInfoVersion,
+    mouseInfoVersion,
+    sliderVersion,
+    cssGridVersion,
+    modalVersion,
+    collapsiblesVersion,
+    jumplistVersion,
+  ] = await Promise.all([
+    getNPMVersion('window-info'),
+    getNPMVersion('scroll-info'),
+    getNPMVersion('mouse-info'),
+    getNPMVersion('slider'),
+    getNPMVersion('css-grid'),
+    getNPMVersion('modal'),
+    getNPMVersion('collapsibles'),
+    getNPMVersion('jumplist'),
+  ])
 
   return {
-    windowInfo: windowInfoVersion,
-    scrollInfo: scrollInfoVersion,
-    mouseInfo: mouseInfoVersion,
+    'window-info': windowInfoVersion,
+    'scroll-info': scrollInfoVersion,
+    'mouse-info': mouseInfoVersion,
     slider: sliderVersion,
-    cssGrid: cssGridVersion,
+    'css-grid': cssGridVersion,
     modal: modalVersion,
     collapsibles: collapsiblesVersion,
     jumplist: jumplistVersion,

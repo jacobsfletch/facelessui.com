@@ -5,6 +5,10 @@
   padding: base(2) 0;
   width: 100%;
   align-items: center;
+
+  @include mid-break {
+    padding: base() 0;
+  }
 }
 
 .content {

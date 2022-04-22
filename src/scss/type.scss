@@ -9,7 +9,7 @@
   margin: 0 0 base();
 
   @include mid-break {
-    font-size: base(2.5);
+    font-size: base(2);
   }
 }
 
@@ -64,7 +64,7 @@
 }
 
 @mixin h6 {
-  font-size: base(0.5);
+  font-size: inherit;
   font-weight: 600;
   margin: 0 0 base(0.5);
 }

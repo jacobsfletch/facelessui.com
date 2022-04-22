@@ -11,7 +11,7 @@
   "dependencies": {
     "@faceless-ui/collapsibles": "^1.0.4",
     "@faceless-ui/css-grid": "^1.0.6",
-    "@faceless-ui/jumplist": "^0.0.5",
+    "@faceless-ui/jumplist": "^1.0.8",
     "@faceless-ui/modal": "^1.1.4",
     "@faceless-ui/mouse-info": "^1.2.4",
     "@faceless-ui/scroll-info": "^1.2.5",

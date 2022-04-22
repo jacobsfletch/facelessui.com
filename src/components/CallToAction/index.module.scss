@@ -11,7 +11,7 @@
   position: relative;
 
   @include mid-break {
-    padding: base(4) 0;
+    padding: base(2) 0;
   }
 }
 
@@ -39,6 +39,7 @@
 
 .title {
   @include h1;
+  margin: 0;
   text-align: center;
 }
 

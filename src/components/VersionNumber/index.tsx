@@ -23,18 +23,14 @@ export const VersionNumber: React.FC<{
     colorToUse = isDark ? 'darker-gray' : 'lighter-gray'
   }
 
-  if (version) {
-    return (
-      <Element
-        className={[
-          classes.versionNumber,
-          colorToUse && classes[colorToUse]
-        ].filter(Boolean).join(' ')}
-      >
-        {version}
-      </Element>
-    )
-  }
-
-  return null;
+  return (
+    <Element
+      className={[
+        classes.versionNumber,
+        colorToUse && classes[colorToUse]
+      ].filter(Boolean).join(' ')}
+    >
+      {version || '...'}
+    </Element>
+  )
 }
