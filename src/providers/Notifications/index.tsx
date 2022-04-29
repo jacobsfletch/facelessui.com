@@ -11,7 +11,7 @@ import { reducer } from './reducer';
 export type Notification = {
   message?: string
   duration?: number
-  id?: string
+  id: string
 }
 
 export type Notifications = {
@@ -19,27 +19,27 @@ export type Notifications = {
 }
 
 export interface INotifications {
-  setNotification: (args: {
-    id?: string,
-    message?: string,
-    duration?: number
-  }) => void
+  setNotification: (notification: Notification) => void // eslint-disable-line no-unused-vars
   notifications: Notifications
 }
 
 export const NotificationsContext = createContext<INotifications>({} as INotifications);
 export const useNotifications = (): INotifications => useContext(NotificationsContext);
 
-export const NotificationsProvider: React.FC = (props) => {
+export const NotificationsProvider: React.FC<{
+  children?: React.ReactNode
+}> = (props) => {
   const [notifications, dispatchNotifications] = useReducer(reducer, {});
 
   const { children } = props;
 
-  const setNotification = useCallback(({
-    id,
-    message = 'No message provided',
-    duration = 5000,
-  }) => {
+  const setNotification = useCallback((incomingNotification: Notification) => {
+    const {
+      id,
+      message = 'No message provided',
+      duration = 5000,
+    } = incomingNotification;
+
     // set deletion timer
     const timerID = setTimeout(() => {
       dispatchNotifications({

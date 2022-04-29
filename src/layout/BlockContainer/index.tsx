@@ -11,6 +11,7 @@ export const BlockContainer: React.FC<{
   style?: React.CSSProperties
   onMouseEnter?: () => void
   onMouseLeave?: () => void
+  children: React.ReactNode
 }> = (props) => {
   const {
     id,

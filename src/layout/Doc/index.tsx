@@ -8,6 +8,7 @@ import { DocsNav } from '../DocsNav';
 
 export const Doc: React.FC<{
   githubUrl?: string
+  children: React.ReactNode
 }> = (props) => {
   const {
     githubUrl,
@@ -18,13 +19,13 @@ export const Doc: React.FC<{
     <BlockContainer>
       <Grid>
         <Cell
-          cols={4}
+          cols={3}
           colsM={8}
         >
           <DocsNav />
         </Cell>
         <Cell
-          cols={8}
+          cols={9}
           colsM={8}
         >
           {children}

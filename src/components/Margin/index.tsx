@@ -6,6 +6,7 @@ const Margin: React.FC<{
   bottom?: 'xs' | 'small' | 'medium' | 'large'
   style?: React.CSSProperties
   id?: string
+  children: React.ReactNode
 }> = (props) => {
   const {
     children,

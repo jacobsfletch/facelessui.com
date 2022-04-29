@@ -12,11 +12,9 @@ const DocsLanding = () => {
 
   return (
     <Fragment>
-      <Meta>
-        <title>
-          Docs
-        </title>
-      </Meta>
+      <Meta
+        title="Docs"
+      />
       <h1>
         Docs
       </h1>

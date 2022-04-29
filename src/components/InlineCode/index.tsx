@@ -4,6 +4,7 @@ import classes from './index.module.scss';
 
 export const InlineCode: React.FC<{
   id?: string
+  children: React.ReactNode
 }> = (props) => {
   const {
     children,

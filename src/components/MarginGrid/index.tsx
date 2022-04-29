@@ -4,6 +4,7 @@ import classes from './index.module.scss';
 export const MarginGrid: React.FC<{
   className?: string
   size?: 'small'
+  children: React.ReactNode
 }> = (props) => {
   const {
     className,

@@ -15,6 +15,7 @@ export const Hyperlink: React.FC<{
   underline?: boolean
   underlineOnHover?: boolean
   colored?: boolean
+  children?: React.ReactNode
 }> = (props) => {
   const {
     className,

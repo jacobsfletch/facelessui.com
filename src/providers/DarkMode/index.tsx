@@ -14,7 +14,7 @@ export const DarkModeContext = createContext<IDarkMode>({} as IDarkMode);
 export const useDarkMode = (): IDarkMode => useContext(DarkModeContext);
 
 const DarkModeProvider: React.FC<{
-  children?: React.ReactChild | ((context: IDarkMode) => JSX.Element) // eslint-disable-line no-unused-vars
+  children: React.ReactNode
 }> = (props) => {
   const {
     children,

@@ -11,7 +11,9 @@ type ICustomCursorContext = {
 export const CustomCursorContext = createContext({} as ICustomCursorContext);
 export const useCustomCursor = () => useContext(CustomCursorContext);
 
-export const CustomCursorProvider: React.FC = (props) => {
+export const CustomCursorProvider: React.FC<{
+  children: React.ReactNode
+}> = (props) => {
   const { children } = props;
 
   const [showCustomCursor, setShowCustomCursor] = useState(false);

@@ -6,6 +6,7 @@ export const Padding: React.FC<{
   bottom?: 'small' | 'medium' | 'large'
   style?: React.CSSProperties
   id?: string
+  children: React.ReactNode
 }> = (props) => {
   const {
     children,

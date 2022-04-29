@@ -22,11 +22,9 @@ const Home: NextPage = () => {
 
   return (
     <Fragment>
-      <Meta>
-        <title>
-          Home
-        </title>
-      </Meta>
+      <Meta
+        title="Home"
+      />
       <main>
         <MainHero />
         <BlockContainer>

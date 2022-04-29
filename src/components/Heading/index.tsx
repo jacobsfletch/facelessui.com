@@ -7,6 +7,7 @@ export const Heading: React.FC<{
   margin?: boolean
   marginTop?: boolean
   marginBottom?: boolean
+  children: React.ReactNode
 }> = (props) => {
   const {
     element: Element = 'h1',

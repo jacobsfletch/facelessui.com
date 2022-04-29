@@ -4,7 +4,9 @@ import classes from './index.module.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-export const CodeBlock: React.FC = (props) => {
+export const CodeBlock: React.FC<{
+  children: React.ReactNode
+}> = (props) => {
   const { children } = props;
   const { isDark } = useDarkMode();
 
