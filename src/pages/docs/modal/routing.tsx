@@ -16,7 +16,7 @@ const ModalRouting = () => {
         Modal routing
       </h1>
       <p>
-        You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to content that is rendered within a modal. There are two ways to do this:
+        You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to open modals. There are two ways to do this:
       </p>
       <h5>
         History API
@@ -34,8 +34,25 @@ const ModalRouting = () => {
         <InlineCode>
           handleParamChange
         </InlineCode>
-        {' to the ModalProvider.'}
+        {' to the '}
+        <InlineCode>
+          ModalProvider
+        </InlineCode>
+        {'. '}
       </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import { ModalProvider } from \'@faceless-ui/modal\';
+
+export const MyApp = (props) => {
+    return (
+      <ModalProvider handleParamChange>
+        ...
+      </ModalProvider>
+    );
+}`}
+        </CodeBlock>
+      </Margin>
       <h5>
         Custom router
       </h5>
@@ -44,11 +61,11 @@ const ModalRouting = () => {
         <InlineCode>
           handleParamChange
         </InlineCode>
-        {' instead. Here are some examples using common router libraries: '}
+        {' instead. Here are some examples using common router libraries.'}
       </p>
       <p>
         <b>
-          NextJS:
+          NextJS
         </b>
       </p>
       <Margin bottom="small">
@@ -74,7 +91,7 @@ export default App = () => {
       </Margin>
       <p>
         <b>
-          React Router:
+          React Router
         </b>
       </p>
       <Margin bottom="small">

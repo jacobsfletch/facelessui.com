@@ -13,17 +13,17 @@ const GettingStartedDoc = () => {
         Getting Started
       </h1>
       <p>
-        Faceless UI is an unstyled React library. It is component-first, so you can build your app using components instead of class names. If you know React, you know Faceless UI. And since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
+        Faceless UI is an unstyled React library. It is component-first, so you can build your app using components instead of class names. If you know React, you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
+      </p>
+      <p>
+        Faceless UI allows you to build your app in a way that is familiar to you. It is designed to integrate seamlessly into any setup. Each Faceless UI component has no appearance, making it perfectly suited to power your brand&apos;s own UI library.
       </p>
       <Margin bottom="xs">
         <h5>
           Styling
         </h5>
         <p>
-          You can apply styles to Faceless UI components using any CSS setup. All components expose their entire DOM, letting you customize the markup to your exact needs. A typical pattern is to pass class names into components through props.
-        </p>
-        <p>
-          There may also be cases where Faceless UI sets a small amount of css of its own to achieve core functionality. This is typically done with inline-css but may also include stylesheets. Either way, all css has a tiny footprint and can be overridden or opted-out. See each API for implementation details.
+          Faceless UI components apply as little CSS as possible to achieve core functionality. To customize the appearance of Faceless UI components, use your using your existing CSS setup. Every Faceless UI component exposes its DOM, letting you customize the markup to meet your exact needs. A typical pattern is to pass class names or style objects to these components through props. This makes it possible to tie into any CSS framework, such as SCSS modules.
         </p>
       </Margin>
       <Margin>
@@ -31,7 +31,7 @@ const GettingStartedDoc = () => {
           Accessibility
         </h5>
         <p>
-          Accessibility is a top-priority of Faceless UI. Being unstyled, this library is perfectly suited for standardizing and enforcing best web practices. By default, all Faceless UI components are fully accessible using the latest WAI-ARIA standards. Since each component is pluggable, you can easily add your own accessibility features.
+          Accessibility is a top-priority of Faceless UI, and is perfectly suited for standardizing and enforcing best web practices. By default, all Faceless UI components are fully accessible using the latest WAI-ARIA standards — and since each component is pluggable, you can easily add your own accessibility features.
         </p>
       </Margin>
       {/* <p>

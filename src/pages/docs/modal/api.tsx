@@ -27,11 +27,11 @@ const ModalAPI = () => {
         Modal API
       </h1>
       <JumplistNode nodeID="provider">
-        <h4>
+        <h4 id="provider">
           ModalProvider
         </h4>
         <p>
-          This component provides the modal context throughout your app. Render it one time in the top-level of your app. It does not have any required props.
+          This provides context for all the components and hooks to work together. The context includes properties and methods used to read and interact with the modal state. Render it one time in the top-level of your app. It does not have any required props.
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -45,7 +45,7 @@ export const MyApp = () = (
 );`}
           </CodeBlock>
         </Margin>
-        <h5 id="props">
+        <h5 id="provider-props">
           Props
         </h5>
         <InlineCode id="zIndex">
@@ -359,26 +359,27 @@ export const MyApp = () = (
         </p>
       </JumplistNode>
       <JumplistNode nodeID="container">
-        <h4>
+        <h4 id="container">
           ModalContainer
         </h4>
         <p>
           This is the component which every modal will portal into. It should be rendered once in the root of your application.
         </p>
-        <h5>
+        <h5 id="container-props">
           Props
         </h5>
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="modal">
-        <h4>
+        <h4 id="modal">
           Modal
         </h4>
         <p>
           Render any number of this component throughout your app. Each one is portaled into the ModalContainer.
         </p>
-        <CodeBlock>
-          {`import react from 'react';
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
 import { Modal } from '@faceless-ui/modal;
 
 export const MyModal = () => {
@@ -388,7 +389,33 @@ export const MyModal = () => {
     </Modal>
   )
 };`}
-        </CodeBlock>
+          </CodeBlock>
+        </Margin>
+        <p>
+          {'You can also pass a function as a child to conveniently access context. This is an alternative to the '}
+          <InlineCode>
+            useModal
+          </InlineCode>
+          {' hook.'}
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
+import { Modal } from '@faceless-ui/modal;
+
+export const MyModal = () => {
+  return (
+    <Modal slug="my-modal">
+      {(modalContext) => {
+        return (
+          ...
+        )
+      }}
+    </Modal>
+  )
+};`}
+          </CodeBlock>
+        </Margin>
         <h5>
           Props
         </h5>
@@ -419,14 +446,19 @@ export const MyModal = () => {
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="toggler">
-        <h4>
+        <h4 id="toggler">
           ModalToggler
         </h4>
         <p>
-          This is just a button that will open or close a modal, depending on its current status. It&apos;s just a simple wrapper around useModal hookYou can easily do this yourself, but this component takes the wraps the logic for you.
+          {'This is just a button that will open or close a modal, depending on its current status. It\'s a simple wrapper around the '}
+          <InlineCode>
+            useModal
+          </InlineCode>
+          {' hook. You can easily open and close modals using the methods provided by the context, but this component wraps that logic for you.'}
         </p>
-        <CodeBlock>
-          {`import react from 'react';
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
 import { ModalToggler } from '@faceless-ui/modal;
 
 export const MyComponent = () => {
@@ -436,8 +468,9 @@ export const MyComponent = () => {
     </ModalToggler>
   )
 };`}
-        </CodeBlock>
-        <h5>
+          </CodeBlock>
+        </Margin>
+        <h5 id="toggler-props">
           Props
         </h5>
         <InlineCode>
@@ -449,7 +482,7 @@ export const MyComponent = () => {
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="useModal">
-        <h4>
+        <h4 id="useModal">
           useModal
         </h4>
         <p>
@@ -478,17 +511,18 @@ export const MyComponent = () => {
         </Margin>
       </JumplistNode>
       <JumplistNode nodeID="asModal">
-        <h4>
+        <h4 id="asModal">
           asModal
         </h4>
         <p>
-          For advanced setups, there is a higher order component you can use to wrap any React component to have it function as a modal. This is actually what the Modal component is doing behind the scenes, but you can easily do it yourself if needed.
+          For advanced setups, there is a higher order component you can use to wrap any React component to have it function as a modal. This is actually what the Modal component is doing behind the scenes, but you can easily do it yourself if needed. It will attach the modal context into the props of the wrapped component.
         </p>
         <CodeBlock>
           {`import react from 'react';
 import { asModal } from '@faceless-ui/modal;
 
-export const MyModal = asModal(() => {
+export const MyModal = asModal((props) => {
+  const { modal } = props;
   return (
     ...
   )

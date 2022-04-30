@@ -17,7 +17,7 @@ const ModalDoc = () => {
         Modal
       </h1>
       <p>
-        This package includes a powerful set of hooks and components that make it incredibly easy to create modals of all kinds. Transitions come out-of-the-box and are easily customizable. Modals can optionally be controlled via the URL, and easily tie into your existing router. As with all of Faceless UI, modals are highly accessible.
+        This package includes a powerful set of hooks and components that make it incredibly easy to create highly customized modals from anywhere in your app. Transitions come out-of-the-box and can be completely unique. There are many way to control a modal, including with the URL or your existing router. As with all of Faceless UI, modals are highly accessible.
       </p>
       <p>
         Some common uses for this package include:
@@ -74,32 +74,32 @@ const ModalDoc = () => {
           <InlineCode>
             {'<ModalContainer>'}
           </InlineCode>
-          {'. This lifts them into the out of their current stacking context and makes it possible to apply fullscreen transitions.'}
+          {'. This lifts them into the out of their current stacking context and makes it possible to apply fullscreen transitions. The modal container can also be used to standardize modal transitions.'}
         </p>
         <p>
           {'Now each modal can be independently controlled using a '}
           <InlineCode>
             {'<ModalToggler>'}
           </InlineCode>
-          {', the '}
+          {', methods on the '}
           <InlineCode>
             {'useModal'}
           </InlineCode>
-          {' hook, or even the URL. When a modal is opened, transition events are fired on both the Modal and ModalContainer simultaneously using '}
+          {' hook, or even the URL so you link directly to an open modal. When a modal is opened, transition events are fired using '}
           <Hyperlink
             underline
             href="https://reactcommunity.org/react-transition-group"
           >
-            React Transitions Group
+            React Transition Group
           </Hyperlink>
-          {'. This is a useful pattern for standardizing modal transitions or creating entirely unique ones.'}
+          {'. Modal transitions can be standardized or completely unique from each other.'}
         </p>
         <p>
           {'The final piece to this is the '}
           <InlineCode>
             {'<ModalProvider>'}
           </InlineCode>
-          {' which should wrap your entire app. This provides context for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with these modals. See the '}
+          {' which should wrap your entire app and where you define global settings. This provides context for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with these modals. See the '}
           <Hyperlink
             href="/docs/modal/api"
             underline

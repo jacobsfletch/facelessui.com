@@ -2,6 +2,10 @@
 
 .blockContainer {
   width: 100%;
+  max-width: $blockContainerWidth;
+  margin-left: auto;
+  margin-right: auto;
+
   @include mid-break {
     padding: 0 var(--mobile-gutter);
   }

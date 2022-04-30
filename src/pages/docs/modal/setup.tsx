@@ -24,29 +24,87 @@ const ModalSetupDoc = () => {
         />
       </p>
       <p>
-        First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is also where your options are defined:
+        {'First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is also where the '}
+        <Hyperlink
+          href="/docs/modal/api#provider-props"
+          underline
+        >
+          global settings
+        </Hyperlink>
+        {' are defined. Then anywhere inside of this, render the'}
+        <InlineCode >
+          {'<ModalContainer>'}
+        </InlineCode>
+        {'. This is where each modal will be rendered, so its often best to keep this relatively high in your tree.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { ModalProvider } from \'@faceless-ui/modal\';
+          {`import { ModalProvider, ModalContainer } from \'@faceless-ui/modal\';
 
-export const App = () => {
+export const MyApp = () => {
   return (
-    <ModalProvider
-    transTime={250}
-    >
-      ...
+    <ModalProvider transTime={250}>
+      <ModalContainer />
     </ModalProvider>
   )
 }`}
         </CodeBlock>
       </Margin>
       <p>
-        {'You can also consume the context however you need. The '}
+        {'To create a modal, render a '}
+        <InlineCode>
+          {'<Modal>'}
+        </InlineCode>
+        {' component from anywhere in your app. The only required prop is a unique modal slug.'}
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import { Modal } from \'@faceless-ui/modal\';
+
+export const MyComponent = () => {
+  return (
+    <Modal slug="my-modal">
+      <h1>
+        Hello, world!
+      </h1>
+    </Modal>
+  )
+}`}
+        </CodeBlock>
+      </Margin>
+      <p>
+        {'The simplest way to open and close the modal is to use the '}
+        <InlineCode>
+          {'<ModalToggler>'}
+        </InlineCode>
+        {' component. This component takes the slug of any modal and toggles it open or closed based on the current state.'}
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import { ModalToggler } from \'@faceless-ui/modal\';
+
+export const MyComponent = () => {
+  return (
+    <ModalToggler slug="my-modal">
+      Toggle My Modal
+    </ModalToggler>
+  )
+}`}
+        </CodeBlock>
+      </Margin>
+      <p>
+        {'If you need to use '}
+        <Hyperlink
+          underline
+          href="/docs/modal/api#context"
+        >
+          modal context
+        </Hyperlink>
+        {', the easiest way to do this is with the '}
         <InlineCode>
           useModal
         </InlineCode>
-        {' hook is the most common use case:'}
+        {' hook.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

@@ -7,7 +7,7 @@ export const Header: React.FC = () => {
 
   return (
     <div className={classes.header}>
-      <BlockContainer >
+      <BlockContainer>
         <div className={classes.wrapper}>
           <div className={classes.logoWrapper}>
             {/* <Eye /> */}
