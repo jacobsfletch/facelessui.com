@@ -5,6 +5,7 @@ import { InlineCode } from '@components/InlineCode';
 import { CodeBlock } from '@components/CodeBlock';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
+import { Heading } from '@components/Heading';
 
 const WindowInfoAPI = () => {
   return (
@@ -15,9 +16,14 @@ const WindowInfoAPI = () => {
       <h1>
         Window Info API
       </h1>
-      <h4>
+      <Heading
+        id="provider"
+        href="/docs/window-info/api#provider"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#provider`}
+        element='h4'
+      >
         Provider
-      </h4>
+      </Heading>
       <Margin bottom="xs">
         <CodeBlock>
           {`import react from 'react';
@@ -37,11 +43,14 @@ export const MyApp = () = (
 );`}
         </CodeBlock>
       </Margin>
-      <p id="props">
-        <b>
-          Props:
-        </b>
-      </p>
+      <Heading
+        id="props"
+        href="/docs/window-info/api#props"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#props`}
+        element='h5'
+      >
+        Props
+      </Heading>
       <InlineCode>
         breakpoints
       </InlineCode>
@@ -54,11 +63,14 @@ export const MyApp = () = (
       <p>
         React children.
       </p>
-      <p id="context">
-        <b>
-          Context:
-        </b>
-      </p>
+      <Heading
+        id="context"
+        href="/docs/window-info/api#context"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#context`}
+        element='h5'
+      >
+        Context
+      </Heading>
       <InlineCode>
         width
       </InlineCode>
@@ -95,9 +107,14 @@ export const MyApp = () = (
       <p>
         Number of animation frames completed.
       </p>
-      <h4>
+      <Heading
+        id="useWindowInfo"
+        href="/docs/window-info/api#useWindowInfo"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#useWindowInfo`}
+        element='h4'
+      >
         useWindowInfo
-      </h4>
+      </Heading>
       <p>
         {'This is a hook you can use to access the '}
         <Hyperlink
@@ -121,9 +138,14 @@ export const MyComponent = () => {
 };`}
         </CodeBlock>
       </Margin>
-      <h4>
+      <Heading
+        id="withWindowInfo"
+        href="/docs/window-info/api#withWindowInfo"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#withWindowInfo`}
+        element='h4'
+      >
         withWindowInfo
-      </h4>
+      </Heading>
       <p>
         {'This is a higher-order component you can use to access the '}
         <Hyperlink

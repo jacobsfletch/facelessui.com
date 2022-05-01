@@ -59,7 +59,7 @@ const ModalDoc = () => {
           How it works
         </h5>
         <p>
-          {'Each modal is wrapper around '}
+          {'Each modal is a wrapper around '}
           <Hyperlink
             underline
             href="https://reactjs.org/docs/portals.html"

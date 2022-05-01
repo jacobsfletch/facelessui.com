@@ -1,4 +1,4 @@
-import { nav } from '@root/layout/DocsNav/nav';
+import { nav } from '@root/docs-nav';
 import { useDarkMode } from '@root/providers/DarkMode';
 import React from 'react';
 import classes from './index.module.scss';

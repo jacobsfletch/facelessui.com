@@ -5,7 +5,7 @@ import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { Hyperlink } from '@components/Hyperlink';
 import { InlineCode } from '@components/InlineCode';
-import { InstallationCode } from '@components/InstallationCode';
+import { Heading } from '@components/Heading';
 
 const ScrollInfoAPI = () => {
   return (
@@ -16,15 +16,14 @@ const ScrollInfoAPI = () => {
       <h1>
         Scroll Info API
       </h1>
-      <p>
-        Installation
-      </p>
-      <Margin bottom="xs">
-        <InstallationCode name="scroll-info" />
-      </Margin>
-      <h4>
+      <Heading
+        id="provider"
+        href="/docs/scroll-info/api#provider"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#provider`}
+        element='h4'
+      >
         Provider
-      </h4>
+      </Heading>
       <Margin bottom="xs">
         <CodeBlock>
           {`import react from 'react';
@@ -37,22 +36,28 @@ export const MyApp = () = (
 );`}
         </CodeBlock>
       </Margin>
-      <p id="props">
-        <b>
-          Props:
-        </b>
-      </p>
+      <Heading
+        id="props"
+        href="/docs/scroll-info/api#props"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#props`}
+        element='h5'
+      >
+        Props
+      </Heading>
       <InlineCode>
         children
       </InlineCode>
       <p>
         React children.
       </p>
-      <p id="context">
-        <b>
-          Context:
-        </b>
-      </p>
+      <Heading
+        id="context"
+        href="/docs/scroll-info/api#context"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#context`}
+        element='h5'
+      >
+        Context
+      </Heading>
       <InlineCode>
         x
       </InlineCode>
@@ -101,9 +106,14 @@ export const MyApp = () = (
       <p>
         Number of animation frames completed.
       </p>
-      <h4>
+      <Heading
+        id="useScrollInfo"
+        href="/docs/scroll-info/api#useScrollInfo"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#useScrollInfo`}
+        element='h4'
+      >
         useScrollInfo
-      </h4>
+      </Heading>
       <p>
         {'This is a hook you can use to access the '}
         <Hyperlink
@@ -127,9 +137,14 @@ export const MyComponent = () => {
 };`}
         </CodeBlock>
       </Margin>
-      <h4>
+      <Heading
+        id="withScrollInfo"
+        href="/docs/scroll-info/api#withScrollInfo"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#withScrollInfo`}
+        element='h4'
+      >
         withScrollInfo
-      </h4>
+      </Heading>
       <p>
         {'This is a higher-order component you can use to access the '}
         <Hyperlink

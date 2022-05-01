@@ -7,16 +7,26 @@ import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { JumplistNode } from '@faceless-ui/jumplist';
 import { useJumplist } from '@faceless-ui/jumplist';
-import { modalJumplistNav } from '@root/layout/DocsNav/nav';
+import { modalJumplistNav } from '@root/docs-nav';
 import { BasicProps } from '@components/BasicProps';
+import { Heading } from '@components/Heading';
 
 const ModalAPI = () => {
-  const { setJumplist } = useJumplist();
+  const {
+    setJumplist,
+    clearJumplist
+  } = useJumplist();
 
   useEffect(() => {
     const jumplist = modalJumplistNav.map((item) => ({ nodeID: item.id || '' }));
     setJumplist(jumplist);
-  }, [setJumplist])
+    return () => {
+      clearJumplist();
+    }
+  }, [
+    setJumplist,
+    clearJumplist
+  ])
 
   return (
     <Fragment>
@@ -27,9 +37,14 @@ const ModalAPI = () => {
         Modal API
       </h1>
       <JumplistNode nodeID="provider">
-        <h4 id="provider">
+        <Heading
+          id="provider"
+          href="/docs/modal/api#provider"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#provider`}
+          element='h4'
+        >
           ModalProvider
-        </h4>
+        </Heading>
         <p>
           This provides context for all the components and hooks to work together. The context includes properties and methods used to read and interact with the modal state. Render it one time in the top-level of your app. It does not have any required props.
         </p>
@@ -45,9 +60,14 @@ export const MyApp = () = (
 );`}
           </CodeBlock>
         </Margin>
-        <h5 id="provider-props">
+        <Heading
+          id="provider-props"
+          href="/docs/modal/api#provider-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#provider-props`}
+          element='h5'
+        >
           Props
-        </h5>
+        </Heading>
         <InlineCode id="zIndex">
           zIndex
         </InlineCode>
@@ -121,9 +141,14 @@ export const MyApp = () = (
             generateCSS
           </InlineCode>
         </p>
-        <h5 id="context">
+        <Heading
+          id="context"
+          href="/docs/modal/api#context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#context`}
+          element='h5'
+        >
           Context
-        </h5>
+        </Heading>
         <InlineCode id="containerRef">
           containerRef
         </InlineCode>
@@ -359,21 +384,36 @@ export const MyApp = () = (
         </p>
       </JumplistNode>
       <JumplistNode nodeID="container">
-        <h4 id="container">
+        <Heading
+          id="container"
+          href="/docs/modal/api#container"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#container`}
+          element='h4'
+        >
           ModalContainer
-        </h4>
+        </Heading>
         <p>
           This is the component which every modal will portal into. It should be rendered once in the root of your application.
         </p>
-        <h5 id="container-props">
+        <Heading
+          id="container-props"
+          href="/docs/modal/api#container-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#container-props`}
+          element='h5'
+        >
           Props
-        </h5>
+        </Heading>
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="modal">
-        <h4 id="modal">
+        <Heading
+          id="modal"
+          href="/docs/modal/api#modal"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#modal`}
+          element='h4'
+        >
           Modal
-        </h4>
+        </Heading>
         <p>
           Render any number of this component throughout your app. Each one is portaled into the ModalContainer.
         </p>
@@ -416,9 +456,14 @@ export const MyModal = () => {
 };`}
           </CodeBlock>
         </Margin>
-        <h5>
+        <Heading
+          id="modal-props"
+          href="/docs/modal/api#modal-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#modal-props`}
+          element='h5'
+        >
           Props
-        </h5>
+        </Heading>
         <InlineCode id="classPrefix">
           slug*
         </InlineCode>
@@ -446,9 +491,14 @@ export const MyModal = () => {
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="toggler">
-        <h4 id="toggler">
-          ModalToggler
-        </h4>
+        <Heading
+          id="toggler"
+          href="/docs/modal/api#toggler"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#toggler`}
+          element='h4'
+        >
+          Modal Toggler
+        </Heading>
         <p>
           {'This is just a button that will open or close a modal, depending on its current status. It\'s a simple wrapper around the '}
           <InlineCode>
@@ -470,9 +520,14 @@ export const MyComponent = () => {
 };`}
           </CodeBlock>
         </Margin>
-        <h5 id="toggler-props">
+        <Heading
+          id="toggler-props"
+          href="/docs/modal/api#toggler-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#toggler-props`}
+          element='h5'
+        >
           Props
-        </h5>
+        </Heading>
         <InlineCode>
           slug*
         </InlineCode>
@@ -482,9 +537,14 @@ export const MyComponent = () => {
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="useModal">
-        <h4 id="useModal">
+        <Heading
+          id="useModal"
+          href="/docs/modal/api#useModal"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useModal`}
+          element='h4'
+        >
           useModal
-        </h4>
+        </Heading>
         <p>
           {'This is a hook you can use to access the '}
           <Hyperlink
@@ -511,9 +571,14 @@ export const MyComponent = () => {
         </Margin>
       </JumplistNode>
       <JumplistNode nodeID="asModal">
-        <h4 id="asModal">
+        <Heading
+          id="asModal"
+          href="/docs/modal/api#asModal"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#asModal`}
+          element='h4'
+        >
           asModal
-        </h4>
+        </Heading>
         <p>
           For advanced setups, there is a higher order component you can use to wrap any React component to have it function as a modal. This is actually what the Modal component is doing behind the scenes, but you can easily do it yourself if needed. It will attach the modal context into the props of the wrapped component.
         </p>

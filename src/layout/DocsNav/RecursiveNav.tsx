@@ -1,6 +1,6 @@
 import { Hyperlink } from "@components/Hyperlink";
 import { Collapsible, CollapsibleContent, CollapsibleGroup, CollapsibleToggler } from "@faceless-ui/collapsibles";
-import { NavItem } from "@root/layout/DocsNav/nav";
+import { NavItem } from "@root/docs-nav";
 import { Chevron } from "@root/icons/Chevron";
 import { Fragment } from "react";
 import classes from './index.module.scss';
@@ -45,7 +45,7 @@ export const RecursiveNav: React.FC<{
             }
 
             if (type === 'link' || type === 'overview') {
-              const isActiveLink = Boolean(href && asPath === href);
+              const isActiveLink = Boolean(href && asPath && asPath === href);
 
               return (
                 <Hyperlink

@@ -3,10 +3,10 @@ import { ArrowIcon } from '@root/icons/Arrow';
 import { useRouter } from 'next/dist/client/router';
 import React, { useEffect, useState } from 'react';
 import classes from './index.module.scss';
-import { DocsNav, NavItem } from '@root/layout/DocsNav/nav'
+import { DocsNav, NavItem } from '@root/docs-nav'
 import { TextWithInlineIcon } from '@components/TextWithInlineIcon';
 
-import { nav } from '@root/layout/DocsNav/nav';
+import { nav } from '@root/docs-nav';
 import { useDarkMode } from '@root/providers/DarkMode';
 
 type NavLink = {

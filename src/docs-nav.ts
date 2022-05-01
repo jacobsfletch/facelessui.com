@@ -48,6 +48,120 @@ export const modalJumplistNav: NavItem[] = [
   },
 ];
 
+export const cssGridJumplistNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#provider",
+    label: 'GridProvider',
+    id: 'provider'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#grid",
+    label: 'Grid',
+    id: 'grid'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#cell",
+    label: 'Cell',
+    id: 'cell'
+  }
+]
+
+export const jumplistJumplistNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/jumplist/api#provider",
+    label: 'JumplistProvider',
+    id: 'provider',
+  },
+  {
+    type: 'link',
+    href: "/docs/jumplist/api#node",
+    label: 'JumplistNode',
+    id: 'node',
+  },
+  {
+    type: 'link',
+    href: "/docs/jumplist/api#track",
+    label: 'JumplistTrack',
+    id: 'track',
+  },
+  {
+    type: 'link',
+    href: "/docs/jumplist/api#useJumplist",
+    label: 'useJumplist',
+    id: 'useJumplist',
+  },
+]
+
+export const sliderJumplistNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/slider/api#provider",
+    label: 'SliderProvider',
+    id: 'provider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/api#slider",
+    label: 'Slider',
+    id: 'slider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/api#track",
+    label: 'SliderTrack',
+    id: 'track',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/api#slide",
+    label: 'Slide',
+    id: 'slide',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/api#button",
+    label: 'SliderButton',
+    id: 'button',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/api#useSlider",
+    label: 'useSlider',
+    id: 'useSlider',
+  },
+]
+
+export const collapsiblesJumplistNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/collapsibles/api#collapsible",
+    label: 'Collapsible',
+    id: 'collapsible'
+  },
+  {
+    type: 'link',
+    href: "/docs/collapsibles/api#content",
+    label: 'CollapsibleContent',
+    id: 'content'
+  },
+  {
+    type: 'link',
+    href: "/docs/collapsibles/api#toggler",
+    label: 'CollapsibleToggler',
+    id: 'toggler'
+  },
+  {
+    type: 'link',
+    href: "/docs/collapsibles/api#group",
+    label: 'CollapsibleGroup',
+    id: 'group'
+  },
+];
+
 export const nav: DocsNav = [
   {
     type: 'title',
@@ -115,31 +229,10 @@ export const nav: DocsNav = [
         label: 'Basic Setup',
       },
       {
-        type: 'link',
-        href: "/docs/css-grid/examples",
-        label: 'Examples'
-      },
-      {
         type: 'jumplist',
         href: "/docs/css-grid/api",
         label: 'API Reference',
-        items: [
-          {
-            type: 'link',
-            href: "/docs/css-grid/api#provider",
-            label: 'GridProvider'
-          },
-          {
-            type: 'link',
-            href: "/docs/css-grid/api#grid",
-            label: 'Grid'
-          },
-          {
-            type: 'link',
-            href: "/docs/css-grid/api#cell",
-            label: 'Cell'
-          },
-        ]
+        items: cssGridJumplistNav
       },
     ]
   },
@@ -163,28 +256,7 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/slider/api",
         label: 'API Reference',
-        items: [
-          {
-            type: 'link',
-            href: "/docs/slider/api#provider",
-            label: 'SliderProvider'
-          },
-          {
-            type: 'link',
-            href: "/docs/slider/api#track",
-            label: 'SliderTrack'
-          },
-          {
-            type: 'link',
-            href: "/docs/slider/api#slide",
-            label: 'Slide'
-          },
-          {
-            type: 'link',
-            href: "/docs/slider/api#useSlider",
-            label: 'useSlider'
-          },
-        ]
+        items: sliderJumplistNav
       },
     ]
   },
@@ -208,32 +280,7 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/jumplist/api",
         label: 'API Reference',
-        items: [
-          {
-            type: 'link',
-            href: "/docs/jumplist/api#provider",
-            label: 'JumplistProvider',
-            id: 'provider',
-          },
-          {
-            type: 'link',
-            href: "/docs/jumplist/api#node",
-            label: 'JumplistNode',
-            id: 'node',
-          },
-          {
-            type: 'link',
-            href: "/docs/jumplist/api#track",
-            label: 'JumplistTrack',
-            id: 'track',
-          },
-          {
-            type: 'link',
-            href: "/docs/jumplist/api#useJumplist",
-            label: 'useJumplist',
-            id: 'useJumplist',
-          },
-        ]
+        items: jumplistJumplistNav
       },
     ]
   },
@@ -254,36 +301,10 @@ export const nav: DocsNav = [
         label: 'Basic Setup',
       },
       {
-        type: 'link',
-        href: "/docs/collapsibles/examples",
-        label: 'Examples'
-      },
-      {
         type: 'jumplist',
         href: "/docs/collapsibles/api",
         label: 'API Reference',
-        items: [
-          {
-            type: 'link',
-            href: "/docs/collapsibles/api#collapsible",
-            label: 'Collapsible'
-          },
-          {
-            type: 'link',
-            href: "/docs/collapsibles/api#content",
-            label: 'CollapsibleContent'
-          },
-          {
-            type: 'link',
-            href: "/docs/collapsibles/api#toggler",
-            label: 'CollapsibleToggler'
-          },
-          {
-            type: 'link',
-            href: "/docs/collapsibles/api#group",
-            label: 'CollapsibleGroup'
-          },
-        ]
+        items: collapsiblesJumplistNav
       },
     ]
   },

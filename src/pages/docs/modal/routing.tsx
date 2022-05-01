@@ -5,6 +5,7 @@ import { CodeBlock } from '@components/CodeBlock';
 import { Hyperlink } from '@components/Hyperlink';
 import { InlineCode } from '@components/InlineCode';
 import Margin from '@components/Margin';
+import { Heading } from '@components/Heading';
 
 const ModalRouting = () => {
   return (
@@ -18,9 +19,14 @@ const ModalRouting = () => {
       <p>
         You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to open modals. There are two ways to do this:
       </p>
-      <h5>
+      <Heading
+        id="history"
+        href="/docs/modal/routing#history"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#history`}
+        element='h5'
+      >
         History API
-      </h5>
+      </Heading>
       <p>
         {'Allow the modal to handle URL changes using the '}
         <Hyperlink
@@ -53,9 +59,14 @@ export const MyApp = (props) => {
 }`}
         </CodeBlock>
       </Margin>
-      <h5>
+      <Heading
+        id="custom"
+        href="/docs/modal/routing#custom"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#custom`}
+        element='h5'
+      >
         Custom router
-      </h5>
+      </Heading>
       <p>
         {`If your app already uses a router, send a callback function to `}
         <InlineCode>
@@ -64,9 +75,14 @@ export const MyApp = (props) => {
         {' instead. Here are some examples using common router libraries.'}
       </p>
       <p>
-        <b>
+        <Heading
+          id="next-router"
+          href="/docs/modal/routing#next-router"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#next-router`}
+          element='b'
+        >
           NextJS
-        </b>
+        </Heading>
       </p>
       <Margin bottom="small">
         <CodeBlock>
@@ -90,9 +106,14 @@ export default App = () => {
         </CodeBlock>
       </Margin>
       <p>
-        <b>
-          React Router
-        </b>
+        <Heading
+          id="react-router"
+          href="/docs/modal/routing#react-router"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#react-router`}
+          element='b'
+        >
+          React router
+        </Heading>
       </p>
       <Margin bottom="small">
         <CodeBlock>

@@ -17,7 +17,7 @@ const GridDoc = () => {
         Grid
       </h1>
       <p>
-        {'This package provides a layer around '}
+        {'This package provides a set of components that enable rapid development of responsive layouts. It is a lightweight, component-centric wrapper around '}
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
           newTab
@@ -25,10 +25,13 @@ const GridDoc = () => {
         >
           CSS Grid Layout
         </Hyperlink>
-        {'. By using the grid you also ensure proper alignment from anywhere in your app. Like all of React it is component-centric, so rows and columns are controlled using props and not class names. Grids can also be nested, so that alignment is maintained all the way through your DOM tree.'}
+        {' — so columns are controlled using props and not class names.'}
       </p>
       <p>
-        Grids also multiple breakpoints &mdash; so the number of columns, the row gap, and the column gap can all vary based on screen size. This means a 14 column desktop grid could change to 8 columns on mobile. Cells can span a different number of these columns as breakpoints are met.
+        Using a grid is useful to ensure proper horizontal alignment across your entire app. This means that elements start and stop consistent points across the horizontal plane. Grids can also be nested, so that alignment is maintained all the way through your DOM tree.
+      </p>
+      <p>
+        Grids also support multiple breakpoints &mdash; to the row gap, column gap, and number of columns can vary based on screen size. This means a 14 column desktop grid could change to 8 columns on mobile. Cells can span a different number of these columns as breakpoints are met.
       </p>
       <Margin bottom="xs">
         <h5>
@@ -45,7 +48,14 @@ const GridDoc = () => {
           <InlineCode>
             GridProvider
           </InlineCode>
-          {' defines the global grid settings for your app which includes the number of columns, column gap, and row gap, per breakpoint. Behind the scenes, it generates a small stylesheet containing classes for every grid and cell combination. '}
+          {' defines the global '}
+          <Hyperlink
+            href="/docs/css-grid#provider-props"
+            underline
+          >
+            grid settings
+          </Hyperlink>
+          {' for your app which includes the number of columns, column gap, and row gap — per breakpoint. Behind the scenes, it generates a small stylesheet containing classes for every grid and cell combination. '}
         </p>
         <p>
           {'Now, you can use the '}

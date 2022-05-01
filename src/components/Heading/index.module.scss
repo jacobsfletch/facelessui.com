@@ -1,5 +1,10 @@
 @use "@scss/common" as *;
 
+.enableCopyURL {
+  position: relative;
+  cursor: pointer;
+}
+
 .h1 {
   @include h1;
 }
@@ -46,4 +51,10 @@
 
 .noMarginBottom {
   margin-bottom: 0;
+}
+
+.hashMark {
+  position: absolute;
+  right: calc(100% + #{base(0.5)});
+  top: 0;
 }
