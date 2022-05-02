@@ -8,6 +8,7 @@ import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { InstallationCode } from '@components/InstallationCode';
+import { Heading } from '@components/Heading';
 
 const ScrollInfoDoc = () => {
   const scrollInfo = useScrollInfo();
@@ -41,14 +42,24 @@ const ScrollInfoDoc = () => {
         This utility also conveniently interprets scroll data for you, such as direction of scroll and current percentage.
       </p>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/scroll-info#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="scroll-info" />
       </Margin>
-      <h5>
+      <Heading
+        id="features"
+        href="/docs/scroll-info#features"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info#features`}
+        element='h5'
+      >
         Key features
-      </h5>
+      </Heading>
       <Margin bottom="xs">
         <StyledList
           items={[

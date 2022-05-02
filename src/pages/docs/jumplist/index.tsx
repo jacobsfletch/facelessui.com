@@ -5,6 +5,7 @@ import Margin from '@components/Margin';
 import { InstallationCode } from '@components/InstallationCode';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
+import { Heading } from '@components/Heading';
 
 const JumplistDoc = () => {
   return (
@@ -19,15 +20,25 @@ const JumplistDoc = () => {
         The jumplist package is a powerful way to create and track jumplist items as they pass through the viewport. This makes it possible to highlight the current item in a navigation menu as the user scrolls through content.
       </p>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/jumplist#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="jumplist" />
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="how-it-works"
+          href="/docs/jumplist#how-it-works"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#how-it-works`}
+          element='h5'
+        >
           How it works
-        </h5>
+        </Heading>
         <p>
           {'In the top-level of your app, a '}
           <InlineCode>
@@ -68,9 +79,14 @@ const JumplistDoc = () => {
         </p>
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="features"
+          href="/docs/jumplist#features"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#features`}
+          element='h5'
+        >
           Key features
-        </h5>
+        </Heading>
         <p>
           This section has no content
         </p>

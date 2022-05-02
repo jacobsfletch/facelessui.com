@@ -8,6 +8,7 @@ import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { InstallationCode } from '@components/InstallationCode';
+import { Heading } from '@components/Heading';
 
 const WindowInfoDoc = () => {
   const windowInfo = useWindowInfo();
@@ -41,14 +42,24 @@ const WindowInfoDoc = () => {
         The window info utility also conveniently watches breakpoints for you. This enables you to write highly-performant js-based media queries, which can match your exact css media queries. This can be useful for conditionally rendering, or any other css-in-js.
       </p>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/window-info#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="window-info" />
       </Margin>
-      <h5>
+      <Heading
+        id="features"
+        href="/docs/window-info#features"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info#features`}
+        element='h5'
+      >
         Key features
-      </h5>
+      </Heading>
       <Margin bottom="xs">
         <StyledList
           items={[

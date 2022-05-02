@@ -6,6 +6,7 @@ import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { InstallationCode } from '@components/InstallationCode';
 import { StyledList } from '@components/StyledList';
+import { Heading } from '@components/Heading';
 
 const SliderDoc = () => {
   return (
@@ -20,14 +21,24 @@ const SliderDoc = () => {
         {'This package makes it incredibly easy to create sliders of every kind. Sliders can be free-scrolling or snap to each slide. You can render the built-in navigation components or easily control the sliders yourself. Sliders can even control other sliders and slide synchronously. Scroll progress can also be displayed anywhere, and is not constrained to the overflowed container.'}
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/slider#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="slider" />
       </Margin>
-      <h5>
+      <Heading
+        id="how-it-works"
+        href="/docs/slider#how-it-works"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider#how-it-works`}
+        element='h5'
+      >
         How it works
-      </h5>
+      </Heading>
       <Margin bottom="xs">
         <p>
           {'First, wrap any section of your code with the '}
@@ -83,9 +94,14 @@ const SliderDoc = () => {
         </p>
       </Margin>
       <div>
-        <h5>
+        <Heading
+          id="features"
+          href="/docs/slider#features"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider#features`}
+          element='h5'
+        >
           Key features
-        </h5>
+        </Heading>
         <StyledList
           items={[
             (

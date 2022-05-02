@@ -6,6 +6,7 @@ import { InstallationCode } from '@components/InstallationCode';
 import { StyledList } from '@components/StyledList';
 import { Hyperlink } from '@components/Hyperlink';
 import { InlineCode } from '@components/InlineCode';
+import { Heading } from '@components/Heading';
 
 const GridDoc = () => {
   return (
@@ -34,15 +35,25 @@ const GridDoc = () => {
         Grids also support multiple breakpoints &mdash; to the row gap, column gap, and number of columns can vary based on screen size. This means a 14 column desktop grid could change to 8 columns on mobile. Cells can span a different number of these columns as breakpoints are met.
       </p>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/css-grid#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="css-grid" />
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="how-it-works"
+          href="/docs/css-grid#how-it-works"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#how-it-works`}
+          element='h5'
+        >
           How it works
-        </h5>
+        </Heading>
         <p>
           {'At the top-level of your app, the '}
           <InlineCode>
@@ -106,9 +117,14 @@ const GridDoc = () => {
         </p>
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="features"
+          href="/docs/css-grid#features"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#features`}
+          element='h5'
+        >
           Key features
-        </h5>
+        </Heading>
         <StyledList
           items={[
             (

@@ -40,7 +40,7 @@ const JumplistAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#provider`}
           element='h4'
         >
-          JumplistProvider
+          {'<JumplistProvider>'}
         </Heading>
         <p>
           The provider is rendered on time at the root of your project. It maintains a list of the intersection status of each jumplist item. Global settings can be controlled here.
@@ -87,7 +87,7 @@ const JumplistAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node`}
           element='h4'
         >
-          JumplistNode
+          {'<JumplistNode>'}
         </Heading>
         <p>
           Each jumplist node is a wrapper around Intersection Observer, and syncs its current intersection status to the provider.
@@ -115,7 +115,7 @@ const JumplistAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#track`}
           element='h4'
         >
-          JumplistTrack
+          {'<JumplistTrack>'}
         </Heading>
         <p>
           By default, jumplist nodes report their intersection relative to the window. Alternatively, there is the JumplistTrack which is an overflowing div that you can place anywhere in your app. Intersection events will be relative to this instead of the window.

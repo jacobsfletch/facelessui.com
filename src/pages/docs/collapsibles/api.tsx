@@ -37,7 +37,7 @@ const CollapsiblesAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#collapsible`}
           element='h4'
         >
-          Collapsible
+          {'<Collapsible>'}
         </Heading>
         <p>
           This section has no content
@@ -61,7 +61,7 @@ const CollapsiblesAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#content`}
           element='h4'
         >
-          CollapsibleContent
+          {'<CollapsibleContent>'}
         </Heading>
         <p>
           This section has no content
@@ -85,7 +85,7 @@ const CollapsiblesAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#toggler`}
           element='h4'
         >
-          CollapsibleToggler
+          {'<CollapsibleToggler>'}
         </Heading>
         <p>
           This section has no content
@@ -109,7 +109,7 @@ const CollapsiblesAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group`}
           element='h4'
         >
-          CollapsibleGroup
+          {'<CollapsibleGroup>'}
         </Heading>
         <p>
           This section has no content

@@ -43,7 +43,7 @@ const ModalAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#provider`}
           element='h4'
         >
-          ModalProvider
+          {'<ModalProvider>'}
         </Heading>
         <p>
           This provides context for all the components and hooks to work together. The context includes properties and methods used to read and interact with the modal state. Render it one time in the top-level of your app. It does not have any required props.
@@ -51,7 +51,7 @@ const ModalAPI = () => {
         <Margin bottom="xs">
           <CodeBlock>
             {`import react from 'react';
-import ModalProvider from '@faceless-ui/modal;
+import { ModalProvider } from '@faceless-ui/modal;
 
 export const MyApp = () = (
   <ModalProvider>
@@ -390,7 +390,7 @@ export const MyApp = () = (
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#container`}
           element='h4'
         >
-          ModalContainer
+          {'<ModalContainer>'}
         </Heading>
         <p>
           This is the component which every modal will portal into. It should be rendered once in the root of your application.
@@ -412,7 +412,7 @@ export const MyApp = () = (
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#modal`}
           element='h4'
         >
-          Modal
+          {'<Modal>'}
         </Heading>
         <p>
           Render any number of this component throughout your app. Each one is portaled into the ModalContainer.
@@ -497,7 +497,7 @@ export const MyModal = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#toggler`}
           element='h4'
         >
-          Modal Toggler
+          {'<ModalToggler>'}
         </Heading>
         <p>
           {'This is just a button that will open or close a modal, depending on its current status. It\'s a simple wrapper around the '}

@@ -22,7 +22,7 @@ const WindowInfoAPI = () => {
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#provider`}
         element='h4'
       >
-        Provider
+        {'<WindowInfoProvider>'}
       </Heading>
       <Margin bottom="xs">
         <CodeBlock>

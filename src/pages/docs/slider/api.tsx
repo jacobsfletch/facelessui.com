@@ -39,7 +39,7 @@ const SliderAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#provider`}
           element='h4'
         >
-          Provider
+          {'<SliderProvider>'}
         </Heading>
         <p>
           This section has no content.
@@ -63,7 +63,7 @@ const SliderAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#slider`}
           element='h4'
         >
-          Slider
+          {'<Slider>'}
         </Heading>
         <p>
           This section has no content.
@@ -87,7 +87,7 @@ const SliderAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#track`}
           element='h4'
         >
-          SliderTrack
+          {'<SliderTrack>'}
         </Heading>
         <p>
           This section has no content.
@@ -109,7 +109,7 @@ const SliderAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#slide`}
           element='h4'
         >
-          Slide
+          {'<Slide>'}
         </Heading>
         <p>
           This section has no content.
@@ -137,7 +137,7 @@ const SliderAPI = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#button`}
           element='h4'
         >
-          SliderButton
+          {'<SliderButton>'}
         </Heading>
         <p>
           This section has no content.

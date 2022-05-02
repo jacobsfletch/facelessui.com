@@ -6,6 +6,7 @@ import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { InlineCode } from '@components/InlineCode';
 import { InstallationCode } from '@components/InstallationCode';
+import { Heading } from '@components/Heading';
 
 const ModalDoc = () => {
   return (
@@ -49,15 +50,25 @@ const ModalDoc = () => {
         />
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/modal#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="modal" />
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="how-it-works"
+          href="/docs/modal#how-it-works"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal#how-it-works`}
+          element='h5'
+        >
           How it works
-        </h5>
+        </Heading>
         <p>
           {'Each modal is a wrapper around '}
           <Hyperlink
@@ -109,9 +120,14 @@ const ModalDoc = () => {
           {' for full capabilities.'}
         </p>
       </Margin>
-      <h5>
+      <Heading
+        id="features"
+        href="/docs/modal#features"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal#features`}
+        element='h5'
+      >
         Key features
-      </h5>
+      </Heading>
       <Margin bottom="xs">
         <StyledList
           items={[

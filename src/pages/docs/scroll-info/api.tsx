@@ -22,7 +22,7 @@ const ScrollInfoAPI = () => {
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#provider`}
         element='h4'
       >
-        Provider
+        {'<ScrollInfoProvider>'}
       </Heading>
       <Margin bottom="xs">
         <CodeBlock>

@@ -1,8 +1,30 @@
 @use "@scss/common" as *;
 
-.enableCopyURL {
+.headingAnchor {
+  &:hover {
+    &:local() {
+      .hashMark {
+        display: block;
+      }
+    }
+  }
+}
+
+.canCopy {
   position: relative;
-  cursor: pointer;
+}
+
+.hashMark {
+  position: absolute;
+  right: calc(100% + #{base(0.5)});
+  top: 0;
+  display: none;
+
+  @include mid-break {
+    display: block;
+    right: calc(100% + (#{var(--mobile-gutter)} / 2));
+    transform: translate3d(50%, 0, 0);
+  }
 }
 
 .h1 {
@@ -51,10 +73,4 @@
 
 .noMarginBottom {
   margin-bottom: 0;
-}
-
-.hashMark {
-  position: absolute;
-  right: calc(100% + #{base(0.5)});
-  top: 0;
 }

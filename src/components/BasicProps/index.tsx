@@ -13,7 +13,7 @@ export const BasicProps = () => {
         className
       </InlineCode>
       <p>
-        Optional. HTML class attribute. Append your own class onto the the element&apos;s existing class list.
+        Optional. HTML class attribute. Append your own class onto the element&apos;s existing class list.
       </p>
       <InlineCode>
         htmlElement

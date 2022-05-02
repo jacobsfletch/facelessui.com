@@ -1,5 +1,5 @@
 import { Hyperlink } from '@components/Hyperlink';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import classes from './index.module.scss';
 import { copyToClipboard } from '@root/utilities/copyToClipboard';
 import { useNotifications } from '@root/providers/Notifications';
@@ -28,7 +28,6 @@ export const Heading: React.FC<{
   } = props;
 
   const { setNotification } = useNotifications();
-  const [isHovered, setIsHovered] = useState(false);
 
   const onCopy = useCallback(() => {
     setNotification({
@@ -42,7 +41,7 @@ export const Heading: React.FC<{
     margin === false && classes.noMargin,
     marginTop === false && classes.noMarginTop,
     marginBottom === false && classes.noMarginBottom,
-    textToCopy && classes.enableCopyURL
+    textToCopy && classes.canCopy
   ].filter(Boolean).join(' ');
 
   if (href) {
@@ -54,18 +53,13 @@ export const Heading: React.FC<{
             copyToClipboard(textToCopy, onCopy);
           }
         }}
-        onMouseEnter={() => {
-          setIsHovered(true)
-        }}
-        onMouseLeave={() => {
-          setIsHovered(false)
-        }}
+        className={classes.headingAnchor}
       >
         <Element
           id={id}
           className={classList}
         >
-          {(textToCopy && isHovered) && (
+          {textToCopy && (
             <span className={classes.hashMark}>
               #
             </span>

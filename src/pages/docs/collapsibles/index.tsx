@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
 import { InstallationCode } from '@components/InstallationCode';
+import { Heading } from '@components/Heading';
 
 const CollapsiblesDoc = () => {
   return (
@@ -17,23 +18,38 @@ const CollapsiblesDoc = () => {
         This package enables you to easily collapse content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled which gives ultimate flexibility to your markup. Collapsible items can also be group together, so that only one can be open at a time.
       </p>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="installation"
+          href="/docs/collapsibles#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles#installation`}
+          element='h5'
+        >
           Installation
-        </h5>
+        </Heading>
         <InstallationCode name="collapsibles" />
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="how-it-works"
+          href="/docs/collapsibles#how-it-works"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles#how-it-works`}
+          element='h5'
+        >
           How it works
-        </h5>
+        </Heading>
         <p>
           This section has no content
         </p>
       </Margin>
       <Margin bottom="xs">
-        <h5>
+        <Heading
+          id="features"
+          href="/docs/collapsibles#features"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles#features`}
+          element='h5'
+        >
           Key features
-        </h5>
+        </Heading>
         <p>
           This section has no content
         </p>

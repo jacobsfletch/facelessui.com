@@ -22,7 +22,7 @@ const MouseInfoAPI = () => {
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#provider`}
         element='h4'
       >
-        Provider
+        {'<MouseInfoProvider>'}
       </Heading>
       <Margin bottom="xs">
         <CodeBlock>
