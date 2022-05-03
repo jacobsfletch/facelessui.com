@@ -10,17 +10,22 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--color-almost-black);
+  color: white;
 }
 
 .notification {
   @include small;
-  color: white;
   padding: base(0.5) base();
-  display: "flex";
-  align-items: "center";
+  display: flex;
+  align-items: center;
   border-radius: 2px;
   box-shadow: var(--shadow-s);
   &:not(:last-child) {
     margin-bottom: base(0.5);
   }
+}
+
+.isDark  {
+  background-color: var(--color-lightest-gray);
+  color: black;
 }

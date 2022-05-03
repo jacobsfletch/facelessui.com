@@ -2,10 +2,10 @@ import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
-import { InstallationCode } from '@components/InstallationCode';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
 import { Heading } from '@components/Heading';
+import { StyledList } from '@components/StyledList';
 
 const JumplistDoc = () => {
   return (
@@ -17,19 +17,8 @@ const JumplistDoc = () => {
         Jumplist
       </h1>
       <p>
-        The jumplist package is a powerful way to create and track jumplist items as they pass through the viewport. This makes it possible to highlight the current item in a navigation menu as the user scrolls through content.
+        The jumplist package is a powerful way to track elements as they pass through the viewport. This allows you to highlight menu items as the page is scrolled. This is useful for pages with lengthy content.
       </p>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/jumplist#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="jumplist" />
-      </Margin>
       <Margin bottom="xs">
         <Heading
           id="how-it-works"
@@ -40,15 +29,11 @@ const JumplistDoc = () => {
           How it works
         </Heading>
         <p>
-          {'In the top-level of your app, a '}
+          {'Each '}
           <InlineCode>
-            JumplistProvider
+            {'<JumplistNode>'}
           </InlineCode>
-          {' is used to provide context to every component that needs it. Then, anywhere in your app a '}
-          <InlineCode>
-            JumplistNode
-          </InlineCode>
-          {' can be rendered, which subscribes itself to the provider. This jumplist node is a wrapper around the '}
+          {' is a wrapper around the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -56,18 +41,18 @@ const JumplistDoc = () => {
           >
             Intersection Observer API
           </Hyperlink>
-          {' which is used to determine when the node is visible in the viewport. As nodes traverse in and out of the viewport they report their statuses.'}
+          {'. As nodes traverse in and out of the viewport they report their statuses to the jumplist context which can be accessed from anywhere in your app.'}
         </p>
         <p>
-          {'The jumplist context can be accessed from anywhere in your app using the '}
+          {'The jumplist context can be accessed from anywhere in your app with the '}
           <InlineCode>
             useJumplist
           </InlineCode>
-          {' hook which contains an array of jumplist items, each with an '}
+          {' hook. This contains an array of jumplist items, each with an '}
           <InlineCode>
             isIntersecting
           </InlineCode>
-          {' property. If more than one node is intersecting, and you do not want both menu items to be styled, there are other properties try the '}
+          {' property. This property can be used to style individual menu items, although if more than one node is intersecting simultaneously, the '}
           <InlineCode>
             currentJumplistIndex
           </InlineCode>
@@ -75,7 +60,14 @@ const JumplistDoc = () => {
           <InlineCode>
             activeJumplistIndex
           </InlineCode>
-          {' instead.'}
+          {' properties may be a better choice.'}
+        </p>
+        <p>
+          {'The '}
+          <InlineCode>
+            {'<JumplistProvider>'}
+          </InlineCode>
+          {' is the last part of this, which is a component the wraps your entire app. It is used to provide the jumplist context to your app and does not render anything in the DOM.'}
         </p>
       </Margin>
       <Margin bottom="xs">
@@ -87,9 +79,25 @@ const JumplistDoc = () => {
         >
           Key features
         </Heading>
-        <p>
-          This section has no content
-        </p>
+        <StyledList
+          items={[
+            (
+              <p key={0}>
+                Watches nodes as they traverse the viewport
+              </p>
+            ),
+            (
+              <p key={1}>
+                Use the native Intersection Observer API
+              </p>
+            ),
+            (
+              <p key={2}>
+                Tracks the intersection status of each node which can be used to style menus
+              </p>
+            ),
+          ]}
+        />
       </Margin>
     </Fragment>
   )

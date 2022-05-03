@@ -45,7 +45,14 @@ const CSSGridAPI = () => {
           {'<GridProvider>'}
         </Heading>
         <p>
-          {'This is where the global grid settings are defined. Render it one time in the top-level of your app. The grid can vary across screen sizes, so its properties need to be defined for each breakpoint. This API is a wrapper around CSS Grid Layout, so the '}
+          {'Wrap your app with this component. This is where the global '}
+          <Hyperlink
+            href="/docs/css-grid/api#context"
+            underline
+          >
+            grid settings
+          </Hyperlink>
+          {' are defined. It renders nothing in the DOM. The grid can vary across screen sizes, so properties are defined per breakpoint. This API is a wrapper around CSS Grid Layout, so the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
             underline

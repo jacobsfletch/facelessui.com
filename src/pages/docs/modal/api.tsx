@@ -46,7 +46,7 @@ const ModalAPI = () => {
           {'<ModalProvider>'}
         </Heading>
         <p>
-          This provides context for all the components and hooks to work together. The context includes properties and methods used to read and interact with the modal state. Render it one time in the top-level of your app. It does not have any required props.
+          Wrap your app with this component. It does not have any required props and renders nothing in the DOM. It provides context for all the components and hooks to work together which includes properties and methods used to read and interact with the modal state.
         </p>
         <Margin bottom="xs">
           <CodeBlock>

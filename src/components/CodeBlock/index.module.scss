@@ -1,5 +1,17 @@
 @use "@scss/common" as *;
 
+.codeBlock {
+  position: relative;
+
+  &:hover {
+    &:local() {
+      .icon {
+        display: flex;
+      }
+    }
+  }
+}
+
 .pre {
   background: var(--color-lightest-gray) !important;
   padding: base(1) !important;
@@ -8,4 +20,12 @@
 
 .darkMode {
   background: var(--color-darkest-gray) !important;
+}
+
+.icon {
+  cursor: pointer;
+  display: none;
+  position: absolute;
+  top: base(0.5);
+  right: base(0.5);
 }

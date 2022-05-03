@@ -45,7 +45,8 @@ export const RecursiveNav: React.FC<{
             }
 
             if (type === 'link' || type === 'overview') {
-              const isActiveLink = Boolean(href && asPath && asPath === href);
+              const pathWithoutHash = asPath.split('#')[0];
+              const isActiveLink = Boolean(href && pathWithoutHash === href);
 
               return (
                 <Hyperlink

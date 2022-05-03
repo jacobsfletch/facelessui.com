@@ -7,6 +7,7 @@ import { InlineCode } from '@components/InlineCode';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { Heading } from '@components/Heading';
+import { InstallationCode } from '@components/InstallationCode';
 
 const CSSGridInstallation = () => {
   return (
@@ -24,15 +25,26 @@ const CSSGridInstallation = () => {
           element='span'
         />
       </p>
+      <Margin bottom="xs">
+        <Heading
+          id="installation"
+          href="/docs/css-grid/setup#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/setup#installation`}
+          element='h5'
+        >
+          Installation
+        </Heading>
+        <InstallationCode name="css-grid" />
+      </Margin>
       <p>
-        {'First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is also where the '}
+        {'First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is where the '}
         <Hyperlink
           href="/docs/css-grid/api#provider-props"
           underline
         >
           global settings
         </Hyperlink>
-        {' are defined, which includes the number of columns, row and column gaps, and breakpoints.'}
+        {' are defined.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -72,19 +84,28 @@ export const MyApp = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'Then you can use the grid components anywhere in your app. First, render a '}
+        {'Now you can begin building layouts using the  '}
         <InlineCode>
           {'<Grid>'}
         </InlineCode>
-        {' to establish a new grid context. Now you can freely use '}
+        {' and '}
         <InlineCode>
           {'<Cell>'}
         </InlineCode>
-        {' components. Cells must be direct descendants of grids.'}
+        {' components. Every '}
+        <InlineCode>
+          {'<Cell>'}
+        </InlineCode>
+        {' must be a direct descendant of a '}
+        <InlineCode>
+          {'<Grid>'}
+        </InlineCode>
+        {'.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { Grid, Cell } from \'@faceless-ui/css-grid\';
+          {`import React from 'react';
+import { Grid, Cell } from \'@faceless-ui/css-grid\';
 
 export const MyComponent = () => {
   return (
@@ -119,19 +140,20 @@ export const MyComponent = () => {
         Nested grids
       </Heading>
       <p>
-        {'Grids can also be nested. To do this, just render a '}
+        {'Grids can also be nested. To do this, render another '}
         <InlineCode>
           {'<Grid>'}
         </InlineCode>
-        {' before rendering another '}
+        {' component as a descendant of any '}
         <InlineCode>
           {'<Cell>'}
         </InlineCode>
-        {'. Also remember that number of columns reduces as you go deeper, depending on the props of the cell before it.'}
+        {'. Remember that number of columns reduces as you go traverse deeper, depending on the props of the cell before it.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { Grid } from \'@faceless-ui/css-grid\';
+          {`import React from 'react';
+import { Grid } from \'@faceless-ui/css-grid\';
 
 export const MyComponent = () => {
   return (

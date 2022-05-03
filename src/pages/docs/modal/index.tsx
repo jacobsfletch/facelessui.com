@@ -5,7 +5,6 @@ import { StyledList } from '@components/StyledList';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { InlineCode } from '@components/InlineCode';
-import { InstallationCode } from '@components/InstallationCode';
 import { Heading } from '@components/Heading';
 
 const ModalDoc = () => {
@@ -18,7 +17,7 @@ const ModalDoc = () => {
         Modal
       </h1>
       <p>
-        This package includes a powerful set of hooks and components that make it incredibly easy to create highly customized modals from anywhere in your app. Transitions come out-of-the-box and can be completely unique. There are many way to control a modal, including with the URL or your existing router. As with all of Faceless UI, modals are highly accessible.
+        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build highly customized open and close effects. There are many way to controls a modal, including with the URL or your existing router. This means you can send direct links to an open modal. As with all of Faceless UI, modals are highly accessible.
       </p>
       <p>
         Some common uses for this package include:
@@ -48,17 +47,6 @@ const ModalDoc = () => {
             ),
           ]}
         />
-      </Margin>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/modal#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="modal" />
       </Margin>
       <Margin bottom="xs">
         <Heading
@@ -103,21 +91,35 @@ const ModalDoc = () => {
           >
             React Transition Group
           </Hyperlink>
-          {'. Modal transitions can be standardized or completely unique from each other.'}
+          {'. These transitions can be styled using the injected css classes, or in some other way using any of the callback props. Modal transitions can be highly customized and completely unique from one another.'}
         </p>
         <p>
           {'The final piece to this is the '}
           <InlineCode>
             {'<ModalProvider>'}
           </InlineCode>
-          {' which should wrap your entire app and where you define global settings. This provides context for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with these modals. See the '}
+          {' which should wrap your entire app and where you define '}
+          <Hyperlink
+            underline
+            href="/docs/modal/api#provider-props"
+          >
+            global settings
+          </Hyperlink>
+          {'. This provides the '}
+          <Hyperlink
+            href="/docs/modal/api#context"
+            underline
+          >
+            modal context
+          </Hyperlink>
+          {' for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with modals. See the '}
           <Hyperlink
             href="/docs/modal/api"
             underline
           >
             API
           </Hyperlink>
-          {' for full capabilities.'}
+          {' for full details.'}
         </p>
       </Margin>
       <Heading
@@ -138,22 +140,22 @@ const ModalDoc = () => {
             ),
             (
               <div key={3}>
-                Built-in transitions, agnostic to the css of your app
+                Built-in, fully customizable transitions
+              </div>
+            ),
+            (
+              <div key={1}>
+                Optionally controlled via the URL, enabling direct links
+              </div>
+            ),
+            (
+              <div key={1}>
+                Easily ties into your existing router, if desired
               </div>
             ),
             (
               <div key={4}>
                 Fully aria accessible
-              </div>
-            ),
-            (
-              <div key={1}>
-                Can be controlled via the URL, enabling direct links
-              </div>
-            ),
-            (
-              <div key={1}>
-                Easily ties into your existing router
               </div>
             ),
           ]}

@@ -1,6 +1,13 @@
 import { InlineCode } from "@components/InlineCode"
+import React from "react";
 
-export const BasicProps = () => {
+export const BasicProps: React.FC<{
+  defaultElement?: string
+}> = (props) => {
+  const {
+    defaultElement = 'div'
+  } = props;
+
   return (
     <div>
       <InlineCode>
@@ -19,7 +26,7 @@ export const BasicProps = () => {
         htmlElement
       </InlineCode>
       <p>
-        Optional. Customize the HTML element that is rendered in the DOM. Defaults to a div.
+        {`Optional. Customize the HTML element that is rendered in the DOM. Defaults to a ${defaultElement}`}.
       </p>
       <InlineCode>
         style

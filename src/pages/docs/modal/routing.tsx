@@ -17,7 +17,7 @@ const ModalRouting = () => {
         Modal routing
       </h1>
       <p>
-        You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to open modals. There are two ways to do this:
+        You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to open modals. There are two ways to do this — with the native browser history API or your app&apos;s existing router.
       </p>
       <Heading
         id="history"
@@ -28,7 +28,7 @@ const ModalRouting = () => {
         History API
       </Heading>
       <p>
-        {'Allow the modal to handle URL changes using the '}
+        {'To allow the modal to handle URL changes using the '}
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"
           newTab
@@ -36,7 +36,7 @@ const ModalRouting = () => {
         >
           History API
         </Hyperlink>
-        {`. Just pass `}
+        {`, pass `}
         <InlineCode>
           handleParamChange
         </InlineCode>
@@ -44,7 +44,7 @@ const ModalRouting = () => {
         <InlineCode>
           ModalProvider
         </InlineCode>
-        {'. '}
+        {'. That\'s it.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

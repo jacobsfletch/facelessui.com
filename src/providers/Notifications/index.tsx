@@ -4,6 +4,7 @@ import React, {
   useContext,
   useReducer,
 } from 'react';
+import { useDarkMode } from '../DarkMode';
 
 import classes from './index.module.scss';
 import { reducer } from './reducer';
@@ -32,6 +33,8 @@ export const NotificationsProvider: React.FC<{
   const [notifications, dispatchNotifications] = useReducer(reducer, {});
 
   const { children } = props;
+
+  const { isDark } = useDarkMode();
 
   const setNotification = useCallback((incomingNotification: Notification) => {
     const {
@@ -81,7 +84,10 @@ export const NotificationsProvider: React.FC<{
             return (
               <div
                 key={index}
-                className={classes.notification}
+                className={[
+                  classes.notification,
+                  isDark && classes.isDark,
+                ].filter(Boolean).join(' ')}
               >
                 {message}
               </div>

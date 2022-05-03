@@ -4,6 +4,11 @@ import { Doc } from '@root/layout/Doc';
 import { Heading } from '@components/Heading';
 import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
 import { collapsiblesJumplistNav } from '@root/docs-nav';
+import { InlineCode } from '@components/InlineCode';
+import Margin from '@components/Margin';
+import { CodeBlock } from '@components/CodeBlock';
+import { Hyperlink } from '@components/Hyperlink';
+import { BasicProps } from '@components/BasicProps';
 
 const CollapsiblesAPI = () => {
   const {
@@ -40,8 +45,28 @@ const CollapsiblesAPI = () => {
           {'<Collapsible>'}
         </Heading>
         <p>
-          This section has no content
+          This component render nothing in the DOM and is where you define your collapsible settings. It has no required props.
         </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { Collapsible } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible
+      openOnInit
+      transTime={250}
+      transCurve="linear"
+      onToggle={() => { console.log('toggled') }}
+      // open={false} NOTE: can also be used to control a collapsible
+    >
+      ...
+    </Collapsible>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
         <Heading
           id="collapsible-props"
           href="/docs/collapsibles/api#collapsible-props"
@@ -50,8 +75,45 @@ const CollapsiblesAPI = () => {
         >
           Props
         </Heading>
+        <InlineCode>
+          openOnInit
+        </InlineCode>
         <p>
-          This section has no content
+          Optional. If true, the collapsible will be open on initial render.
+        </p>
+        <InlineCode>
+          transTime
+        </InlineCode>
+        <p>
+          Optional. The time in it takes for each collapsible to expand and collapse. Default is 0ms.
+        </p>
+        <InlineCode>
+          transCurve
+        </InlineCode>
+        <p>
+          {'Optional. The timing function to use for the animation. Default is '}
+          <InlineCode>
+            linear
+          </InlineCode>
+          {'.'}
+        </p>
+        <InlineCode>
+          onToggle
+        </InlineCode>
+        <p>
+          Optional. A callback function that is executed when the collapsible is toggled.
+        </p>
+        <InlineCode>
+          open
+        </InlineCode>
+        <p>
+          Optional. If true, the collapsible will be open. This is a useful pattern to control the collapsible with external state.
+        </p>
+        <InlineCode>
+          groupClassPrefix
+        </InlineCode>
+        <p>
+          Optional.
         </p>
       </JumplistNode>
       <JumplistNode nodeID="content">
@@ -64,8 +126,32 @@ const CollapsiblesAPI = () => {
           {'<CollapsibleContent>'}
         </Heading>
         <p>
-          This section has no content
+          {'The height of this component will be animated from 0 to auto-height content when the collapsible is triggered. This is made possible through '}
+          <Hyperlink
+            underline
+            href="https://github.com/Stanko/react-animate-height"
+            newTab
+          >
+            react-animate-height
+          </Hyperlink>
+          {'. This component has no required props.'}
         </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { Collapsible, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible>
+      <CollapsibleContent>
+        ...
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
         <Heading
           id="content-props"
           href="/docs/collapsibles/api#content-props"
@@ -74,9 +160,7 @@ const CollapsiblesAPI = () => {
         >
           Props
         </Heading>
-        <p>
-          This section has no content
-        </p>
+        <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="toggler">
         <Heading
@@ -88,8 +172,24 @@ const CollapsiblesAPI = () => {
           {'<CollapsibleToggler>'}
         </Heading>
         <p>
-          This section has no content
+          This component renders button that opens the nearest collapsible when clicked. This is the easiest way to open and close a modal. This component has no required props.
         </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { Collapsible, CollapsibleToggler } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible>
+      <CollapsibleToggler>
+        ...
+      </CollapsibleToggler>
+    </Collapsible>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
         <Heading
           id="toggler-props"
           href="/docs/collapsibles/api#toggler-props"
@@ -98,9 +198,7 @@ const CollapsiblesAPI = () => {
         >
           Props
         </Heading>
-        <p>
-          This section has no content
-        </p>
+        <BasicProps defaultElement="button" />
       </JumplistNode>
       <JumplistNode nodeID="group">
         <Heading
@@ -123,7 +221,7 @@ const CollapsiblesAPI = () => {
           Props
         </Heading>
         <p>
-          This section has no content
+          This component has no required props.
         </p>
       </JumplistNode>
     </Fragment>

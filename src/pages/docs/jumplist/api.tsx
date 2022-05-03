@@ -7,6 +7,8 @@ import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
 import { jumplistJumplistNav } from '@root/docs-nav';
 import { Heading } from '@components/Heading';
+import Margin from '@components/Margin';
+import { CodeBlock } from '@components/CodeBlock';
 
 const JumplistAPI = () => {
   const {
@@ -43,8 +45,25 @@ const JumplistAPI = () => {
           {'<JumplistProvider>'}
         </Heading>
         <p>
-          The provider is rendered on time at the root of your project. It maintains a list of the intersection status of each jumplist item. Global settings can be controlled here.
+          The provider is rendered on time at the root of your project. It maintains a list of the intersection status of each jumplist item. Global settings can be controlled here. It has no required props.
         </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { JumplistProvider } from \'@faceless-ui/jumplist\';
+
+export const MyApp = () => {
+  return (
+    <JumplistProvider
+      threshold={0.5}
+      rootMargin="-100px 0px 0px 0px"
+    >
+      ...
+    </JumplistProvider>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
         <Heading
           id="provider-props"
           href="/docs/jumplist/api#provider-props"
@@ -79,6 +98,60 @@ const JumplistAPI = () => {
             Intersection Observer API
           </Hyperlink>
         </p>
+        <Heading
+          id="context"
+          href="/docs/jumplist/api#context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#context`}
+          element='h5'
+        >
+          Context
+        </Heading>
+        <InlineCode>
+          jumplist
+        </InlineCode>
+        <p>
+          This is an array of jumplist nodes, each with its current intersection status.
+        </p>
+        <InlineCode>
+          clearJumplist
+        </InlineCode>
+        <p>
+          This is a method you can use to erase empty the jumplist array.
+        </p>
+        <InlineCode>
+          rootMargin
+        </InlineCode>
+        <p>
+          This is the same rootMargin you passed into the JumplistProvider.
+        </p>
+        <InlineCode>
+          threshold
+        </InlineCode>
+        <p>
+          This is the same threshold you passed into the JumplistProvider.
+        </p>
+        <InlineCode>
+          currentJumplistIndex
+        </InlineCode>
+        <p>
+          The first-most active jumplist node. Sometimes multiple nodes might be intersecting the viewport simultaneously. Will be -1 if no nodes are intersecting.
+        </p>
+        <InlineCode>
+          activeJumplistIndex
+        </InlineCode>
+        <p>
+          {'This is the most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the '}
+          <InlineCode>
+            currentJumplistIndex
+          </InlineCode>
+          {' is -1. This property is essentially a cached index.'}
+        </p>
+        <InlineCode>
+          setJumplist
+        </InlineCode>
+        <p>
+          A method used to set the jumplist.
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="node">
         <Heading
@@ -92,6 +165,25 @@ const JumplistAPI = () => {
         <p>
           Each jumplist node is a wrapper around Intersection Observer, and syncs its current intersection status to the provider.
         </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { JumplistNode } from \'@faceless-ui/jumplist\';
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <JumplistNode nodeID="node-1">
+        ...
+      </JumplistNode>
+      <JumplistNode nodeID="node-2">
+        ...
+      </JumplistNode>
+    </div>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
         <Heading
           id="node-props"
           href="/docs/jumplist/api#node-props"
@@ -108,28 +200,6 @@ const JumplistAPI = () => {
         </p>
         <BasicProps />
       </JumplistNode>
-      <JumplistNode nodeID="track">
-        <Heading
-          id="track"
-          href="/docs/jumplist/api#track"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#track`}
-          element='h4'
-        >
-          {'<JumplistTrack>'}
-        </Heading>
-        <p>
-          By default, jumplist nodes report their intersection relative to the window. Alternatively, there is the JumplistTrack which is an overflowing div that you can place anywhere in your app. Intersection events will be relative to this instead of the window.
-        </p>
-        <Heading
-          id="track-props"
-          href="/docs/jumplist/api#track-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#track-props`}
-          element='h5'
-        >
-          Props
-        </Heading>
-        <BasicProps />
-      </JumplistNode>
       <JumplistNode nodeID="useJumplist">
         <Heading
           id="useJumplist"
@@ -140,9 +210,29 @@ const JumplistAPI = () => {
           useJumplist
         </Heading>
         <p>
-          A hook used to access the jumplist context.
+          {'A hook used to access the '}
+          <Hyperlink
+            underline
+            href="/docs/jumplist/api#context"
+          >
+            jumplist context
+          </Hyperlink>
+          {'.'}
         </p>
-        <BasicProps />
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { useJumplist } from \'@faceless-ui/jumplist\';
+
+export const MyComponent = () => {
+  const jumplist = useJumplist();
+
+  return (
+    ...
+  )
+}`}
+          </CodeBlock>
+        </Margin>
       </JumplistNode>
     </Fragment>
   )

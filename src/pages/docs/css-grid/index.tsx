@@ -2,7 +2,6 @@ import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
-import { InstallationCode } from '@components/InstallationCode';
 import { StyledList } from '@components/StyledList';
 import { Hyperlink } from '@components/Hyperlink';
 import { InlineCode } from '@components/InlineCode';
@@ -18,7 +17,10 @@ const GridDoc = () => {
         Grid
       </h1>
       <p>
-        {'This package provides a set of components that enable rapid development of responsive layouts. It is a lightweight, component-centric wrapper around '}
+        {'This package enables the rapid development of fully responsive layouts. Using a grid is useful to ensure proper horizontal alignment across your entire app, so that elements start and stop consistent points across the horizontal plane.'}
+      </p>
+      <p>
+        {'The grid is a lightweight, component-centric wrapper around '}
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
           newTab
@@ -26,25 +28,11 @@ const GridDoc = () => {
         >
           CSS Grid Layout
         </Hyperlink>
-        {' — so columns are controlled using props and not class names.'}
+        {' — so props mirror this API as closely as possible.'}
       </p>
       <p>
-        Using a grid is useful to ensure proper horizontal alignment across your entire app. This means that elements start and stop consistent points across the horizontal plane. Grids can also be nested, so that alignment is maintained all the way through your DOM tree.
+        Grids can be nested, so that alignment is maintained all the way through your DOM tree. Grids also support multiple breakpoints &mdash; so your grid can vary based on screen size. For example, a 14 column desktop grid with a 10px gutter could change to 8 column, 5px gutter on mobile. Cells will span a different number of these columns as breakpoints are met, based on their props.
       </p>
-      <p>
-        Grids also support multiple breakpoints &mdash; to the row gap, column gap, and number of columns can vary based on screen size. This means a 14 column desktop grid could change to 8 columns on mobile. Cells can span a different number of these columns as breakpoints are met.
-      </p>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/css-grid#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="css-grid" />
-      </Margin>
       <Margin bottom="xs">
         <Heading
           id="how-it-works"
@@ -57,7 +45,7 @@ const GridDoc = () => {
         <p>
           {'At the top-level of your app, the '}
           <InlineCode>
-            GridProvider
+            {'<GridProvider>'}
           </InlineCode>
           {' defines the global '}
           <Hyperlink
@@ -66,22 +54,18 @@ const GridDoc = () => {
           >
             grid settings
           </Hyperlink>
-          {' for your app which includes the number of columns, column gap, and row gap — per breakpoint. Behind the scenes, it generates a small stylesheet containing classes for every grid and cell combination. '}
+          {', which may include column count, gutter, etc. Behind the scenes, it generates a tiny stylesheet containing classes for every grid and cell combination based on your particular configuration. These classes are used to provide size and position to each cell based on its props. '}
         </p>
         <p>
-          {'Now, you can use the '}
           <InlineCode>
-            Grid
+            {'<Grid>'}
           </InlineCode>
           {' and '}
           <InlineCode>
-            Cell
+            {'<Cell>'}
           </InlineCode>
-          {' components as often as necessary to achieve your desired layout. '}
-          <InlineCode>
-            Cell
-          </InlineCode>
-          {' components are controlled using their '}
+          {' components are used as often as necessary to achieve your desired layout. '}
+          {'Cells are controlled using props like '}
           <InlineCode>
             col
           </InlineCode>
@@ -89,31 +73,15 @@ const GridDoc = () => {
           <InlineCode>
             start
           </InlineCode>
-          {' props '}
           &mdash;
-          {' which determine how many columns that cell will span, and which column to start from, respectively. As the grid breaks down on smaller screens there are additional props to use, one for each breakpoint defined in your provider: '}
-          <InlineCode>
-            colL
-          </InlineCode>
-          {', '}
-          <InlineCode>
-            startL
-          </InlineCode>
-          {', '}<InlineCode>
-            colM
-          </InlineCode>
-          {', '}
-          <InlineCode>
-            startM
-          </InlineCode>
-          {', '}<InlineCode>
-            colS
-          </InlineCode>
-          {', '}
-          <InlineCode>
-            startS
-          </InlineCode>
-          {'.'}
+          {' which determine how many columns that cell will span, and which column to start from, respectively. As the grid breaks down on smaller screens there are additional props to use, one for each breakpoint defined in your provider. See the '}
+          <Hyperlink
+            href="/docs/css-grid/api"
+            underline
+          >
+            API
+          </Hyperlink>
+          {' for full details.'}
         </p>
       </Margin>
       <Margin bottom="xs">
@@ -129,17 +97,17 @@ const GridDoc = () => {
           items={[
             (
               <Fragment key={1}>
-                Uses CSS Grid Layout
+                Follows native CSS Grid Layout
               </Fragment>
             ),
             (
               <Fragment key={1}>
-                Custom grid breakpoints
+                Separate and mobile grids
               </Fragment>
             ),
             (
               <Fragment key={1}>
-                Responsive cells
+                Rapid layout development
               </Fragment>
             ),
             (

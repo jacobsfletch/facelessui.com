@@ -4,7 +4,6 @@ import { Doc } from '@root/layout/Doc';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
-import { InstallationCode } from '@components/InstallationCode';
 import { StyledList } from '@components/StyledList';
 import { Heading } from '@components/Heading';
 
@@ -18,18 +17,7 @@ const SliderDoc = () => {
         Slider
       </h1>
       <Margin bottom="xs">
-        {'This package makes it incredibly easy to create sliders of every kind. Sliders can be free-scrolling or snap to each slide. You can render the built-in navigation components or easily control the sliders yourself. Sliders can even control other sliders and slide synchronously. Scroll progress can also be displayed anywhere, and is not constrained to the overflowed container.'}
-      </Margin>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/slider#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="slider" />
+        {'This package makes it incredibly easy to create sliders of every kind. Sliders can be free-scrolling, drag-scrolling, snap to each slide, and so much more. Sliders can autoplay and can even control other sliders to slide synchronously. Easily control each slider using the provided methods, or use the built-in navigation components.'}
       </Margin>
       <Heading
         id="how-it-works"
@@ -41,20 +29,26 @@ const SliderDoc = () => {
       </Heading>
       <Margin bottom="xs">
         <p>
-          {'First, wrap any section of your code with the '}
+          <Hyperlink
+            href="/docs/slider/api#provider-props"
+            underline
+          >
+            Slider settings
+          </Hyperlink>
+          {' are configured on the '}
           <InlineCode>
             {'<SliderProvider>'}
           </InlineCode>
-          {', where your slider settings are configured. Then, render any number of  '}
+          {', which wraps any section of your code with a slider. This component does not render anything in the DOM, and provides properties and methods for all the components of that slider to work together. Individual '}
           <InlineCode>
             {'<Slide>'}
           </InlineCode>
-          {' components inside a single '}
+          {' components are then nested inside a single '}
           <InlineCode>
             {'<SliderTrack>'}
           </InlineCode>
-          {' to have them register as slides. '}
-          {'Behind the scenes, each slide is watched using the '}
+          {'. '}
+          {'Behind the scenes, these slides are a wrapper around the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -62,7 +56,7 @@ const SliderDoc = () => {
           >
             Intersection Observer API
           </Hyperlink>
-          {' which efficiently reports each slide intersection status to the slider context.'}
+          {'. Each slide registers itself to the provider and reports the changes to its intersection as they happen.'}
         </p>
       </Margin>
       <Margin bottom="xs">
@@ -71,26 +65,22 @@ const SliderDoc = () => {
           <InlineCode>
             useSlider
           </InlineCode>
-          {' hook, but there is a '}
+          {' hook, but there are also built-in navigation components, like '}
           <InlineCode>
             {'<SliderButton>'}
           </InlineCode>
-          {' and a '}
-          <InlineCode>
-            {'<SliderNav>'}
-          </InlineCode>
-          {' that cover the most common use cases for you. Sliders can be free-scrolling or snap-scrolling, and multiple sliders can easily be linked together with synced navigation.'}
+          {', that cover the most common use cases for you. There are also callback methods you can use to tie into slide events and sync navigation.'}
         </p>
         <p>
-          {'Scroll progress is also tracked on each slider, using '}
-          <InlineCode>
-            requestAnimationFrame
-          </InlineCode>
-          {'. This means that the scrollbar is not constrained to the slider track element, but can rendered anywhere within the slider provider. Conveniently, the '}
+          {'The '}
           <InlineCode>
             {'<SliderProgress>'}
           </InlineCode>
-          {' component is provided for you to display the current progress of the slider.'}
+          {' component is a powerful way to display that current progress of any slider. It utilizes '}
+          <InlineCode>
+            requestAnimationFrame
+          </InlineCode>
+          {' to smoothly animate the current scroll progress of any slider. This allows you to render a scrollbar outside of your slider track.'}
         </p>
       </Margin>
       <div>
