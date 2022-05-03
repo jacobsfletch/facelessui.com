@@ -145,6 +145,15 @@ export default App = () => {
   )
 }
 
-ModalRouting.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/routing.tsx`}
+    />
+  )
+};
+
+ModalRouting.Layout = DocLayout;
 
 export default ModalRouting;

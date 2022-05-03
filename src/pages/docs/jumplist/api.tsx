@@ -238,6 +238,15 @@ export const MyComponent = () => {
   )
 }
 
-JumplistAPI.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/jumplist/api.tsx`}
+    />
+  )
+};
+
+JumplistAPI.Layout = DocLayout;
 
 export default JumplistAPI;

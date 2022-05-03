@@ -7,7 +7,6 @@ import { useScrollInfo } from '@faceless-ui/scroll-info';
 import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
-import { InstallationCode } from '@components/InstallationCode';
 import { Heading } from '@components/Heading';
 
 const ScrollInfoDoc = () => {
@@ -41,17 +40,6 @@ const ScrollInfoDoc = () => {
       <p>
         This utility also conveniently interprets scroll data for you, such as direction of scroll and current percentage.
       </p>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/scroll-info#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="scroll-info" />
-      </Margin>
       <Heading
         id="features"
         href="/docs/scroll-info#features"

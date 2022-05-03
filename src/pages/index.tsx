@@ -23,7 +23,7 @@ const Home: NextPage = () => {
   return (
     <Fragment>
       <Meta
-        title="Home"
+        title="Faceless UI"
       />
       <main>
         <MainHero />

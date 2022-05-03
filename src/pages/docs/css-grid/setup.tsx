@@ -193,6 +193,15 @@ export const MyComponent = () => {
   )
 }
 
-CSSGridInstallation.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/setup.tsx`}
+    />
+  )
+};
+
+CSSGridInstallation.Layout = DocLayout;
 
 export default CSSGridInstallation;

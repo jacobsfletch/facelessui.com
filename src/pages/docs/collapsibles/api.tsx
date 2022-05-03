@@ -228,6 +228,15 @@ export const MyComponent = () => {
   )
 }
 
-CollapsiblesAPI.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/api.tsx`}
+    />
+  )
+};
+
+CollapsiblesAPI.Layout = DocLayout;
 
 export default CollapsiblesAPI;

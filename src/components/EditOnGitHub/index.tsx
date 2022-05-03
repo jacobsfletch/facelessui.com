@@ -9,6 +9,8 @@ export const EditOnGitHub: React.FC<{
     href
   } = props;
 
+  console.log(href)
+
   return (
     <div className={classes.editOnGitHub}>
       <Hyperlink

@@ -16,10 +16,12 @@
   background: var(--color-lightest-gray) !important;
   padding: base(1) !important;
   margin: 0 !important;
+  border: var(--color-lighter-gray) 1px solid !important;
 }
 
 .darkMode {
   background: var(--color-darkest-gray) !important;
+  border: var(--color-dark-gray) 1px solid !important;
 }
 
 .icon {

@@ -20,6 +20,7 @@ export const CustomCursorProvider: React.FC<{
   const [highlightCursor, setHighlightCursor] = useState(false);
 
   const {
+    breakpoints,
     breakpoints: {
       m: midBreak
     } = {}
@@ -29,7 +30,7 @@ export const CustomCursorProvider: React.FC<{
     if (midBreak) {
       setShowCustomCursor(false);
     }
-  }, [midBreak]);
+  }, [breakpoints, midBreak]);
 
   return (
     <CustomCursorContext.Provider

@@ -46,7 +46,7 @@ export const CodeBlock: React.FC<{
           }
         }}
       >
-        <CopyIcon color="white" />
+        <CopyIcon color={isDark ? 'white' : 'black'} />
       </div>
     </div>
   )

@@ -55,7 +55,7 @@ const CollapsiblesInstallation = () => {
             {'<CollapsibleContent>'}
           </Hyperlink>
         </InlineCode>
-        {' component, whose height is animated from 0 to auto-height on toggle. The easiest way to do this is to use the '}
+        {' component, whose height is animated from 0 to auto-height on toggle. The easiest way to trigger this is with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -64,7 +64,7 @@ const CollapsiblesInstallation = () => {
             {'<CollapsibleToggler>'}
           </Hyperlink>
         </InlineCode>
-        {'.'}
+        {' component.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -86,11 +86,11 @@ export const MyComponent = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'Wrap any number of collapsibles with the '}
+        {'To create an accordion-like experience, wrap any number of collapsibles with the '}
         <InlineCode>
           {'<CollapsibleGroup>'}
         </InlineCode>
-        {' component to create an accordion-like experience. When a collapsible is rendered inside a group, it is controlled by that group. This allows you to ensure only a single collapsible is open at a time.'}
+        {' component. When a collapsible is rendered inside a group it becomes controlled by that group to ensure that only a single collapsible is open at a time.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -100,7 +100,7 @@ import { Collapsible } from \'@faceless-ui/collapsibles\';
 export const MyComponent = () => {
   return (
     <CollapsibleGroup>
-      <Collapsible>
+      <Collapsible openOnInit>
         ...
       </Collapsible>
       <Collapsible>
@@ -115,6 +115,15 @@ export const MyComponent = () => {
   )
 }
 
-CollapsiblesInstallation.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/setup.tsx`}
+    />
+  )
+};
+
+CollapsiblesInstallation.Layout = DocLayout;
 
 export default CollapsiblesInstallation;

@@ -17,7 +17,7 @@ const ModalDoc = () => {
         Modal
       </h1>
       <p>
-        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build highly customized open and close effects. There are many way to controls a modal, including with the URL or your existing router. This means you can send direct links to an open modal. As with all of Faceless UI, modals are highly accessible.
+        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build completely unique open and close effects. You can also open modals using the URL or your existing router, enabling direct links to modal content.
       </p>
       <p>
         Some common uses for this package include:
@@ -73,25 +73,25 @@ const ModalDoc = () => {
           <InlineCode>
             {'<ModalContainer>'}
           </InlineCode>
-          {'. This lifts them into the out of their current stacking context and makes it possible to apply fullscreen transitions. The modal container can also be used to standardize modal transitions.'}
+          {'. This lifts them out of their current stacking context and makes it possible to apply fullscreen transitions. The modal container can also be used to standardize these transitions across modals.'}
         </p>
         <p>
-          {'Now each modal can be independently controlled using a '}
+          {'Now each modal can be independently controlled in a number of ways. Most commonly you will render a '}
           <InlineCode>
             {'<ModalToggler>'}
           </InlineCode>
-          {', methods on the '}
+          {' component, but you could also use methods on the '}
           <InlineCode>
             {'useModal'}
           </InlineCode>
-          {' hook, or even the URL so you link directly to an open modal. When a modal is opened, transition events are fired using '}
+          {' hook or even the URL. When a modal is opened, transition events are fired using '}
           <Hyperlink
             underline
             href="https://reactcommunity.org/react-transition-group"
           >
             React Transition Group
           </Hyperlink>
-          {'. These transitions can be styled using the injected css classes, or in some other way using any of the callback props. Modal transitions can be highly customized and completely unique from one another.'}
+          {'. These transitions can be styled using css classes or the event callbacks.'}
         </p>
         <p>
           {'The final piece to this is the '}
@@ -155,7 +155,7 @@ const ModalDoc = () => {
             ),
             (
               <div key={4}>
-                Fully aria accessible
+                Fully ARIA accessible and easily extendable
               </div>
             ),
           ]}

@@ -5,6 +5,7 @@ import Margin from '@components/Margin';
 import { Heading } from '@components/Heading';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
+import { StyledList } from '@components/StyledList';
 
 const CollapsiblesDoc = () => {
   return (
@@ -16,8 +17,27 @@ const CollapsiblesDoc = () => {
         Collapsibles
       </h1>
       <p>
-        This package enables you to easily collapse content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled which gives ultimate flexibility to your markup. Collapsible items can also be group together, so that only one can be open at a time.
+        This package enables you to easily collapse and expand content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled which gives ultimate flexibility to your markup. Collapsible items can also be grouped together, so that only one can be open at a time.
       </p>
+      <p>
+        Some common uses for this package include:
+      </p>
+      <Margin bottom="xs">
+        <StyledList
+          items={[
+            (
+              <div key={0}>
+                Dropdowns
+              </div>
+            ),
+            (
+              <div key={1}>
+                Accordions
+              </div>
+            )
+          ]}
+        />
+      </Margin>
       <Margin bottom="xs">
         <Heading
           id="how-it-works"
@@ -32,7 +52,7 @@ const CollapsiblesDoc = () => {
           <InlineCode>
             {'<CollapsibleContent>'}
           </InlineCode>
-          {' component is collapsed and expanded remotely using context. You can do this manually, but the most common method is to use the '}
+          {' component is collapsed and expanded most commonly with the '}
           <InlineCode>
             {'<CollapsibleToggler>'}
           </InlineCode>
@@ -78,6 +98,15 @@ const CollapsiblesDoc = () => {
   )
 }
 
-CollapsiblesDoc.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/index.tsx`}
+    />
+  )
+};
+
+CollapsiblesDoc.Layout = DocLayout;
 
 export default CollapsiblesDoc;

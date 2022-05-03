@@ -17,10 +17,7 @@ const GridDoc = () => {
         Grid
       </h1>
       <p>
-        {'This package enables the rapid development of fully responsive layouts. Using a grid is useful to ensure proper horizontal alignment across your entire app, so that elements start and stop consistent points across the horizontal plane.'}
-      </p>
-      <p>
-        {'The grid is a lightweight, component-centric wrapper around '}
+        {'This package enables the rapid development of fully responsive layouts, ensuring proper alignment and spacing across your entire app. Elements start and stop at consistent points across the horizontal plane and change based on screen size. This grid is a lightweight, component-centric wrapper around '}
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
           newTab
@@ -28,10 +25,10 @@ const GridDoc = () => {
         >
           CSS Grid Layout
         </Hyperlink>
-        {' — so props mirror this API as closely as possible.'}
+        {' — so props mirror this API very closely.'}
       </p>
       <p>
-        Grids can be nested, so that alignment is maintained all the way through your DOM tree. Grids also support multiple breakpoints &mdash; so your grid can vary based on screen size. For example, a 14 column desktop grid with a 10px gutter could change to 8 column, 5px gutter on mobile. Cells will span a different number of these columns as breakpoints are met, based on their props.
+        The grid also supports multiple breakpoints &mdash; so your grid can have a different number of columns on desktop than on mobile. For example, a 14 column desktop grid with a 10px gutter could change to 8 column, 5px gutter on mobile. Cells will span a different number of these columns as breakpoints are met, based on their props.
       </p>
       <Margin bottom="xs">
         <Heading
@@ -43,20 +40,21 @@ const GridDoc = () => {
           How it works
         </Heading>
         <p>
-          {'At the top-level of your app, the '}
+          {'At the top-level of your app is the '}
           <InlineCode>
             {'<GridProvider>'}
           </InlineCode>
-          {' defines the global '}
+          {'. This is where you set the global '}
           <Hyperlink
             href="/docs/css-grid#provider-props"
             underline
           >
             grid settings
           </Hyperlink>
-          {', which may include column count, gutter, etc. Behind the scenes, it generates a tiny stylesheet containing classes for every grid and cell combination based on your particular configuration. These classes are used to provide size and position to each cell based on its props. '}
+          {' for your app, like gutters and number of columns available. Behind the scenes, it generates a tiny stylesheet containing classes for every grid and cell combination based on your particular configuration. These classes are used to provide size and position to each cell based on its props. '}
         </p>
         <p>
+          {'Then '}
           <InlineCode>
             {'<Grid>'}
           </InlineCode>
@@ -64,8 +62,7 @@ const GridDoc = () => {
           <InlineCode>
             {'<Cell>'}
           </InlineCode>
-          {' components are used as often as necessary to achieve your desired layout. '}
-          {'Cells are controlled using props like '}
+          {' components are used as often as necessary to achieve your desired layout. Cells are controlled using props like '}
           <InlineCode>
             col
           </InlineCode>
@@ -73,8 +70,15 @@ const GridDoc = () => {
           <InlineCode>
             start
           </InlineCode>
-          &mdash;
-          {' which determine how many columns that cell will span, and which column to start from, respectively. As the grid breaks down on smaller screens there are additional props to use, one for each breakpoint defined in your provider. See the '}
+          {' — which determine how many columns that cell will span and which column to start from. As the grid breaks down on smaller screens there is an additional prop for each breakpoint defined in your provider, like '}
+          <InlineCode>
+            colsM
+          </InlineCode>
+          {' and '}
+          <InlineCode>
+            startM
+          </InlineCode>
+          {'. See the '}
           <Hyperlink
             href="/docs/css-grid/api"
             underline
@@ -96,25 +100,35 @@ const GridDoc = () => {
         <StyledList
           items={[
             (
-              <Fragment key={1}>
-                Follows native CSS Grid Layout
-              </Fragment>
-            ),
-            (
-              <Fragment key={1}>
-                Separate and mobile grids
-              </Fragment>
-            ),
-            (
-              <Fragment key={1}>
+              <Fragment key={0}>
                 Rapid layout development
               </Fragment>
             ),
             (
               <Fragment key={1}>
+                Responsive cells
+              </Fragment>
+            ),
+            (
+              <Fragment key={2}>
                 Nested grids
               </Fragment>
-            )
+            ),
+            (
+              <Fragment key={3}>
+                Follows native CSS Grid Layout
+              </Fragment>
+            ),
+            (
+              <Fragment key={4}>
+                Separate desktop and mobile grids
+              </Fragment>
+            ),
+            (
+              <Fragment key={5}>
+                Consistent spacing and alignment
+              </Fragment>
+            ),
           ]}
         />
       </Margin>
@@ -122,6 +136,15 @@ const GridDoc = () => {
   )
 }
 
-GridDoc.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/index.tsx`}
+    />
+  )
+};
+
+GridDoc.Layout = DocLayout;
 
 export default GridDoc;

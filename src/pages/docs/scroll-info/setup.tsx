@@ -5,6 +5,8 @@ import { Hyperlink } from '@components/Hyperlink';
 import { CodeBlock } from '@components/CodeBlock';
 import { InlineCode } from '@components/InlineCode';
 import Margin from '@components/Margin';
+import { Heading } from '@components/Heading';
+import { InstallationCode } from '@components/InstallationCode';
 
 const ScrollInfoInstallation = () => {
   return (
@@ -15,6 +17,17 @@ const ScrollInfoInstallation = () => {
       <h4>
         Basic Setup
       </h4>
+      <Margin bottom="xs">
+        <Heading
+          id="installation"
+          href="/docs/scroll-info/setup#installation"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/setup#installation`}
+          element='h5'
+        >
+          Installation
+        </Heading>
+        <InstallationCode name="scroll-info" />
+      </Margin>
       <p>
         First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible to encompass any components that need to read from the provided context. This is also where your breakpoints get defined:
       </p>

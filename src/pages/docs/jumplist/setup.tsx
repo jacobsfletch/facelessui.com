@@ -46,7 +46,14 @@ const JumplistSetup = () => {
             {'<JumplistProvider>'}
           </Hyperlink>
         </InlineCode>
-        {'. This does not render anything in the DOM. It will maintains the state of all the jumplist nodes of your app, and provide context that you can access from anywhere in your app.'}
+        {'. This does not render anything in the DOM and is where the '}
+        <Hyperlink
+          href="/docs/jumplist/api#provider-props"
+          underline
+        >
+          global settings
+        </Hyperlink>
+        {' are defined. This will maintain the state of all the jumplist nodes of your app and provide context that you can access from anywhere in your app. '}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -55,7 +62,10 @@ import { JumplistProvider } from \'@faceless-ui/jumplist\';
 
 export const MyApp = () => {
   return (
-    <JumplistProvider>
+    <JumplistProvider
+      threshold={0.05}
+      rootMargin="-100px 0px 0px 0px"
+    >
       ...
     </JumplistProvider>
   )
@@ -63,7 +73,7 @@ export const MyApp = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'Now you can use the '}
+        {'Now you can use a '}
         <InlineCode>
           <Hyperlink
             underline
@@ -76,7 +86,7 @@ export const MyApp = () => {
         <InlineCode>
           nodeID
         </InlineCode>
-        {' which is a unique string to identify each node.'}
+        {' which is a unique string that identifies each node.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -85,11 +95,14 @@ import { JumplistNode } from \'@faceless-ui/jumplist\';
 
 export const MyComponent = () => {
   return (
-    <JumplistNode nodeID="my-node">
-      <h1>
-        Hello, world!
-      </h1>
-    </JumplistNode>
+    <div>
+      <JumplistNode nodeID="node-1">
+        Node 1
+      </JumplistNode>
+      <JumplistNode nodeID="node-2">
+        Node 2
+      </JumplistNode>
+    </div>
   )
 }`}
         </CodeBlock>
@@ -124,7 +137,7 @@ export const MyComponent = () => {
         const { isIntersecting } = node;
         return (
           <div key={index}>
-            {\`Is intersecting: \${isIntersecting}\`}
+            {\`Node \${index} is intersecting: \${isIntersecting}\`}
           </div>
         )
       })}
@@ -138,7 +151,7 @@ export const MyComponent = () => {
         <InlineCode>
           {'<JumplistNode>'}
         </InlineCode>
-        {' which will return the node\'s status immediately.'}
+        {'to return to immediately return the context of that individual node.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -147,7 +160,7 @@ import { JumplistNode } from \'@faceless-ui/jumplist\';
 
 export const MyComponent = () => {
   return (
-    <JumplistNode nodeID="my-node">
+    <JumplistNode nodeID="node-1">
       {({ isIntersecting }) => (
         <div>
           {\`Is intersecting: \${isIntersecting}\`}
@@ -162,6 +175,15 @@ export const MyComponent = () => {
   )
 }
 
-JumplistSetup.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/jumplist/setup.tsx`}
+    />
+  )
+};
+
+JumplistSetup.Layout = DocLayout;
 
 export default JumplistSetup;

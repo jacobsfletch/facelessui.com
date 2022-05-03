@@ -32,9 +32,11 @@ export const Doc: React.FC<{
           <Margin top="small">
             <NextInDocs />
           </Margin>
-          <Margin top="small">
-            <EditOnGitHub href={githubUrl} />
-          </Margin>
+          {githubUrl && (
+            <Margin top="small">
+              <EditOnGitHub href={githubUrl} />
+            </Margin>
+          )}
         </Cell>
       </Grid>
     </BlockContainer>

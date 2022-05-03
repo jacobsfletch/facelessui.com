@@ -293,6 +293,15 @@ export const MyApp = () = (
   )
 }
 
-CSSGridAPI.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/api.tsx`}
+    />
+  )
+};
+
+CSSGridAPI.Layout = DocLayout;
 
 export default CSSGridAPI;

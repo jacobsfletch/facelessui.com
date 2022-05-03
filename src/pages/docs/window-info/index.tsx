@@ -7,7 +7,6 @@ import { useWindowInfo } from '@faceless-ui/window-info';
 import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
-import { InstallationCode } from '@components/InstallationCode';
 import { Heading } from '@components/Heading';
 
 const WindowInfoDoc = () => {
@@ -41,17 +40,6 @@ const WindowInfoDoc = () => {
       <p>
         The window info utility also conveniently watches breakpoints for you. This enables you to write highly-performant js-based media queries, which can match your exact css media queries. This can be useful for conditionally rendering, or any other css-in-js.
       </p>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/window-info#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="window-info" />
-      </Margin>
       <Heading
         id="features"
         href="/docs/window-info#features"

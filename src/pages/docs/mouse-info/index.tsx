@@ -7,7 +7,6 @@ import { LogProps } from '@components/LogProps';
 import { Hyperlink } from '@components/Hyperlink';
 import { useMouseInfo } from '@faceless-ui/mouse-info';
 import Margin from '@components/Margin';
-import { InstallationCode } from '@components/InstallationCode';
 import { Heading } from '@components/Heading';
 
 const MouseInfoDoc = () => {
@@ -41,17 +40,6 @@ const MouseInfoDoc = () => {
       <p>
         This utility also conveniently interprets mouse data for you, such as direction of mouse movement and percentage within viewport.
       </p>
-      <Margin bottom="xs">
-        <Heading
-          id="installation"
-          href="/docs/mouse-info#installation"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info#installation`}
-          element='h5'
-        >
-          Installation
-        </Heading>
-        <InstallationCode name="mouse-info" />
-      </Margin>
       <Heading
         id="features"
         href="/docs/mouse-info#features"

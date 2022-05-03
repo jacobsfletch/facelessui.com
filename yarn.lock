@@ -90,10 +90,10 @@
   resolved "https://registry.yarnpkg.com/@faceless-ui/scroll-info/-/scroll-info-1.2.7.tgz#6d09f59d42627342e208aa540305d7e73bec0f9c"
   integrity sha512-1Y13tkc13jxo+8K73+9IIpbg1v1P5ECN3qTNq410PX4KYknxMOY8JWxbxeVJYAU2+Zy6aGr0+mJ9P9oglKpDQA==
 
-"@faceless-ui/window-info@^2.0.3":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@faceless-ui/window-info/-/window-info-2.0.3.tgz#3b54f234f44812a65892cc06a8eae896743a788c"
-  integrity sha512-sUhNr50abCPkW0paFGidesPY18roU3Ql1nlqKkfT5HTf9GUcRmz/LDj21Y1yyaqlbaozm9rcoXPjFvus2MXDvA==
+"@faceless-ui/window-info@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@faceless-ui/window-info/-/window-info-2.0.4.tgz#ea66b4d32fcc426aa13293f737978c43967d53ca"
+  integrity sha512-j16BeX//l3bLyPyz5J1Q/1xv5zMiGA1voaazgx8/zLQxVmbE0fppFdRvAQmqmixjpDIQuYTRDkoHeP58JeBpYQ==
 
 "@humanwhocodes/config-array@^0.5.0":
   version "0.5.0"

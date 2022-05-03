@@ -17,7 +17,26 @@ const SliderDoc = () => {
         Slider
       </h1>
       <Margin bottom="xs">
-        {'This package makes it incredibly easy to create sliders of every kind. Sliders can be free-scrolling, drag-scrolling, snap to each slide, and so much more. Sliders can autoplay and can even control other sliders to slide synchronously. Easily control each slider using the provided methods, or use the built-in navigation components.'}
+        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, auto-playing, snap to each slide, and so much more. Sliders can even synchronize with other sliders. Easily control each slider using the built-in navigation components or the provided methods.'}
+      </Margin>
+      <p>
+        Some common uses for this package include:
+      </p>
+      <Margin bottom="xs">
+        <StyledList
+          items={[
+            (
+              <div key={0}>
+                Full-screen sliders
+              </div>
+            ),
+            (
+              <div key={1}>
+                Thumbnail sliders
+              </div>
+            )
+          ]}
+        />
       </Margin>
       <Heading
         id="how-it-works"
@@ -39,16 +58,15 @@ const SliderDoc = () => {
           <InlineCode>
             {'<SliderProvider>'}
           </InlineCode>
-          {', which wraps any section of your code with a slider. This component does not render anything in the DOM, and provides properties and methods for all the components of that slider to work together. Individual '}
-          <InlineCode>
-            {'<Slide>'}
-          </InlineCode>
-          {' components are then nested inside a single '}
+          {', which wraps any section of your code with a new slider context. This component does not render anything in the DOM and provides properties and methods for all the components of the slider to work together. The '}
           <InlineCode>
             {'<SliderTrack>'}
           </InlineCode>
-          {'. '}
-          {'Behind the scenes, these slides are a wrapper around the '}
+          {' will render a scrollable element onto the page to contain every '}
+          <InlineCode>
+            {'<Slide>'}
+          </InlineCode>
+          {'. These slides are a wrapper around the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -56,31 +74,39 @@ const SliderDoc = () => {
           >
             Intersection Observer API
           </Hyperlink>
-          {'. Each slide registers itself to the provider and reports the changes to its intersection as they happen.'}
+          {', reporting their intersection statuses to the slider provider in real-time.'}
         </p>
       </Margin>
       <Margin bottom="xs">
         <p>
-          {'Its very easy to trigger slider navigation with the '}
-          <InlineCode>
-            useSlider
-          </InlineCode>
-          {' hook, but there are also built-in navigation components, like '}
+          {'Its very easy to trigger using the built-in navigation components like '}
           <InlineCode>
             {'<SliderButton>'}
           </InlineCode>
-          {', that cover the most common use cases for you. There are also callback methods you can use to tie into slide events and sync navigation.'}
+          {'. These will cover the most common navigation needs for you, but you can easily trigger navigation manually using methods on the '}
+          <InlineCode>
+            useSlider
+          </InlineCode>
+          {' hook. You can also tie into slide events very easily using one of the callback props on the '}
+          <InlineCode>
+            {'<SliderProvider>'}
+          </InlineCode>
+          {' like '}
+          <InlineCode>
+            onSlide
+          </InlineCode>
+          {'.'}
         </p>
         <p>
-          {'The '}
+          {'A final piece to this is the '}
           <InlineCode>
             {'<SliderProgress>'}
           </InlineCode>
-          {' component is a powerful way to display that current progress of any slider. It utilizes '}
+          {' component which is a powerful way to display the current progress of any slider, utilizing '}
           <InlineCode>
             requestAnimationFrame
           </InlineCode>
-          {' to smoothly animate the current scroll progress of any slider. This allows you to render a scrollbar outside of your slider track.'}
+          {' to smoothly and efficiently animate it. This allows you to render a scrollbar outside of your slider track, a limitation found with native browser scrollbars. Scrollbars can also be draggable, another way to navigate sliders.'}
         </p>
       </Margin>
       <div>
@@ -95,32 +121,37 @@ const SliderDoc = () => {
         <StyledList
           items={[
             (
-              <div key={1}>
-                Slides don&apos;t have to be direct children of the slider track
+              <div key={0}>
+                Free-scrolling
               </div>
             ),
             (
               <div key={1}>
-                Multiple, synchronous sliders
+                Snap-scrolling
               </div>
             ),
             (
-              <div key={1}>
-                Free-scrolling or snap-scrolling
-              </div>
-            ),
-            (
-              <div key={1}>
+              <div key={2}>
                 Drag-scrolling
               </div>
             ),
             (
-              <div key={1}>
+              <div key={3}>
+                Synchronized sliders
+              </div>
+            ),
+            (
+              <div key={4}>
                 Auto-play
               </div>
             ),
             (
-              <div key={1}>
+              <div key={5}>
+                Component-centric
+              </div>
+            ),
+            (
+              <div key={6}>
                 Scroll-progress
               </div>
             ),
@@ -131,6 +162,15 @@ const SliderDoc = () => {
   )
 }
 
-SliderDoc.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/index.tsx`}
+    />
+  )
+};
+
+SliderDoc.Layout = DocLayout;
 
 export default SliderDoc;

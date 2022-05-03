@@ -169,6 +169,15 @@ const SliderAPI = () => {
   )
 }
 
-SliderAPI.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/api.tsx`}
+    />
+  )
+};
+
+SliderAPI.Layout = DocLayout;
 
 export default SliderAPI;

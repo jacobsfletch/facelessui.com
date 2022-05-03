@@ -84,22 +84,6 @@ export const MyApp = () => {
         </InlineCode>
         {' component anywhere in your app. The only required prop is the unique slug that identifies this modal.'}
       </p>
-      <Margin bottom="xs">
-        <CodeBlock>
-          {`import React from 'react';
-import { Modal } from \'@faceless-ui/modal\';
-
-export const MyComponent = () => {
-  return (
-    <Modal slug="my-modal">
-      <h1>
-        Hello, world!
-      </h1>
-    </Modal>
-  )
-}`}
-        </CodeBlock>
-      </Margin>
       <p>
         {'The simplest way to open and close the modal is to use the '}
         <InlineCode>
@@ -115,26 +99,40 @@ export const MyComponent = () => {
       <Margin bottom="xs">
         <CodeBlock>
           {`import React from 'react';
-import { ModalToggler } from \'@faceless-ui/modal\';
+import { Modal, ModalToggler } from \'@faceless-ui/modal\';
 
 export const MyComponent = () => {
   return (
-    <ModalToggler slug="my-modal">
-      Toggle
-    </ModalToggler>
+    <div>
+      <Modal slug="my-modal">
+        <h1>
+          Hello, world!
+        </h1>
+      </Modal>
+      <ModalToggler slug="my-modal">
+        Toggle
+      </ModalToggler>
+    </div>
   )
 }`}
         </CodeBlock>
       </Margin>
       <p>
-        {'You can also read '}
+        {'It is also possible to open and close modals with the URL or your router, see '}
+        <Hyperlink
+          href="/docs/modal/routing"
+          underline
+        >
+          Routing
+        </Hyperlink>
+        {' for full details. Alternatively, the '}
         <Hyperlink
           underline
           href="/docs/modal/api#context"
         >
           modal context
         </Hyperlink>
-        {' directly. The easiest way to do this is with the '}
+        {' can be directly access with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -143,7 +141,11 @@ export const MyComponent = () => {
             useModal
           </Hyperlink>
         </InlineCode>
-        {' hook.'}
+        {' hook which includes a '}
+        <InlineCode>
+          toggle
+        </InlineCode>
+        {' method.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -151,9 +153,15 @@ export const MyComponent = () => {
 import { useModal } from \'@faceless-ui/modal\';
 
 export const MyComponent = (props) => {
-    const modal = useModal();
+    const { toggle } = useModal();
+
     return (
-      ...
+      <button
+        onClick={() => toggle('my-modal')}
+        type="button"
+      >
+        Toggle
+      </button>
     );
 }`}
         </CodeBlock>

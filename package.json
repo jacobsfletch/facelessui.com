@@ -15,7 +15,7 @@
     "@faceless-ui/modal": "^1.1.8",
     "@faceless-ui/mouse-info": "^1.2.6",
     "@faceless-ui/scroll-info": "^1.2.7",
-    "@faceless-ui/window-info": "^2.0.3",
+    "@faceless-ui/window-info": "^2.0.4",
     "@types/react-syntax-highlighter": "^13.5.2",
     "nest": "^0.1.6",
     "next": "^12.1.5",

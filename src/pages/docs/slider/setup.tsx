@@ -37,23 +37,22 @@ const SliderInstallation = () => {
         <InstallationCode name="slider" />
       </Margin>
       <p>
-        {'To create a slider, wrap any portion of your app with a '}
+        {'To create a slider, wrap any portion of your app with the '}
         <InlineCode>
-          <Hyperlink
-            href="/docs/slider/api#provider"
-            underline
-          >
-            {'<SliderProvider>'}
-          </Hyperlink>
+          {'<SliderProvider>'}
         </InlineCode>
-        {' component. This does not render anything in the DOM, but will provide context for the individual slider parts to all work together. This is also where '}
+        {'. This component does not render anything and is where the '}
         <Hyperlink
           href="/docs/slider/api#provider-props"
           underline
         >
           slider settings
         </Hyperlink>
-        {' are configured. The '}
+        {' are defined, like '}
+        <InlineCode>
+          slidesToShow
+        </InlineCode>
+        {'. The'}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#track"
@@ -62,7 +61,7 @@ const SliderInstallation = () => {
             {'<SliderTrack>'}
           </Hyperlink>
         </InlineCode>
-        {' is will create an overflowing element where each '}
+        {' is will render a scrollable element onto the page which will contain every '}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#slide"
@@ -71,7 +70,7 @@ const SliderInstallation = () => {
             {'<Slide>'}
           </Hyperlink>
         </InlineCode>
-        {' will appear. These components do not need to be direct descendants of one another.'}
+        {', overflowing as necessary.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -96,6 +95,9 @@ export const MyComponent = () => {
 }`}
         </CodeBlock>
       </Margin>
+      <p>
+        Pro tip: These components do not need to be direct descendants of one another.
+      </p>
       <Heading
         id="navigation"
         href="/docs/slider/setup#navigation"
@@ -105,7 +107,7 @@ export const MyComponent = () => {
         Slider navigation
       </Heading>
       <p>
-        {'If your slider is not free-scrolling, you will need to render navigation buttons. Conveniently, the '}
+        {'If your slider is not free-scrolling, you will want to render navigation buttons. Conveniently, the '}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#button"
@@ -123,7 +125,7 @@ export const MyComponent = () => {
             {'<SliderNav>'}
           </Hyperlink>
         </InlineCode>
-        {' components are available for you to use which solve most the most common navigation needs out-of-the-block.'}
+        {' components are solve most the most common navigation needs and are highly customizable.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -155,18 +157,18 @@ export const MyComponent = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'You can easily wire these buttons up yourself by triggering slider navigation using methods on the '}
+        {'Alternately, you could wire these buttons up yourself using methods on the '}
         <Hyperlink
           href="/docs/slider/api#context"
           underline
         >
           slider context
         </Hyperlink>
-        {', like '}
+        {' such as '}
         <InlineCode>
           goToNextSlide
         </InlineCode>
-        {'. The simplest way to access these is to use the '}
+        {'. The simplest way to access the context is with the '}
         <InlineCode>
           useSlider
         </InlineCode>
@@ -213,19 +215,19 @@ export const MyComponent = () => {
         Synchronized sliders
       </Heading>
       <p>
-        {'It is also possible to synchronize multiple sliders, where the navigation of one slider triggers the navigation of another. To do this, lift the index of one slider using the '}
+        {'It is also possible to synchronize multiple sliders, so the navigation of one slider triggers another. To do this, lift the index of one slider using the '}
         <InlineCode>
           onSlide
         </InlineCode>
-        {' prop. This is a callback function that will fire on every slide change. Then pass this value as the '}
+        {' prop. This is a callback function that will fire on every slide change with the current slide index. You can use this value to control any other slider by passing it into the '}
         <InlineCode>
           currentSlideIndex
         </InlineCode>
-        {' of another slider to have it be entirely controlled.'}
+        {' prop.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { useState } from 'react';
+          {`import React, { useState } from 'react';
 import { Slider, SliderTrack, Slide } from \'@faceless-ui/slider\';
 
 export const MyComponent = () => {
@@ -268,6 +270,15 @@ export const MyComponent = () => {
   )
 }
 
-SliderInstallation.Layout = Doc;
+const DocLayout = (props: any) => {
+  return (
+    <Doc
+      {...props}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/setup.tsx`}
+    />
+  )
+};
+
+SliderInstallation.Layout = DocLayout;
 
 export default SliderInstallation;
