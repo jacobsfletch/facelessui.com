@@ -17,7 +17,7 @@ const ModalRouting = () => {
         Modal routing
       </h1>
       <p>
-        You can opt-in to having the modal add and remove query parameters from the URL. This is useful when you need to send direct links to open modals. There are two ways to do this — with the native browser history API or your app&apos;s existing router.
+        You can opt-in to having the modal react to changes to the URL, and push changes to the URL as necessary. This would allow you to directly link to an open modal. There are two ways to do this — using the native browser history API, or your app&apos;s existing router.
       </p>
       <Heading
         id="history"
@@ -44,7 +44,11 @@ const ModalRouting = () => {
         <InlineCode>
           ModalProvider
         </InlineCode>
-        {'. That\'s it.'}
+        {'. The '}
+        <InlineCode>
+          {'?modal='}
+        </InlineCode>
+        {' param will appear in the URL as modals are navigated. Modals will also react to external changes to this param, so your app can load with an open modal. This enables you to directly link to modal content.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

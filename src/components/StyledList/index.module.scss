@@ -23,4 +23,10 @@
     height: 4px;
     background-color: var(--color-gray);
   }
+
+  @include mid-break {
+    &::before {
+      top: 10px;
+    }
+  }
 }

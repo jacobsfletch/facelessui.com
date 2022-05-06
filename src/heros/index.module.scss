@@ -9,8 +9,8 @@
   margin-bottom: base(4);
 
   @include mid-break {
-    min-height: unset;
-    padding-top: 0;
-    margin-bottom: base(2);
+    padding-top: base(2);
+    min-height: 0;
+    margin-bottom: base(3);
   }
 }

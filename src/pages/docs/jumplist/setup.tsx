@@ -37,7 +37,7 @@ const JumplistSetup = () => {
         <InstallationCode name="jumplist" />
       </Margin>
       <p>
-        {'To start tracking jumplist nodes, you first need to wrap your app with the '}
+        {'To track elements as they enter and exit the viewport, you first need to wrap your app with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -53,7 +53,7 @@ const JumplistSetup = () => {
         >
           global settings
         </Hyperlink>
-        {' are defined. This will maintain the state of all the jumplist nodes of your app and provide context that you can access from anywhere in your app. '}
+        {' are defined. This will maintain the state of every jumplist node in your app and provide this state through context. '}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -73,7 +73,7 @@ export const MyApp = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'Now you can use a '}
+        {'Then, use a '}
         <InlineCode>
           <Hyperlink
             underline
@@ -82,11 +82,11 @@ export const MyApp = () => {
             {'<JumplistNode>'}
           </Hyperlink>
         </InlineCode>
-        {' component for each item you want to track. The only required prop of this component is the '}
+        {' for every element you want to track. The only required prop of this component is the '}
         <InlineCode>
           nodeID
         </InlineCode>
-        {' which is a unique string that identifies each node.'}
+        {', the unique string identifying each node.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -108,11 +108,28 @@ export const MyComponent = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'The status of all nodes are collectively tracked in the '}
+        {'Every node is a wrapper around the '}
+        <Hyperlink
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
+          newTab
+          underline
+        >
+          Intersection Observer API
+        </Hyperlink>
+        {', reporting their '}
         <InlineCode>
-          jumplist
+          isIntersecting
         </InlineCode>
-        {' array provided by the '}
+        {' status to the '}
+        <InlineCode>
+          <Hyperlink
+            underline
+            href="/docs/jumplist/api#context"
+          >
+            jumplist context
+          </Hyperlink>
+        </InlineCode>
+        {'. You can use to access this from anywhere with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -151,7 +168,7 @@ export const MyComponent = () => {
         <InlineCode>
           {'<JumplistNode>'}
         </InlineCode>
-        {'to return to immediately return the context of that individual node.'}
+        {' to return to immediately return the context of that individual node.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

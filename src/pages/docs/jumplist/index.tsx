@@ -17,15 +17,7 @@ const JumplistDoc = () => {
         Jumplist
       </h1>
       <p>
-        {'The jumplist package is a powerful way to track elements as they pass through the viewport. This allows you to highlight menu items as the page is scrolled which is useful for pages with lengthy content. This jumplist is a lightweight, component-centric wrapper around the '}
-        <Hyperlink
-          href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
-          newTab
-          underline
-        >
-          Intersection Observer API
-        </Hyperlink>
-        {' — so props mirror this API very closely.'}
+        {'The jumplist package provides way to track DOM elements as they pass through the viewport, allowing you to style menu items as the page is scrolled. This can be especially useful for pages with lengthy content.'}
       </p>
       <p>
         Some common uses for this package include:
@@ -40,7 +32,12 @@ const JumplistDoc = () => {
             ),
             (
               <div key={1}>
-                Dot nav
+                Jumplist menus
+              </div>
+            ),
+            (
+              <div key={2}>
+                Dot navigation
               </div>
             )
           ]}
@@ -56,11 +53,7 @@ const JumplistDoc = () => {
           How it works
         </Heading>
         <p>
-          {'Each '}
-          <InlineCode>
-            {'<JumplistNode>'}
-          </InlineCode>
-          {' is a wrapper around the '}
+          {'The jumplist is a lightweight, component-centric wrapper around the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -68,43 +61,24 @@ const JumplistDoc = () => {
           >
             Intersection Observer API
           </Hyperlink>
-          {'. As nodes traverse in and out of the viewport they report their statuses to the jumplist context which can be accessed from anywhere in your app with the '}
-          <InlineCode>
-            useJumplist
-          </InlineCode>
-          {' hook. This contains an array of jumplist items, each with an '}
-          <InlineCode>
-            isIntersecting
-          </InlineCode>
-          {' property which can be used to style individual menu items. Also in context is the '}
-          <InlineCode>
-            currentJumplistIndex
-          </InlineCode>
-          {' and '}
-          <InlineCode>
-            activeJumplistIndex
-          </InlineCode>
-          {' properties, which are useful when multiple nodes are intersecting simultaneously.'}
-        </p>
-        <p>
-          {'A final piece to this is the '}
-          <InlineCode>
-            {'<JumplistProvider>'}
-          </InlineCode>
-          {' which should wrap your entire app and where you define '}
+          {' — so props mirror this API very closely. Global '}
           <Hyperlink
             underline
             href="/docs/jumplist/api#provider-props"
           >
-            global settings
+            jumplist settings
           </Hyperlink>
-          {' like '}
+          {', such as '}
           <InlineCode>
             threshold
           </InlineCode>
           {' and '}
           <InlineCode>
             rootMargin
+          </InlineCode>
+          {', are defined at the top-level of your wrap on the '}
+          <InlineCode>
+            {'<JumplistProvider>'}
           </InlineCode>
           {'. This provides the '}
           <Hyperlink
@@ -113,7 +87,29 @@ const JumplistDoc = () => {
           >
             jumplist context
           </Hyperlink>
-          {' for all the components and hooks to work together. If you need more granular control, see the '}
+          {' for all the components and hooks to work together.'}
+        </p>
+        <p>
+          {'As each '}
+          <InlineCode>
+            {'<JumplistNode>'}
+          </InlineCode>
+          {' traverses in and out of the viewport, its intersection status is reported to the jumplist provider. With the '}
+          <InlineCode>
+            useJumplist
+          </InlineCode>
+          {' hook you can access properties of each jumplist node. Other properties in the context like '}
+          <InlineCode>
+            currentJumplistIndex
+          </InlineCode>
+          {' and '}
+          <InlineCode>
+            activeJumplistIndex
+          </InlineCode>
+          {' are also helpful when multiple nodes, or none, are in the viewport.'}
+        </p>
+        <p>
+          {'If you need more granular control, see the '}
           <Hyperlink
             href="/docs/jumplist/api"
             underline
@@ -136,17 +132,12 @@ const JumplistDoc = () => {
           items={[
             (
               <div key={0}>
-                Watches nodes as they traverse the viewport
+                Tracks DOM elements as they enter and exit the viewport
               </div>
             ),
             (
               <div key={1}>
-                Use the native Intersection Observer API
-              </div>
-            ),
-            (
-              <div key={2}>
-                Tracks the intersection status of each node which can be used to style menus
+                Provides a lightweight wrapper around Intersection Observer
               </div>
             ),
           ]}

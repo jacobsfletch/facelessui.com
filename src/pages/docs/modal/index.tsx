@@ -17,7 +17,7 @@ const ModalDoc = () => {
         Modal
       </h1>
       <p>
-        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build completely unique open and close effects. You can also open modals using the URL or your existing router, enabling direct links to modal content.
+        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build unique open and close effects. You can also open modals using the URL or your existing router, enabling direct links to modal content.
       </p>
       <p>
         Some common uses for this package include:
@@ -62,6 +62,7 @@ const ModalDoc = () => {
           <Hyperlink
             underline
             href="https://reactjs.org/docs/portals.html"
+            newTab
           >
             React Portal
           </Hyperlink>
@@ -73,7 +74,7 @@ const ModalDoc = () => {
           <InlineCode>
             {'<ModalContainer>'}
           </InlineCode>
-          {'. This lifts them out of their current stacking context and makes it possible to apply fullscreen transitions. The modal container can also be used to standardize these transitions across modals.'}
+          {'. This lifts them out of their current stacking context and makes it possible to apply fullscreen transitions. The modal container can also be used to standardize transitions.'}
         </p>
         <p>
           {'Now each modal can be independently controlled in a number of ways. Most commonly you will render a '}
@@ -88,17 +89,18 @@ const ModalDoc = () => {
           <Hyperlink
             underline
             href="https://reactcommunity.org/react-transition-group"
+            newTab
           >
             React Transition Group
           </Hyperlink>
-          {'. These transitions can be styled using css classes or the event callbacks.'}
+          {'. These transitions can be styled using css classes or any of the transition event callbacks.'}
         </p>
         <p>
           {'The final piece to this is the '}
           <InlineCode>
             {'<ModalProvider>'}
           </InlineCode>
-          {' which should wrap your entire app and where you define '}
+          {' which should wrap your entire app and where you define the '}
           <Hyperlink
             underline
             href="/docs/modal/api#provider-props"

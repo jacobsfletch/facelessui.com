@@ -37,7 +37,7 @@ const CSSGridInstallation = () => {
         <InstallationCode name="css-grid" />
       </Margin>
       <p>
-        {'First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is where the '}
+        {'First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the '}
         <Hyperlink
           href="/docs/css-grid/api#provider-props"
           underline
@@ -100,6 +100,13 @@ export const MyApp = () => {
         <InlineCode>
           {'<Grid>'}
         </InlineCode>
+        {'. You can also '}
+        <Hyperlink
+          underline
+          href=''
+        >
+          nest grids
+        </Hyperlink>
         {'.'}
       </p>
       <Margin bottom="xs">
@@ -140,7 +147,7 @@ export const MyComponent = () => {
         Nested grids
       </Heading>
       <p>
-        {'Grids can also be nested. To do this, render another '}
+        {'Grids are easily nested. To do this, render a '}
         <InlineCode>
           {'<Grid>'}
         </InlineCode>
@@ -148,7 +155,7 @@ export const MyComponent = () => {
         <InlineCode>
           {'<Cell>'}
         </InlineCode>
-        {'. Remember that number of columns reduces as you go traverse deeper, depending on the props of the cell before it.'}
+        {'. Remember that number of columns reduce at each nesting, depending on the props of the collective cells before it.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

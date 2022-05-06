@@ -38,7 +38,7 @@ const ScrollInfoDoc = () => {
         {' so they are already optimized for performance.'}
       </p>
       <p>
-        This utility also conveniently interprets scroll data for you, such as direction of scroll and current percentage.
+        This utility also conveniently interprets scroll data for you, such as direction of scroll, scroll percentage, etc.
       </p>
       <Heading
         id="features"

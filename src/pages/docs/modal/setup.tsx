@@ -37,7 +37,7 @@ const ModalSetupDoc = () => {
         <InstallationCode name="modal" />
       </Margin>
       <p>
-        {'First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible. This is where the '}
+        {'First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the '}
         <Hyperlink
           href="/docs/modal/api#provider-props"
           underline
@@ -56,7 +56,7 @@ const ModalSetupDoc = () => {
             {'<ModalContainer>'}
           </Hyperlink>
         </InlineCode>
-        {'. This is where each modal will portal into, so its often best to keep this relatively high in your tree.'}
+        {'. This is where each modal will portal into so its best to keep this relatively high in your tree.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -82,10 +82,11 @@ export const MyApp = () => {
             {'<Modal>'}
           </Hyperlink>
         </InlineCode>
-        {' component anywhere in your app. The only required prop is the unique slug that identifies this modal.'}
-      </p>
-      <p>
-        {'The simplest way to open and close the modal is to use the '}
+        {' component anywhere in your app. The only required prop is the unique '}
+        <InlineCode>
+          slug
+        </InlineCode>
+        {' that identifies this modal. The simplest way to open and close the modal is to use the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -118,21 +119,18 @@ export const MyComponent = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'It is also possible to open and close modals with the URL or your router, see '}
-        <Hyperlink
-          href="/docs/modal/routing"
-          underline
-        >
-          Routing
-        </Hyperlink>
-        {' for full details. Alternatively, the '}
+        {'Alternatively, you could build your own slider button. To do this, the '}
+        <InlineCode>
+          toggle
+        </InlineCode>
+        {' method  can be directly accessed from the '}
         <Hyperlink
           underline
           href="/docs/modal/api#context"
         >
           modal context
         </Hyperlink>
-        {' can be directly access with the '}
+        {' with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -141,11 +139,7 @@ export const MyComponent = () => {
             useModal
           </Hyperlink>
         </InlineCode>
-        {' hook which includes a '}
-        <InlineCode>
-          toggle
-        </InlineCode>
-        {' method.'}
+        {' hook.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -167,7 +161,14 @@ export const MyComponent = (props) => {
         </CodeBlock>
       </Margin>
       <p>
-        {'For more advanced setups, see the full '}
+        {'It is also possible to open and close modals with the URL or your router, see '}
+        <Hyperlink
+          href="/docs/modal/routing"
+          underline
+        >
+          Routing
+        </Hyperlink>
+        {' for full details. For more advanced setups, see the full '}
         <Hyperlink
           underline
           href="/docs/modal/api"

@@ -1,6 +1,7 @@
 @use "@scss/common" as *;
 
 .headingAnchor {
+  display: inline-flex;
   &:hover {
     &:local() {
       .hashMark {
@@ -11,6 +12,7 @@
 }
 
 .canCopy {
+  display: inline-flex;
   position: relative;
 }
 
@@ -22,8 +24,10 @@
 
   @include mid-break {
     display: block;
-    right: calc(100% + (#{var(--mobile-gutter)} / 2));
-    transform: translate3d(50%, 0, 0);
+    position: relative;
+    top: unset;
+    right: unset;
+    margin-right: base(0.5)
   }
 }
 

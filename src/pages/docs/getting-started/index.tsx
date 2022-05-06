@@ -15,7 +15,7 @@ const GettingStartedDoc = () => {
         Getting Started
       </h1>
       <p>
-        Faceless UI is an unstyled React library. It is component-first, so you can build your app using props instead of class names. If you know React, you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
+        Faceless UI is an unstyled React library. It is component-first, so you can build your app using props instead of class names. If you know React, you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app or website as you need.
       </p>
       <p>
         Faceless UI components are abstract, making them perfectly suited to power other UI libraries. This also leaves Faceless UI core small and focused. This pattern allows you to freely reassemble the same set of components in many different ways. Your library can ship specific, styled implementations of the same core APIs.
@@ -52,6 +52,19 @@ const GettingStartedDoc = () => {
         </Heading>
         <p>
           Accessibility is a top-priority of Faceless UI, which ensures best web practices out-of-the-box. By default, all Faceless UI components are fully accessible using the latest WAI-ARIA standards — and since every component exposes its DOM, you can easily add your own accessibility features as necessary.
+        </p>
+      </Margin>
+      <Margin>
+        <Heading
+          id="typescript"
+          href="/docs/getting-started#typescript"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#typescript`}
+          element='h5'
+        >
+          TypeScript
+        </Heading>
+        <p>
+          All of Faceless UI is built with TypeScript. All types are exported for you to consume or extend as needed. See each individual API for full details.
         </p>
       </Margin>
     </Fragment>

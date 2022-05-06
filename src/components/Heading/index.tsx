@@ -37,6 +37,7 @@ export const Heading: React.FC<{
   }, [setNotification])
 
   const classList = [
+    'heading',
     as && classes[as],
     margin === false && classes.noMargin,
     marginTop === false && classes.noMarginTop,

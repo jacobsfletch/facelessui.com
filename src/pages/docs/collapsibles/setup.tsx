@@ -46,7 +46,7 @@ const CollapsiblesInstallation = () => {
             {'<Collapsible>'}
           </Hyperlink>
         </InlineCode>
-        {' component. This does not render anything to the DOM and provides context for the other components to work together. Inside this is the '}
+        {' component. This does not render anything to the DOM and provides context for the other components to work together. Then render a '}
         <InlineCode>
           <Hyperlink
             underline
@@ -55,7 +55,7 @@ const CollapsiblesInstallation = () => {
             {'<CollapsibleContent>'}
           </Hyperlink>
         </InlineCode>
-        {' component, whose height is animated from 0 to auto-height on toggle. The easiest way to trigger this is with the '}
+        {' component anywhere within this to have its height animated from 0 to auto-height on toggle. The easiest way to toggle a collapsible is with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -69,7 +69,7 @@ const CollapsiblesInstallation = () => {
       <Margin bottom="xs">
         <CodeBlock>
           {`import React from 'react';
-import { Collapsible } from \'@faceless-ui/collapsibles\';
+import { Collapsible, CollapsibleToggler, CollapsibleContent } from \'@faceless-ui/collapsibles\';
 
 export const MyComponent = () => {
   return (
@@ -86,16 +86,27 @@ export const MyComponent = () => {
         </CodeBlock>
       </Margin>
       <p>
+        {'Pro tip: set the '}
+        <InlineCode>
+          openOnInit
+        </InlineCode>
+        {' prop to have the collapsible open on first render. '}
+      </p>
+      <p>
         {'To create an accordion-like experience, wrap any number of collapsibles with the '}
         <InlineCode>
           {'<CollapsibleGroup>'}
         </InlineCode>
-        {' component. When a collapsible is rendered inside a group it becomes controlled by that group to ensure that only a single collapsible is open at a time.'}
+        {' component. When a collapsible is rendered inside a group it becomes partially controlled by that group. Set '}
+        <InlineCode>
+          allowMultiple
+        </InlineCode>
+        {' to false to have the group close all other collapsibles when one opens.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
           {`import React from 'react';
-import { Collapsible } from \'@faceless-ui/collapsibles\';
+import { CollapsibleGroup, Collapsible } from \'@faceless-ui/collapsibles\';
 
 export const MyComponent = () => {
   return (

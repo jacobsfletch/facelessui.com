@@ -17,7 +17,7 @@ const SliderDoc = () => {
         Slider
       </h1>
       <Margin bottom="xs">
-        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, auto-playing, snap to each slide, and so much more. Sliders can even synchronize with other sliders. Easily control each slider using the built-in navigation components or the provided methods.'}
+        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders can even synchronize with other sliders and are very easy to control using the built-in navigation components or provided methods.'}
       </Margin>
       <p>
         Some common uses for this package include:
@@ -27,11 +27,21 @@ const SliderDoc = () => {
           items={[
             (
               <div key={0}>
-                Full-screen sliders
+                Image sliders
               </div>
             ),
             (
               <div key={1}>
+                Content sliders
+              </div>
+            ),
+            (
+              <div key={2}>
+                Fullscreen sliders
+              </div>
+            ),
+            (
+              <div key={3}>
                 Thumbnail sliders
               </div>
             )
@@ -48,25 +58,29 @@ const SliderDoc = () => {
       </Heading>
       <Margin bottom="xs">
         <p>
+          {'The '}
+          <InlineCode>
+            {'<SliderProvider>'}
+          </InlineCode>
+          {' component wraps any section of your code with a new slider context, so there may be many providers spread throughout your app. This is where the '}
           <Hyperlink
             href="/docs/slider/api#provider-props"
             underline
           >
-            Slider settings
+            slider settings
           </Hyperlink>
-          {' are configured on the '}
-          <InlineCode>
-            {'<SliderProvider>'}
-          </InlineCode>
-          {', which wraps any section of your code with a new slider context. This component does not render anything in the DOM and provides properties and methods for all the components of the slider to work together. The '}
+          {' are configured. This component does not render anything in the DOM. It provides properties and methods for all sliders parts to work together.'}
+        </p>
+        <p>
+          {'Anywhere inside of the provider is the '}
           <InlineCode>
             {'<SliderTrack>'}
           </InlineCode>
-          {' will render a scrollable element onto the page to contain every '}
+          {' component, which renders a scrollable element onto the page and overflows its content as necessary. Within the track are the '}
           <InlineCode>
             {'<Slide>'}
           </InlineCode>
-          {'. These slides are a wrapper around the '}
+          {' components, each of which is a simple wrapper around the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -74,39 +88,43 @@ const SliderDoc = () => {
           >
             Intersection Observer API
           </Hyperlink>
-          {', reporting their intersection statuses to the slider provider in real-time.'}
+          {'. These slides report their intersection statuses to the '}
+          <InlineCode>
+            {'<SliderProvider>'}
+          </InlineCode>
+          {' as they happen, using the track as their '}
+          <Hyperlink
+            underline
+            href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin"
+            newTab
+          >
+            root margin
+          </Hyperlink>
+          {'.'}
         </p>
       </Margin>
       <Margin bottom="xs">
         <p>
-          {'Its very easy to trigger using the built-in navigation components like '}
+          {'Sliders that are not free-scrolling, drag-scrolling, or auto-playing will need to render navigation controls. The '}
           <InlineCode>
             {'<SliderButton>'}
           </InlineCode>
-          {'. These will cover the most common navigation needs for you, but you can easily trigger navigation manually using methods on the '}
+          {' covers the most common navigation needs for you, but sliders are also easily controlled using methods on the provider through the '}
           <InlineCode>
             useSlider
           </InlineCode>
-          {' hook. You can also tie into slide events very easily using one of the callback props on the '}
-          <InlineCode>
-            {'<SliderProvider>'}
-          </InlineCode>
-          {' like '}
+          {' hook. It is also possible to subscribe to slide events using the '}
           <InlineCode>
             onSlide
           </InlineCode>
-          {'.'}
+          {' prop of the provider.'}
         </p>
         <p>
-          {'A final piece to this is the '}
+          {'The current progress of any slider can be displayed using the '}
           <InlineCode>
             {'<SliderProgress>'}
           </InlineCode>
-          {' component which is a powerful way to display the current progress of any slider, utilizing '}
-          <InlineCode>
-            requestAnimationFrame
-          </InlineCode>
-          {' to smoothly and efficiently animate it. This allows you to render a scrollbar outside of your slider track, a limitation found with native browser scrollbars. Scrollbars can also be draggable, another way to navigate sliders.'}
+          {' component — a powerful alternative to native scrollbars. This allows you to render a scrollbar anywhere in your DOM, even outside of your track. Progress is also draggable, providing another way to navigate sliders.'}
         </p>
       </Margin>
       <div>
@@ -136,23 +154,18 @@ const SliderDoc = () => {
               </div>
             ),
             (
+              <div key={4}>
+                Auto-playing
+              </div>
+            ),
+            (
               <div key={3}>
                 Synchronized sliders
               </div>
             ),
             (
-              <div key={4}>
-                Auto-play
-              </div>
-            ),
-            (
-              <div key={5}>
-                Component-centric
-              </div>
-            ),
-            (
               <div key={6}>
-                Scroll-progress
+                Custom scrollbar
               </div>
             ),
           ]}

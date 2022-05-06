@@ -17,7 +17,7 @@ const CollapsiblesDoc = () => {
         Collapsibles
       </h1>
       <p>
-        This package enables you to easily collapse and expand content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled which gives ultimate flexibility to your markup. Collapsible items can also be grouped together, so that only one can be open at a time.
+        This package enables you to easily collapse and expand content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled, giving your markup ultimate flexibility. Collapsible items can also be grouped together, so that only one is open at a time.
       </p>
       <p>
         Some common uses for this package include:
@@ -48,15 +48,15 @@ const CollapsiblesDoc = () => {
           How it works
         </Heading>
         <p>
-          {'Anything inside the '}
+          {'The '}
+          <InlineCode>
+            {'<Collapsible>'}
+          </InlineCode>
+          {' component does not render anything in the DOM, but controls the state of any nested '}
           <InlineCode>
             {'<CollapsibleContent>'}
           </InlineCode>
-          {' component is collapsed and expanded most commonly with the '}
-          <InlineCode>
-            {'<CollapsibleToggler>'}
-          </InlineCode>
-          {' component. On toggle, the height of the container is animated from 0 to the auto-height using '}
+          {'. This component renders an element whose height is animated from 0 to the auto-height using '}
           <Hyperlink
             underline
             href="https://github.com/Stanko/react-animate-height"
@@ -64,21 +64,36 @@ const CollapsiblesDoc = () => {
           >
             react-animate-height
           </Hyperlink>
-          {'.'}
+          {'. This makes it possible to animate arbitrary content heights, a limitation of CSS alone. To toggle the state of a collapsible, render the '}
+          <InlineCode>
+            {'<CollapsibleToggler>'}
+          </InlineCode>
+          {' component.'}
         </p>
         <p>
-          {'These components need to share a common '}
+          {'Accordions are created by wrapping multiple '}
           <InlineCode>
             {'<Collapsible>'}
           </InlineCode>
-          {' ancestor. This does not render anything to the DOM, but provides context for the other components to work together.'}
-        </p>
-        <p>
-          {'Accordions are created by wrapping multiple using the '}
+          {' components with a single '}
           <InlineCode>
             {'<CollapsibleGroup>'}
           </InlineCode>
-          {' component. Collapsibles that are rendered inside a group are controlled by that group.'}
+          {'. Collapsibles that are rendered inside a group are partially controlled by that group. When '}
+          <InlineCode>
+            allowMultiple
+          </InlineCode>
+          {' is false, the group will close all collapsibles except the open that was opened.'}
+        </p>
+        <p>
+          {'Transition times and curves are also easily customized using props. See the '}
+          <Hyperlink
+            underline
+            href="/docs/collapsibles/api"
+          >
+            API
+          </Hyperlink>
+          {' for full details.'}
         </p>
       </Margin>
       <Margin bottom="xs">
@@ -90,9 +105,20 @@ const CollapsiblesDoc = () => {
         >
           Key features
         </Heading>
-        <p>
-          This section has no content
-        </p>
+        <StyledList
+          items={[
+            (
+              <div key={0}>
+                Remotely controlled
+              </div>
+            ),
+            (
+              <div key={1}>
+                Groupable
+              </div>
+            )
+          ]}
+        />
       </Margin>
     </Fragment>
   )

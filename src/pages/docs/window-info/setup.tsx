@@ -7,6 +7,7 @@ import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { Heading } from '@components/Heading';
 import { InstallationCode } from '@components/InstallationCode';
+import { VersionNumber } from '@components/VersionNumber';
 
 const WindowInfoInstallation = () => {
   return (
@@ -17,6 +18,13 @@ const WindowInfoInstallation = () => {
       <h4>
         Basic Setup
       </h4>
+      <p>
+        {'Latest version: '}
+        <VersionNumber
+          name="window-info"
+          element='span'
+        />
+      </p>
       <Margin bottom="xs">
         <Heading
           id="installation"
@@ -29,7 +37,7 @@ const WindowInfoInstallation = () => {
         <InstallationCode name="window-info" />
       </Margin>
       <p>
-        First, wrap your app with the provider. This component does not render anything, and should be nearest to the top of your app as possible to encompass any components that need to read from the provided context. This is also where your breakpoints get defined:
+        First, wrap your app with the provider. This component does not render anything in the DOM, and should be placed nearest to the top of your app as possible to provide context to any components that need it. This is also where your breakpoints get defined.
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -52,11 +60,11 @@ export const App = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'Then, consume the context however you need. The '}
+        {'Then consume the context however needed, most commonly with the '}
         <InlineCode>
           useWindowInfo
         </InlineCode>
-        {' hook is the most common use case:'}
+        {' hook.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

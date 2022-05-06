@@ -38,21 +38,22 @@ const SliderInstallation = () => {
       </Margin>
       <p>
         {'To create a slider, wrap any portion of your app with the '}
-        <InlineCode>
-          {'<SliderProvider>'}
-        </InlineCode>
-        {'. This component does not render anything and is where the '}
+        <Hyperlink
+          href="/docs/slider/api#provider"
+          underline
+        >
+          <InlineCode>
+            {'<SliderProvider>'}
+          </InlineCode>
+        </Hyperlink>
+        {'. This component does not render anything in the DOM and is where the '}
         <Hyperlink
           href="/docs/slider/api#provider-props"
           underline
         >
           slider settings
         </Hyperlink>
-        {' are defined, like '}
-        <InlineCode>
-          slidesToShow
-        </InlineCode>
-        {'. The'}
+        {' are defined. Inside of this, render a '}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#track"
@@ -61,7 +62,7 @@ const SliderInstallation = () => {
             {'<SliderTrack>'}
           </Hyperlink>
         </InlineCode>
-        {' is will render a scrollable element onto the page which will contain every '}
+        {'. This will add a scrollable element onto the page which overflow its content as necessary. Then, nest as many '}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#slide"
@@ -70,7 +71,7 @@ const SliderInstallation = () => {
             {'<Slide>'}
           </Hyperlink>
         </InlineCode>
-        {', overflowing as necessary.'}
+        {' components within the track as necessary.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -90,7 +91,7 @@ export const MyComponent = () => {
           Slide 2
         </Slide>
       </SliderTrack>
-    </Slider>
+    </SliderProvider>
   )
 }`}
         </CodeBlock>
@@ -107,7 +108,7 @@ export const MyComponent = () => {
         Slider navigation
       </Heading>
       <p>
-        {'If your slider is not free-scrolling, you will want to render navigation buttons. Conveniently, the '}
+        {'If your slider is not free-scrolling, drag-scrolling, or auto-playing, you will need to render navigation buttons. Conveniently, the '}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#button"
@@ -116,16 +117,7 @@ export const MyComponent = () => {
             {'<SliderButton>'}
           </Hyperlink>
         </InlineCode>
-        {' and '}
-        <InlineCode>
-          <Hyperlink
-            href="/docs/slider/api#nav"
-            underline
-          >
-            {'<SliderNav>'}
-          </Hyperlink>
-        </InlineCode>
-        {' components are solve most the most common navigation needs and are highly customizable.'}
+        {' component solves the most common navigation needs and is highly customizable.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>
@@ -151,24 +143,25 @@ export const MyComponent = () => {
           Slide 2
         </Slide>
       </SliderTrack>
-    </Slider>
+    </SliderProvider>
   )
 }`}
         </CodeBlock>
       </Margin>
       <p>
-        {'Alternately, you could wire these buttons up yourself using methods on the '}
+        {'Alternatively, you could wire up your own button using methods on the '}
         <Hyperlink
           href="/docs/slider/api#context"
           underline
         >
           slider context
         </Hyperlink>
-        {' such as '}
+        {'. To do this, access the '}
+
         <InlineCode>
           goToNextSlide
         </InlineCode>
-        {'. The simplest way to access the context is with the '}
+        {' method with the '}
         <InlineCode>
           useSlider
         </InlineCode>
@@ -176,7 +169,7 @@ export const MyComponent = () => {
       </p>
       <Margin bottom="xs">
         <CodeBlock>
-          {`import { Slider, SliderTrack, Slide, useSlider } from \'@faceless-ui/slider\';
+          {`import { SliderProvider, SliderTrack, Slide, useSlider } from \'@faceless-ui/slider\';
 
 export const MyButton = () => {
   const { goToNextSlide } = useSlider();
@@ -189,7 +182,7 @@ export const MyButton = () => {
 
 export const MyComponent = () => {
   return (
-    <Slider
+    <SliderProvider
       slidesToShow={1}
     >
       <MyButton />
@@ -201,7 +194,7 @@ export const MyComponent = () => {
           Slide 2
         </Slide>
       </SliderTrack>
-    </Slider>
+    </SliderProvider>
   )
 }`}
         </CodeBlock>
@@ -219,7 +212,7 @@ export const MyComponent = () => {
         <InlineCode>
           onSlide
         </InlineCode>
-        {' prop. This is a callback function that will fire on every slide change with the current slide index. You can use this value to control any other slider by passing it into the '}
+        {' prop. This is a callback function that will fire on every slide change with the current slide index. Then, use this value to control another slider by passing it into its '}
         <InlineCode>
           currentSlideIndex
         </InlineCode>
@@ -228,13 +221,13 @@ export const MyComponent = () => {
       <Margin bottom="xs">
         <CodeBlock>
           {`import React, { useState } from 'react';
-import { Slider, SliderTrack, Slide } from \'@faceless-ui/slider\';
+import { SliderProvider, SliderTrack, Slide } from \'@faceless-ui/slider\';
 
 export const MyComponent = () => {
   const [index, setIndex] = useState();
 
   return (
-    <Slider
+    <SliderProvider
       slidesToShow={1}
       onSlide={(incomingIndex) => {
         setIndex(incomingIndex);
@@ -248,8 +241,8 @@ export const MyComponent = () => {
           Slide 2
         </Slide>
       </SliderTrack>
-    </Slider>
-    <Slider
+    </SliderProvider>
+    <SliderProvider
       slidesToShow={1}
       currentSlideIndex={index}
     >
@@ -261,7 +254,7 @@ export const MyComponent = () => {
           Description for slide 2
         </Slide>
       </SliderTrack>
-    </Slider>
+    </SliderProvider>
   )
 }`}
         </CodeBlock>
