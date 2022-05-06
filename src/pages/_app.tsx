@@ -20,6 +20,7 @@ import { CustomCursor } from '@components/CustomCursor';
 import cssVariables from '../../cssVariables';
 import '../scss/app.scss';
 import { ScrollToTopOnRouteChange } from '@components/ScrollToTopOnRouteChange';
+import { GoogleAnalytics } from '@components/GoogleAnalytics';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -89,6 +90,7 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                         <CustomCursorProvider>
                           <Fragment>
                             <ScrollToTopOnRouteChange />
+                            <GoogleAnalytics />
                             <AppHead />
                             <Header />
                             <Layout>
