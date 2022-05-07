@@ -38,7 +38,7 @@ const WindowInfoDoc = () => {
         {' so they are already optimized for performance.'}
       </p>
       <p>
-        The window info utility also conveniently watches breakpoints for you. This enables you to write highly-performant js-based media queries, which can match your exact css media queries. This can be useful for conditionally rendering jsx or any other css-in-js needs.
+        The window info utility also conveniently watches breakpoints for you. This enables you to write highly-performant js-based media queries, which can match your exact CSS media queries. This can be useful for conditionally rendering JSX or any other css-in-js needs.
       </p>
       <Heading
         id="features"

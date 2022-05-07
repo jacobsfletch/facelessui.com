@@ -129,7 +129,7 @@ export const MyComponent = () => {
             jumplist context
           </Hyperlink>
         </InlineCode>
-        {'. You can use to access this from anywhere with the '}
+        {'. You can access this from anywhere with the '}
         <InlineCode>
           <Hyperlink
             underline
@@ -168,7 +168,7 @@ export const MyComponent = () => {
         <InlineCode>
           {'<JumplistNode>'}
         </InlineCode>
-        {' to return to immediately return the context of that individual node.'}
+        {' to immediately return the context of that node.'}
       </p>
       <Margin bottom="xs">
         <CodeBlock>

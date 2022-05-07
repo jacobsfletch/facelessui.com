@@ -47,18 +47,18 @@ export const Heading: React.FC<{
 
   if (href) {
     return (
-      <Hyperlink
-        href={href}
-        onClick={() => {
-          if (textToCopy) {
-            copyToClipboard(textToCopy, onCopy);
-          }
-        }}
-        className={classes.headingAnchor}
+      <Element
+        id={id}
+        className={classList}
       >
-        <Element
-          id={id}
-          className={classList}
+        <Hyperlink
+          href={href}
+          onClick={() => {
+            if (textToCopy) {
+              copyToClipboard(textToCopy, onCopy);
+            }
+          }}
+          className={classes.headingAnchor}
         >
           {textToCopy && (
             <span className={classes.hashMark}>
@@ -66,8 +66,8 @@ export const Heading: React.FC<{
             </span>
           )}
           {children}
-        </Element>
-      </Hyperlink>
+        </Hyperlink>
+      </Element>
     )
   }
 

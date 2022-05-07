@@ -195,6 +195,9 @@ export const MyComponent = () => {
   )
 }`}
         </CodeBlock>
+        <p>
+          Pro tip: grids do not need to be direct descendants of cells
+        </p>
       </Margin>
     </Fragment>
   )

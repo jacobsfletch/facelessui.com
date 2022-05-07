@@ -62,7 +62,7 @@ const SliderInstallation = () => {
             {'<SliderTrack>'}
           </Hyperlink>
         </InlineCode>
-        {'. This will add a scrollable element onto the page which overflow its content as necessary. Then, nest as many '}
+        {'. This will add a scrollable element onto the page which overflows its content as necessary. Then, nest as many '}
         <InlineCode>
           <Hyperlink
             href="/docs/slider/api#slide"
@@ -212,7 +212,7 @@ export const MyComponent = () => {
         <InlineCode>
           onSlide
         </InlineCode>
-        {' prop. This is a callback function that will fire on every slide change with the current slide index. Then, use this value to control another slider by passing it into its '}
+        {' prop. This is a callback function that will fire on every slide change with the current slide index. Then, use this value to control another slider with its '}
         <InlineCode>
           currentSlideIndex
         </InlineCode>

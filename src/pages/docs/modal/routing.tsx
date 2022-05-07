@@ -17,7 +17,7 @@ const ModalRouting = () => {
         Modal routing
       </h1>
       <p>
-        You can opt-in to having the modal react to changes to the URL, and push changes to the URL as necessary. This would allow you to directly link to an open modal. There are two ways to do this — using the native browser history API, or your app&apos;s existing router.
+        You can opt-in to having the modal react to changes in the URL, and push changes to the URL as necessary. This would allow you to directly link to an open modal. There are two ways to do this — using the native browser history API, or your app&apos;s existing router.
       </p>
       <Heading
         id="history"

@@ -68,7 +68,7 @@ const JumplistDoc = () => {
           >
             jumplist settings
           </Hyperlink>
-          {', such as '}
+          {', like '}
           <InlineCode>
             threshold
           </InlineCode>

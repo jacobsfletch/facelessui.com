@@ -7,18 +7,30 @@ import Margin from '@components/Margin';
 import { CallToAction } from '@components/CallToAction';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import { MainHero } from '@root/heros';
+import { useWindowInfo } from '@faceless-ui/window-info';
 
 const Home: NextPage = () => {
   const {
     setShowCustomCursor,
   } = useCustomCursor();
 
+  const {
+    breakpoints: {
+      m: midBreak
+    } = {}
+  } = useWindowInfo();
+
+
   useEffect(() => {
-    setShowCustomCursor(true)
+    if (!midBreak) setShowCustomCursor(true)
+    else setShowCustomCursor(false)
     return () => {
       setShowCustomCursor(false)
     }
-  }, [setShowCustomCursor])
+  }, [
+    setShowCustomCursor,
+    midBreak
+  ]);
 
   return (
     <Fragment>

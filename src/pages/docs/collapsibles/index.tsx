@@ -56,7 +56,7 @@ const CollapsiblesDoc = () => {
           <InlineCode>
             {'<CollapsibleContent>'}
           </InlineCode>
-          {'. This component renders an element whose height is animated from 0 to the auto-height using '}
+          {' — an element whose height is animated from 0 to the auto-height using '}
           <Hyperlink
             underline
             href="https://github.com/Stanko/react-animate-height"

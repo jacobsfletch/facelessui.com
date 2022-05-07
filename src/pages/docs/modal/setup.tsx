@@ -119,7 +119,7 @@ export const MyComponent = () => {
         </CodeBlock>
       </Margin>
       <p>
-        {'Alternatively, you could build your own slider button. To do this, the '}
+        {'Alternatively, you could build your own button. To do this, the '}
         <InlineCode>
           toggle
         </InlineCode>

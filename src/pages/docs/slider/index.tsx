@@ -109,7 +109,7 @@ const SliderDoc = () => {
           <InlineCode>
             {'<SliderButton>'}
           </InlineCode>
-          {' covers the most common navigation needs for you, but sliders are also easily controlled using methods on the provider through the '}
+          {' covers the most common navigation needs for you, but sliders are also easily controlled using methods provided by the '}
           <InlineCode>
             useSlider
           </InlineCode>
