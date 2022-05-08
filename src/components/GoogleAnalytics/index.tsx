@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import Head from 'next/head';
+import React, { Fragment, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 
 declare global {
   interface Window { // eslint-disable-line no-unused-vars
@@ -25,18 +25,22 @@ export const GoogleAnalytics: React.FC = () => {
 
   if (gaID) {
     return (
-      <Head>
-        <script
-          async
+      <Fragment>
+        <Script
+          strategy='lazyOnload'
           src={`https://www.googletagmanager.com/gtag/js?id=${gaID}`}
         />
-        <script>
-          {`window.dataLayer = window.dataLayer || [];
+        <Script
+          strategy='lazyOnload'
+          id="gtag-script"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${gaID}');`}
-        </script>
-      </Head>
+gtag('config', '${gaID}');`
+          }}
+        />
+      </Fragment >
     );
   }
   return null;
