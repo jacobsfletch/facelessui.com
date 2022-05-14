@@ -30,4 +30,8 @@
   position: absolute;
   top: base(0.5);
   right: base(0.5);
+
+  @include mid-break {
+    display: none;
+  }
 }

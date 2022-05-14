@@ -9,6 +9,7 @@ import { Hyperlink } from '@components/Hyperlink';
 import { BasicProps } from '@components/BasicProps';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
+import { PropName } from '@components/PropName';
 
 const CSSGridAPI = () => {
   const {
@@ -38,21 +39,21 @@ const CSSGridAPI = () => {
       <JumplistNode nodeID="provider">
         <Heading
           id="provider"
-          href="/docs/css-grid/api#provider"
+          href="#provider"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#provider`}
           element='h4'
         >
           {'<GridProvider>'}
         </Heading>
         <p>
-          {'Wrap your app with this component. This is where the global '}
+          {'Wrap your app with this component. It has no required props and renders nothing in the DOM. It provides context for all the components and hooks to work together. This is where the global '}
           <Hyperlink
-            href="/docs/css-grid/api#context"
+            href="#context"
             underline
           >
             grid settings
           </Hyperlink>
-          {' are defined. It renders nothing in the DOM. The grid can vary across screen sizes, so properties are defined per breakpoint. This API is a wrapper around CSS Grid Layout, so the '}
+          {' are defined. The grid can vary across screen sizes, so properties are defined on each breakpoint. This API is a wrapper around CSS Grid Layout, so the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
             underline
@@ -100,15 +101,16 @@ export const MyApp = () = (
         </Margin>
         <Heading
           id="provider-props"
-          href="/docs/css-grid/api#provider-props"
+          href="#provider-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#provider-props`}
           element='h5'
         >
           Props
         </Heading>
-        <InlineCode>
-          breakpoints
-        </InlineCode>
+        <PropName
+          name="breakpoints"
+          type="object"
+        />
         <p>
           {'An object of breakpoints '}
           <InlineCode>
@@ -122,15 +124,19 @@ export const MyApp = () = (
           <InlineCode>
             s
           </InlineCode>
-          {'. The values are the widths of the breakpoints in pixels. These are breakpoints are used by the '}
-          <InlineCode>
+          {', equal to the width of the breakpoint in pixels. These breakpoints are used by the '}
+          <InlineCode
+            underline
+            href="#cell"
+          >
             {'<Cell>'}
           </InlineCode>
-          {' components to make them responsive. These are also used to make the column and row gaps responsive as well.'}
+          {' components to make them responsive. These are also used to make the column and row gaps responsive.'}
         </p>
-        <InlineCode>
-          rowGap
-        </InlineCode>
+        <PropName
+          name="rowGap"
+          type="string"
+        />
         <p>
           {'An object of row-gap values, one for each breakpoint. See the '}
           <Hyperlink
@@ -142,9 +148,10 @@ export const MyApp = () = (
           </Hyperlink>
           {' for exact browser specifications. '}
         </p>
-        <InlineCode>
-          colGap
-        </InlineCode>
+        <PropName
+          name="colGap"
+          type="string"
+        />
         <p>
           {'An object of column-gap values, one for each breakpoint. See the '}
           <Hyperlink
@@ -156,9 +163,10 @@ export const MyApp = () = (
           </Hyperlink>
           {' for exact browser specifications. '}
         </p>
-        <InlineCode>
-          cols
-        </InlineCode>
+        <PropName
+          name="cols"
+          type="number"
+        />
         <p>
           {'The number of columns available at each breakpoint. Once a row reaches maximum capacity, cells will begin to wrap onto the next row.'}
         </p>
@@ -166,21 +174,21 @@ export const MyApp = () = (
       <JumplistNode nodeID="grid">
         <Heading
           id="grid"
-          href="/docs/css-grid/api#grid"
+          href="#grid"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid`}
           element='h4'
         >
           {'<Grid>'}
         </Heading>
         <p>
-          {'The grid component establishes a new grid context. It is used to wrap cells and has no required props. You can also '}
+          {'This component wraps cells and has no required props. It establishes a new grid context for nested cells to consume, which must be directly descendent. You can also '}
           <Hyperlink
             href="/docs/css-grid/setup#nested-grids"
             underline
           >
             nest grids
           </Hyperlink>
-          {' inside one another.'}
+          {' inside other grids.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -198,7 +206,7 @@ export const MyComponent = () = (
         </Margin>
         <Heading
           id="grid"
-          href="/docs/css-grid/api#grid-props"
+          href="#grid-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid-props`}
           element='h5'
         >
@@ -209,7 +217,7 @@ export const MyComponent = () = (
       <JumplistNode nodeID="cell">
         <Heading
           id="cell"
-          href="/docs/css-grid/api#cell"
+          href="#cell"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell`}
           element='h4'
         >
@@ -220,23 +228,24 @@ export const MyComponent = () = (
           <InlineCode>
             cols
           </InlineCode>
-          {' prop. Cells are displayed inline and wrap to the next row once that rows columns capacity has been met. Column and row gaps (gutters) are controlled by the '}
+          {' prop. Cells will display inline to one another and wrap to the next row once that row reaches maximum capacity. Number of columns and row gaps (gutters) are controlled by the '}
           <Hyperlink
-            href="/docs/css-grid/api#grid"
+            href="#grid"
             underline
           >
             grid provider
           </Hyperlink>
-          {'.'}
-        </p>
-        <p>
-          {'To make the cell responsive, redefine your can redefine the number of columns it spans on each of the '}
+          {'. To make the cell responsive, redefine the number of columns it spans on each of the '}
           <Hyperlink
-            href="/docs/css-grid/api#breakpoints"
+            href="#breakpoints"
             underline
           >
             breakpoints
           </Hyperlink>
+          {', such as '}
+          <InlineCode>
+            colsM
+          </InlineCode>
           {'.'}
         </p>
         <Margin bottom="xs">
@@ -246,8 +255,11 @@ import { Grid, Cell } from '@faceless-ui/css-grid;
 
 export const MyApp = () = (
   <Grid>
-    <Cell>
-
+    <Cell
+      cols={12}
+      colsM={6}
+    >
+      ...
     </Cell>
   </Grid>
 );`}
@@ -255,35 +267,38 @@ export const MyApp = () = (
         </Margin>
         <Heading
           id="cell"
-          href="/docs/css-grid/api#cell-props"
+          href="#cell-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell-props`}
           element='h5'
         >
           Props
         </Heading>
-        <InlineCode>
-          cols
-        </InlineCode>
+        <PropName
+          name="cols"
+          type="number"
+        />
         <p>
           The number of columns for the cell to span.
         </p>
-        <InlineCode>
-          colsL
-        </InlineCode>
-        <p>
-          {'The number of columns for the cell to span at your '}
-          <InlineCode>
-            l
-          </InlineCode>
-          {' breakpoint.'}
-        </p>
-        <InlineCode>
-          colsM
-        </InlineCode>
+        <PropName
+          name="colsM"
+          type="number"
+        />
         <p>
           {'The number of columns for the cell to span at your '}
           <InlineCode>
             m
+          </InlineCode>
+          {' breakpoint.'}
+        </p>
+        <PropName
+          name="colsL"
+          type="number"
+        />
+        <p>
+          {'The number of columns for the cell to span at your '}
+          <InlineCode>
+            l
           </InlineCode>
           {' breakpoint.'}
         </p>

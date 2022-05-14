@@ -121,14 +121,12 @@ export const MyComponent = () => {
           isIntersecting
         </InlineCode>
         {' status to the '}
-        <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#context"
-          >
-            jumplist context
-          </Hyperlink>
-        </InlineCode>
+        <Hyperlink
+          underline
+          href="/docs/jumplist/api#context"
+        >
+          jumplist context
+        </Hyperlink>
         {'. You can access this from anywhere with the '}
         <InlineCode>
           <Hyperlink
@@ -188,6 +186,107 @@ export const MyComponent = () => {
 }`}
         </CodeBlock>
       </Margin>
+      <Heading
+        id="navigation"
+        href="/docs/jumplist/setup#navigation"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#navigation`}
+        element='h5'
+      >
+        Navigation
+      </Heading>
+      <p>
+        {'to navigate jumplist nodes we rely entirely on native HTML behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. You can also enable '}
+        <Hyperlink
+          href='/docs/jumplist/setup#smooth-scroll'
+          underline
+        >
+          smooth scrolling
+        </Hyperlink>
+        {'.'}
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import React from 'react';
+
+export const MyComponent = () => {
+  return (
+    <a href="#node-1">
+      Go to node 1
+    </a>
+  )
+}`}
+        </CodeBlock>
+      </Margin>
+      <p>
+        {'Alternatively, you can navigate jumplist nodes directly using the '}
+        <InlineCode>
+          scrollToID
+        </InlineCode>
+        {' method. This does not inject a hash into the URL, but instead relies on the native browser '}
+        <Hyperlink
+          underline
+          href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView"
+          newTab
+        >
+          scrollIntoView
+        </Hyperlink>
+        {' API.'}
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import React from 'react';
+import { useJumplist } from \'@faceless-ui/jumplist\';
+
+export const MyComponent = () => {
+  const { scrollToID } = useJumplist();
+  return (
+    <button onClick={() => { scrollToID('node-1'); }}>
+      Jump to Node 1
+    </button>
+  )
+}`}
+        </CodeBlock>
+      </Margin>
+      <Margin bottom="xs">
+        <Heading
+          id="smooth-scroll"
+          href="/docs/jumplist/setup#smooth-scroll"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
+          element='h5'
+        >
+          Smooth-scrolling
+        </Heading>
+      </Margin>
+      <p>
+        {'This package does not perform any smooth-scrolling of its own, and instead relies on native CSS '}
+        <InlineCode>
+          <Hyperlink
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior"
+            underline
+            newTab
+          >
+            scroll-behavior
+          </Hyperlink>
+        </InlineCode>
+        {' property. Set this property on the root html element of your document.'}
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`html: { scroll-behavior: smooth; }`}
+        </CodeBlock>
+      </Margin>
+      <p>
+        {'Or use the '}
+        <InlineCode>
+          <Hyperlink
+            underline
+            href="/docs/jumplist/api#provider-props"
+          >
+            smoothScroll
+          </Hyperlink>
+        </InlineCode>
+        {' prop on the provider, which sets this property as inline CSS.'}
+      </p>
     </Fragment>
   )
 }

@@ -84,6 +84,12 @@ export const jumplistJumplistNav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/jumplist/api#button",
+    label: 'JumplistButton',
+    id: 'button',
+  },
+  {
+    type: 'link',
     href: "/docs/jumplist/api#useJumplist",
     label: 'useJumplist',
     id: 'useJumplist',

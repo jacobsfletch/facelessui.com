@@ -9,6 +9,9 @@ import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { Hyperlink } from '@components/Hyperlink';
 import { BasicProps } from '@components/BasicProps';
+import { sharedContent } from '@root/utilities/sharedContent';
+import { ClassPrefix } from '@components/BasicProps/ClassPrefix';
+import { PropName } from '@components/PropName';
 
 const CollapsiblesAPI = () => {
   const {
@@ -75,46 +78,49 @@ export const MyComponent = () => {
         >
           Props
         </Heading>
-        <InlineCode>
-          openOnInit
-        </InlineCode>
         <p>
-          Optional. If true, the collapsible will be open on initial render.
+          {sharedContent.noRequiredProps}
         </p>
-        <InlineCode>
-          transTime
-        </InlineCode>
+        <PropName
+          name="openOnInit"
+          type="boolean"
+        />
         <p>
-          Optional. The time in it takes for each collapsible to expand and collapse. Default is 0ms.
+          If true, the collapsible will be open on initial render.
         </p>
-        <InlineCode>
-          transCurve
-        </InlineCode>
+        <PropName
+          name="transTime"
+          type="number"
+        />
         <p>
-          {'Optional. The timing function to use for the animation. Default is '}
+          The time in it takes for each collapsible to expand and collapse. Default is 0ms.
+        </p>
+        <PropName
+          name="transCurve"
+          type="string"
+        />
+        <p>
+          {'The timing function to use for the animation. Default is '}
           <InlineCode>
             linear
           </InlineCode>
           {'.'}
         </p>
-        <InlineCode>
-          onToggle
-        </InlineCode>
+        <PropName
+          name="onToggle"
+          type="method"
+        />
         <p>
-          Optional. A callback function that is executed when the collapsible is toggled.
+          A callback function that is executed when the collapsible is toggled.
         </p>
-        <InlineCode>
-          open
-        </InlineCode>
+        <PropName
+          name="open"
+          type="method"
+        />
         <p>
-          Optional. If true, the collapsible will be open. This is a useful pattern to control the collapsible with external state.
+          If true, the collapsible will be open. This is a useful pattern to control the collapsible with external state.
         </p>
-        <InlineCode>
-          groupClassPrefix
-        </InlineCode>
-        <p>
-          Optional.
-        </p>
+        <ClassPrefix />
       </JumplistNode>
       <JumplistNode nodeID="content">
         <Heading
@@ -172,7 +178,7 @@ export const MyComponent = () => {
           {'<CollapsibleToggler>'}
         </Heading>
         <p>
-          This component renders button that opens the nearest collapsible when clicked. This is the easiest way to open and close a modal. This component has no required props.
+          This component renders a button that opens and closes the nearest collapsible when clicked. This is the easiest way to open and close a modal.
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -198,7 +204,29 @@ export const MyComponent = () => {
         >
           Props
         </Heading>
+        <p>
+          {sharedContent.noRequiredProps}
+        </p>
         <BasicProps defaultElement="button" />
+        <Heading
+          id="toggler-a11y"
+          href="/docs/collapsibles/api#toggler-a11y"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#toggler-a11y`}
+          element='h5'
+        >
+          Accessibility
+        </Heading>
+        <p>
+          {'The '}
+          <InlineCode>
+            type
+          </InlineCode>
+          {' attribute is automatically set to "button" when the '}
+          <InlineCode>
+            htmlElement
+          </InlineCode>
+          {' is button.'}
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="group">
         <Heading
@@ -221,7 +249,7 @@ export const MyComponent = () => {
           Props
         </Heading>
         <p>
-          This component has no required props.
+          {sharedContent.noRequiredProps}
         </p>
       </JumplistNode>
     </Fragment>

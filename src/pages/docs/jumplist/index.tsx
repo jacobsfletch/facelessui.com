@@ -17,7 +17,7 @@ const JumplistDoc = () => {
         Jumplist
       </h1>
       <p>
-        {'The jumplist package provides way to track DOM elements as they pass through the viewport, allowing you to style menu items as the page is scrolled. This can be especially useful for pages with lengthy content.'}
+        {'The jumplist package provides a way to track DOM elements as they pass through the viewport. This can be especially useful for pages with lengthy content, allowing you to style active and inactive menu items as the page is scrolled. When a menu item is clicked, this package relies entirely on native browser behavior and APIs to scroll to the corresponding item within the page.'}
       </p>
       <p>
         Some common uses for this package include:
@@ -98,7 +98,11 @@ const JumplistDoc = () => {
           <InlineCode>
             useJumplist
           </InlineCode>
-          {' hook you can access properties of each jumplist node. Other properties in the context like '}
+          {' hook you can access the '}
+          <InlineCode>
+            isIntersecting
+          </InlineCode>
+          {' property of each jumplist node. Other properties in the context like '}
           <InlineCode>
             currentJumplistIndex
           </InlineCode>
@@ -107,6 +111,36 @@ const JumplistDoc = () => {
             activeJumplistIndex
           </InlineCode>
           {' are also helpful when multiple nodes, or none, are in the viewport.'}
+        </p>
+        <p>
+          {'There are two ways to scroll to a jumplist node, both rely entirely on native browser behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. Then the CSS '}
+          <InlineCode>
+            scroll-behavior
+          </InlineCode>
+          {' property can be used to easily achieve '}
+          <Hyperlink
+            href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
+            underline
+          >
+            smooth-scrolling
+          </Hyperlink>
+          {'. Alternatively, there is a '}
+          <InlineCode>
+            {'scrollToID'}
+          </InlineCode>
+          {' method on the provider which uses the browser\s native '}
+          <Hyperlink
+            href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView"
+            underline
+            newTab
+          >
+            scrollIntoView
+          </Hyperlink>
+          {'. The '}
+          <InlineCode>
+            {'<JumplistButton>'}
+          </InlineCode>
+          {' component is thin wrapper around this API.'}
         </p>
         <p>
           {'If you need more granular control, see the '}

@@ -5,7 +5,7 @@ import classes from './index.module.scss';
 // NOTE: this component exists so that any element can be linked with a sanitized url, and conditionally passed through local routing
 // this adds consistency and safety to any links rendered through the app, in or outside a traditional button component
 
-export const Hyperlink: React.FC<{
+export type HyperlinkProps = {
   href?: string
   className?: string
   onMouseEnter?: () => void
@@ -16,7 +16,9 @@ export const Hyperlink: React.FC<{
   underlineOnHover?: boolean
   colored?: boolean
   children?: React.ReactNode
-}> = (props) => {
+}
+
+export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   const {
     className,
     href: hrefFromProps,

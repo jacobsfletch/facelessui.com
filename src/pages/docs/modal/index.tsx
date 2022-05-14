@@ -96,6 +96,17 @@ const ModalDoc = () => {
           {'. These transitions can be styled using css classes or any of the transition event callbacks.'}
         </p>
         <p>
+          {'By default, all modals trap focus using '}
+          <Hyperlink
+            underline
+            href="https://github.com/focus-trap/focus-trap"
+            newTab
+          >
+            {'focus-trap'}
+          </Hyperlink>
+          {', a popular open-source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, the element that was focused to open the modal is restored.'}
+        </p>
+        <p>
           {'The final piece to this is the '}
           <InlineCode>
             {'<ModalProvider>'}
@@ -153,6 +164,11 @@ const ModalDoc = () => {
             (
               <div key={1}>
                 Easily ties into your existing router, if desired
+              </div>
+            ),
+            (
+              <div key={4}>
+                Focus-trapping
               </div>
             ),
             (

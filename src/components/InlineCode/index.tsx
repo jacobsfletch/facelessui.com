@@ -1,16 +1,13 @@
+import { Hyperlink, HyperlinkProps } from '@components/Hyperlink';
 import { useDarkMode } from '@root/providers/DarkMode';
 import React from 'react';
 import classes from './index.module.scss';
 
-export const InlineCode: React.FC<{
+const CodeTag: React.FC<{
   id?: string
   children: React.ReactNode
 }> = (props) => {
-  const {
-    children,
-    id
-  } = props;
-
+  const { id, children } = props;
   const { isDark } = useDarkMode();
 
   return (
@@ -23,5 +20,36 @@ export const InlineCode: React.FC<{
     >
       {children}
     </code>
+  )
+}
+
+export const InlineCode: React.FC<HyperlinkProps & {
+  id?: string
+  children: React.ReactNode
+}> = (props) => {
+  const {
+    children,
+    id,
+    href,
+    ...rest
+  } = props;
+
+  if (href) {
+    return (
+      <CodeTag id={id}>
+        <Hyperlink
+          href={href}
+          {...rest}
+        >
+          {children}
+        </Hyperlink>
+      </CodeTag>
+    )
+  }
+
+  return (
+    <CodeTag id={id}>
+      {children}
+    </CodeTag>
   )
 }

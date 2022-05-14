@@ -10,6 +10,8 @@ import { useJumplist } from '@faceless-ui/jumplist';
 import { modalJumplistNav } from '@root/docs-nav';
 import { BasicProps } from '@components/BasicProps';
 import { Heading } from '@components/Heading';
+import { ClassPrefix } from '@components/BasicProps/ClassPrefix';
+import { PropName } from '@components/PropName';
 
 const ModalAPI = () => {
   const {
@@ -46,7 +48,14 @@ const ModalAPI = () => {
           {'<ModalProvider>'}
         </Heading>
         <p>
-          Wrap your app with this component. It does not have any required props and renders nothing in the DOM. It provides context for all the components and hooks to work together which includes properties and methods used to read and interact with the modal state.
+          {'Wrap your app with this component. It does not have any required props and renders nothing in the DOM. It provides context for all the components and hooks to work together. This is where the global '}
+          <Hyperlink
+            underline
+            href='/docs/modal/api#provider-props'
+          >
+            modal settings
+          </Hyperlink>
+          {' are defined.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -68,33 +77,46 @@ export const MyApp = () = (
         >
           Props
         </Heading>
-        <InlineCode id="zIndex">
-          zIndex
-        </InlineCode>
+        <PropName
+          name="zIndex"
+          type="number"
+        />
         <p>
           {'Applies z-index to the '}
-          <Hyperlink
-            href="#modal-container"
+          <InlineCode
+            href="#container"
             underline
-            colored
           >
-            Modal Container
-          </Hyperlink>
+            {'<ModalContainer>'}
+          </InlineCode>
           {'. If '}
-          <InlineCode >
+          <InlineCode
+            href="#generateCSS"
+            underline
+          >
             generateCSS
           </InlineCode>
-          {' is false, this prop is ignored. '}
+          {' is false, this prop is ignored. Defaults to '}
+          <InlineCode>
+            9999
+          </InlineCode>
+          {'.'}
         </p>
-        <InlineCode id="transTime">
-          transTime
-        </InlineCode>
+        <PropName
+          name="transTime"
+          type="number"
+        />
         <p>
-          The transition duration of modals and the modal container, in milliseconds.
+          {'The transition duration of modals and the modal container, in milliseconds. Defaults to '}
+          <InlineCode>
+            250
+          </InlineCode>
+          {'.'}
         </p>
-        <InlineCode id="handleParamChange">
-          handleParamChange
-        </InlineCode>
+        <PropName
+          name="handleParamChange"
+          type="boolean or function"
+        />
         <p>
           {'If true, will set and reset the '}
           <InlineCode>
@@ -105,7 +127,6 @@ export const MyApp = () = (
             href="https://developer.mozilla.org/en-US/docs/Web/API/History/pushState"
             newTab
             underline
-            colored
           >
             pushState
           </Hyperlink>
@@ -114,32 +135,47 @@ export const MyApp = () = (
             href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"
             newTab
             underline
-            colored
           >
             History API
           </Hyperlink>
-          {'. If sent a callback, will execute your function with a slug for you to process.'}
+          {'. If sent a callback, will execute your function with a slug for you to handle, see '}
+          <Hyperlink
+            href="/docs/modal/routing"
+            underline
+          >
+            Routing
+          </Hyperlink>
+          {' for more details.'}
         </p>
-        <InlineCode id="classPrefix">
-          classPrefix
-        </InlineCode>
+        <ClassPrefix id="classPrefix" />
+        <PropName
+          name="generateCSS"
+          type="boolean"
+        />
         <p>
-          Send a string to prepend onto every class name, useful for unique namespacing within complex stylesheets. Set to false to disable.
+          {'Generates a tiny CSS stylesheet (~650B), rendered at the root of the provider. This is used for core positioning and transition timing, not visual styling. Defaults to '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'.'}
         </p>
-        <InlineCode id="generateCSS">
-          generateCSS
-        </InlineCode>
-        <p>
-          Generates a tiny CSS stylesheet (~650B) to render at the root of the provider. Used for positioning and transition timing, not visual styling. Relevant to the vast majority of use cases. True by default.
-        </p>
-        <InlineCode id="minifyCSS">
-          minifyCSS
-        </InlineCode>
+        <PropName
+          name="minifyCSS"
+          type="boolean"
+        />
         <p>
           {'Minifies the result of '}
-          <InlineCode >
+          <InlineCode
+            underline
+            href="#generateCSS"
+          >
             generateCSS
           </InlineCode>
+          {'. Defaults to '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'.'}
         </p>
         <Heading
           id="context"
@@ -149,239 +185,241 @@ export const MyApp = () = (
         >
           Context
         </Heading>
-        <InlineCode id="containerRef">
-          containerRef
-        </InlineCode>
+        <PropName
+          name="currentModal"
+          type="string"
+          isContextProp
+        />
         <p>
-          {'The container that each modal will portal into, used by '}
-          <Hyperlink
-            href="#modal-container"
-            underline
-            colored
-          >
-            Modal Container
-          </Hyperlink>
-          .
+          {'The slug of the currently open modal. Modals compare their slug with this value to determine their open status. If the page was loaded with a '}
+          <InlineCode>
+            ?modal=x
+          </InlineCode>
+          {' URL parameter, this value will be used even if no matches are found.'}
         </p>
-        <InlineCode id="setContainerRef">
-          setContainerRef
-        </InlineCode>
+        <PropName
+          name="transTime"
+          type="number"
+          isContextProp
+        />
         <p>
-          {'Used by '}
-          <Hyperlink
-            href="#modal-container"
+          {'The '}
+          <InlineCode
+            href="#transTime"
             underline
-            colored
           >
-            Modal Container
-          </Hyperlink>
-          {' to populate `containerRef` on mount.'}
+            transTime
+          </InlineCode>
+          {' given to the provider.'}
         </p>
-        <InlineCode id="oneIsOpen">
-          oneIsOpen
-        </InlineCode>
+        <PropName
+          name="oneIsOpen"
+          type="boolean"
+          isContextProp
+        />
         <p>
           {'True when '}
-          <Hyperlink
+          <InlineCode
             href="#currentModal"
             underline
-            colored
           >
             currentModal
-          </Hyperlink>
-          {' has value. Triggers transition states on the '}
-          <Hyperlink
-            href="#modal-container"
-            underline
-            colored
-          >
-            Modal Container
-          </Hyperlink>
-          .
-        </p>
-        <InlineCode id="currentModal">
-          currentModal
-        </InlineCode>
-        <p>
-          {'Slug of the currently open modal, or the '}
-          <InlineCode>
-            ?modal=
           </InlineCode>
-          {' URL parameter on load (valid or not). Each modal compares its slug with this value to determine its open status.'}
+          {' has value. The '}
+          <InlineCode
+            href="#container"
+            underline
+          >
+            {'<ModalContainer>'}
+          </InlineCode>
+          {' will undergo transition every time this changes.'}
         </p>
-        <InlineCode id="closeAll">
-          closeAll
-        </InlineCode>
+        <PropName
+          name="open(slug: string)"
+          type="method"
+          isContextProp
+        />
         <p>
-          {'Resets '}
-          <Hyperlink
+          {'Sets '}
+          <InlineCode
             href="#currentModal"
             underline
-            colored
           >
             currentModal
-          </Hyperlink>
-          {' and '}
-          <Hyperlink
-            href="#oneIsOpen"
-            underline
-            colored
-          >
-            oneIsOpen
-          </Hyperlink>
-          {'. Will either remove modal from the URL parameters or fire the given callback function based on '}
-          <Hyperlink
+          </InlineCode>
+          {' to the given slug. Will either add modal to the URL parameters or fire the given callback function based on '}
+          <InlineCode
             href="#handleParamChange"
             underline
-            colored
           >
             handleParamChange
-          </Hyperlink>
+          </InlineCode>
+          .
+        </p>
+        <PropName
+          name="toggle(slug: string)"
+          type="method"
+          isContextProp
+        />
+        <p>
+          {'Takes the slug of any modal and opens or closes that modal based on its current status, using the '}
+          <InlineCode
+            href="#open"
+            underline
+          >
+            open
+          </InlineCode>
+          {' and '}
+          <InlineCode
+            href="#closeAll"
+            underline
+          >
+            closeAll
+          </InlineCode>
+          {' methods.'}
+        </p>
+        <PropName
+          name="closeAll()"
+          type="method"
+          isContextProp
+        />
+        <p>
+          {'Resets '}
+          <InlineCode
+            href="#currentModal"
+            underline
+          >
+            currentModal
+          </InlineCode>
+          {' and '}
+          <InlineCode
+            href="#oneIsOpen"
+            underline
+          >
+            oneIsOpen
+          </InlineCode>
+          {'. Will either remove modal from the URL parameters or fire the given callback function based on '}
+          <InlineCode
+            href="#handleParamChange"
+            underline
+          >
+            handleParamChange
+          </InlineCode>
           . Unlocks all body scroll locks.
         </p>
-        <InlineCode id="closeOnBlur">
-          closeOnBlur
-        </InlineCode>
+        <PropName
+          name="closeOnBlur"
+          type="boolean"
+          id="closeOnBlur-context"
+          isContextProp
+        />
         <p>
           {'Enables a click event on the '}
-          <Hyperlink underline>
-            Modal Container
-          </Hyperlink>
-          {' that will close all modals.'}
+          <InlineCode
+            underline
+            href="#container"
+          >
+            {'<ModalContainer>'}
+          </InlineCode>
+          {' that, when clicked, will close all modals.'}
         </p>
-        <InlineCode id="setCloseOnBlur">
-          setCloseOnBlur
-        </InlineCode>
+        <PropName
+          name="setCloseOnBlur()"
+          type="method"
+          isContextProp
+        />
         <p>
-          {'Sets the '}
-          <Hyperlink
-            href="#closeOnBlur"
+          {'Used internally to set the global '}
+          <InlineCode
+            href="#closeOnBlur-context"
             underline
-            colored
           >
             closeOnBlur
-          </Hyperlink>
+          </InlineCode>
           {' status. Fired each time a modal is opened based on its own '}
-          <Hyperlink
-            href="#closeOnBlur"
+          <InlineCode
+            href="#closeOnBlur" // TODO: this is a different prop than the "closeOnBlur" before it
             underline
-            colored
           >
             closeOnBlur
-          </Hyperlink>
+          </InlineCode>
           {' prop.'}
         </p>
-        <InlineCode id="bodyScrollIsLocked">
-          bodyScrollIsLocked
-        </InlineCode>
+        <PropName
+          name="bodyScrollIsLocked"
+          type="boolean"
+          isContextProp
+        />
         <p>
           {'The current state of body scroll lock, useful when multiple modals differ in '}
           <Hyperlink
             href="#lockBodyScroll"
             underline
-            colored
           >
             lockBodyScroll
           </Hyperlink>
           .
         </p>
-        <InlineCode id="setBodyScrollLock">
-          setBodyScrollLock
-        </InlineCode>
+        <PropName
+          name="setBodyScrollLock(set: boolean)"
+          type="method"
+          isContextProp
+        />
         <p>
           {'Enables and disables scroll on the HTML body using '}
           <Hyperlink
             href="https://www.npmjs.com/package/body-scroll-lock"
             newTab
             underline
-            colored
           >
             body-scroll-lock
           </Hyperlink>
           {'. Fired by '}
-          <Hyperlink
+          <InlineCode
             href="#lockBodyScroll"
             underline
-            colored
           >
             lockBodyScroll
-          </Hyperlink>
+          </InlineCode>
           {' on each modal individually. Check '}
-          <Hyperlink
+          <InlineCode
             href="#bodyScrollIsLocked"
             underline
-            colored
           >
             bodyScrollIsLocked
-          </Hyperlink>
+          </InlineCode>
           {' for the global status after overrides.'}
         </p>
-        <InlineCode id="open">
-          open
-        </InlineCode>
+        <PropName
+          name="containerRef"
+          type="object"
+          isContextProp
+        />
         <p>
-          {'Sets '}
-          <Hyperlink
-            href="#currentModal"
+          {'A reference to '}
+          <InlineCode
+            href="#modal-container"
             underline
-            colored
           >
-            currentModal
-          </Hyperlink>
-          {' to the given slug and '}
-          <Hyperlink
-            href="#oneIsOpen"
-            underline
-            colored
-          >
-            oneIsOpen
-          </Hyperlink>
-          {' to true. Will either add modal to the URL parameters or fire the given callback function based on '}
-          <Hyperlink
-            href="#handleParamChange"
-            underline
-            colored
-          >
-            handleParamChange
-          </Hyperlink>
-          .
+            {'<ModalContainer>'}
+          </InlineCode>
+          {', where each modal portals into.'}
         </p>
-        <InlineCode id="toggle">
-          toggle
-        </InlineCode>
+        {/* <PropName
+          name="setContainerRef(ref: React.MutableRefObject<HTMLElement>)"
+          type="method"
+          isContextProp
+        />
         <p>
-          {'Will '}
+          {'Used by '}
           <Hyperlink
-            href="#closeAll"
+            href="#modal-container"
             underline
-            colored
           >
-            closeAll
+            Modal Container
           </Hyperlink>
-          {' if the given slug is currently open, otherwise will '}
-          <Hyperlink
-            href="#open"
-            underline
-            colored
-          >
-            open
-          </Hyperlink>
-          {' the given slug.'}
-        </p>
-        <InlineCode id="transTime">
-          transTime
-        </InlineCode>
-        <p>
-          {'See '}
-          <Hyperlink
-            href="#transTime"
-            underline
-            colored
-          >
-            transTime
-          </Hyperlink>
-          {' above.'}
-        </p>
+          {' to populate `containerRef` on mount.'}
+        </p> */}
       </JumplistNode>
       <JumplistNode nodeID="container">
         <Heading
@@ -393,7 +431,7 @@ export const MyApp = () = (
           {'<ModalContainer>'}
         </Heading>
         <p>
-          This is the component which every modal will portal into. It should be rendered once in the root of your application.
+          This component will add an element to the DOM and is where every modal will portal into. Render this component once in the root of your application. It will receive transition classes when any modal is opened, and remove them when all modals are closed.
         </p>
         <Heading
           id="container-props"
@@ -415,7 +453,18 @@ export const MyApp = () = (
           {'<Modal>'}
         </Heading>
         <p>
-          Render any number of this component throughout your app. Each one is portaled into the ModalContainer.
+          {'This is the modal itself. It gets portaled into the '}
+          <InlineCode
+            underline
+            href="#container"
+          >
+            {'<ModalContainer>'}
+          </InlineCode>
+          {' and receives transition classes when opened or closed. Render any number of this component throughout your app. It\'s only required prop is a unique '}
+          <InlineCode>
+            slug
+          </InlineCode>
+          {'.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -432,11 +481,29 @@ export const MyModal = () => {
           </CodeBlock>
         </Margin>
         <p>
-          {'You can also pass a function as a child to conveniently access context. This is an alternative to the '}
-          <InlineCode>
+          {'You can also pass a function as a child to conveniently access '}
+          <Hyperlink
+            underline
+            href="#context"
+          >
+            modal context
+          </Hyperlink>
+          {'. You could easily access the same context with the '}
+          <InlineCode
+            underline
+            href="#useModal"
+          >
             useModal
           </InlineCode>
-          {' hook.'}
+          {' hook, but this would require a child component that adheres to the '}
+          <Hyperlink
+            newTab
+            underline
+            href="https://reactjs.org/docs/hooks-rules.html"
+          >
+            Rules of Hooks
+          </Hyperlink>
+          {'.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -464,30 +531,44 @@ export const MyModal = () => {
         >
           Props
         </Heading>
-        <InlineCode id="classPrefix">
-          slug*
-        </InlineCode>
+        <PropName
+          name="slug"
+          type="string"
+          required
+        />
         <p>
-          Required. A unique identifier for this modal. You will need know this value when you go to open and close a modal.
+          A unique identifier for this modal.
         </p>
-        <InlineCode id="classPrefix">
-          closeOnBlur
-        </InlineCode>
+        <PropName
+          name="closeOnBlur"
+          type="boolean"
+        />
         <p>
-          Required. A unique identifier for this modal. You will need know this value when you go to open and close a modal.
+          No content
         </p>
-        closeOnBlur
-        lockBodyScroll
-        classPrefix
-        onOpen
-        onClose
-        onEnter
-        onEntered
-        onEntering
-        onExit
-        onExiting
-        onExited
-        openOnInit
+        <PropName
+          name="lockBodyScroll"
+          type="boolean"
+        />
+        <p>
+          No content
+        </p>
+        <ClassPrefix />
+        <PropName
+          name="callbacks"
+          type="method"
+        />
+        <p>
+          These methods still need documentation: onOpen
+          onClose
+          onEnter
+          onEntered
+          onEntering
+          onExit
+          onExiting
+          onExited
+          openOnInit
+        </p>
         <BasicProps />
       </JumplistNode>
       <JumplistNode nodeID="toggler">
@@ -500,11 +581,20 @@ export const MyModal = () => {
           {'<ModalToggler>'}
         </Heading>
         <p>
-          {'This is just a button that will open or close a modal, depending on its current status. It\'s a simple wrapper around the '}
-          <InlineCode>
+          {'This is a button that will open or close a modal based on its current status. It\'s a simple wrapper around the '}
+          <InlineCode
+            href='#useModal'
+            underline
+          >
             useModal
           </InlineCode>
-          {' hook. You can easily open and close modals using the methods provided by the context, but this component wraps that logic for you.'}
+          {' hook. It\'s only required prop is a unique '}
+          <InlineCode
+            href="#toggler-slug"
+          >
+            slug
+          </InlineCode>
+          {'.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -528,11 +618,21 @@ export const MyComponent = () => {
         >
           Props
         </Heading>
-        <InlineCode>
-          slug*
-        </InlineCode>
+        <PropName
+          name="slug"
+          id="toggler-slug"
+          type="string"
+          required
+        />
         <p>
-          Required. The unique slug of the modal to open or close.
+          {'The unique '}
+          <InlineCode
+            underline
+            href="#slug"
+          >
+            slug
+          </InlineCode>
+          {' of the modal to open or close.'}
         </p>
         <BasicProps />
       </JumplistNode>
@@ -550,9 +650,8 @@ export const MyComponent = () => {
           <Hyperlink
             href={`/docs/modal/api#context`}
             underline
-            colored
           >
-            context
+            modal  context
           </Hyperlink>
           .
         </p>
@@ -580,7 +679,21 @@ export const MyComponent = () => {
           asModal
         </Heading>
         <p>
-          For advanced setups, there is a higher order component you can use to wrap any React component to have it function as a modal. This is actually what the Modal component is doing behind the scenes, but you can easily do it yourself if needed. It will attach the modal context into the props of the wrapped component.
+          {'For advanced setups, use this higher order component to create your own modal entirely from scratch. Wrap your React component with this HOC to have it function as a modal. It will attach the modal context into the props of the wrapped component, just as '}
+          <InlineCode
+            underline
+            href="#modal"
+          >
+            {'<Modal>'}
+          </InlineCode>
+          {' does. The second argument is the unique '}
+          <InlineCode
+            underline
+            href="#slug"
+          >
+            slug
+          </InlineCode>
+          {'.'}
         </p>
         <CodeBlock>
           {`import react from 'react';

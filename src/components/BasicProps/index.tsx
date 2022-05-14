@@ -1,4 +1,5 @@
 import { InlineCode } from "@components/InlineCode"
+import { PropName } from "@components/PropName";
 import React from "react";
 
 export const BasicProps: React.FC<{
@@ -10,11 +11,22 @@ export const BasicProps: React.FC<{
 
   return (
     <div>
+      <PropName
+        name="htmlElement"
+        type="string"
+      />
+      <p>
+        {`Customize the HTML element that is rendered in the DOM. Defaults to `}
+        <InlineCode>
+          {defaultElement}
+        </InlineCode>
+        {'.'}
+      </p>
       <InlineCode>
-        htmlElement
+        ...rest
       </InlineCode>
       <p>
-        {`Optional. Customize the HTML element that is rendered in the DOM. Defaults to a ${defaultElement}`}.
+        {`All other props are spread onto the DOM element as HTML attributes.`}
       </p>
     </div>
   )

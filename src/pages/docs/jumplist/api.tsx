@@ -9,6 +9,7 @@ import { jumplistJumplistNav } from '@root/docs-nav';
 import { Heading } from '@components/Heading';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
+import { PropName } from '@components/PropName';
 
 const JumplistAPI = () => {
   const {
@@ -72,11 +73,12 @@ export const MyApp = () => {
         >
           Props
         </Heading>
-        <InlineCode>
-          rootMargin
-        </InlineCode>
+        <PropName
+          name="rootMargin"
+          type="string"
+        />
         <p>
-          {'Optional. The root margin of the intersection observer. See the '}
+          {'The root margin of the intersection observer. See the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -85,11 +87,12 @@ export const MyApp = () => {
             Intersection Observer API
           </Hyperlink>
         </p>
-        <InlineCode>
-          threshold
-        </InlineCode>
+        <PropName
+          name="threshold"
+          type="string"
+        />
         <p>
-          {'Optional. The threshold of the intersection observer. See the '}
+          {'The threshold of the intersection observer. See the '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
@@ -97,6 +100,24 @@ export const MyApp = () => {
           >
             Intersection Observer API
           </Hyperlink>
+        </p>
+        <PropName
+          name="smoothScroll"
+          type="boolean"
+        />
+        <p>
+          {'Will inject '}
+          <InlineCode>
+            {'html: { scroll-behavior: smooth; }'}
+          </InlineCode>
+          {' as inline CSS onto the root html element of your DOM. Alternatively, add this CSS to your own stylesheets. See '}
+          <Hyperlink
+            href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
+            underline
+          >
+            smooth-scrolling
+          </Hyperlink>
+          {' for more details.'}
         </p>
         <Heading
           id="context"
@@ -106,49 +127,103 @@ export const MyApp = () => {
         >
           Context
         </Heading>
-        <InlineCode>
-          jumplist
-        </InlineCode>
+        <PropName
+          name="jumplist"
+          type="array"
+          isContextProp
+        />
         <p>
-          This is an array of jumplist nodes, each with its current intersection status.
-        </p>
-        <InlineCode>
-          clearJumplist
-        </InlineCode>
-        <p>
-          This is a method you can use to erase empty the jumplist array.
-        </p>
-        <InlineCode>
-          rootMargin
-        </InlineCode>
-        <p>
-          This is the same rootMargin you passed into the JumplistProvider.
-        </p>
-        <InlineCode>
-          threshold
-        </InlineCode>
-        <p>
-          This is the same threshold you passed into the JumplistProvider.
-        </p>
-        <InlineCode>
-          currentJumplistIndex
-        </InlineCode>
-        <p>
-          The first-most active jumplist node. Sometimes multiple nodes might be intersecting the viewport simultaneously. Will be -1 if no nodes are intersecting.
-        </p>
-        <InlineCode>
-          activeJumplistIndex
-        </InlineCode>
-        <p>
-          {'This is the most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the '}
+          {'This is an array of jumplist nodes, each with its '}
           <InlineCode>
-            currentJumplistIndex
+            <Hyperlink
+              underline
+              href="/docs/jumplist/api#isIntersecting"
+            >
+              isIntersecting
+            </Hyperlink>
           </InlineCode>
-          {' is -1. This property is essentially a cached index.'}
+          {' status.'}
         </p>
-        <InlineCode>
-          setJumplist
-        </InlineCode>
+        <PropName
+          name="clearJumplist"
+          type="method"
+          isContextProp
+        />
+        <p>
+          This is a method you can use to empty the jumplist array.
+        </p>
+        <PropName
+          name="rootMargin"
+          type="string"
+          isContextProp
+        />
+        <p>
+          {'The same '}
+          <InlineCode>
+            <Hyperlink
+              underline
+              href="/docs/jumplist/api#rootMargin"
+            >
+              rootMargin
+            </Hyperlink>
+          </InlineCode>
+          {' passed to the provider.'}
+        </p>
+        <PropName
+          name="threshold"
+          type="string"
+          isContextProp
+        />
+        <p>
+          {'The same '}
+          <InlineCode>
+            <Hyperlink
+              underline
+              href="/docs/jumplist/api#threshold"
+            >
+              threshold
+            </Hyperlink>
+          </InlineCode>
+          {' passed to the provider.'}
+        </p>
+        <PropName
+          name="currentJumplistIndex"
+          type="number"
+          isContextProp
+        />
+        <p>
+          {'The first-most active jumplist node. Sometimes multiple nodes might be intersecting the viewport simultaneously. Is '}
+          <InlineCode>
+            -1
+          </InlineCode>
+          {' if no nodes are intersecting.'}
+        </p>
+        <PropName
+          name="activeJumplistIndex"
+          type="number"
+          isContextProp
+        />
+        <p>
+          {'The most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the '}
+          <InlineCode>
+            <Hyperlink
+              underline
+              href="/docs/jumplist/api#currentJumplistIndex"
+            >
+              currentJumplistIndex
+            </Hyperlink>
+          </InlineCode>
+          {' is '}
+          <InlineCode>
+            -1
+          </InlineCode>
+          {'. This property is essentially a cached index.'}
+        </p>
+        <PropName
+          name="setJumplist"
+          type="method"
+          isContextProp
+        />
         <p>
           A method used to set the jumplist.
         </p>
@@ -192,11 +267,62 @@ export const MyComponent = () => {
         >
           Props
         </Heading>
-        <InlineCode>
-          nodeID*
-        </InlineCode>
+        <PropName
+          name="nodeID"
+          required
+          type="string"
+        />
         <p>
-          Required. A unique string to identify this node.
+          A unique string to identify this node.
+        </p>
+        <BasicProps />
+      </JumplistNode>
+      <JumplistNode nodeID="button">
+        <Heading
+          id="button"
+          href="/docs/jumplist/api#button"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#button`}
+          element='h4'
+        >
+          {'<JumplistButton>'}
+        </Heading>
+        <p>
+          The jumplist button is a simple wrapper around the useJumplist hook, to quickly scroll to the previous or next node in the jumplist.
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { JumplistNode } from \'@faceless-ui/jumplist\';
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <JumplistNode nodeID="node-1">
+        ...
+      </JumplistNode>
+      <JumplistNode nodeID="node-2">
+        ...
+      </JumplistNode>
+    </div>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
+        <Heading
+          id="node-props"
+          href="/docs/jumplist/api#node-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node-props`}
+          element='h5'
+        >
+          Props
+        </Heading>
+        <PropName
+          name="nodeID"
+          required
+          type="string"
+        />
+        <p>
+          A unique string to identify this node.
         </p>
         <BasicProps />
       </JumplistNode>
