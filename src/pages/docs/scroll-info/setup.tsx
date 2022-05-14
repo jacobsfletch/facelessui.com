@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { Hyperlink } from '@components/Hyperlink';
@@ -12,9 +11,6 @@ import { VersionNumber } from '@components/VersionNumber';
 const ScrollInfoInstallation = () => {
   return (
     <Fragment>
-      <Meta
-        title="Scroll Info Basic Setup"
-      />
       <h4>
         Basic Setup
       </h4>
@@ -90,6 +86,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/scroll-info/installation.tsx`}
+      pageName="Scroll Info Setup"
     />
   )
 };

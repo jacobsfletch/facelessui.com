@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
@@ -12,9 +11,6 @@ import { Hyperlink } from '@components/Hyperlink';
 const CollapsiblesInstallation = () => {
   return (
     <Fragment>
-      <Meta
-        title="Collapsibles Basic Setup"
-      />
       <h1>
         Basic Setup
       </h1>
@@ -131,6 +127,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/setup.tsx`}
+      pageName="Collapsibles Setup"
     />
   )
 };

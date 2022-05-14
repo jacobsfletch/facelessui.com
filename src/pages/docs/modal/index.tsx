@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { StyledList } from '@components/StyledList';
@@ -10,9 +9,6 @@ import { Heading } from '@components/Heading';
 const ModalDoc = () => {
   return (
     <Fragment>
-      <Meta
-        title="Modal"
-      />
       <h1>
         Modal
       </h1>
@@ -188,6 +184,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/index.tsx`}
+      pageName="Modal"
     />
   )
 };

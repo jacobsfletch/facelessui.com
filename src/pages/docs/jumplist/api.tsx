@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
@@ -30,9 +29,6 @@ const JumplistAPI = () => {
 
   return (
     <Fragment>
-      <Meta
-        title="Jumplist API"
-      />
       <h1>
         Jumplist API
       </h1>
@@ -369,6 +365,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/jumplist/api.tsx`}
+      pageName="Jumplist API"
     />
   )
 };

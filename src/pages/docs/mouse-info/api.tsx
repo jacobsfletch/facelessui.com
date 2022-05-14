@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { Hyperlink } from '@components/Hyperlink';
@@ -10,9 +9,6 @@ import { InlineCode } from '@components/InlineCode';
 const MouseInfoAPI = () => {
   return (
     <Fragment>
-      <Meta
-        title="Mouse Info API"
-      />
       <h1>
         Mouse Info API
       </h1>
@@ -132,6 +128,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/mouse-info/api.tsx`}
+      pageName="Mouse Info API"
     />
   )
 };

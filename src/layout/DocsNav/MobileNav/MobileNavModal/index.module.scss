@@ -1,0 +1,15 @@
+@use "@scss/common" as *;
+
+.mobileNavModal {
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  border: none;
+  color: var(--color-html);
+  padding: base();
+  overflow: auto;
+}
+
+.darkMode {
+  background: var(--color-almost-black);
+}

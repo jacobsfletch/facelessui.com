@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { InlineCode } from '@components/InlineCode';
@@ -32,9 +31,6 @@ const ModalAPI = () => {
 
   return (
     <Fragment>
-      <Meta
-        title="Modal API"
-      />
       <h1>
         Modal API
       </h1>
@@ -716,6 +712,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/api.tsx`}
+      pageName="Modal API"
     />
   )
 };

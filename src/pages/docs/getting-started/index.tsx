@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
@@ -8,9 +7,6 @@ import { Heading } from '@components/Heading';
 const GettingStartedDoc = () => {
   return (
     <Fragment>
-      <Meta
-        title="Getting Started"
-      />
       <h1>
         Getting Started
       </h1>
@@ -76,6 +72,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/getting-started/index.tsx`}
+      pageName="Getting Started"
     />
   )
 };

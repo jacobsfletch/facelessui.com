@@ -7,6 +7,8 @@ import classes from './index.module.scss';
 import { useRouter } from "next/dist/client/router";
 import { VersionNumber } from "@components/VersionNumber";
 import { useJumplist } from '@faceless-ui/jumplist'
+import { useDarkMode } from "@root/providers/DarkMode";
+import { useWindowInfo } from "@faceless-ui/window-info";
 
 export const RecursiveNav: React.FC<{
   items?: NavItem[]
@@ -15,15 +17,29 @@ export const RecursiveNav: React.FC<{
     items,
   } = props;
 
+  const {
+    breakpoints: {
+      m: midBreak
+    } = {}
+  } = useWindowInfo();
+
   const { activeJumplistIndex } = useJumplist();
   const { asPath } = useRouter();
+  const { isDark } = useDarkMode();
 
   const hasItems = items && Array.isArray(items) && items.length > 0;
 
   if (hasItems) {
     return (
-      <CollapsibleGroup allowMultiple={false}>
-        <nav className={classes.nav}>
+      <CollapsibleGroup
+        allowMultiple={midBreak}
+      >
+        <nav
+          className={[
+            classes.nav,
+            isDark && classes.darkMode
+          ].filter(Boolean).join(' ')}
+        >
           {items.map((item, index) => {
             const {
               type,
@@ -75,7 +91,7 @@ export const RecursiveNav: React.FC<{
                 <Collapsible
                   key={index}
                   openOnInit={isCurrentSection}
-                  open={isCurrentSection}
+                  open={isCurrentSection || midBreak}
                 >
                   {/* @ts-ignore */}
                   {({ isOpen }) => {
@@ -139,7 +155,7 @@ export const RecursiveNav: React.FC<{
                           disable={isCurrentSection}
                         >
                           <Hyperlink
-                            href={href}
+                            href={!midBreak ? href : ''} // disable links on mobile, so that the user can dropdown without navigating and having the modal close
                             className={[
                               classes.itemLabel,
                               isCurrentSection && classes.itemIsActive

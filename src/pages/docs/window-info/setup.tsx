@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { CodeBlock } from '@components/CodeBlock';
@@ -12,9 +11,6 @@ import { VersionNumber } from '@components/VersionNumber';
 const WindowInfoInstallation = () => {
   return (
     <Fragment>
-      <Meta
-        title="Window Info Basic Setup"
-      />
       <h4>
         Basic Setup
       </h4>
@@ -97,6 +93,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/installation.tsx`}
+      pageName="Window Info Setup"
     />
   )
 };

@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { InlineCode } from '@components/InlineCode';
@@ -14,9 +13,6 @@ const WindowInfoDoc = () => {
 
   return (
     <Fragment>
-      <Meta
-        title="Window Info"
-      />
       <h1>
         Window Info
       </h1>
@@ -103,6 +99,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/index.tsx`}
+      pageName="Window Info"
     />
   )
 };

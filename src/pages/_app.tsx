@@ -21,6 +21,7 @@ import cssVariables from '../../cssVariables';
 import '../scss/app.scss';
 import { ScrollToTopOnRouteChange } from '@components/ScrollToTopOnRouteChange';
 import { GoogleAnalytics } from '@components/GoogleAnalytics';
+import { CloseModalOnRouteChange } from '@components/CloseModalOnRouteChange';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -89,6 +90,7 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                       <VersionsProvider versions={versions}>
                         <CustomCursorProvider>
                           <Fragment>
+                            <CloseModalOnRouteChange />
                             <ScrollToTopOnRouteChange />
                             <GoogleAnalytics />
                             <AppHead />

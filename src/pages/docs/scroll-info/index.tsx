@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { InlineCode } from '@components/InlineCode';
@@ -14,9 +13,6 @@ const ScrollInfoDoc = () => {
 
   return (
     <Fragment>
-      <Meta
-        title="Scroll Info"
-      />
       <h1>
         Scroll Info
       </h1>
@@ -96,6 +92,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/scroll-info/index.tsx`}
+      pageName="Scroll Info"
     />
   )
 };

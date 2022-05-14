@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
@@ -10,9 +9,6 @@ import { Heading } from '@components/Heading';
 const GridDoc = () => {
   return (
     <Fragment>
-      <Meta
-        title="Grid"
-      />
       <h1>
         Grid
       </h1>
@@ -152,6 +148,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/index.tsx`}
+      pageName="CSS Grid"
     />
   )
 };

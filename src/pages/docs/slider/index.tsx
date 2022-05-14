@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { InlineCode } from '@components/InlineCode';
@@ -10,9 +9,6 @@ import { Heading } from '@components/Heading';
 const SliderDoc = () => {
   return (
     <Fragment>
-      <Meta
-        title="Slider"
-      />
       <h1>
         Slider
       </h1>
@@ -180,6 +176,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/index.tsx`}
+      pageName="Slider"
     />
   )
 };

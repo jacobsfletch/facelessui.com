@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { CodeBlock } from '@components/CodeBlock';
@@ -12,9 +11,6 @@ import { InstallationCode } from '@components/InstallationCode';
 const ModalSetupDoc = () => {
   return (
     <Fragment>
-      <Meta
-        title="Modal Basic Setup"
-      />
       <h1>
         Basic Setup
       </h1>
@@ -186,6 +182,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/setup.tsx`}
+      pageName="Modal Setup"
     />
   )
 };

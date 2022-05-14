@@ -1,0 +1,10 @@
+@use "@scss/common" as *;
+
+.desktopNav {
+  position: sticky;
+  top: base(2);
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  height: calc(100vh - #{base(4)});
+}

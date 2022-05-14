@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { Heading } from '@components/Heading';
@@ -20,7 +19,10 @@ const CollapsiblesAPI = () => {
   } = useJumplist();
 
   useEffect(() => {
-    const jumplist = collapsiblesJumplistNav.map((item) => ({ nodeID: item.id || '' }));
+    const jumplist = collapsiblesJumplistNav.map((item) => ({
+      nodeID: item.id || '',
+      label: item.label,
+    }));
     setJumplist(jumplist);
     return () => {
       clearJumplist();
@@ -32,9 +34,6 @@ const CollapsiblesAPI = () => {
 
   return (
     <Fragment>
-      <Meta
-        title="Collapsibles API"
-      />
       <h1>
         Collapsibles API
       </h1>
@@ -261,6 +260,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/api.tsx`}
+      pageName="Collapsibles API"
     />
   )
 };

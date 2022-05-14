@@ -1,0 +1,22 @@
+@use "@scss/common" as *;
+
+.mobileNavToggler {
+  @include button-reset;
+  width: base(1.5);
+  height: base(1.5);
+  position: fixed;
+  bottom: var(--mobile-gutter);
+  right: var(--mobile-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 100%;
+  z-index: 9999999;
+  padding: base(0.5);
+  box-shadow:var(--shadow-xs);
+}
+
+.darkMode {
+  background-color: var(--color-almost-black);
+}

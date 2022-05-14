@@ -21,7 +21,7 @@ export type HyperlinkProps = {
 export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   const {
     className,
-    href: hrefFromProps,
+    href,
     children,
     onMouseEnter,
     onMouseLeave,
@@ -31,11 +31,6 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     underlineOnHover,
     colored
   } = props;
-
-  let href = hrefFromProps;
-
-  const sanitizedHref = href || ''; // todo: sanitize the href as necessary (strip top-level domains, etc)
-  let isLocal = true; // todo: check isLocalPath (to conditionally render a link or raw html anchor and open in new tab)
 
   const sharedProps = {
     className: [
@@ -54,25 +49,35 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     } : {}
   }
 
-  if (!newTab && isLocal) {
+  if (href) {
+    if (!newTab) {
+      return (
+        <Link
+          href={href}
+          scroll={false}
+        >
+          <a {...sharedProps} >
+            {children}
+          </a>
+        </Link>
+      )
+    }
+
     return (
-      <Link
-        href={sanitizedHref}
-        scroll={false}
+      <a
+        href={href}
+        {...sharedProps}
       >
-        <a {...sharedProps} >
-          {children}
-        </a>
-      </Link>
+        {children}
+      </a>
     )
   }
 
   return (
-    <a
-      href={sanitizedHref}
+    <div
       {...sharedProps}
     >
       {children}
-    </a>
+    </div>
   )
 }

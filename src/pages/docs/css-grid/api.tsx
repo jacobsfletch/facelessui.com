@@ -1,4 +1,3 @@
-import Meta from '@components/Meta';
 import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
@@ -30,9 +29,6 @@ const CSSGridAPI = () => {
 
   return (
     <Fragment>
-      <Meta
-        title="CSS Grid API"
-      />
       <h1>
         CSS Grid API
       </h1>
@@ -313,6 +309,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/api.tsx`}
+      pageName="CSS Grid API"
     />
   )
 };

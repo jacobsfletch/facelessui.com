@@ -1,8 +1,15 @@
 @use "@scss/common" as *;
 
-.blockContainer {
-  width: 100%;
+.desktopNav {
   @include mid-break {
-    padding: 0 var(--mobile-gutter);
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: none;
+  @include mid-break {
+    margin-top: base();
+    display: flex;
   }
 }
