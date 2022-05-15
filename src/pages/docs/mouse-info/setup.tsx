@@ -86,6 +86,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/installation.tsx`}
       pageName="Mouse Info Setup"
+      pageTitle="Mouse Info Setup"
+      metaDescription="Basic setup for the Mouse Info package."
     />
   )
 };

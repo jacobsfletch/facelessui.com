@@ -18,7 +18,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
-            href="https://fonts.cdnfonts.com/css/jetbrains-mono"
+            href="https://fonts.cdnfonts.com/css/jetbrains-mono?display=swap"
             rel="stylesheet"
           />
         </Head>

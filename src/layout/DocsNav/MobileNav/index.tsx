@@ -26,6 +26,7 @@ export const MobileNav: React.FC<{
           classes.mobileNavToggler,
           isDark && classes.darkMode
         ].filter(Boolean).join(' ')}
+        aria-label='Mobile Navigation'
       >
         <div className={classes.icon}>
           <Hamburger isOpen={oneIsOpen} />

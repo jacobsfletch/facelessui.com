@@ -106,18 +106,18 @@ export const MyComponent = () => {
           {'.'}
         </p>
         <PropName
-          name="onToggle"
+          name="open"
+          type="boolean"
+        />
+        <p>
+          If true, the collapsible will be open. This is a useful pattern to control the collapsible with external state.
+        </p>
+        <PropName
+          name="onToggle()"
           type="method"
         />
         <p>
           A callback function that is executed when the collapsible is toggled.
-        </p>
-        <PropName
-          name="open"
-          type="method"
-        />
-        <p>
-          If true, the collapsible will be open. This is a useful pattern to control the collapsible with external state.
         </p>
         <ClassPrefix />
       </JumplistNode>
@@ -261,6 +261,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/api.tsx`}
       pageName="Collapsibles API"
+      metaTitle="Collapsibles API"
+      metaDescription="API for the collapsibles package."
     />
   )
 };

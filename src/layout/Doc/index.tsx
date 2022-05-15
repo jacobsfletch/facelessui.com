@@ -13,17 +13,22 @@ export const Doc: React.FC<{
   githubUrl?: string
   children: React.ReactNode
   pageName?: string
+  metaTitle?: string
+  metaDescription?: string
 }> = (props) => {
   const {
     githubUrl,
     pageName,
-    children
+    children,
+    metaTitle,
+    metaDescription
   } = props;
 
   return (
     <Fragment>
       <Meta
-        title={pageName}
+        title={metaTitle}
+        description={metaDescription}
       />
       <BlockContainer>
         <Grid>

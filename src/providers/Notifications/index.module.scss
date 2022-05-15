@@ -18,7 +18,7 @@
   align-items: center;
   border-radius: 2px;
   background-color: white;
-  box-shadow: var(--shadow-s);
+  box-shadow: var(--shadow-1);
   &:not(:last-child) {
     margin-bottom: base(0.5);
   }
@@ -27,4 +27,5 @@
 .isDark  {
   background-color: var(--color-darkest-gray);
   color: white;
+  box-shadow: var(--shadow-2);
 }

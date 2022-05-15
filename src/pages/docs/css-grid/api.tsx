@@ -310,6 +310,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/api.tsx`}
       pageName="CSS Grid API"
+      pageTitle="CSS Grid API"
+      metaDescription="API for the CSS Grid package."
     />
   )
 };

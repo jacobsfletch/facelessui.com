@@ -183,6 +183,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/jumplist/index.tsx`}
       pageName="Jumplist"
+      pageTitle="Jumplist"
+      metaDescription="The Jumplist package."
     />
   )
 };

@@ -91,6 +91,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/installation.tsx`}
       pageName="Window Info Setup"
+      pageTitle="Window Info Setup"
+      metaDescription="Basic setup for the Window Info package."
     />
   )
 };

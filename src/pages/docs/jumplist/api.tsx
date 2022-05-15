@@ -42,7 +42,14 @@ const JumplistAPI = () => {
           {'<JumplistProvider>'}
         </Heading>
         <p>
-          The provider is rendered on time at the root of your project. It maintains a list of the intersection status of each jumplist item. Global settings can be controlled here. It has no required props.
+          {'Wrap your app with this component. It has no required props and renders nothing in the DOM. It provides context for all the components and hooks to work together. This is where the global '}
+          <InlineCode
+            href="#provider-props"
+            underline
+          >
+            jumplist settings
+          </InlineCode>
+          {'  are defined.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -82,6 +89,7 @@ export const MyApp = () => {
           >
             Intersection Observer API
           </Hyperlink>
+          {'.'}
         </p>
         <PropName
           name="threshold"
@@ -96,6 +104,7 @@ export const MyApp = () => {
           >
             Intersection Observer API
           </Hyperlink>
+          {'.'}
         </p>
         <PropName
           name="smoothScroll"
@@ -106,14 +115,18 @@ export const MyApp = () => {
           <InlineCode>
             {'html: { scroll-behavior: smooth; }'}
           </InlineCode>
-          {' as inline CSS onto the root html element of your DOM. Alternatively, add this CSS to your own stylesheets. See '}
+          {' as inline CSS onto the root html element of your DOM. See '}
           <Hyperlink
             href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
             underline
           >
             smooth-scrolling
           </Hyperlink>
-          {' for more details.'}
+          {' for more details. Defaults to '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'.'}
         </p>
         <Heading
           id="context"
@@ -141,7 +154,7 @@ export const MyApp = () => {
           {' status.'}
         </p>
         <PropName
-          name="clearJumplist"
+          name="clearJumplist()"
           type="method"
           isContextProp
         />
@@ -216,7 +229,7 @@ export const MyApp = () => {
           {'. This property is essentially a cached index.'}
         </p>
         <PropName
-          name="setJumplist"
+          name="setJumplist(jumplist: array)"
           type="method"
           isContextProp
         />
@@ -234,7 +247,19 @@ export const MyApp = () => {
           {'<JumplistNode>'}
         </Heading>
         <p>
-          Each jumplist node is a wrapper around Intersection Observer, and syncs its current intersection status to the provider.
+          {'Each jumplist node is a wrapper around the '}
+          <Hyperlink
+            newTab
+            underline
+            href='https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API'
+          >
+            Intersection Observer API
+          </Hyperlink>
+          {', and syncs its '}
+          <InlineCode >
+            isIntersecting
+          </InlineCode>
+          {' status to the provider.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -283,7 +308,14 @@ export const MyComponent = () => {
           {'<JumplistButton>'}
         </Heading>
         <p>
-          The jumplist button is a simple wrapper around the useJumplist hook, to quickly scroll to the previous or next node in the jumplist.
+          {'The jumplist button is a simple wrapper around the '}
+          <InlineCode
+            underline
+            href="#useJumplist"
+          >
+            useJumplist
+          </InlineCode>
+          {' hook, to quickly scroll to the previous or next node in the jumplist.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -366,6 +398,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/jumplist/api.tsx`}
       pageName="Jumplist API"
+      pageTitle="Jumplist API"
+      metaDescription="API for the Jumplist package."
     />
   )
 };

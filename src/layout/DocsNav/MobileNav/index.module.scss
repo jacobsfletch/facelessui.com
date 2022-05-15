@@ -14,11 +14,12 @@
   border-radius: 100%;
   z-index: 9999999;
   padding: base(0.5);
-  box-shadow:var(--shadow-xs);
+  box-shadow: var(--shadow-1);
 }
 
 .darkMode {
   background-color: var(--color-darkest-gray);
+  box-shadow: var(--shadow-2);
 }
 
 .icon {

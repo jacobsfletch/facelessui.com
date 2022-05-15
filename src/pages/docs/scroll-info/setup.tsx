@@ -86,6 +86,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/scroll-info/installation.tsx`}
       pageName="Scroll Info Setup"
+      pageTitle="Scroll Info Setup"
+      metaDescription="Basic setup for the Scroll Info package."
     />
   )
 };
