@@ -18,7 +18,6 @@ const JumplistSetup = () => {
         {'Latest version: '}
         <VersionNumber
           name="jumplist"
-          element='span'
         />
       </p>
       <Margin bottom="xs">

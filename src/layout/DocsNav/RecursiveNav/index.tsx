@@ -91,7 +91,7 @@ export const RecursiveNav: React.FC<{
                 <Collapsible
                   key={index}
                   openOnInit={isCurrentSection}
-                  open={isCurrentSection || midBreak}
+                  open={isCurrentSection}
                 >
                   {/* @ts-ignore */}
                   {({ isOpen }) => {
@@ -107,7 +107,7 @@ export const RecursiveNav: React.FC<{
                             size="small"
                           />
                           <Hyperlink
-                            href={href}
+                            href={!midBreak ? href : ''} // disable links on mobile, so that the user can dropdown without navigating and having the modal close
                             className={[
                               classes.itemLabel,
                               isCurrentSection && classes.itemIsActive
@@ -117,10 +117,8 @@ export const RecursiveNav: React.FC<{
                             {isOpen && versionName && (
                               <Fragment>
                                 &nbsp;
-                                <VersionNumber
-                                  name={versionName}
-                                  element="span"
-                                />
+                                &nbsp;
+                                <VersionNumber name={versionName} />
                               </Fragment>
                             )}
                           </Hyperlink>
@@ -170,10 +168,7 @@ export const RecursiveNav: React.FC<{
                             {isOpen && versionName && (
                               <Fragment>
                                 &nbsp;
-                                <VersionNumber
-                                  name={versionName}
-                                  element="span"
-                                />
+                                <VersionNumber name={versionName} />
                               </Fragment>
                             )}
                           </Hyperlink>

@@ -18,7 +18,6 @@ const ScrollInfoInstallation = () => {
         {'Latest version: '}
         <VersionNumber
           name="scroll-info"
-          element='span'
         />
       </p>
       <Margin bottom="xs">

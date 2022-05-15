@@ -16,10 +16,7 @@ const WindowInfoInstallation = () => {
       </h4>
       <p>
         {'Latest version: '}
-        <VersionNumber
-          name="window-info"
-          element='span'
-        />
+        <VersionNumber name="window-info" />
       </p>
       <Margin bottom="xs">
         <Heading

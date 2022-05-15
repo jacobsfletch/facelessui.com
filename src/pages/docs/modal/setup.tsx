@@ -18,7 +18,6 @@ const ModalSetupDoc = () => {
         {'Latest version: '}
         <VersionNumber
           name="modal"
-          element='span'
         />
       </p>
       <Margin bottom="xs">

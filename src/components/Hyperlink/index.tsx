@@ -74,10 +74,10 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   }
 
   return (
-    <div
+    <span
       {...sharedProps}
     >
       {children}
-    </div>
+    </span>
   )
 }

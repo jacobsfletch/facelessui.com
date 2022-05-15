@@ -18,7 +18,6 @@ const SliderInstallation = () => {
         {'Latest version: '}
         <VersionNumber
           name="slider"
-          element='span'
         />
       </p>
       <Margin bottom="xs">

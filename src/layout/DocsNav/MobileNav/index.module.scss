@@ -2,8 +2,8 @@
 
 .mobileNavToggler {
   @include button-reset;
-  width: base(1.5);
-  height: base(1.5);
+  width: base(2);
+  height: base(2);
   position: fixed;
   bottom: var(--mobile-gutter);
   right: var(--mobile-gutter);
@@ -18,5 +18,12 @@
 }
 
 .darkMode {
-  background-color: var(--color-almost-black);
+  background-color: var(--color-darkest-gray);
+}
+
+.icon {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 1px);
+  transform: translate3d(-50%, -50%, 0);
 }

@@ -19,6 +19,11 @@
 .small {
   width: base(0.25);
   height: base(0.25);
+
+  @include mid-break {
+    width: 8px;
+    height: 8px;
+  }
 }
 
 .large {

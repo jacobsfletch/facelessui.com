@@ -18,7 +18,6 @@ const MouseInfoInstallation = () => {
         {'Latest version: '}
         <VersionNumber
           name="mouse-info"
-          element='span'
         />
       </p>
       <Margin bottom="xs">

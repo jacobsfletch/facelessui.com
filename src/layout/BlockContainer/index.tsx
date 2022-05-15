@@ -31,10 +31,8 @@ export const BlockContainer: React.FC<{
         className
       ].filter(Boolean).join(' ')}
       style={style}
-      htmlAttributes={{
-        onMouseEnter,
-        onMouseLeave
-      }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <Cell
         className={cellClassName}

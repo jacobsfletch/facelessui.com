@@ -18,7 +18,6 @@ const CollapsiblesInstallation = () => {
         {'Latest version: '}
         <VersionNumber
           name="css-grid"
-          element='span'
         />
       </p>
       <Margin bottom="xs">

@@ -18,7 +18,6 @@ const CSSGridInstallation = () => {
         {'Latest version: '}
         <VersionNumber
           name="css-grid"
-          element='span'
         />
       </p>
       <Margin bottom="xs">
@@ -99,7 +98,7 @@ export const MyApp = () => {
         {'. You can also '}
         <Hyperlink
           underline
-          href=''
+          href='#nested-grids'
         >
           nest grids
         </Hyperlink>
@@ -191,10 +190,10 @@ export const MyComponent = () => {
   )
 }`}
         </CodeBlock>
-        <p>
-          Pro tip: grids do not need to be direct descendants of cells
-        </p>
       </Margin>
+      <p>
+        Pro tip: grids do not need to be direct descendants of cells
+      </p>
     </Fragment>
   )
 }
