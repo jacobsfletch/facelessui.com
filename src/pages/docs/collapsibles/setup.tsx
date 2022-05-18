@@ -34,28 +34,19 @@ const CollapsiblesInstallation = () => {
       <p>
         {'To create a new collapsible, wrap any section of your app with a '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/collapsibles/api#collapsible"
-          >
+          <Hyperlink href="/docs/collapsibles/api#collapsible">
             {'<Collapsible>'}
           </Hyperlink>
         </InlineCode>
         {' component. This does not render anything to the DOM and provides context for the other components to work together. Then render a '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/collapsibles/api#content"
-          >
+          <Hyperlink href="/docs/collapsibles/api#content">
             {'<CollapsibleContent>'}
           </Hyperlink>
         </InlineCode>
         {' component anywhere within this to have its height animated from 0 to auto-height on toggle. The easiest way to toggle a collapsible is with the '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/collapsibles/api#toggler"
-          >
+          <Hyperlink href="/docs/collapsibles/api#toggler">
             {'<CollapsibleToggler>'}
           </Hyperlink>
         </InlineCode>

@@ -33,10 +33,7 @@ const ModalSetupDoc = () => {
       </Margin>
       <p>
         {'First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the '}
-        <Hyperlink
-          href="/docs/modal/api#provider-props"
-          underline
-        >
+        <Hyperlink href="/docs/modal/api#provider-props">
           global settings
         </Hyperlink>
         {' are defined.'}
@@ -44,10 +41,7 @@ const ModalSetupDoc = () => {
       <p>
         {'Anywhere inside of this, render the'}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/modal/api#container"
-          >
+          <Hyperlink href="/docs/modal/api#container">
             {'<ModalContainer>'}
           </Hyperlink>
         </InlineCode>
@@ -70,10 +64,7 @@ export const MyApp = () => {
       <p>
         {'Now to create a modal, render a '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/modal/api#modal"
-          >
+          <Hyperlink href="/docs/modal/api#modal">
             {'<Modal>'}
           </Hyperlink>
         </InlineCode>
@@ -83,10 +74,7 @@ export const MyApp = () => {
         </InlineCode>
         {' that identifies this modal. The simplest way to open and close the modal is to use the '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/modal/api#toggler"
-          >
+          <Hyperlink href="/docs/modal/api#toggler">
             {'<ModalToggler>'}
           </Hyperlink>
         </InlineCode>
@@ -119,18 +107,12 @@ export const MyComponent = () => {
           toggle
         </InlineCode>
         {' method  can be directly accessed from the '}
-        <Hyperlink
-          underline
-          href="/docs/modal/api#context"
-        >
+        <Hyperlink href="/docs/modal/api#context">
           modal context
         </Hyperlink>
         {' with the '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/modal/api#useModal"
-          >
+          <Hyperlink href="/docs/modal/api#useModal">
             useModal
           </Hyperlink>
         </InlineCode>
@@ -157,17 +139,11 @@ export const MyComponent = (props) => {
       </Margin>
       <p>
         {'It is also possible to open and close modals with the URL or your router, see '}
-        <Hyperlink
-          href="/docs/modal/routing"
-          underline
-        >
+        <Hyperlink href="/docs/modal/routing">
           Routing
         </Hyperlink>
         {' for full details. For more advanced setups, see the full '}
-        <Hyperlink
-          underline
-          href="/docs/modal/api"
-        >
+        <Hyperlink href="/docs/modal/api">
           API reference
         </Hyperlink>
         .

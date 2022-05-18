@@ -13,7 +13,7 @@ const ModalDoc = () => {
         Modal
       </h1>
       <p>
-        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build unique open and close effects. You can also open modals using the URL or your existing router, enabling direct links to modal content.
+        This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build unique open and close effects. You can also open modals using the URL or your existing router, enabling direct links to modal content. All modals are fully accessible out-of-the-box. They trap focus, bind escape, and so much more.
       </p>
       <p>
         Some common uses for this package include:
@@ -56,7 +56,6 @@ const ModalDoc = () => {
         <p>
           {'Each modal is a wrapper around '}
           <Hyperlink
-            underline
             href="https://reactjs.org/docs/portals.html"
             newTab
           >
@@ -83,7 +82,6 @@ const ModalDoc = () => {
           </InlineCode>
           {' hook or even the URL. When a modal is opened, transition events are fired using '}
           <Hyperlink
-            underline
             href="https://reactcommunity.org/react-transition-group"
             newTab
           >
@@ -94,13 +92,12 @@ const ModalDoc = () => {
         <p>
           {'By default, all modals trap focus using '}
           <Hyperlink
-            underline
             href="https://github.com/focus-trap/focus-trap"
             newTab
           >
             {'focus-trap'}
           </Hyperlink>
-          {', a popular open-source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, the element that was focused to open the modal is restored.'}
+          {', a popular open-source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, focus is restored to the element used to open the modal.'}
         </p>
         <p>
           {'The final piece to this is the '}
@@ -108,24 +105,15 @@ const ModalDoc = () => {
             {'<ModalProvider>'}
           </InlineCode>
           {' which should wrap your entire app and where you define the '}
-          <Hyperlink
-            underline
-            href="/docs/modal/api#provider-props"
-          >
+          <Hyperlink href="/docs/modal/api#provider-props">
             global settings
           </Hyperlink>
           {'. This provides the '}
-          <Hyperlink
-            href="/docs/modal/api#context"
-            underline
-          >
+          <Hyperlink href="/docs/modal/api#context">
             modal context
           </Hyperlink>
           {' for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with modals. See the '}
-          <Hyperlink
-            href="/docs/modal/api"
-            underline
-          >
+          <Hyperlink href="/docs/modal/api">
             API
           </Hyperlink>
           {' for full details.'}

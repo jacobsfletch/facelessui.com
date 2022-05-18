@@ -66,6 +66,7 @@ export const RecursiveNav: React.FC<{
 
               return (
                 <Hyperlink
+                  underline={false}
                   key={index}
                   href={href}
                   className={classes.link}
@@ -107,6 +108,7 @@ export const RecursiveNav: React.FC<{
                             size="small"
                           />
                           <Hyperlink
+                            underline={false}
                             href={!midBreak ? href : ''} // disable links on mobile, so that the user can dropdown without navigating and having the modal close
                             className={[
                               classes.itemLabel,
@@ -153,6 +155,7 @@ export const RecursiveNav: React.FC<{
                           disable={isCurrentSection}
                         >
                           <Hyperlink
+                            underline={false}
                             href={!midBreak ? href : ''} // disable links on mobile, so that the user can dropdown without navigating and having the modal close
                             className={[
                               classes.itemLabel,
@@ -187,6 +190,7 @@ export const RecursiveNav: React.FC<{
 
                                 return (
                                   <Hyperlink
+                                    underline={false}
                                     key={`${index}-${jumplistItemIndex}`}
                                     href={itemHref}
                                     className={classes.jumplistLink}

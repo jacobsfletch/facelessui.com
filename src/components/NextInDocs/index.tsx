@@ -98,6 +98,7 @@ export const NextInDocs: React.FC<{
     return (
       <Hyperlink
         href={href}
+        underline={false}
         className={[
           className,
           classes.nextInDocs,

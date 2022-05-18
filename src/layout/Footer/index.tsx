@@ -14,7 +14,10 @@ export const Footer: React.FC = () => {
             &nbsp;&copy;&nbsp;
             {`${new Date().getFullYear()}`}
             &nbsp;&mdash;&nbsp;
-            <Hyperlink href="/">
+            <Hyperlink
+              href="/"
+              underline={false}
+            >
               Faceless UI
             </Hyperlink>
           </div>
@@ -26,6 +29,7 @@ export const Footer: React.FC = () => {
               <Hyperlink
                 newTab
                 href="https://www.npmjs.com/org/faceless-ui"
+                underline={false}
               >
                 NPM
               </Hyperlink>
@@ -34,6 +38,7 @@ export const Footer: React.FC = () => {
               <Hyperlink
                 newTab
                 href="https://github.com/faceless-ui"
+                underline={false}
               >
                 GitHub
               </Hyperlink>

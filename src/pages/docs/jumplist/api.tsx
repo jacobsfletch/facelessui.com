@@ -9,6 +9,7 @@ import { Heading } from '@components/Heading';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { PropName } from '@components/PropName';
+import { BasicContext } from '@components/BasicContext';
 
 const JumplistAPI = () => {
   const {
@@ -42,14 +43,15 @@ const JumplistAPI = () => {
           {'<JumplistProvider>'}
         </Heading>
         <p>
-          {'Wrap your app with this component. It has no required props and renders nothing in the DOM. It provides context for all the components and hooks to work together. This is where the global '}
-          <InlineCode
-            href="#provider-props"
-            underline
-          >
-            jumplist settings
-          </InlineCode>
-          {'  are defined.'}
+          {'This component provides the '}
+          <Hyperlink href="#context">
+            jumplist context
+          </Hyperlink>
+          {' to your app. It does not have any required props and renders nothing in the DOM. This is where the '}
+          <Hyperlink href="#provider-props">
+            global settings
+          </Hyperlink>
+          {' are defined.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -85,7 +87,6 @@ export const MyApp = () => {
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
-            underline
           >
             Intersection Observer API
           </Hyperlink>
@@ -100,7 +101,6 @@ export const MyApp = () => {
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
-            underline
           >
             Intersection Observer API
           </Hyperlink>
@@ -116,10 +116,7 @@ export const MyApp = () => {
             {'html: { scroll-behavior: smooth; }'}
           </InlineCode>
           {' as inline CSS onto the root html element of your DOM. See '}
-          <Hyperlink
-            href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
-            underline
-          >
+          <Hyperlink href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}>
             smooth-scrolling
           </Hyperlink>
           {' for more details. Defaults to '}
@@ -144,10 +141,7 @@ export const MyApp = () => {
         <p>
           {'This is an array of jumplist nodes, each with its '}
           <InlineCode>
-            <Hyperlink
-              underline
-              href="/docs/jumplist/api#isIntersecting"
-            >
+            <Hyperlink href="#isIntersecting">
               isIntersecting
             </Hyperlink>
           </InlineCode>
@@ -160,40 +154,6 @@ export const MyApp = () => {
         />
         <p>
           This is a method you can use to empty the jumplist array.
-        </p>
-        <PropName
-          name="rootMargin"
-          type="string"
-          isContextProp
-        />
-        <p>
-          {'The same '}
-          <InlineCode>
-            <Hyperlink
-              underline
-              href="/docs/jumplist/api#rootMargin"
-            >
-              rootMargin
-            </Hyperlink>
-          </InlineCode>
-          {' passed to the provider.'}
-        </p>
-        <PropName
-          name="threshold"
-          type="string"
-          isContextProp
-        />
-        <p>
-          {'The same '}
-          <InlineCode>
-            <Hyperlink
-              underline
-              href="/docs/jumplist/api#threshold"
-            >
-              threshold
-            </Hyperlink>
-          </InlineCode>
-          {' passed to the provider.'}
         </p>
         <PropName
           name="currentJumplistIndex"
@@ -215,10 +175,7 @@ export const MyApp = () => {
         <p>
           {'The most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the '}
           <InlineCode>
-            <Hyperlink
-              underline
-              href="/docs/jumplist/api#currentJumplistIndex"
-            >
+            <Hyperlink href="#currentJumplistIndex">
               currentJumplistIndex
             </Hyperlink>
           </InlineCode>
@@ -236,6 +193,7 @@ export const MyApp = () => {
         <p>
           A method used to set the jumplist.
         </p>
+        <BasicContext />
       </JumplistNode>
       <JumplistNode nodeID="node">
         <Heading
@@ -250,7 +208,6 @@ export const MyApp = () => {
           {'Each jumplist node is a wrapper around the '}
           <Hyperlink
             newTab
-            underline
             href='https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API'
           >
             Intersection Observer API
@@ -309,13 +266,10 @@ export const MyComponent = () => {
         </Heading>
         <p>
           {'The jumplist button is a simple wrapper around the '}
-          <InlineCode
-            underline
-            href="#useJumplist"
-          >
+          <InlineCode href="#useJumplist">
             useJumplist
           </InlineCode>
-          {' hook, to quickly scroll to the previous or next node in the jumplist.'}
+          {' hook, used to quickly and easily navigate to any node in the jumplist.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -365,10 +319,7 @@ export const MyComponent = () => {
         </Heading>
         <p>
           {'A hook used to access the '}
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#context"
-          >
+          <Hyperlink href="#context">
             jumplist context
           </Hyperlink>
           {'.'}

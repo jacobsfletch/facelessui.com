@@ -22,9 +22,10 @@ export const BasicProps: React.FC<{
         </InlineCode>
         {'.'}
       </p>
-      <InlineCode>
-        ...rest
-      </InlineCode>
+      <PropName
+        name="...rest"
+        type="object"
+      />
       <p>
         {`All other props are spread onto the DOM element as HTML attributes.`}
       </p>

@@ -28,14 +28,14 @@ export const MainHero: React.FC = () => {
                 as="jumbo"
                 marginTop={false}
               >
-                Make any interface for any brand.
+                Make any interface for any brand
               </Heading>
               <Heading
                 element="h1"
                 as="h5"
                 marginBottom={false}
               >
-                An unstyled and accessible React+TypeScript UI library.
+                An unstyled and accessible React+TypeScript UI library
               </Heading>
             </Margin>
           </Cell>

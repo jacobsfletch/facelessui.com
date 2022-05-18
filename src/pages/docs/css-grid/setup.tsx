@@ -33,10 +33,7 @@ const CSSGridInstallation = () => {
       </Margin>
       <p>
         {'First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the '}
-        <Hyperlink
-          href="/docs/css-grid/api#provider-props"
-          underline
-        >
+        <Hyperlink href="/docs/css-grid/api#provider-props">
           global settings
         </Hyperlink>
         {' are defined.'}
@@ -96,10 +93,7 @@ export const MyApp = () => {
           {'<Grid>'}
         </InlineCode>
         {'. You can also '}
-        <Hyperlink
-          underline
-          href='#nested-grids'
-        >
+        <Hyperlink href='#nested-grids'>
           nest grids
         </Hyperlink>
         {'.'}

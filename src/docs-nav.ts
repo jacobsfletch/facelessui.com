@@ -66,6 +66,24 @@ export const cssGridJumplistNav: NavItem[] = [
     href: "/docs/css-grid/api#cell",
     label: 'Cell',
     id: 'cell'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#useGrid",
+    label: 'useGrid',
+    id: 'useGrid'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#useCell",
+    label: 'useCell',
+    id: 'useCell'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#useSettings",
+    label: 'useSettings',
+    id: 'useSettings'
   }
 ]
 
@@ -102,12 +120,6 @@ export const sliderJumplistNav: NavItem[] = [
     href: "/docs/slider/api#provider",
     label: 'SliderProvider',
     id: 'provider',
-  },
-  {
-    type: 'link',
-    href: "/docs/slider/api#slider",
-    label: 'Slider',
-    id: 'slider',
   },
   {
     type: 'link',

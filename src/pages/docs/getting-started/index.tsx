@@ -14,6 +14,9 @@ const GettingStartedDoc = () => {
         Faceless UI is an unstyled React library. It is component-first, so you can build your app using props instead of class names. If you know React, you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app or website as you need.
       </p>
       <p>
+        Faceless UI components are lightweight wrappers around native browser APIs. This reduces dependencies and makes them feel very natural to use. Properties and methods often mirror these APIs exactly, and all settings are exposed for you to further customize.
+      </p>
+      <p>
         Faceless UI components are abstract, making them perfectly suited to power other UI libraries. This also leaves Faceless UI core small and focused. This pattern allows you to freely reassemble the same set of components in many different ways. Your library can ship specific, styled implementations of the same core APIs.
       </p>
       <Margin bottom="xs">
@@ -30,7 +33,6 @@ const GettingStartedDoc = () => {
           <Hyperlink
             href="https://github.com/css-modules/css-modules"
             newTab
-            underline
           >
             CSS Modules
           </Hyperlink>

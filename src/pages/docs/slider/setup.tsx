@@ -33,36 +33,24 @@ const SliderInstallation = () => {
       </Margin>
       <p>
         {'To create a slider, wrap any portion of your app with the '}
-        <Hyperlink
-          href="/docs/slider/api#provider"
-          underline
-        >
+        <Hyperlink href="/docs/slider/api#provider"        >
           <InlineCode>
             {'<SliderProvider>'}
           </InlineCode>
         </Hyperlink>
         {'. This component does not render anything in the DOM and is where the '}
-        <Hyperlink
-          href="/docs/slider/api#provider-props"
-          underline
-        >
+        <Hyperlink href="/docs/slider/api#provider-props">
           slider settings
         </Hyperlink>
         {' are defined. Inside of this, render a '}
         <InlineCode>
-          <Hyperlink
-            href="/docs/slider/api#track"
-            underline
-          >
+          <Hyperlink href="/docs/slider/api#track">
             {'<SliderTrack>'}
           </Hyperlink>
         </InlineCode>
         {'. This will add a scrollable element onto the page which overflows its content as necessary. Then, nest as many '}
         <InlineCode>
-          <Hyperlink
-            href="/docs/slider/api#slide"
-            underline
-          >
+          <Hyperlink href="/docs/slider/api#slide">
             {'<Slide>'}
           </Hyperlink>
         </InlineCode>
@@ -105,10 +93,7 @@ export const MyComponent = () => {
       <p>
         {'If your slider is not free-scrolling, drag-scrolling, or auto-playing, you will need to render navigation buttons. Conveniently, the '}
         <InlineCode>
-          <Hyperlink
-            href="/docs/slider/api#button"
-            underline
-          >
+          <Hyperlink href="/docs/slider/api#button">
             {'<SliderButton>'}
           </Hyperlink>
         </InlineCode>
@@ -145,10 +130,7 @@ export const MyComponent = () => {
       </Margin>
       <p>
         {'Alternatively, you could wire up your own button using methods on the '}
-        <Hyperlink
-          href="/docs/slider/api#context"
-          underline
-        >
+        <Hyperlink href="/docs/slider/api#context">
           slider context
         </Hyperlink>
         {'. To do this, access the '}

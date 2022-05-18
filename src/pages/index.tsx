@@ -53,7 +53,7 @@ const Home: NextPage = () => {
                   Focus on the aesthetics of your user interface
                 </h3>
                 <p style={{ marginBottom: 0 }}>
-                  If you know React, you know Faceless UI. And since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
+                  Faceless UI components have no visual appearance so you can build any design system. If you know React, you know Faceless UI. And since each package is independently versioned, you can integrate as little or as much into your existing app as you need.
                 </p>
               </Cell>
             </Grid>

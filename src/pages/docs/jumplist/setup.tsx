@@ -34,18 +34,12 @@ const JumplistSetup = () => {
       <p>
         {'To track elements as they enter and exit the viewport, you first need to wrap your app with the '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#provider"
-          >
+          <Hyperlink href="/docs/jumplist/api#provider" >
             {'<JumplistProvider>'}
           </Hyperlink>
         </InlineCode>
         {'. This does not render anything in the DOM and is where the '}
-        <Hyperlink
-          href="/docs/jumplist/api#provider-props"
-          underline
-        >
+        <Hyperlink href="/docs/jumplist/api#provider-props">
           global settings
         </Hyperlink>
         {' are defined. This will maintain the state of every jumplist node in your app and provide this state through context. '}
@@ -70,10 +64,7 @@ export const MyApp = () => {
       <p>
         {'Then, use a '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#node"
-          >
+          <Hyperlink href="/docs/jumplist/api#node">
             {'<JumplistNode>'}
           </Hyperlink>
         </InlineCode>
@@ -107,7 +98,6 @@ export const MyComponent = () => {
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
           newTab
-          underline
         >
           Intersection Observer API
         </Hyperlink>
@@ -116,18 +106,12 @@ export const MyComponent = () => {
           isIntersecting
         </InlineCode>
         {' status to the '}
-        <Hyperlink
-          underline
-          href="/docs/jumplist/api#context"
-        >
+        <Hyperlink href="/docs/jumplist/api#context">
           jumplist context
         </Hyperlink>
         {'. You can access this from anywhere with the '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#useJumplist"
-          >
+          <Hyperlink href="/docs/jumplist/api#useJumplist">
             useJumplist
           </Hyperlink>
         </InlineCode>
@@ -191,10 +175,7 @@ export const MyComponent = () => {
       </Heading>
       <p>
         {'to navigate jumplist nodes we rely entirely on native HTML behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. You can also enable '}
-        <Hyperlink
-          href='/docs/jumplist/setup#smooth-scroll'
-          underline
-        >
+        <Hyperlink href='/docs/jumplist/setup#smooth-scroll'>
           smooth scrolling
         </Hyperlink>
         {'.'}
@@ -219,7 +200,6 @@ export const MyComponent = () => {
         </InlineCode>
         {' method. This does not inject a hash into the URL, but instead relies on the native browser '}
         <Hyperlink
-          underline
           href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView"
           newTab
         >
@@ -257,7 +237,6 @@ export const MyComponent = () => {
         <InlineCode>
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior"
-            underline
             newTab
           >
             scroll-behavior
@@ -273,10 +252,7 @@ export const MyComponent = () => {
       <p>
         {'Or use the '}
         <InlineCode>
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#provider-props"
-          >
+          <Hyperlink href="/docs/jumplist/api#provider-props" >
             smoothScroll
           </Hyperlink>
         </InlineCode>

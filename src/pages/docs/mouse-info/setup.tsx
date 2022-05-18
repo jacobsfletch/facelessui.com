@@ -68,10 +68,7 @@ export const MyComponent = (props) => {
       </Margin>
       <p>
         {'For more advanced setups, see the full '}
-        <Hyperlink
-          underline
-          href="/docs/mouse-info/api"
-        >
+        <Hyperlink href="/docs/mouse-info/api">
           API reference
         </Hyperlink>
         .

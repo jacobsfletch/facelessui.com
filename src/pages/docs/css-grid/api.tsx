@@ -9,6 +9,8 @@ import { BasicProps } from '@components/BasicProps';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { PropName } from '@components/PropName';
+import { ClassPrefix } from '@components/ClassPrefix';
+import { BasicContext } from '@components/BasicContext';
 
 const CSSGridAPI = () => {
   const {
@@ -42,22 +44,15 @@ const CSSGridAPI = () => {
           {'<GridProvider>'}
         </Heading>
         <p>
-          {'Wrap your app with this component. It has no required props and renders nothing in the DOM. It provides context for all the components and hooks to work together. This is where the global '}
-          <Hyperlink
-            href="#context"
-            underline
-          >
-            grid settings
+          {'This component provides the '}
+          <Hyperlink href="#context">
+            grid context
           </Hyperlink>
-          {' are defined. The grid can vary across screen sizes, so properties are defined on each breakpoint. This API is a wrapper around CSS Grid Layout, so the '}
-          <Hyperlink
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
-            underline
-            newTab
-          >
-            MDN docs
+          {' to your app. It does not have any required props and renders nothing in the DOM. This is where the '}
+          <Hyperlink href="#provider-props">
+            global settings
           </Hyperlink>
-          {' can be very helpful in understanding how it works.'}
+          {' are defined.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -121,10 +116,7 @@ export const MyApp = () = (
             s
           </InlineCode>
           {', equal to the width of the breakpoint in pixels. These breakpoints are used by the '}
-          <InlineCode
-            underline
-            href="#cell"
-          >
+          <InlineCode href="#cell">
             {'<Cell>'}
           </InlineCode>
           {' components to make them responsive. These are also used to make the column and row gaps responsive.'}
@@ -137,7 +129,6 @@ export const MyApp = () = (
           {'An object of row-gap values, one for each breakpoint. See the '}
           <Hyperlink
             newTab
-            underline
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap"
           >
             MDN Docs
@@ -152,7 +143,6 @@ export const MyApp = () = (
           {'An object of column-gap values, one for each breakpoint. See the '}
           <Hyperlink
             newTab
-            underline
             href="https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap"
           >
             MDN Docs
@@ -166,6 +156,27 @@ export const MyApp = () = (
         <p>
           {'The number of columns available at each breakpoint. Once a row reaches maximum capacity, cells will begin to wrap onto the next row.'}
         </p>
+        <ClassPrefix />
+        <Heading
+          id="context"
+          href="#context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#context`}
+          element='h5'
+        >
+          Context
+        </Heading>
+        <PropName
+          name="smallestBreakpointReached"
+          type="string"
+        />
+        <p>
+          {'The key of the smallest breakpoint reached. See '}
+          <InlineCode href="#breakpoints">
+            breakpoints
+          </InlineCode>
+          {'.'}
+        </p>
+        <BasicContext />
       </JumplistNode>
       <JumplistNode nodeID="grid">
         <Heading
@@ -177,11 +188,19 @@ export const MyApp = () = (
           {'<Grid>'}
         </Heading>
         <p>
-          {'This component wraps cells and has no required props. It establishes a new grid context for nested cells to consume, which must be directly descendent. You can also '}
-          <Hyperlink
-            href="/docs/css-grid/setup#nested-grids"
-            underline
+          {'This component wraps cells and has no required props. It creates a DOM element with the '}
+          <InlineCode
+            newTab
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns"
           >
+            grid-template-columns
+          </InlineCode>
+          {' CSS property — a dynamic value set based on the '}
+          <Hyperlink href="#grid settings">
+            grid settings
+          </Hyperlink>
+          {' and the number of columns currently available. You can also '}
+          <Hyperlink href="#nested-grids">
             nest grids
           </Hyperlink>
           {' inside other grids.'}
@@ -209,6 +228,22 @@ export const MyComponent = () = (
           Props
         </Heading>
         <BasicProps />
+        <Heading
+          id="grid-context"
+          href="#grid-context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid-context`}
+          element='h5'
+        >
+          Context
+        </Heading>
+        <PropName
+          name="cols"
+          type="object"
+          isContextProp
+        />
+        <p>
+          The number of currently available columns, per breakpoint.
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="cell">
         <Heading
@@ -220,23 +255,20 @@ export const MyComponent = () = (
           {'<Cell>'}
         </Heading>
         <p>
-          {'Each cell will span the columns of your grid based on the '}
+          {'This component will create a DOM element that spans the columns of your grid based on the '}
           <InlineCode>
             cols
           </InlineCode>
-          {' prop. Cells will display inline to one another and wrap to the next row once that row reaches maximum capacity. Number of columns and row gaps (gutters) are controlled by the '}
-          <Hyperlink
-            href="#grid"
-            underline
+          {' prop, which dynamically sets the '}
+          <InlineCode
+            newTab
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end"
           >
-            grid provider
-          </Hyperlink>
-          {'. To make the cell responsive, redefine the number of columns it spans on each of the '}
-          <Hyperlink
-            href="#breakpoints"
-            underline
-          >
-            breakpoints
+            grid-column-end
+          </InlineCode>
+          {' CSS property. Cells will display inline to one another and wrap to the next row once that row reaches maximum capacity. To make the cell responsive, redefine the number of columns it spans on each '}
+          <Hyperlink href="#breakpoints">
+            breakpoint
           </Hyperlink>
           {', such as '}
           <InlineCode>
@@ -299,6 +331,112 @@ export const MyApp = () = (
           {' breakpoint.'}
         </p>
         <BasicProps />
+        <Heading
+          id="cell-context"
+          href="#cell-context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell-context`}
+          element='h5'
+        >
+          Context
+        </Heading>
+        <PropName
+          name="cols"
+          type="object"
+          isContextProp
+        />
+        <p>
+          The number of currently available columns, per breakpoint.
+        </p>
+      </JumplistNode>
+      <JumplistNode nodeID="useCell">
+        <Heading
+          id="useCell"
+          href="#useCell"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useCell`}
+          element='h4'
+        >
+          useCell
+        </Heading>
+        <p>
+          {'This is a hook you can use to access the context of any '}
+          <InlineCode href="#cell-context" >
+            {'<Cell>'}
+          </InlineCode>
+          {' component.'}
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
+import { useCell } from '@faceless-ui/css-grid;
+
+export const MyComponent = () => {
+  const cell = useCell();
+  return (
+    ...
+  )
+};`}
+          </CodeBlock>
+        </Margin>
+      </JumplistNode>
+      <JumplistNode nodeID="useGrid">
+        <Heading
+          id="useGrid"
+          href="#useGrid"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useGrid`}
+          element='h4'
+        >
+          useGrid
+        </Heading>
+        <p>
+          {'This is a hook you can use to access the context of any '}
+          <InlineCode href="#grid-context" >
+            {'<Grid>'}
+          </InlineCode>
+          {' component.'}
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
+import { useGrid } from '@faceless-ui/css-grid;
+
+export const MyComponent = () => {
+  const grid = useGrid();
+  return (
+    ...
+  )
+};`}
+          </CodeBlock>
+        </Margin>
+      </JumplistNode>
+      <JumplistNode nodeID="useSettings">
+        <Heading
+          id="useSettings"
+          href="#useSettings"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useSettings`}
+          element='h4'
+        >
+          useSettings
+        </Heading>
+        <p>
+          {'This is a hook you can use to access the global '}
+          <Hyperlink href="#context" >
+            grid settings
+          </Hyperlink>
+          .
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
+import { useSettings } from '@faceless-ui/css-grid;
+
+export const MyComponent = () => {
+  const settings = useSettings();
+  return (
+    ...
+  )
+};`}
+          </CodeBlock>
+        </Margin>
       </JumplistNode>
     </Fragment>
   )

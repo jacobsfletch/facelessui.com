@@ -82,7 +82,6 @@ const WindowInfoDoc = () => {
         </div>
         <Hyperlink
           href="https://window-info.faceless-ui.com"
-          underline
           newTab
         >
           <small>

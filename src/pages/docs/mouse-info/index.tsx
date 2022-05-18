@@ -76,7 +76,6 @@ const MouseInfoDoc = () => {
       </div>
       <Hyperlink
         href="https://mouse-info.faceless-ui.com"
-        underline
         newTab
       >
         <small>

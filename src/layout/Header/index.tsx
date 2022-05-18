@@ -9,19 +9,28 @@ export const Header: React.FC = () => {
     <div className={classes.header}>
       <BlockContainer>
         <div className={classes.wrapper}>
-          <div className={classes.logoWrapper}>
-            {/* <Eye /> */}
-            <div className={classes.logo}>
-              <Hyperlink href="/">
-                <b>
-                  Faceless UI
-                </b>
-              </Hyperlink>
-            </div>
+          <div className={classes.logo}>
+            <Hyperlink
+              href="/"
+              underline={false}
+              className={classes.logoAnchor}
+            >
+              <img
+                className={classes.logoImage}
+                src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/face-without-mouth_1f636.png"
+                alt="logo"
+              />
+              <b>
+                Faceless UI
+              </b>
+            </Hyperlink>
           </div>
           <menu className={classes.menu}>
             <div>
-              <Hyperlink href="/docs/getting-started">
+              <Hyperlink
+                href="/docs/getting-started"
+                underline={false}
+              >
                 Docs
               </Hyperlink>
             </div>

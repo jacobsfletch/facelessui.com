@@ -73,10 +73,7 @@ export const MyComponent = (props) => {
       </Margin>
       <p>
         {'For more advanced setups, see the full '}
-        <Hyperlink
-          underline
-          href="/docs/window-info/api"
-        >
+        <Hyperlink href="/docs/window-info/api">
           API reference
         </Hyperlink>
         .

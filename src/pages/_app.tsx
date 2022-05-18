@@ -1,4 +1,4 @@
-import App, { AppContext, AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 import { AppHead } from '../components/AppHead';
 import { Footer } from '../layout/Footer';
 import { Header } from '../layout/Header';
@@ -18,10 +18,11 @@ import DarkModeProvider from '@root/providers/DarkMode';
 import { CustomCursorProvider } from '@root/providers/CustomCursorProvider';
 import { CustomCursor } from '@components/CustomCursor';
 import cssVariables from '../../cssVariables';
-import '../scss/app.scss';
 import { ScrollToTopOnRouteChange } from '@components/ScrollToTopOnRouteChange';
 import { GoogleAnalytics } from '@components/GoogleAnalytics';
 import { CloseModalOnRouteChange } from '@components/CloseModalOnRouteChange';
+
+import '../scss/app.scss';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -115,14 +116,6 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
       </MouseInfoProvider>
     </DarkModeProvider>
   )
-}
-
-FacelessApp.getInitialProps = async (appContext: AppContext) => {
-  const appProps = await App.getInitialProps(appContext);
-  // app-wide data fetching here
-  return {
-    ...appProps,
-  };
 }
 
 export default FacelessApp;

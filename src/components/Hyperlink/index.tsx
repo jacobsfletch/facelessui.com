@@ -27,7 +27,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     onMouseLeave,
     onClick,
     newTab,
-    underline,
+    underline = true,
     underlineOnHover,
     colored
   } = props;

@@ -13,7 +13,7 @@ const JumplistDoc = () => {
         Jumplist
       </h1>
       <p>
-        {'The jumplist package provides a way to track DOM elements as they pass through the viewport. This can be especially useful for pages with lengthy content, allowing you to style active and inactive menu items as the page is scrolled. When a menu item is clicked, this package relies entirely on native browser behavior and APIs to scroll to the corresponding item within the page.'}
+        {'The jumplist package provides a way to track DOM elements as they enter and exit the viewport. This can be especially useful for pages with lengthy content, allowing you to style active and inactive menu items as the page is scrolled. When a menu item is clicked, the page is scrolled to the corresponding node using native browser behavior.'}
       </p>
       <p>
         Some common uses for this package include:
@@ -42,7 +42,7 @@ const JumplistDoc = () => {
       <Margin bottom="xs">
         <Heading
           id="how-it-works"
-          href="/docs/jumplist#how-it-works"
+          href="#how-it-works"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#how-it-works`}
           element='h5'
         >
@@ -53,15 +53,11 @@ const JumplistDoc = () => {
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
-            underline
           >
             Intersection Observer API
           </Hyperlink>
           {' — so props mirror this API very closely. Global '}
-          <Hyperlink
-            underline
-            href="/docs/jumplist/api#provider-props"
-          >
+          <Hyperlink href="/docs/jumplist/api#provider-props">
             jumplist settings
           </Hyperlink>
           {', like '}
@@ -72,15 +68,12 @@ const JumplistDoc = () => {
           <InlineCode>
             rootMargin
           </InlineCode>
-          {', are defined at the top-level of your wrap on the '}
+          {', are defined at the top-level of your app on the '}
           <InlineCode>
             {'<JumplistProvider>'}
           </InlineCode>
           {'. This provides the '}
-          <Hyperlink
-            href="/docs/jumplist/api#context"
-            underline
-          >
+          <Hyperlink href="/docs/jumplist/api#context" >
             jumplist context
           </Hyperlink>
           {' for all the components and hooks to work together.'}
@@ -106,44 +99,33 @@ const JumplistDoc = () => {
           <InlineCode>
             activeJumplistIndex
           </InlineCode>
-          {' are also helpful when multiple nodes, or none, are in the viewport.'}
+          {' are also helpful when multiple nodes, or none, are in the viewport. These can be used to style the active and inactive states of any navigation menu.'}
         </p>
         <p>
-          {'There are two ways to scroll to a jumplist node, both rely entirely on native browser behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. Then the CSS '}
+          {'There are two ways to scroll to a jumplist node, both of which rely entirely on native browser behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. Then with the '}
           <InlineCode>
             scroll-behavior
           </InlineCode>
-          {' property can be used to easily achieve '}
-          <Hyperlink
-            href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
-            underline
-          >
+          {' CSS property, we can easily achieve '}
+          <Hyperlink href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}>
             smooth-scrolling
           </Hyperlink>
-          {'. Alternatively, there is a '}
+          {'. Alternatively, the '}
           <InlineCode>
             {'scrollToID'}
           </InlineCode>
-          {' method on the provider which uses the browser\s native '}
+          {' method on the provider which does not modify the URL, but instead, fires the browser\s native '}
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView"
-            underline
             newTab
           >
             scrollIntoView
           </Hyperlink>
-          {'. The '}
-          <InlineCode>
-            {'<JumplistButton>'}
-          </InlineCode>
-          {' component is thin wrapper around this API.'}
+          {'.'}
         </p>
         <p>
           {'If you need more granular control, see the '}
-          <Hyperlink
-            href="/docs/jumplist/api"
-            underline
-          >
+          <Hyperlink href="/docs/jumplist/api">
             API
           </Hyperlink>
           {' for full details.'}
@@ -152,7 +134,7 @@ const JumplistDoc = () => {
       <Margin bottom="xs">
         <Heading
           id="features"
-          href="/docs/jumplist#features"
+          href="#features"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#features`}
           element='h5'
         >
@@ -167,7 +149,12 @@ const JumplistDoc = () => {
             ),
             (
               <div key={1}>
-                Provides a lightweight wrapper around Intersection Observer
+                Is a lightweight wrapper around the Intersection Observer API
+              </div>
+            ),
+            (
+              <div key={1}>
+                Uses no third-party scroll packages
               </div>
             ),
           ]}

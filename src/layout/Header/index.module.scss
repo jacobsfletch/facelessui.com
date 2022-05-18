@@ -27,11 +27,18 @@
   }
 }
 
-.logoWrapper {
+.logoAnchor {
   display: flex;
+  align-items: center;
 }
 
 .logo {
   margin-right: base();
   // margin-left: base(0.5);
+}
+
+.logoImage {
+  width: 25px;
+  height: 25px;
+  margin-right: base(0.5);
 }

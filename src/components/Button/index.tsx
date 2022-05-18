@@ -68,6 +68,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   return (
     <div className={classList}>
       <Hyperlink
+        underline={false}
         href={href}
         className={[
           classes.contents,

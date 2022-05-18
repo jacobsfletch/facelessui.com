@@ -31,6 +31,10 @@
   color: var(--color-gray);
   position: relative;
   line-height: 1.5;
+
+  &:hover {
+    color: var(--color-dark-gray);
+  }
 }
 
 .itemIsActive {
@@ -106,6 +110,13 @@
 .darkMode {
   &:local() {
     .itemLabel {
+      color: var(--color-gray);
+      &:hover {
+        color: var(--color-white);
+      }
+    }
+
+    .jumplistLinkLabel {
       color: var(--color-gray);
       &:hover {
         color: var(--color-white);

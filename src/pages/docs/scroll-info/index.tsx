@@ -76,7 +76,6 @@ const ScrollInfoDoc = () => {
       </div>
       <Hyperlink
         href="https://scroll-info.faceless-ui.com"
-        underline
         newTab
       >
         <small>

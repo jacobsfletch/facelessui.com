@@ -41,7 +41,7 @@ export const CodeBlock: React.FC<{
       <div
         className={classes.icon}
         onClick={() => {
-          if (children) {
+          if (children && typeof children === 'string') {
             copyToClipboard(children, onCopy);
           }
         }}

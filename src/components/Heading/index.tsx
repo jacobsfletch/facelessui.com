@@ -53,6 +53,7 @@ export const Heading: React.FC<{
       >
         <Hyperlink
           href={href}
+          underline={false}
           onClick={() => {
             if (textToCopy) {
               copyToClipboard(textToCopy, onCopy);

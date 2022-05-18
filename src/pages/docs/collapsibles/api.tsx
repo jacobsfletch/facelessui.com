@@ -8,9 +8,9 @@ import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
 import { Hyperlink } from '@components/Hyperlink';
 import { BasicProps } from '@components/BasicProps';
-import { sharedContent } from '@root/utilities/sharedContent';
-import { ClassPrefix } from '@components/BasicProps/ClassPrefix';
+import { ClassPrefix } from '@components/ClassPrefix';
 import { PropName } from '@components/PropName';
+import { BasicContext } from '@components/BasicContext';
 
 const CollapsiblesAPI = () => {
   const {
@@ -47,7 +47,15 @@ const CollapsiblesAPI = () => {
           {'<Collapsible>'}
         </Heading>
         <p>
-          This component render nothing in the DOM and is where you define your collapsible settings. It has no required props.
+          {'This component provides a new '}
+          <Hyperlink href="#context">
+            collapsible context
+          </Hyperlink>
+          {' to any section of your app. It has no required props and renders nothing in the DOM. This is where the '}
+          <Hyperlink href="#collapsible-props">
+            collapsible settings
+          </Hyperlink>
+          {' are defined.'}
         </p>
         <Margin bottom="xs">
           <CodeBlock>
@@ -71,15 +79,12 @@ export const MyComponent = () => {
         </Margin>
         <Heading
           id="collapsible-props"
-          href="/docs/collapsibles/api#collapsible-props"
+          href="#collapsible-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#collapsible-props`}
           element='h5'
         >
           Props
         </Heading>
-        <p>
-          {sharedContent.noRequiredProps}
-        </p>
         <PropName
           name="openOnInit"
           type="boolean"
@@ -120,6 +125,47 @@ export const MyComponent = () => {
           A callback function that is executed when the collapsible is toggled.
         </p>
         <ClassPrefix />
+        <Heading
+          id="context"
+          href="#context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#context`}
+          element='h5'
+        >
+          Context
+        </Heading>
+        <PropName
+          name="isOpen"
+          type="boolean"
+          isContextProp
+        />
+        <p>
+          The current status of the collapsible.
+        </p>
+        <PropName
+          name="rootClass"
+          type="string"
+          isContextProp
+        />
+        <p>
+          {'The root class for the collapsible. Appends '}
+          <InlineCode href="#classPrev">
+            classPrefix
+          </InlineCode>
+          {' to the class name, when defined.'}
+        </p>
+        <PropName
+          name="handleClick()"
+          type="object"
+          isContextProp
+        />
+        <p>
+          {'Used internally to report the toggle to the nearest '}
+          <InlineCode>
+            {'<CollapsibleGroup>'}
+          </InlineCode>
+          {', if nested.'}
+        </p>
+        <BasicContext />
       </JumplistNode>
       <JumplistNode nodeID="content">
         <Heading
@@ -133,7 +179,6 @@ export const MyComponent = () => {
         <p>
           {'The height of this component will be animated from 0 to auto-height content when the collapsible is triggered. This is made possible through '}
           <Hyperlink
-            underline
             href="https://github.com/Stanko/react-animate-height"
             newTab
           >
@@ -203,13 +248,10 @@ export const MyComponent = () => {
         >
           Props
         </Heading>
-        <p>
-          {sharedContent.noRequiredProps}
-        </p>
         <BasicProps defaultElement="button" />
         <Heading
           id="toggler-a11y"
-          href="/docs/collapsibles/api#toggler-a11y"
+          href="toggler-a11y"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#toggler-a11y`}
           element='h5'
         >
@@ -230,26 +272,99 @@ export const MyComponent = () => {
       <JumplistNode nodeID="group">
         <Heading
           id="group"
-          href="/docs/collapsibles/api#group"
+          href="#group"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group`}
           element='h4'
         >
           {'<CollapsibleGroup>'}
         </Heading>
         <p>
-          This section has no content
+          {'This component provides a new '}
+          <Hyperlink href="#group-context">
+            group context
+          </Hyperlink>
+          {' to any section of your app. It has no required props and renders nothing in the DOM. This is where the '}
+          <Hyperlink href="#group-props">
+            group settings
+          </Hyperlink>
+          {' are defined.'}
         </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { CollapsibleGroup, Collapsible, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <CollapsibleGroup allowMultiple={false}>
+      <Collapsible openOnInit>
+        ...
+      </Collapsible>
+      <Collapsible>
+        ...
+      </Collapsible>
+    </CollapsibleGroup>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
         <Heading
           id="group-props"
-          href="/docs/collapsibles/api#group-props"
+          href="#group-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group-props`}
           element='h5'
         >
           Props
         </Heading>
+        <PropName
+          name="allowMultiple"
+          type="boolean"
+        />
         <p>
-          {sharedContent.noRequiredProps}
+          When false, will close all collapsibles in the group when one is opened.
         </p>
+        <PropName
+          name="transTime"
+          type="number"
+        />
+        <p>
+          {'Standardizes all transition times of the collapsibles within the group. Can be overridden on each collapsible with the '}
+          <InlineCode href="#transTime"          >
+            transTime
+          </InlineCode>
+          {' prop.'}
+        </p>
+        <PropName
+          name="transCurve"
+          type="string"
+        />
+        <p>
+          {'Standardizes all transition curves of the collapsibles within the group. Can be overridden on each collapsible with the '}
+          <InlineCode href="#transCurve"          >
+            transCurve
+          </InlineCode>
+          {' prop.'}
+        </p>
+        <ClassPrefix />
+        <Heading
+          id="group-context"
+          href="#group-context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group-context`}
+          element='h5'
+        >
+          Context
+        </Heading>
+        <PropName
+          name="toggleCount"
+          type="number"
+          isContextProp
+        />
+        <p>
+          {'The number of times the group has been toggled. Incremented every time a collapsible is opened or closed.'}
+        </p>
+        <BasicContext
+          href="#group-props"
+        />
       </JumplistNode>
     </Fragment>
   )

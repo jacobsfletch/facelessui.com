@@ -17,14 +17,13 @@ const GridDoc = () => {
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
           newTab
-          underline
         >
           CSS Grid Layout
         </Hyperlink>
         {' — so props mirror this API very closely.'}
       </p>
       <p>
-        A powerful feature of the grid are its breakpoints &mdash; where you have different number of columns available on desktop than on mobile. For example, a 14 column desktop grid with a 10px gutter could change to 8 column grid with a 5px gutter on mobile. Cells will span a different number of these columns as breakpoints are met, based on their given props.
+        A powerful feature of the grid are its breakpoints &mdash; where grid settings change across devices sizes. For example, a 14 column desktop grid with a 10px gutter could change to 8 column grid with a 5px gutter on mobile. Cells will span a different number of these columns as breakpoints are met based on their own props.
       </p>
       <Margin bottom="xs">
         <Heading
@@ -36,24 +35,6 @@ const GridDoc = () => {
           How it works
         </Heading>
         <p>
-          {'At the top-level of your app is the '}
-          <InlineCode>
-            {'<GridProvider>'}
-          </InlineCode>
-          {'. This is where you define your global '}
-          <Hyperlink
-            href="/docs/css-grid#provider-props"
-            underline
-          >
-            grid settings
-          </Hyperlink>
-          {', such as breakpoints and gutters. Behind the scenes, it generates a tiny stylesheet containing classes for every grid and cell combination based on your particular configuration. These classes are dynamically injected into every '}
-          <InlineCode>
-            {'<Cell>'}
-          </InlineCode>
-          {' component based on its props, providing size and position as conditions are met. '}
-        </p>
-        <p>
           <InlineCode>
             {'<Grid>'}
           </InlineCode>
@@ -61,7 +42,7 @@ const GridDoc = () => {
           <InlineCode>
             {'<Cell>'}
           </InlineCode>
-          {' components can be used as often as necessary to achieve your desired layout. The '}
+          {' components are used as often as necessary to achieve your desired layout. The '}
           <InlineCode>
             {'<Grid>'}
           </InlineCode>
@@ -86,13 +67,25 @@ const GridDoc = () => {
             startM
           </InlineCode>
           {'. See the '}
-          <Hyperlink
-            href="/docs/css-grid/api"
-            underline
-          >
+          <Hyperlink href="/docs/css-grid/api">
             API
           </Hyperlink>
           {' for full details.'}
+        </p>
+        <p>
+          {'At the top-level of your app is the '}
+          <InlineCode>
+            {'<GridProvider>'}
+          </InlineCode>
+          {'. This is where you define your global '}
+          <Hyperlink href="/docs/css-grid#provider-props">
+            grid settings
+          </Hyperlink>
+          {', such as breakpoints and gutters. Behind the scenes, it generates a tiny stylesheet containing classes for every grid and cell combination based on your particular configuration. These classes are dynamically injected into every '}
+          <InlineCode>
+            {'<Cell>'}
+          </InlineCode>
+          {' component, based on its props. This provides size and position to the cell as conditions are met. '}
         </p>
       </Margin>
       <Margin bottom="xs">

@@ -113,10 +113,7 @@ export const MyApp = () = (
       </Heading>
       <p>
         {'This is a hook you can use to access the '}
-        <Hyperlink
-          href={`/docs/window-info/api#context`}
-          underline
-        >
+        <Hyperlink href="#context">
           context
         </Hyperlink>
         .
@@ -144,10 +141,7 @@ export const MyComponent = () => {
       </Heading>
       <p>
         {'This is a higher-order component you can use to access the '}
-        <Hyperlink
-          href={`/docs/window-info/api#context`}
-          underline
-        >
+        <Hyperlink href="#context">
           context
         </Hyperlink>
         .

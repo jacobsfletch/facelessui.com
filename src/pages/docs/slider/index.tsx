@@ -13,7 +13,7 @@ const SliderDoc = () => {
         Slider
       </h1>
       <Margin bottom="xs">
-        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders can even synchronize with other sliders and are very easy to control using the built-in navigation components or provided methods.'}
+        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders can synchronize with other sliders and are very easy to control using the built-in navigation components or provided methods.'}
       </Margin>
       <p>
         Some common uses for this package include:
@@ -58,21 +58,22 @@ const SliderDoc = () => {
           <InlineCode>
             {'<SliderProvider>'}
           </InlineCode>
-          {' component wraps any section of your code with a new slider context, so there may be many providers spread throughout your app. This is where the '}
-          <Hyperlink
-            href="/docs/slider/api#provider-props"
-            underline
-          >
+          {' component wraps any section of your code with a new slider context. This component does not render anything in the DOM. This is where the '}
+          <Hyperlink href="/docs/slider/api#provider-props" >
             slider settings
           </Hyperlink>
-          {' are configured. This component does not render anything in the DOM. It provides properties and methods for all sliders parts to work together.'}
+          {' are configured like '}
+          <InlineCode>
+            slidesToShow
+          </InlineCode>
+          {'.'}
         </p>
         <p>
-          {'Anywhere inside of the provider is the '}
+          {'Inside this is the '}
           <InlineCode>
             {'<SliderTrack>'}
           </InlineCode>
-          {' component, which renders a scrollable element onto the page and overflows its content as necessary. Within the track are the '}
+          {' component, which renders a scrollable element onto the page and overflows its content as necessary. Within the track are '}
           <InlineCode>
             {'<Slide>'}
           </InlineCode>
@@ -80,7 +81,6 @@ const SliderDoc = () => {
           <Hyperlink
             href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API"
             newTab
-            underline
           >
             Intersection Observer API
           </Hyperlink>
@@ -90,11 +90,10 @@ const SliderDoc = () => {
           </InlineCode>
           {' as they happen, using the track as their '}
           <Hyperlink
-            underline
-            href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin"
+            href="https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root"
             newTab
           >
-            root margin
+            root
           </Hyperlink>
           {'.'}
         </p>
@@ -105,7 +104,7 @@ const SliderDoc = () => {
           <InlineCode>
             {'<SliderButton>'}
           </InlineCode>
-          {' covers the most common navigation needs for you, but sliders are also easily controlled using methods provided by the '}
+          {' covers the most common navigation needs, but sliders are also easily controlled using methods provided by the '}
           <InlineCode>
             useSlider
           </InlineCode>
@@ -120,7 +119,7 @@ const SliderDoc = () => {
           <InlineCode>
             {'<SliderProgress>'}
           </InlineCode>
-          {' component — a powerful alternative to native scrollbars. This allows you to render a scrollbar anywhere in your DOM, even outside of your track. Progress is also draggable, providing another way to navigate sliders.'}
+          {' component — a powerful alternative to native scrollbars. This allows you to render a draggable scrollbar anywhere in your DOM, even outside of your track.'}
         </p>
       </Margin>
       <div>
@@ -161,7 +160,7 @@ const SliderDoc = () => {
             ),
             (
               <div key={6}>
-                Custom scrollbar
+                Scrollbar component
               </div>
             ),
           ]}

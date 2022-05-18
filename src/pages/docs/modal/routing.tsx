@@ -28,7 +28,6 @@ const ModalRouting = () => {
         <Hyperlink
           href="https://developer.mozilla.org/en-US/docs/Web/API/History_API"
           newTab
-          underline
         >
           History API
         </Hyperlink>

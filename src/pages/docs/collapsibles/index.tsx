@@ -13,7 +13,7 @@ const CollapsiblesDoc = () => {
         Collapsibles
       </h1>
       <p>
-        This package enables you to easily collapse and expand content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled, giving your markup ultimate flexibility. Collapsible items can also be grouped together, so that only one is open at a time.
+        This package enables you to easily collapse and expand content of any kind, creating rich dropdown or accordion-like experiences. Each collapsible item can be remotely controlled, giving your markup ultimate flexibility. Collapsible items can also be grouped together, so that all close when one opens.
       </p>
       <p>
         Some common uses for this package include:
@@ -54,17 +54,31 @@ const CollapsiblesDoc = () => {
           </InlineCode>
           {' — an element whose height is animated from 0 to the auto-height using '}
           <Hyperlink
-            underline
             href="https://github.com/Stanko/react-animate-height"
             newTab
           >
             react-animate-height
           </Hyperlink>
-          {'. This makes it possible to animate arbitrary content heights, a limitation of CSS alone. To toggle the state of a collapsible, render the '}
+          {'. This makes it possible to animate arbitrary content heights, a limitation of CSS alone. '}
+        </p>
+        <p>
+          {'To toggle the state of a collapsible there is a '}
           <InlineCode>
             {'<CollapsibleToggler>'}
           </InlineCode>
-          {' component.'}
+          {'component. This is a thin wrapper around the '}
+          <InlineCode>
+            useCollapsible
+          </InlineCode>
+          {' hook, firing the '}
+          <InlineCode>
+            open
+          </InlineCode>
+          {' method on click. This event propagates through the context to open or close the '}
+          <InlineCode>
+            {'<CollapsibleContent>'}
+          </InlineCode>
+          {'.'}
         </p>
         <p>
           {'Accordions are created by wrapping multiple '}
@@ -79,14 +93,11 @@ const CollapsiblesDoc = () => {
           <InlineCode>
             allowMultiple
           </InlineCode>
-          {' is false, the group will close all collapsibles except the open that was opened.'}
+          {' is set to false on the group, all collapsibles will close except the open that was opened.'}
         </p>
         <p>
           {'Transition times and curves are also easily customized using props. See the '}
-          <Hyperlink
-            underline
-            href="/docs/collapsibles/api"
-          >
+          <Hyperlink href="/docs/collapsibles/api">
             API
           </Hyperlink>
           {' for full details.'}

@@ -39,6 +39,7 @@ export const InlineCode: React.FC<HyperlinkProps & {
       <CodeTag id={id}>
         <Hyperlink
           href={href}
+          underline={Boolean(href)}
           {...rest}
         >
           {children}
