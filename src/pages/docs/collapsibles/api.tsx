@@ -111,6 +111,17 @@ export const MyComponent = () => {
           {'.'}
         </p>
         <PropName
+          name="initialHeight"
+          type="number"
+        />
+        <p>
+          {'The height in pixels to animate to and from. Defaults to '}
+          <InlineCode>
+            0
+          </InlineCode>
+          {'.'}
+        </p>
+        <PropName
           name="open"
           type="boolean"
         />
@@ -248,7 +259,10 @@ export const MyComponent = () => {
         >
           Props
         </Heading>
-        <BasicProps defaultElement="button" />
+        <BasicProps
+          defaultElement="button"
+          idPrefix='toggler'
+        />
         <Heading
           id="toggler-a11y"
           href="toggler-a11y"
@@ -263,10 +277,18 @@ export const MyComponent = () => {
             type
           </InlineCode>
           {' attribute is automatically set to "button" when the '}
-          <InlineCode>
+          <InlineCode href="#toggler-htmlElement">
             htmlElement
           </InlineCode>
-          {' is button.'}
+          {' is '}
+          <InlineCode>
+            button
+          </InlineCode>
+          {'. The '}
+          <InlineCode>
+            aria-label
+          </InlineCode>
+          {' attribute is also preset and easily overridden.'}
         </p>
       </JumplistNode>
       <JumplistNode nodeID="group">
