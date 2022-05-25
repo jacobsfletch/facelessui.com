@@ -490,7 +490,33 @@ export const MyModal = () => {
           onExited
           openOnInit
         </p>
-        <BasicProps defaultElement='dialog' />
+        <BasicProps
+          defaultElement='dialog'
+          idPrefix='modal'
+        />
+        <Heading
+          id="modal-a11y"
+          href="#modal-a11y"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#modal-a11y`}
+          element='h5'
+        >
+          Accessibility
+        </Heading>
+        <p>
+          {'The '}
+          <InlineCode>
+            open
+          </InlineCode>
+          {' HTML attribute is automatically set when the modal opens and closes and the '}
+          <InlineCode href="#modal-htmlElement">
+            htmlElement
+          </InlineCode>
+          {' is '}
+          <InlineCode>
+            dialog
+          </InlineCode>
+          {'.'}
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="toggler">
         <Heading

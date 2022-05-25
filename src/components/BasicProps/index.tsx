@@ -4,9 +4,11 @@ import React from "react";
 
 export const BasicProps: React.FC<{
   defaultElement?: string
+  idPrefix?: string
 }> = (props) => {
   const {
-    defaultElement = 'div'
+    defaultElement = 'div',
+    idPrefix
   } = props;
 
   return (
@@ -14,6 +16,7 @@ export const BasicProps: React.FC<{
       <PropName
         name="htmlElement"
         type="string"
+        id={idPrefix ? `${idPrefix}-htmlElement` : undefined}
       />
       <p>
         {`Customize the HTML element that is rendered in the DOM. Defaults to `}

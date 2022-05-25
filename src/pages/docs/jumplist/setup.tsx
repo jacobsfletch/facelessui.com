@@ -258,6 +258,47 @@ export const MyComponent = () => {
         </InlineCode>
         {' prop on the provider, which sets this property as inline CSS.'}
       </p>
+      <p>
+        {'There may also be cases where you want to temporarily disable smooth-scrolling, like between page transitions. To do this, you will need to add and remove this property dynamically using your app\'s existing router.'}
+      </p>
+      <p>
+        <Heading
+          id="next-router"
+          href="#next-router"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#next-router`}
+          element='b'
+        >
+          NextJS
+        </Heading>
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import { Router } from "next/router";
+import { useEffect } from "react"
+
+export const ScrollToTopOnRouteChange = () => {
+  useEffect(() => {
+    Router.events.on('routeChangeStart', () => {
+      // temporarily disable smooth-scrolling
+      document.documentElement.style.scrollBehavior = 'auto';
+    })
+
+    Router.events.on('routeChangeComplete', () => {
+      // scroll instantly to the top of the page
+      window.scroll({
+        top: 0,
+        left: 0,
+      });
+
+      // resume smooth-scrolling
+      document.documentElement.style.removeProperty('scroll-behavior');
+    });
+  }, []);
+
+  return null;
+}`}
+        </CodeBlock>
+      </Margin>
     </Fragment>
   )
 }

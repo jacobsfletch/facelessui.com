@@ -111,7 +111,7 @@ export default App = () => {
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#react-router`}
           element='b'
         >
-          React router
+          React Router
         </Heading>
       </p>
       <Margin bottom="small">
@@ -137,6 +137,50 @@ export default App = () => {
       ...
     </ModalProvider>
   )
+}`}
+        </CodeBlock>
+      </Margin>
+      <Heading
+        id="CloseModalOnRouteChange"
+        href="#CloseModalOnRouteChange"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#CloseModalOnRouteChange`}
+        element='h5'
+      >
+        {'<CloseModalOnRouteChange>'}
+      </Heading>
+      <p>
+        {'Often you will want to close all modals on route changes. This is a very common pattern that is very easily solved by tying into your apps existing router, and firing the '}
+        <InlineCode>
+          closeAll
+        </InlineCode>
+        {' method at the right time.'}
+      </p>
+      <p>
+        <Heading
+          id="CloseModalOnRouteChange-next-router"
+          href="#CloseModalOnRouteChange-next-router"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#CloseModalOnRouteChange-next-router"`}
+          element='b'
+        >
+          NextJS
+        </Heading>
+      </p>
+      <Margin bottom="small">
+        <CodeBlock>
+          {`import React from 'react';
+import { useModal } from "@faceless-ui/modal";
+import { Router } from "next/router";
+import { useEffect } from "react"
+
+export const CloseModalOnRouteChange = () => {
+  const { closeAll } = useModal();
+  useEffect(() => {
+    Router.events.on('routeChangeComplete', () => {
+      closeAll();
+    });
+  }, [closeAll]);
+
+  return null;
 }`}
         </CodeBlock>
       </Margin>

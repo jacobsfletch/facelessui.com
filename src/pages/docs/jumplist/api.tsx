@@ -306,7 +306,33 @@ export const MyComponent = () => {
         <p>
           A unique string to identify this node.
         </p>
-        <BasicProps />
+        <BasicProps
+          idPrefix="button"
+          defaultElement='button'
+        />
+        <Heading
+          id="button-a11y"
+          href="#button-a11y"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#button-a11y`}
+          element='h5'
+        >
+          Accessibility
+        </Heading>
+        <p>
+          {'The '}
+          <InlineCode>
+            type
+          </InlineCode>
+          {' attribute is automatically set to "button" when the '}
+          <InlineCode href="#button-htmlElement">
+            htmlElement
+          </InlineCode>
+          {' is '}
+          <InlineCode>
+            button
+          </InlineCode>
+          {'.'}
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="useJumplist">
         <Heading

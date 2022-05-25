@@ -437,7 +437,37 @@ export const MyComponent = () => {
           </InlineCode>
           {' to navigate to the slider to either the previous or next slide.'}
         </p>
-        <BasicProps />
+        <BasicProps
+          idPrefix='button'
+          defaultElement='button'
+        />
+        <Heading
+          id="button-a11y"
+          href="#button-a11y"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#button-a11y`}
+          element='h5'
+        >
+          Accessibility
+        </Heading>
+        <p>
+          {'The '}
+          <InlineCode>
+            type
+          </InlineCode>
+          {' attribute is automatically set to "button" when the '}
+          <InlineCode href="#button-htmlElement">
+            htmlElement
+          </InlineCode>
+          {' is '}
+          <InlineCode>
+            button
+          </InlineCode>
+          {'. The '}
+          <InlineCode>
+            aria-label
+          </InlineCode>
+          {' attribute is also preset and easily overridden.'}
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="useSlider">
         <Heading
