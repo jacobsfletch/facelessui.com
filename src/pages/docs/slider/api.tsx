@@ -184,6 +184,21 @@ export const MyComponent = () => {
           </InlineCode>
           {' to return control back to the slider.'}
         </p>
+        <PropName
+          name="useGhostSlide"
+          type="boolean"
+        />
+        <p>
+          {'Renders an invisible div at the end of your '}
+          <InlineCode href="#track">
+            SliderTrack
+          </InlineCode>
+          {' which will fully left-align your last slide with the left of your track. The width of the ghost slide is equal to one less than your '}
+          <InlineCode href="#slidesToShow">
+            slidesToShow
+          </InlineCode>
+          {'.'}
+        </p>
         <Heading
           id="provider-props"
           href="/docs/slider/api#provider-props"
