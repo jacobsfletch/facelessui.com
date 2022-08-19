@@ -7,7 +7,6 @@ import { MobileNavModal } from './MobileNavModal';
 
 export const MobileNav: React.FC<{
   className?: string
-  currentPage?: string
 }> = (props) => {
   const {
     className,

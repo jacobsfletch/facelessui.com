@@ -245,8 +245,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/setup.tsx`}
-      pageName="Slider Setup"
-      pageTitle="Slider Setup"
+      metaTitle="Slider Setup"
       metaDescription="Basic setup for the Slider package."
     />
   )

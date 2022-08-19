@@ -12,13 +12,11 @@ import classes from './index.module.scss';
 export const Doc: React.FC<{
   githubUrl?: string
   children: React.ReactNode
-  pageName?: string
   metaTitle?: string
   metaDescription?: string
 }> = (props) => {
   const {
     githubUrl,
-    pageName,
     children,
     metaTitle,
     metaDescription
@@ -54,10 +52,7 @@ export const Doc: React.FC<{
             )}
           </Cell>
         </Grid>
-        <MobileNav
-          className={classes.mobileNav}
-          currentPage={pageName}
-        />
+        <MobileNav className={classes.mobileNav} />
       </BlockContainer>
     </Fragment>
   );

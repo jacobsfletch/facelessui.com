@@ -157,8 +157,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/setup.tsx`}
-      pageName="Modal Setup"
-      pageTitle="Modal Setup"
+      metaTitle="Modal Setup"
       metaDescription="Basic setup for the Modal package."
     />
   )

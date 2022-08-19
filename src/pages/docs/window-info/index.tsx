@@ -98,8 +98,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/index.tsx`}
-      pageName="Window Info"
-      pageTitle="Window Info"
+      metaTitle="Window Info"
       metaDescription="The Window Info package."
     />
   )

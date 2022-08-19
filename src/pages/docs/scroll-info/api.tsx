@@ -167,8 +167,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/scroll-info/api.tsx`}
-      pageName="Scroll Info API"
-      pageTitle="Scroll Info API"
+      metaTitle="Scroll Info API"
       metaDescription="API for the Scroll Info package."
     />
   )

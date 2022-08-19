@@ -122,8 +122,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/mouse-info/api.tsx`}
-      pageName="Mouse Info API"
-      pageTitle="Mouse Info API"
+      metaTitle="Mouse Info API"
       metaDescription="API for the Mouse Info package."
     />
   )

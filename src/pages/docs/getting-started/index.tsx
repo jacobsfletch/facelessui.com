@@ -74,8 +74,7 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/getting-started/index.tsx`}
-      pageName="Getting Started"
-      pageTitle="Getting Started"
+      metaTitle="Getting Started"
       metaDescription="Getting started with Faceless UI."
     />
   )
