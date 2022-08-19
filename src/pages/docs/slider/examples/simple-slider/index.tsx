@@ -59,7 +59,10 @@ const SimpleSliderExample = () => {
           </SliderTrack>
         </SliderProvider>
       </Margin>
-      <Hyperlink href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/simple-slider.tsx`}>
+      <Hyperlink
+        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/simple-slider/index.tsx`}
+        newTab
+      >
         Source code
       </Hyperlink>
     </Fragment>
@@ -70,7 +73,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/simple-slider.tsx`}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/simple-slider/index.tsx`}
       metaTitle="Slider example"
       metaDescription="The Slider package."
     />

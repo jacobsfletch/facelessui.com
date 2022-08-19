@@ -27,12 +27,12 @@ const ThumbnailSliderExample = () => {
           slidesToShow={1}
           currentSlideIndex={sliderIndex}
         >
-          <SliderTrack className={classes.modalTrack}>
+          <SliderTrack className={classes.mainTrack}>
             {slides.map((slide, index) => (
               <Slide
                 key={index}
                 index={index}
-                className={classes.modalSlide}
+                className={classes.mainSlide}
               >
                 {`Slide ${index + 1}`}
               </Slide>
@@ -61,7 +61,10 @@ const ThumbnailSliderExample = () => {
           </SliderTrack>
         </SliderProvider>
       </Margin>
-      <Hyperlink href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider.tsx`}>
+      <Hyperlink
+        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider/index.tsx`}
+        newTab
+      >
         Source code
       </Hyperlink>
     </Fragment >
@@ -72,7 +75,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/thumbnail-slider.tsx`}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/thumbnail-slider/index.tsx`}
       metaTitle="Thumbnail slider example"
       metaDescription="Thumbnail slider package."
     />

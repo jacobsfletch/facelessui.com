@@ -76,7 +76,10 @@ const LightboxSliderExample = () => {
           </div>
         </Modal>
       </Margin>
-      <Hyperlink href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider.tsx`}>
+      <Hyperlink
+        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider/index.tsx`}
+        newTab
+      >
         Source code
       </Hyperlink>
     </Fragment >
@@ -87,7 +90,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider.tsx`}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider/index.tsx`}
       metaTitle="Lightbox slider example"
       metaDescription="Lightbox slider package."
     />
