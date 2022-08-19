@@ -236,6 +236,13 @@ export const MyComponent = () => {
 }`}
         </CodeBlock>
       </Margin>
+      <p>
+        {'For examples of synchronous sliders, check out '}
+        <Hyperlink href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/examples/lightbox-slider`}>
+          lightbox slider
+        </Hyperlink>
+        {'.'}
+      </p>
     </Fragment>
   )
 }
