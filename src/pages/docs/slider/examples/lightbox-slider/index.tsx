@@ -18,7 +18,7 @@ const LightboxSliderExample = () => {
         Lightbox Slider Example
       </h1>
       <Margin bottom="xs">
-        {'This is a "lightbox slider" that opens the slide in a larger view when clicked. See '}
+        {'This is a "lightbox slider" that opens the slide in a larger view when clicked. Click on any slide to see the effect. See '}
         <Hyperlink href="/docs/slider/setup#sync">
           synchronized sliders
         </Hyperlink>
@@ -45,40 +45,40 @@ const LightboxSliderExample = () => {
             ))}
           </SliderTrack>
         </SliderProvider>
+        <Modal
+          slug="lightbox"
+          className={classes.modal}
+        >
+          <div className={classes.modalContent}>
+            <ModalToggler
+              slug="lightbox"
+              className={classes.close}
+            >
+              Close
+            </ModalToggler>
+            <SliderProvider
+              slidesToShow={1}
+              useFreeScroll
+              currentSlideIndex={sliderIndex}
+            >
+              <SliderTrack className={classes.modalTrack}>
+                {slides.map((slide, index) => (
+                  <Slide
+                    key={index}
+                    index={index}
+                    className={classes.modalSlide}
+                  >
+                    {`Slide ${index + 1}`}
+                  </Slide>
+                ))}
+              </SliderTrack>
+            </SliderProvider>
+          </div>
+        </Modal>
       </Margin>
       <Hyperlink href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider.tsx`}>
         Source code
       </Hyperlink>
-      <Modal
-        slug="lightbox"
-        className={classes.modal}
-      >
-        <div className={classes.modalContent}>
-          <ModalToggler
-            slug="lightbox"
-            className={classes.close}
-          >
-            Close
-          </ModalToggler>
-          <SliderProvider
-            slidesToShow={1}
-            useFreeScroll
-            currentSlideIndex={sliderIndex}
-          >
-            <SliderTrack className={classes.modalTrack}>
-              {slides.map((slide, index) => (
-                <Slide
-                  key={index}
-                  index={index}
-                  className={classes.modalSlide}
-                >
-                  {`Slide ${index + 1}`}
-                </Slide>
-              ))}
-            </SliderTrack>
-          </SliderProvider>
-        </div>
-      </Modal>
     </Fragment >
   )
 }

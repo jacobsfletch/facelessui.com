@@ -155,6 +155,11 @@ export const sliderExamplesNav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/slider/examples/thumbnail-slider",
+    label: 'Thumbnail Slider',
+  },
+  {
+    type: 'link',
     href: "/docs/slider/examples/lightbox-slider",
     label: 'Lightbox Slider',
   },

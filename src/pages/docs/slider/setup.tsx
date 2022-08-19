@@ -238,8 +238,12 @@ export const MyComponent = () => {
       </Margin>
       <p>
         {'For examples of synchronous sliders, check out '}
-        <Hyperlink href={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/examples/lightbox-slider`}>
+        <Hyperlink href="/docs/slider/examples/lightbox-slider">
           lightbox slider
+        </Hyperlink>
+        {' and '}
+        <Hyperlink href="/docs/slider/examples/thumbnail-slider">
+          thumbnail slider
         </Hyperlink>
         {'.'}
       </p>
