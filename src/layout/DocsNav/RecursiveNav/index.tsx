@@ -137,7 +137,7 @@ export const RecursiveNav: React.FC<{
               )
             }
 
-            if (type === 'jumplist') {
+            if (type === 'jumplist' || type === 'subnav') {
               const isCurrentSection = asPath.startsWith(href || '');
 
               return (

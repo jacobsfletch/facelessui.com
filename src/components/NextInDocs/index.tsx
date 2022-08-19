@@ -14,12 +14,18 @@ type NavLink = {
   href: string
   index: number
   parentIndex?: number
+  grandparentIndex?: number
 }
 
 const filterNavLinks = (initialNav: DocsNav): NavLink[] => {
   const links: NavLink[] = [];
 
-  const recursiveFilter = (incomingNav: DocsNav, parentIndex?: number) => {
+  const recursiveFilter = (
+    incomingNav: DocsNav,
+    // TODO: instead of 'parentIndex' and 'grandparentIndex' just use dot notation
+    parentIndex?: number,
+    grandparentIndex?: number
+  ) => {
     if (incomingNav) {
       incomingNav.forEach((item, index) => {
         const {
@@ -29,17 +35,18 @@ const filterNavLinks = (initialNav: DocsNav): NavLink[] => {
           type
         } = item;
 
-        if ((type === 'group' || type === 'link' || type === 'jumplist') && href) {
+        if ((type === 'group' || type === 'link' || type === 'jumplist' || type === 'subnav') && href) {
           links.push({
             label,
             href,
             index,
-            parentIndex
+            parentIndex,
+            grandparentIndex
           });
         }
 
-        if (type === 'group' && items) {
-          recursiveFilter(items, index)
+        if ((type === 'group' || type === 'subnav') && items) {
+          recursiveFilter(items, index, parentIndex)
         }
       });
     }
@@ -76,13 +83,16 @@ export const NextInDocs: React.FC<{
 
     if (nextIndex && navLinks[nextIndex]) {
       const nextNavLink = navLinks[nextIndex];
+
       const {
         index,
-        parentIndex
+        parentIndex,
+        grandparentIndex
       } = nextNavLink;
 
       let nextNavItem = null;
-      if (parentIndex) nextNavItem = nav?.[parentIndex]?.items?.[index];
+      if (grandparentIndex && parentIndex) nextNavItem = nav?.[grandparentIndex]?.items?.[parentIndex]?.items?.[index];
+      else if (parentIndex) nextNavItem = nav?.[parentIndex]?.items?.[index];
       else nextNavItem = nav?.[index];
 
       setNextNavItem(nextNavItem)

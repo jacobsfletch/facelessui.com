@@ -72,7 +72,6 @@
 .jumplist {
   display: flex;
   flex-direction: column;
-  margin-bottom: base(0.125);
 
   @include mid-break {
     & > *:not(:last-child) {
@@ -83,6 +82,7 @@
 
 .jumplistContent {
   padding-left: base(0.5);
+  padding-bottom: base(0.125);
 }
 
 .linkBullet {

@@ -1,5 +1,5 @@
 export type NavItem = {
-  type: 'title' | 'link' | 'group' | 'overview' | 'jumplist'
+  type: 'title' | 'link' | 'group' | 'overview' | 'jumplist' | 'subnav'
   label: string
   items?: NavItem[]
   href?: string
@@ -114,7 +114,7 @@ export const jumplistJumplistNav: NavItem[] = [
   },
 ]
 
-export const sliderJumplistNav: NavItem[] = [
+export const sliderAPINav: NavItem[] = [
   {
     type: 'link',
     href: "/docs/slider/api#provider",
@@ -144,6 +144,19 @@ export const sliderJumplistNav: NavItem[] = [
     href: "/docs/slider/api#useSlider",
     label: 'useSlider',
     id: 'useSlider',
+  },
+]
+
+export const sliderExamplesNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/slider/examples/simple-slider",
+    label: 'Simple Slider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/examples/lightbox-slider",
+    label: 'Lightbox Slider',
   },
 ]
 
@@ -268,7 +281,13 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/slider/api",
         label: 'API Reference',
-        items: sliderJumplistNav
+        items: sliderAPINav
+      },
+      {
+        type: 'subnav',
+        label: 'Examples',
+        href: "/docs/slider/examples",
+        items: sliderExamplesNav
       },
     ]
   },

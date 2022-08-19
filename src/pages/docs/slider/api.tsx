@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
-import { sliderJumplistNav } from '@root/docs-nav';
+import { sliderAPINav } from '@root/docs-nav';
 import { Heading } from '@components/Heading';
 import { BasicProps } from '@components/BasicProps';
 import { InlineCode } from '@components/InlineCode';
@@ -18,7 +18,7 @@ const SliderAPI = () => {
   } = useJumplist();
 
   useEffect(() => {
-    const jumplist = sliderJumplistNav.map((item) => ({ nodeID: item.id || '' }));
+    const jumplist = sliderAPINav.map((item) => ({ nodeID: item.id || '' }));
     setJumplist(jumplist);
     return () => {
       clearJumplist();
