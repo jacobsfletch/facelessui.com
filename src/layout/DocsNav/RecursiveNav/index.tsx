@@ -180,13 +180,17 @@ export const RecursiveNav: React.FC<{
                           <div className={classes.jumplistContent}>
                             {groupItems?.map((item, jumplistItemIndex) => {
                               const {
-                                type,
+                                type: itemType,
                                 label: jumplistItemLabel,
                                 href: itemHref
                               } = item;
 
-                              if (type === 'link') {
-                                const isActiveLink = activeJumplistIndex === jumplistItemIndex;
+                              if (itemType === 'link') {
+
+                                let isActiveLink = false;
+
+                                if (type === 'jumplist') isActiveLink = activeJumplistIndex === jumplistItemIndex;
+                                if (type === 'subnav') isActiveLink = itemHref === asPath;
 
                                 return (
                                   <Hyperlink
