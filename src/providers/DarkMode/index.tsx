@@ -45,7 +45,7 @@ const DarkModeProvider: React.FC<{
     let themeToUse = storedTheme;
 
     // NOTE: if their preference is stored as 'auto', get it from their system
-    if (storedTheme === 'auto') {
+    if (!storedTheme || storedTheme === 'auto') {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) themeToUse = 'dark';
       if (window.matchMedia('(prefers-color-scheme: light)').matches) themeToUse = 'light';
     }
