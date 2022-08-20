@@ -53,7 +53,8 @@
 }
 
 .toggler {
-  @include button-reset;
+  all: unset;
+  cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;

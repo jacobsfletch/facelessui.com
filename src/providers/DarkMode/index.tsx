@@ -8,9 +8,16 @@ import React, {
 } from 'react';
 import Script from 'next/script';
 
+const localStorageKey = 'theme';
+
+export type Theme = 'dark' | 'light' | 'auto';
+
 interface IDarkMode {
+  theme?: Theme
+  setTheme: (incomingTheme: Theme) => void // eslint-disable-line no-unused-vars
+  storedTheme?: Theme
+  setStoredTheme: (incomingTheme: Theme) => void // eslint-disable-line no-unused-vars
   isDark?: boolean
-  setIsDark: (incomingIsDark?: boolean) => void // eslint-disable-line no-unused-vars
 }
 
 export const DarkModeContext = createContext<IDarkMode>({} as IDarkMode);
@@ -23,36 +30,56 @@ const DarkModeProvider: React.FC<{
     children,
   } = props;
 
+  const [storedTheme, setStoredTheme] = useState<Theme | undefined>(undefined);
+  const [theme, setTheme] = useState<Theme | undefined>(undefined);
   const [isDark, setIsDark] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
-    const localIsDark = localStorage.getItem('isDark');
-    if (localIsDark === 'false' || localIsDark === null) setIsDark(false)
-    if (localIsDark === 'true') setIsDark(true)
-  }, [])
+    let themeToUse = storedTheme;
+
+    // NOTE: if their preference is stored as 'auto', get it from their system
+    if (storedTheme === 'auto') {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) themeToUse = 'dark';
+      if (window.matchMedia('(prefers-color-scheme: light)').matches) themeToUse = 'light';
+    }
+
+    setTheme(themeToUse);
+  }, [storedTheme])
 
   useEffect(() => {
-    if (isDark !== undefined) {
+    if (theme !== undefined) {
       const root = document.documentElement;
-      if (isDark) {
+
+      if (theme === 'dark') {
         // IMPORTANT: must match /public/initDarkMode.js
         root.style.setProperty('--color-html', 'var(--color-cream)');
         root.style.setProperty('--color-html-bg', 'var(--color-almost-black)');
         root.style.setProperty('--color-cursor', 'var(--color-darker-gray)');
         root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');
-      } else {
+        setIsDark(true);
+      }
+
+      if (theme === 'light') {
         root.style.setProperty('--color-html', 'var(--color-almost-black)');
         root.style.setProperty('--color-html-bg', 'var(--color-white)');
         root.style.setProperty('--color-cursor', 'var(--color-lighter-gray)');
         root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');
+        setIsDark(false);
       }
     }
-  }, [isDark])
+  }, [theme])
 
-  const handleSetDarkMode = useCallback((incomingIsDark?: boolean) => {
-    if (incomingIsDark) localStorage.setItem('isDark', 'true');
-    else localStorage.removeItem('isDark');
-    setIsDark(incomingIsDark);
+
+  // NOTE: populate stored theme on first load
+  useEffect(() => {
+    const storedThemeOnLoad = localStorage.getItem(localStorageKey) as Theme;
+    setStoredTheme(storedThemeOnLoad);
+  }, [])
+
+  // NOTE: store their preference to local storage before setting state
+  const storeTheme = useCallback((incomingTheme: Theme) => {
+    localStorage.setItem(localStorageKey, incomingTheme);
+    setStoredTheme(incomingTheme);
   }, []);
 
   return (
@@ -64,10 +91,13 @@ const DarkModeProvider: React.FC<{
       <DarkModeContext.Provider
         value={{
           isDark,
-          setIsDark: handleSetDarkMode
+          theme,
+          setTheme,
+          storedTheme,
+          setStoredTheme: storeTheme
         }}
       >
-        {(isDark !== undefined) && children}
+        {children}
       </DarkModeContext.Provider>
     </Fragment >
   );

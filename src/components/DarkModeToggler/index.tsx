@@ -1,20 +1,36 @@
-import { useDarkMode } from '@root/providers/DarkMode';
+import { Theme, useDarkMode } from '@root/providers/DarkMode';
 import classes from './index.module.scss';
 
 export const DarkModeToggler: React.FC = () => {
   const {
-    isDark,
-    setIsDark,
+    storedTheme,
+    setStoredTheme
   } = useDarkMode();
 
   return (
-    <button
-      className={classes.darkModeToggler}
-      onClick={() => setIsDark(!isDark)}
-    >
-      {isDark ? 'Light' : 'Dark'}
-      &nbsp;
-      Mode
-    </button>
+    <label className={classes.label}>
+      Theme
+      <select
+        className={classes.select}
+        value={storedTheme}
+        onChange={(e) => {
+          const newTheme = e.target.value as Theme;
+          setStoredTheme(newTheme)
+        }}
+      >
+        <option value="">
+
+        </option>
+        <option value="light">
+          Light
+        </option>
+        <option value="dark">
+          Dark
+        </option>
+        <option value="auto">
+          Auto
+        </option>
+      </select>
+    </label>
   )
 }

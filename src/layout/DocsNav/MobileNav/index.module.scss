@@ -1,7 +1,8 @@
 @use "@scss/common" as *;
 
 .mobileNavToggler {
-  @include button-reset;
+  all: unset;
+  cursor: pointer;
   width: base(2);
   height: base(2);
   position: fixed;
