@@ -12,10 +12,6 @@
   border: 1px solid var(--color-cursor);
   transition: border-color linear vaR(--default-trans-time);
 
-  &.isDark {
-    background-color: var(--color-black);
-  }
-
   &:hover {
     border: 1px solid var(--color-cursor-highlight);
   }
@@ -23,4 +19,12 @@
 
 .label {
   margin: 0;
+}
+
+:global(.isDark) {
+  &:local() {
+    .nextInDocs {
+      background-color: var(--color-black);
+    }
+  }
 }

@@ -7,7 +7,6 @@ import { DocsNav, NavItem } from '@root/docs-nav'
 import { TextWithInlineIcon } from '@components/TextWithInlineIcon';
 
 import { nav } from '@root/docs-nav';
-import { useDarkMode } from '@root/providers/DarkMode';
 
 type NavLink = {
   label: string
@@ -65,8 +64,6 @@ export const NextInDocs: React.FC<{
     className
   } = props;
 
-  const { isDark } = useDarkMode();
-
   const [nextNavItem, setNextNavItem] = useState<NavItem | null>();
 
   const router = useRouter();
@@ -112,7 +109,6 @@ export const NextInDocs: React.FC<{
         className={[
           className,
           classes.nextInDocs,
-          isDark && classes.isDark
         ].filter(Boolean).join(' ')}
       >
         <div>

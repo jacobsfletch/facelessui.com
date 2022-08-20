@@ -1,6 +1,5 @@
 import { Hyperlink } from '@components/Hyperlink';
 import { ArrowIcon } from '@root/icons/Arrow';
-import { useDarkMode } from '@root/providers/DarkMode';
 import React from 'react';
 import classes from './index.module.scss';
 
@@ -36,14 +35,11 @@ export const Button: React.FC<ButtonProps> = (props) => {
     newTab
   } = props;
 
-  const { isDark } = useDarkMode();
-
   const classList = [
     className,
     classes.button,
     appearance && classes[`type--${appearance}`],
     size && classes[`size--${size}`],
-    isDark && classes.isDark
   ].filter(Boolean).join(' ')
 
   if (type === 'submit' || type === 'button') {

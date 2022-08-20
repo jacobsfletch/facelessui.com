@@ -1,5 +1,4 @@
 import { Hyperlink, HyperlinkProps } from '@components/Hyperlink';
-import { useDarkMode } from '@root/providers/DarkMode';
 import React from 'react';
 import classes from './index.module.scss';
 
@@ -8,15 +7,11 @@ const CodeTag: React.FC<{
   children: React.ReactNode
 }> = (props) => {
   const { id, children } = props;
-  const { isDark } = useDarkMode();
 
   return (
     <code
       id={id}
-      className={[
-        classes.code,
-        isDark && classes.darkMode
-      ].filter(Boolean).join(' ')}
+      className={classes.code}
     >
       {children}
     </code>

@@ -27,10 +27,7 @@ export const CodeBlock: React.FC<{
       <SyntaxHighlighter
         language="javascript"
         style={isDark ? vscDarkPlus : vs}
-        className={[
-          classes.pre,
-          isDark && classes.darkMode
-        ].filter(Boolean).join(' ')}
+        className={classes.pre}
         wrapLongLines
         codeTagProps={{
           className: classes.code

@@ -18,9 +18,13 @@
   box-shadow: var(--shadow-1);
 }
 
-.darkMode {
-  background-color: var(--color-darkest-gray);
-  box-shadow: var(--shadow-2);
+:global(.isDark) {
+  &:local() {
+    .mobileNavToggler {
+      background-color: var(--color-darkest-gray);
+      box-shadow: var(--shadow-2);
+    }
+  }
 }
 
 .icon {

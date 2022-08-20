@@ -1,3 +1,4 @@
+import { Chevron } from '@root/icons/Chevron';
 import { Theme, useDarkMode } from '@root/providers/DarkMode';
 import classes from './index.module.scss';
 
@@ -9,7 +10,9 @@ export const DarkModeToggler: React.FC = () => {
 
   return (
     <label className={classes.label}>
-      Theme
+      <span className={classes.labelText}>
+        Theme:&nbsp;
+      </span>
       <select
         className={classes.select}
         value={storedTheme}
@@ -18,8 +21,8 @@ export const DarkModeToggler: React.FC = () => {
           setStoredTheme(newTheme)
         }}
       >
-        <option value="">
-
+        <option value="auto">
+          Auto
         </option>
         <option value="light">
           Light
@@ -27,10 +30,9 @@ export const DarkModeToggler: React.FC = () => {
         <option value="dark">
           Dark
         </option>
-        <option value="auto">
-          Auto
-        </option>
       </select>
+      &nbsp;
+      <Chevron size="small" />
     </label>
   )
 }

@@ -1,6 +1,5 @@
 import { useMouseInfo } from '@faceless-ui/mouse-info';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
-import { useDarkMode } from '@root/providers/DarkMode';
 import classes from './index.module.scss';
 
 export const CustomCursor: React.FC = () => {
@@ -14,12 +13,9 @@ export const CustomCursor: React.FC = () => {
     highlightCursor
   } = useCustomCursor();
 
-  const { isDark } = useDarkMode();
-
   if (showCustomCursor) {
     const lineClasses = [
       classes.line,
-      isDark && classes.isDark,
       highlightCursor && classes.isHighlighted
     ].filter(Boolean).join(' ');
 

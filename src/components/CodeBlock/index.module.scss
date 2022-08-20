@@ -29,9 +29,13 @@
   border: var(--color-lighter-gray) 1px solid !important;
 }
 
-.darkMode {
-  background: var(--color-darkest-gray) !important;
-  border: var(--color-dark-gray) 1px solid !important;
+:global(.isDark) {
+  &:local(){
+    .pre {
+      background: var(--color-darkest-gray) !important;
+      border: var(--color-dark-gray) 1px solid !important;
+    }
+  }
 }
 
 .icon {

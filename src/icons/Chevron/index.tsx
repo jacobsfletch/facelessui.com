@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from '../index.module.scss';
+import { IconSize } from '../types';
 
 export const Chevron: React.FC<{
   className?: string
   color?: string
   rotation?: number
-  size?: string
+  size?: IconSize
   bold?: boolean
 }> = (props) => {
   const {

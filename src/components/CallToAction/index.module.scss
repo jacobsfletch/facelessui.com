@@ -43,8 +43,8 @@
   text-align: center;
 }
 
-.isDark {
-  :local {
+:global(.isDark) {
+  &:local(){
     .backgroundColor {
       background-color: var(--color-black);
     }

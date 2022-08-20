@@ -7,7 +7,6 @@ import classes from './index.module.scss';
 import { useRouter } from "next/dist/client/router";
 import { VersionNumber } from "@components/VersionNumber";
 import { useJumplist } from '@faceless-ui/jumplist'
-import { useDarkMode } from "@root/providers/DarkMode";
 import { useWindowInfo } from "@faceless-ui/window-info";
 
 export const RecursiveNav: React.FC<{
@@ -25,7 +24,6 @@ export const RecursiveNav: React.FC<{
 
   const { activeJumplistIndex } = useJumplist();
   const { asPath } = useRouter();
-  const { isDark } = useDarkMode();
 
   const hasItems = items && Array.isArray(items) && items.length > 0;
 
@@ -34,12 +32,7 @@ export const RecursiveNav: React.FC<{
       <CollapsibleGroup
         allowMultiple={midBreak}
       >
-        <nav
-          className={[
-            classes.nav,
-            isDark && classes.darkMode
-          ].filter(Boolean).join(' ')}
-        >
+        <nav className={classes.nav}>
           {items.map((item, index) => {
             const {
               type,

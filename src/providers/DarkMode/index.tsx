@@ -7,6 +7,7 @@ import React, {
   useState
 } from 'react';
 import Script from 'next/script';
+import canUseDOM from '@root/utilities/canUseDOM';
 
 const localStorageKey = 'theme';
 
@@ -23,6 +24,11 @@ interface IDarkMode {
 export const DarkModeContext = createContext<IDarkMode>({} as IDarkMode);
 export const useDarkMode = (): IDarkMode => useContext(DarkModeContext);
 
+const getStoredTheme = () => {
+  if (canUseDOM) return localStorage.getItem(localStorageKey) as Theme
+  return undefined
+};
+
 const DarkModeProvider: React.FC<{
   children: React.ReactNode
 }> = (props) => {
@@ -30,7 +36,8 @@ const DarkModeProvider: React.FC<{
     children,
   } = props;
 
-  const [storedTheme, setStoredTheme] = useState<Theme | undefined>(undefined);
+  const [storedTheme, setStoredTheme] = useState<Theme | undefined>(() => getStoredTheme());
+
   const [theme, setTheme] = useState<Theme | undefined>(undefined);
   const [isDark, setIsDark] = useState<boolean | undefined>(undefined);
 
@@ -56,6 +63,7 @@ const DarkModeProvider: React.FC<{
         root.style.setProperty('--color-html-bg', 'var(--color-almost-black)');
         root.style.setProperty('--color-cursor', 'var(--color-darker-gray)');
         root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');
+        root.classList.add('isDark');
         setIsDark(true);
       }
 
@@ -64,6 +72,7 @@ const DarkModeProvider: React.FC<{
         root.style.setProperty('--color-html-bg', 'var(--color-white)');
         root.style.setProperty('--color-cursor', 'var(--color-lighter-gray)');
         root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');
+        root.classList.remove('isDark');
         setIsDark(false);
       }
     }
@@ -72,8 +81,7 @@ const DarkModeProvider: React.FC<{
 
   // NOTE: populate stored theme on first load
   useEffect(() => {
-    const storedThemeOnLoad = localStorage.getItem(localStorageKey) as Theme;
-    setStoredTheme(storedThemeOnLoad);
+    setStoredTheme(getStoredTheme());
   }, [])
 
   // NOTE: store their preference to local storage before setting state

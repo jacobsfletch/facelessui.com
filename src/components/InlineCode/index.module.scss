@@ -14,7 +14,11 @@
   }
 }
 
-.darkMode {
-  background-color: var(--color-darker-gray);
-  color: var(--color-white);
+:global(.isDark) {
+  &:local(){
+    .code {
+      background-color: var(--color-darker-gray);
+      color: var(--color-white);
+    }
+  }
 }

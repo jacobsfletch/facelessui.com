@@ -108,7 +108,7 @@
   margin-left: base(0.5);
 }
 
-.darkMode {
+:global(.isDark) {
   &:local() {
     .itemLabel {
       color: var(--color-gray);

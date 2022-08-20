@@ -1,5 +1,4 @@
 import { CopyIcon } from '@root/icons/Copy';
-import { useDarkMode } from '@root/providers/DarkMode';
 import { useNotifications } from '@root/providers/Notifications';
 import { copyToClipboard } from '@root/utilities/copyToClipboard';
 import React, { useCallback, useEffect, useState } from 'react';
@@ -9,7 +8,6 @@ export const InstallationCode: React.FC<{
   name?: string
 }> = (props) => {
   const { name } = props;
-  const { isDark } = useDarkMode();
   const [manager, setManager] = useState<'npm' | 'yarn'>('yarn');
 
   let command = `npm i @faceless-ui/${name}`;
@@ -37,12 +35,7 @@ export const InstallationCode: React.FC<{
   }, [manager])
 
   return (
-    <div
-      className={[
-        classes.installationCode,
-        isDark && classes.darkMode
-      ].filter(Boolean).join(' ')}
-    >
+    <div className={classes.installationCode} >
       <div
         className={classes.codeBlockWrapper}
         onClick={() => {

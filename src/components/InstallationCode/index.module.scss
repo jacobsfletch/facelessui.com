@@ -61,7 +61,7 @@
   pointer-events: none;
 }
 
-.darkMode {
+:global(.isDark) {
   &:local() {
     .managerButton {
       color: var(--color-white);

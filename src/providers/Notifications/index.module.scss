@@ -24,8 +24,12 @@
   }
 }
 
-.isDark  {
-  background-color: var(--color-darkest-gray);
-  color: white;
-  box-shadow: var(--shadow-2);
+:global(.isDark) {
+  &:local() {
+    .notification {
+      background-color: var(--color-darkest-gray);
+      color: white;
+      box-shadow: var(--shadow-2);
+    }
+  }
 }

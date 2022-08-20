@@ -2,4 +2,11 @@
 
 .label {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  all: unset;
+  cursor: pointer;
 }

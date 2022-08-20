@@ -3,7 +3,6 @@ import classes from './index.module.scss';
 import { BlockContainer } from '@root/layout/BlockContainer';
 import { Hyperlink } from '@components/Hyperlink';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
-import { useDarkMode } from '@root/providers/DarkMode';
 
 export const CallToAction: React.FC<{
   className?: string
@@ -16,14 +15,11 @@ export const CallToAction: React.FC<{
     setHighlightCursor
   } = useCustomCursor()
 
-  const { isDark } = useDarkMode();
-
   return (
     <div
       className={[
         className,
         classes.callToAction,
-        isDark && classes.isDark
       ].filter(Boolean).join(' ')}
     >
       <BlockContainer>

@@ -1,6 +1,5 @@
 import { Hamburger } from '@components/Hamburger';
 import { ModalToggler, useModal } from '@faceless-ui/modal';
-import { useDarkMode } from '@root/providers/DarkMode';
 import React, { Fragment } from 'react';
 import classes from './index.module.scss';
 import { MobileNavModal } from './MobileNavModal';
@@ -12,7 +11,6 @@ export const MobileNav: React.FC<{
     className,
   } = props;
 
-  const { isDark } = useDarkMode();
   const { oneIsOpen } = useModal();
 
   return (
@@ -23,7 +21,6 @@ export const MobileNav: React.FC<{
         className={[
           className,
           classes.mobileNavToggler,
-          isDark && classes.darkMode
         ].filter(Boolean).join(' ')}
         aria-label='Mobile Navigation'
       >
