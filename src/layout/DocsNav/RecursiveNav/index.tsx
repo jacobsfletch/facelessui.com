@@ -112,7 +112,6 @@ export const RecursiveNav: React.FC<{
                             {isOpen && versionName && (
                               <Fragment>
                                 &nbsp;
-                                &nbsp;
                                 <VersionNumber name={versionName} />
                               </Fragment>
                             )}

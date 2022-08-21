@@ -20,6 +20,12 @@
       }
     }
   }
+
+  &:global() {
+    code {
+      @include code;
+    }
+  }
 }
 
 .pre {

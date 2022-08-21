@@ -9,11 +9,18 @@
   justify-content: flex-start;
   flex-direction: column;
   font-weight: normal;
-  border: 1px solid var(--color-cursor);
+  border: 1px solid;
+  border-color: var(--color-cursor);
   transition: border-color linear vaR(--default-trans-time);
 
   &:hover {
-    border: 1px solid var(--color-cursor-highlight);
+    border-color: var(--color-cursor-highlight);
+  }
+
+  @include mid-break {
+    &:hover {
+      border-color: var(--color-cursor);
+    }
   }
 }
 

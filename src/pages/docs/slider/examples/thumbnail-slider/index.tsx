@@ -27,12 +27,12 @@ const ThumbnailSliderExample = () => {
           slidesToShow={1}
           currentSlideIndex={sliderIndex}
         >
-          <SliderTrack className={classes.mainTrack}>
+          <SliderTrack className={classes.track}>
             {slides.map((slide, index) => (
               <Slide
                 key={index}
                 index={index}
-                className={classes.mainSlide}
+                className={classes.slide}
               >
                 {`Slide ${index + 1}`}
               </Slide>
@@ -50,7 +50,10 @@ const ThumbnailSliderExample = () => {
               <Slide
                 key={index}
                 index={index}
-                className={classes.slide}
+                className={[
+                  classes.slide,
+                  classes.clickable
+                ].filter(Boolean).join(' ')}
                 onClick={() => {
                   setSliderIndex(index);
                 }}

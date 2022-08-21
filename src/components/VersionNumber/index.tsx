@@ -14,8 +14,8 @@ export const VersionNumber: React.FC<{
   const version = versions?.[name];
 
   return (
-    <InlineCode>
-      {version || '...'}
+    <InlineCode size="small">
+      {`v${version}` || '...'}
     </InlineCode>
   )
 }

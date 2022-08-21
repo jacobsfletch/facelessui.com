@@ -63,9 +63,7 @@ import { SliderProvider, SliderTrack, Slide } from \'@faceless-ui/slider\';
 
 export const MyComponent = () => {
   return (
-    <SliderProvider
-      slidesToShow={1}
-    >
+    <SliderProvider slidesToShow={1}>
       <SliderTrack>
         <Slide index={0}>
           Slide 1
@@ -106,9 +104,7 @@ import { SliderProvider, SliderTrack, Slide, SliderButton } from \'@faceless-ui/
 
 export const MyComponent = () => {
   return (
-    <SliderProvider
-      slidesToShow={1}
-    >
+    <SliderProvider slidesToShow={1}>
       <SliderButton direction="prev">
         Previous
       </SliderButton>
@@ -159,9 +155,7 @@ export const MyButton = () => {
 
 export const MyComponent = () => {
   return (
-    <SliderProvider
-      slidesToShow={1}
-    >
+    <SliderProvider slidesToShow={1}>
       <MyButton />
       <SliderTrack>
         <Slide index={0}>

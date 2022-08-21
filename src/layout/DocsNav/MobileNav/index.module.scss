@@ -3,8 +3,8 @@
 .mobileNavToggler {
   all: unset;
   cursor: pointer;
-  width: base(2);
-  height: base(2);
+  width: base(1.5);
+  height: base(1.5);
   position: fixed;
   bottom: var(--mobile-gutter);
   right: var(--mobile-gutter);
@@ -21,7 +21,7 @@
 :global(.isDark) {
   &:local() {
     .mobileNavToggler {
-      background-color: var(--color-darkest-gray);
+      background-color: var(--color-darker-gray);
       box-shadow: var(--shadow-2);
     }
   }

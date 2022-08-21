@@ -73,12 +73,6 @@
 .jumplist {
   display: flex;
   flex-direction: column;
-
-  @include mid-break {
-    & > *:not(:last-child) {
-      margin-bottom: base(0.125);
-    }
-  }
 }
 
 .jumplistContent {

@@ -1,17 +1,21 @@
 @use "@scss/common" as *;
 
 .code {
+  @include code;
   background-color: var(--color-lighter-gray);
   padding: 4px 8px;
   border-radius: 2px;
-  font-size: 14px;
   letter-spacing: 0.5px;
-  font-family: "JetBrains Mono", monospace;
   line-height: 1;
 
   @include mid-break {
     padding: 2px 6px;
   }
+}
+
+.size--small {
+  font-size: 12px;
+  padding: 4px 6px;
 }
 
 :global(.isDark) {

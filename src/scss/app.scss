@@ -119,7 +119,7 @@ li {
 }
 
 small {
-  font-size: 75%;
+  @include small;
 }
 
 hr {
@@ -134,8 +134,7 @@ a {
 }
 
 code {
-  font-family: "JetBrains Mono", monospace !important;
-  font-size: 14px !important;
+  @include code;
 }
 
 input,

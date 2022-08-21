@@ -13,3 +13,15 @@
     background-color: var(--color-lighter-gray);
   }
 }
+
+:global(.isDark) {
+  &:local() {
+    .slide {
+      background-color: var(--color-dark-gray);
+
+      &:nth-child(even) {
+        background-color: var(--color-darkest-gray);
+      }
+    }
+  }
+}

@@ -6,7 +6,24 @@
   align-items: center;
 }
 
+.selectWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
 .select {
   all: unset;
-  cursor: pointer;
+  padding-right: 14px;
+  @include mid-break {
+    padding-right: base(0.5);
+  }
+}
+
+.icon {
+  position: absolute;
+  right: base(0.25);
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
 }

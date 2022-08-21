@@ -10,8 +10,18 @@ export const Footer: React.FC = () => {
       <BlockContainer>
         <div className={classes.content}>
           <div className={classes.copyright}>
-            Copyright
-            &nbsp;&copy;&nbsp;
+            <span>
+              Copyright
+            </span>
+            <span>
+              &nbsp;
+            </span>
+            <span>
+              &copy;
+            </span>
+            <span>
+              &nbsp;
+            </span>
             {`${new Date().getFullYear()}`}
             &nbsp;&mdash;&nbsp;
             <Hyperlink

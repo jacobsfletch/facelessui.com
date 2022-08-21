@@ -13,19 +13,21 @@
   &:nth-child(even) {
     background-color: var(--color-lighter-gray);
   }
+
+  &.clickable {
+    cursor: pointer;
+  }
 }
 
-.modalTrack {
-  width: 100%;
-  padding-bottom: base(0.5);
-}
+:global(.isDark) {
+  &:local() {
+    .slide {
+      background-color: var(--color-dark-gray);
 
-.modalSlide {
-  padding: base();
-  background-color: var(--color-lightest-gray);
-
-  &:nth-child(even) {
-    background-color: var(--color-lighter-gray);
+      &:nth-child(even) {
+        background-color: var(--color-darkest-gray);
+      }
+    }
   }
 }
 

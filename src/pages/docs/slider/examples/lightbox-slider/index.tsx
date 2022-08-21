@@ -34,7 +34,10 @@ const LightboxSliderExample = () => {
               <Slide
                 key={index}
                 index={index}
-                className={classes.slide}
+                className={[
+                  classes.slide,
+                  classes.clickable
+                ].filter(Boolean).join(' ')}
                 onClick={() => {
                   openModal('lightbox');
                   setSliderIndex(index);
@@ -61,12 +64,12 @@ const LightboxSliderExample = () => {
               useFreeScroll
               currentSlideIndex={sliderIndex}
             >
-              <SliderTrack className={classes.modalTrack}>
+              <SliderTrack className={classes.track}>
                 {slides.map((slide, index) => (
                   <Slide
                     key={index}
                     index={index}
-                    className={classes.modalSlide}
+                    className={classes.slide}
                   >
                     {`Slide ${index + 1}`}
                   </Slide>
@@ -82,7 +85,7 @@ const LightboxSliderExample = () => {
       >
         Source code
       </Hyperlink>
-    </Fragment >
+    </Fragment>
   )
 }
 
