@@ -6,8 +6,8 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import Script from 'next/script';
 import canUseDOM from '@root/utilities/canUseDOM';
+import Head from 'next/head';
 
 const localStorageKey = 'theme';
 
@@ -92,10 +92,10 @@ const DarkModeProvider: React.FC<{
 
   return (
     <Fragment>
-      <Script
-        strategy="beforeInteractive"
-        src="/initDarkMode.js"
-      />
+      <Head>
+        {/* eslint-disable @next/next/no-sync-scripts */}
+        <script src="/initDarkMode.js" />
+      </Head>
       <DarkModeContext.Provider
         value={{
           isDark,
@@ -107,7 +107,7 @@ const DarkModeProvider: React.FC<{
       >
         {children}
       </DarkModeContext.Provider>
-    </Fragment >
+    </Fragment>
   );
 };
 

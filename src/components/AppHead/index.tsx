@@ -11,6 +11,10 @@ export const AppHead: React.FC = () => {
         rel="icon"
         href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/face-without-mouth_1f636.png"
       />
+      <meta
+        name="color-scheme"
+        content="dark light"
+      />
     </NextHead>
   )
 }
