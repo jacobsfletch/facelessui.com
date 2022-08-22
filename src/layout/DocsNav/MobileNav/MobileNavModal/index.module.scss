@@ -8,6 +8,21 @@
   color: var(--color-html);
   padding: base();
   overflow: auto;
+  will-change: opacity;
+  transition: opacity var(--modal-trans-time) linear;
+  opacity: 0;
+
+  &:global(.modal-item--appearActive),
+  &:global(.modal-item--appearDone),
+  &:global(.modal-item--enterActive),
+  &:global(.modal-item--enterDone) {
+    opacity: 1;
+  }
+
+  &:global(.modal-item--exitActive),
+  &:global(.modal-item--exitDone) {
+    opacity: 0;
+  }
 }
 
 :global(.isDark) {

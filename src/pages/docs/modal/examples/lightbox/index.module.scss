@@ -28,6 +28,10 @@
 
 .wrapper {
   width: 50%;
+
+  @include mid-break {
+    width: calc(100% - #{base(2)});
+  }
 }
 
 .close {

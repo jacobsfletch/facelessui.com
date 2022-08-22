@@ -11,7 +11,10 @@ export const MobileNav: React.FC<{
     className,
   } = props;
 
-  const { oneIsOpen } = useModal();
+  const {
+    currentModal,
+    // oneIsOpen
+  } = useModal();
 
   return (
     <Fragment>
@@ -21,11 +24,12 @@ export const MobileNav: React.FC<{
         className={[
           className,
           classes.mobileNavToggler,
+          // (oneIsOpen && currentModal !== 'mobile-nav') && classes.hide,
         ].filter(Boolean).join(' ')}
         aria-label='Mobile Navigation'
       >
         <div className={classes.icon}>
-          <Hamburger isOpen={oneIsOpen} />
+          <Hamburger isOpen={currentModal === 'mobile-nav'} />
         </div>
       </ModalToggler>
     </Fragment>

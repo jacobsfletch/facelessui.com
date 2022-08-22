@@ -16,6 +16,9 @@
   z-index: 9999999;
   padding: base(0.5);
   box-shadow: var(--shadow-1);
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity var(--modal-trans-time) linear;
 }
 
 :global(.isDark) {
@@ -25,6 +28,11 @@
       box-shadow: var(--shadow-2);
     }
   }
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .icon {

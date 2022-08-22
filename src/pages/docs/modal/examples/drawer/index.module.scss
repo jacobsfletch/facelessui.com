@@ -43,6 +43,10 @@
   transform: translate3d(base(2), 0, 0);
   will-change: transform;;
   transition: transform var(--modal-trans-time) linear;
+
+  @include mid-break {
+    width: calc(100% - #{base(3)});
+  }
 }
 
 .close {
