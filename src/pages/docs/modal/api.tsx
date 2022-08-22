@@ -6,7 +6,7 @@ import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { JumplistNode } from '@faceless-ui/jumplist';
 import { useJumplist } from '@faceless-ui/jumplist';
-import { modalJumplistNav } from '@root/docs-nav';
+import { modalAPINav } from '@root/docs-nav';
 import { BasicProps } from '@components/BasicProps';
 import { Heading } from '@components/Heading';
 import { ClassPrefix } from '@components/ClassPrefix';
@@ -20,7 +20,7 @@ const ModalAPI = () => {
   } = useJumplist();
 
   useEffect(() => {
-    const jumplist = modalJumplistNav.map((item) => ({ nodeID: item.id || '' }));
+    const jumplist = modalAPINav.map((item) => ({ nodeID: item.id || '' }));
     setJumplist(jumplist);
     return () => {
       clearJumplist();
