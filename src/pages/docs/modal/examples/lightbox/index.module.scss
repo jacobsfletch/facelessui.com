@@ -1,0 +1,51 @@
+@use "@scss/common" as *;
+
+.modal {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  will-change: opacity;
+  transition: opacity var(--modal-trans-time) linear;
+  opacity: 0;
+
+  &:global(.modal-item--appearActive),
+  &:global(.modal-item--appearDone),
+  &:global(.modal-item--enterActive),
+  &:global(.modal-item--enterDone) {
+    opacity: 1;
+  }
+
+  &:global(.modal-item--exitActive),
+  &:global(.modal-item--exitDone) {
+    opacity: 0;
+  }
+}
+
+.wrapper {
+  width: 50%;
+}
+
+.close {
+  color: white;
+  cursor: pointer;
+  margin-bottom: base(0.5);
+}
+
+.content {
+  padding: base();
+  background-color: white;
+  color:  var(--color-html);
+}
+
+:global(.isDark) {
+  &:local() {
+    .content {
+      background-color: var(--color-darker-gray);
+    }
+  }
+}

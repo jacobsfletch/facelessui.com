@@ -9,7 +9,7 @@ export type NavItem = {
 
 export type DocsNav = NavItem[];
 
-export const modalJumplistNav: NavItem[] = [
+export const modalAPINav: NavItem[] = [
   {
     type: 'link',
     href: "/docs/modal/api#provider",
@@ -47,6 +47,19 @@ export const modalJumplistNav: NavItem[] = [
     label: 'asModal'
   },
 ];
+
+export const modalExamplesNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/modal/examples/lightbox",
+    label: 'Lightbox',
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/examples/drawer",
+    label: 'Drawer',
+  },
+]
 
 export const cssGridJumplistNav: NavItem[] = [
   {
@@ -238,7 +251,13 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/modal/api",
         label: 'API Reference',
-        items: modalJumplistNav
+        items: modalAPINav
+      },
+      {
+        type: 'subnav',
+        href: "/docs/modal/examples",
+        label: 'Examples',
+        items: modalExamplesNav
       },
     ]
   },

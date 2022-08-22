@@ -6,7 +6,8 @@ import classes from './index.module.scss';
 import { Modal, ModalToggler, useModal } from '@faceless-ui/modal';
 import { Hyperlink } from '@components/Hyperlink';
 
-const slides = Array.from(Array(6).keys()) // NOTE: create array from number
+const slides = Array.from(Array(6).keys()); // NOTE: create array from number
+const modalSlug = 'slider-lightbox';
 
 const LightboxSliderExample = () => {
   const { open: openModal } = useModal();
@@ -39,7 +40,7 @@ const LightboxSliderExample = () => {
                   classes.clickable
                 ].filter(Boolean).join(' ')}
                 onClick={() => {
-                  openModal('lightbox');
+                  openModal(modalSlug);
                   setSliderIndex(index);
                 }}
               >
@@ -49,12 +50,12 @@ const LightboxSliderExample = () => {
           </SliderTrack>
         </SliderProvider>
         <Modal
-          slug="lightbox"
+          slug={modalSlug}
           className={classes.modal}
         >
           <div className={classes.modalContent}>
             <ModalToggler
-              slug="lightbox"
+              slug={modalSlug}
               className={classes.close}
             >
               Close
