@@ -4,7 +4,7 @@ import classes from './index.module.scss';
 
 export const PropName: React.FC<{
   name?: string
-  type?: 'string' | 'boolean' | 'number' | 'object' | 'array' | 'method' | 'boolean or function'
+  type?: 'string' | 'boolean' | 'number' | 'object' | 'array' | 'method' | 'boolean or function' | 'string or number'
   id?: string
   required?: boolean
   isContextProp?: boolean

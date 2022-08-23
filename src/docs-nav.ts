@@ -289,30 +289,6 @@ export const nav: DocsNav = [
   },
   {
     type: 'group',
-    href: "/docs/css-grid",
-    label: 'CSS Grid',
-    versionName: 'css-grid',
-    items: [
-      {
-        type: 'overview',
-        href: "/docs/css-grid",
-        label: 'Overview',
-      },
-      {
-        type: 'link',
-        href: "/docs/css-grid/setup",
-        label: 'Basic Setup',
-      },
-      {
-        type: 'jumplist',
-        href: "/docs/css-grid/api",
-        label: 'API Reference',
-        items: cssGridJumplistNav
-      },
-    ]
-  },
-  {
-    type: 'group',
     href: "/docs/slider",
     label: 'Slider',
     versionName: 'slider',
@@ -338,6 +314,30 @@ export const nav: DocsNav = [
         label: 'Examples',
         href: "/docs/slider/examples",
         items: sliderExamplesNav
+      },
+    ]
+  },
+  {
+    type: 'group',
+    href: "/docs/css-grid",
+    label: 'CSS Grid',
+    versionName: 'css-grid',
+    items: [
+      {
+        type: 'overview',
+        href: "/docs/css-grid",
+        label: 'Overview',
+      },
+      {
+        type: 'link',
+        href: "/docs/css-grid/setup",
+        label: 'Basic Setup',
+      },
+      {
+        type: 'jumplist',
+        href: "/docs/css-grid/api",
+        label: 'API Reference',
+        items: cssGridJumplistNav
       },
     ]
   },

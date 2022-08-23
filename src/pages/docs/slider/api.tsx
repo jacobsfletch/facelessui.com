@@ -114,11 +114,49 @@ export const MyComponent = () => {
           {'A callback fired on every slide change. Returns the current slide index.'}
         </p>
         <PropName
-          name="useFreeScroll"
+          name="scrollable"
           type="boolean"
         />
         <p>
-          Will enable free-scrolling.
+          {'Enables both wheel and drag-based events to scroll the track. Defaults to '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'. If desired, you can disable '}
+          <InlineCode href="#scrollable">
+            dragScroll
+          </InlineCode>
+          {' independently.'}
+        </p>
+        <PropName
+          name="dragScroll"
+          type="boolean"
+        />
+        <p>
+          {'Enables drag-based events to scroll the track. Automatically enabled when '}
+          <InlineCode href="#scrollable">
+            scrollable
+          </InlineCode>
+          {' is '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'.'}
+        </p>
+        <PropName
+          name="scrollSnap"
+          type="boolean"
+        />
+        <p>
+          {'Enables native '}
+          <Hyperlink href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap">
+            CSS Scroll Snap
+          </Hyperlink>
+          {'. Defaults to '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'.'}
         </p>
         <PropName
           name="autoPlay"
@@ -185,19 +223,38 @@ export const MyComponent = () => {
           {' to return control back to the slider.'}
         </p>
         <PropName
-          name="useGhostSlide"
-          type="boolean"
+          name="alignLastSlide"
+          type="string or number"
         />
         <p>
           {'Renders an invisible div at the end of your '}
           <InlineCode href="#track">
-            SliderTrack
+            {'<SliderTrack>'}
           </InlineCode>
-          {' which will fully left-align your last slide with the left of your track. The width of the ghost slide is equal to one less than your '}
-          <InlineCode href="#slidesToShow">
-            slidesToShow
+          {' used to align the last slide of your slider to various points along your track. Accepts a CSS value or number, with negative values beginning from track-right (i.e. 40, -25px, etc). Set to '}
+          <InlineCode>
+            trackLeft
+          </InlineCode>
+          {' to align to the left edge of your last slide to the left edge of your slider track. Set to '}
+          <InlineCode>
+            offsetLeft
+          </InlineCode>
+          {' to include your '}
+          <InlineCode href="#scrollOffset">
+            scrollOffset
           </InlineCode>
           {'.'}
+        </p>
+        <PropName
+          name="useFreeScroll [DEPRECATED]"
+          type="boolean"
+        />
+        <p>
+          {'This prop will be deprecated in the next major release. Use '}
+          <InlineCode href="#scrollable">
+            scrollable
+          </InlineCode>
+          {' instead.'}
         </p>
         <Heading
           id="context"
