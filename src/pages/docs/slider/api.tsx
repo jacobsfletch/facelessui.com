@@ -456,49 +456,6 @@ export const MyComponent = () => {
         </p>
         <BasicProps />
       </JumplistNode>
-      <JumplistNode nodeID="progress">
-        <Heading
-          id="progress"
-          href="/docs/slider/api#progress"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress`}
-          element='h4'
-        >
-          {'<SliderProgress>'}
-        </Heading>
-        <p>
-          {'An alternative to the native scrollbar. It can be placed anywhere in your slider DOM.'}
-        </p>
-        <Margin bottom="xs">
-          <CodeBlock>
-            {`import React from 'react';
-import { SliderProgress } from \'@faceless-ui/slider\';
-
-export const MyComponent = () => {
-  return (
-    <SliderProvider>
-      <SliderProgress />
-    </SliderProvider>
-  )
-}`}
-          </CodeBlock>
-        </Margin>
-        <Heading
-          id="progress-props"
-          href="/docs/slider/api#progress-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress-props`}
-          element='h5'
-        >
-          Props
-        </Heading>
-        <BasicProps />
-        <PropName
-          name="indicator"
-          type="object"
-        />
-        <p>
-          {'Allows you to customize the indicator component.'}
-        </p>
-      </JumplistNode>
       <JumplistNode nodeID="button">
         <Heading
           id="button"
@@ -552,6 +509,13 @@ export const MyComponent = () => {
           </InlineCode>
           {' to navigate to the slider to either the previous or next slide.'}
         </p>
+        <PropName
+          name="index"
+          type="number"
+        />
+        <p>
+          {'Navigates the slider to the given index.'}
+        </p>
         <BasicProps
           idPrefix='button'
           defaultElement='button'
@@ -584,6 +548,114 @@ export const MyComponent = () => {
           {' attribute is also preset and easily overridden.'}
         </p>
       </JumplistNode>
+      <JumplistNode nodeID="progress">
+        <Heading
+          id="progress"
+          href="/docs/slider/api#progress"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress`}
+          element='h4'
+        >
+          {'<SliderProgress>'}
+        </Heading>
+        <p>
+          {'An alternative to the native scrollbar. It can be placed anywhere in your slider DOM.'}
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { SliderProgress } from \'@faceless-ui/slider\';
+
+export const MyComponent = () => {
+  return (
+    <SliderProvider>
+      <SliderProgress />
+    </SliderProvider>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
+        <Heading
+          id="progress-props"
+          href="/docs/slider/api#progress-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress-props`}
+          element='h5'
+        >
+          Props
+        </Heading>
+        <BasicProps />
+        <PropName
+          name="indicator"
+          type="object"
+        />
+        <p>
+          {'Allows you to customize the indicator component.'}
+        </p>
+      </JumplistNode>
+      <JumplistNode nodeID="dotnav">
+        <Heading
+          id="dotnav"
+          href="/docs/slider/api#dotnav"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#dotnav`}
+          element='h4'
+        >
+          {'<DotNav>'}
+        </Heading>
+        <p>
+          {'A dot-based navigation component used to control your slider and/or indicate its current position.'}
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { DotNav } from \'@faceless-ui/slider\';
+
+export const MyComponent = () => {
+  return (
+    <SliderProvider>
+      <DotNav
+        className="dot"
+        dotClassName="dot"
+        activeDotClassName="dotIsActive"
+      />
+    </SliderProvider>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
+        <Heading
+          id="dotnav-props"
+          href="/docs/slider/api#dotnav-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#dotnav-props`}
+          element='h5'
+        >
+          Props
+        </Heading>
+        <PropName
+          name="dotClassName"
+          type="string"
+        />
+        <p>
+          {'A class name to apply to each dot. This could also be achieve using '}
+          <InlineCode href="#dotProps">
+            dotProps
+          </InlineCode>
+          {'.'}
+        </p>
+        <PropName
+          name="activeDotClassName"
+          type="string"
+        />
+        <p>
+          {'A class name to apply to active dots.'}
+        </p>
+        <PropName
+          name="dotProps"
+          type="object"
+        />
+        <p>
+          {'Arbitrary rops to spread onto each dot button.'}
+        </p>
+      </JumplistNode>
+      <BasicProps />
       <JumplistNode nodeID="useSlider">
         <Heading
           id="useSlider"

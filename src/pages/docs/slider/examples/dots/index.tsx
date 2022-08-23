@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
 import Margin from '@components/Margin';
-import { SliderProvider, SliderTrack, Slide } from '@faceless-ui/slider'
+import { SliderProvider, SliderTrack, Slide, DotsNav } from '@faceless-ui/slider'
 import classes from './index.module.scss';
 import { Hyperlink } from '@components/Hyperlink';
 
@@ -21,35 +21,22 @@ const DotsSliderExample = () => {
           slidesToShow={1}
           autoPlay
         >
-          {({ currentSlideIndex, goToSlideIndex }) => (
-            <Fragment>
-              <SliderTrack className={classes.track}>
-                {slides.map((slide, index) => (
-                  <Slide
-                    key={index}
-                    index={index}
-                    className={classes.slide}
-                  >
-                    {`Slide ${index + 1}`}
-                  </Slide>
-                ))}
-              </SliderTrack>
-              <div className={classes.dots}>
-                {slides.map((slide, index) => (
-                  <button
-                    key={index}
-                    className={[
-                      classes.dot,
-                      currentSlideIndex === index && classes.dotIsActive
-                    ].filter(Boolean).join(' ')}
-                    onClick={() => {
-                      goToSlideIndex(index);
-                    }}
-                  />
-                ))}
-              </div>
-            </Fragment>
-          )}
+          <SliderTrack className={classes.track}>
+            {slides.map((slide, index) => (
+              <Slide
+                key={index}
+                index={index}
+                className={classes.slide}
+              >
+                {`Slide ${index + 1}`}
+              </Slide>
+            ))}
+          </SliderTrack>
+          <DotsNav
+            className={classes.dots}
+            dotClassName={classes.dot}
+            activeDotClassName={classes.dotIsActive}
+          />
         </SliderProvider>
       </Margin>
       <Hyperlink

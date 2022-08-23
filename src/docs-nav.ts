@@ -148,15 +148,20 @@ export const sliderAPINav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/slider/api#button",
+    label: 'SliderButton',
+    id: 'button',
+  },
+  {
+    type: 'link',
     href: "/docs/slider/api#progress",
     label: 'SliderProgress',
     id: 'progress',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#button",
-    label: 'SliderButton',
-    id: 'button',
+    href: "/docs/slider/api#dots",
+    label: 'DotNav',
   },
   {
     type: 'link',
