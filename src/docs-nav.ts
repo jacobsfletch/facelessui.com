@@ -148,6 +148,12 @@ export const sliderAPINav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/slider/api#progress",
+    label: 'SliderProgress',
+    id: 'progress',
+  },
+  {
+    type: 'link',
     href: "/docs/slider/api#button",
     label: 'SliderButton',
     id: 'button',
@@ -163,18 +169,38 @@ export const sliderAPINav: NavItem[] = [
 export const sliderExamplesNav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/slider/examples/simple-slider",
+    href: "/docs/slider/examples/simple",
     label: 'Simple Slider',
   },
   {
     type: 'link',
-    href: "/docs/slider/examples/thumbnail-slider",
+    href: "/docs/slider/examples/snap",
+    label: 'Snap Slider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/examples/free-scrolling",
+    label: 'Free-Scrolling Slider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/examples/thumbnail",
     label: 'Thumbnail Slider',
   },
   {
     type: 'link',
-    href: "/docs/slider/examples/lightbox-slider",
+    href: "/docs/slider/examples/lightbox",
     label: 'Lightbox Slider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/examples/custom-scrollbar",
+    label: 'Custom Scrollbar',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/examples/dots",
+    label: 'Dots Nav',
   },
 ]
 

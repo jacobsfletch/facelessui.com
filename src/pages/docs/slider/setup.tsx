@@ -232,11 +232,11 @@ export const MyComponent = () => {
       </Margin>
       <p>
         {'For examples of synchronous sliders, check out '}
-        <Hyperlink href="/docs/slider/examples/lightbox-slider">
+        <Hyperlink href="/docs/slider/examples/lightbox">
           lightbox slider
         </Hyperlink>
         {' and '}
-        <Hyperlink href="/docs/slider/examples/thumbnail-slider">
+        <Hyperlink href="/docs/slider/examples/thumbnail">
           thumbnail slider
         </Hyperlink>
         {'.'}

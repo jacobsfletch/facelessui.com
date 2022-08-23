@@ -6,6 +6,7 @@ const Margin: React.FC<{
   bottom?: 'xs' | 'small' | 'medium' | 'large'
   style?: React.CSSProperties
   id?: string
+  flex?: boolean
   children: React.ReactNode
 }> = (props) => {
   const {
@@ -13,7 +14,8 @@ const Margin: React.FC<{
     top,
     bottom,
     style,
-    id
+    id,
+    flex
   } = props;
 
   return (
@@ -21,6 +23,7 @@ const Margin: React.FC<{
       className={[
         classes[`top-${top}`],
         classes[`bottom-${bottom}`],
+        flex && classes.flex
       ].filter(Boolean).join(' ')}
       style={style}
       id={id}

@@ -200,9 +200,9 @@ export const MyComponent = () => {
           {'.'}
         </p>
         <Heading
-          id="provider-props"
-          href="/docs/slider/api#provider-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#provider-props`}
+          id="context"
+          href="/docs/slider/api#context"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#context`}
           element='h5'
         >
           Context
@@ -398,6 +398,49 @@ export const MyComponent = () => {
           The index of the slide.
         </p>
         <BasicProps />
+      </JumplistNode>
+      <JumplistNode nodeID="progress">
+        <Heading
+          id="progress"
+          href="/docs/slider/api#progress"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress`}
+          element='h4'
+        >
+          {'<SliderProgress>'}
+        </Heading>
+        <p>
+          {'An alternative to the native scrollbar. It can be placed anywhere in your slider DOM.'}
+        </p>
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import React from 'react';
+import { SliderProgress } from \'@faceless-ui/slider\';
+
+export const MyComponent = () => {
+  return (
+    <SliderProvider>
+      <SliderProgress />
+    </SliderProvider>
+  )
+}`}
+          </CodeBlock>
+        </Margin>
+        <Heading
+          id="progress-props"
+          href="/docs/slider/api#progress-props"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress-props`}
+          element='h5'
+        >
+          Props
+        </Heading>
+        <BasicProps />
+        <PropName
+          name="indicator"
+          type="object"
+        />
+        <p>
+          {'Allows you to customize the indicator component.'}
+        </p>
       </JumplistNode>
       <JumplistNode nodeID="button">
         <Heading

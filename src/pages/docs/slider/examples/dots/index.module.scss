@@ -1,0 +1,82 @@
+@use "@scss/common" as *;
+
+.track {
+  width: 100%;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.slide {
+  padding: base();
+  background-color: var(--color-lightest-gray);
+  text-align: center;
+
+  &:nth-child(even) {
+    background-color: var(--color-lighter-gray);
+  }
+}
+
+.dots {
+  display: flex;
+  margin-top: base(0.5);
+  justify-content: center;
+}
+
+.dot {
+  all: unset;
+  cursor: pointer;
+  width: base(0.25);
+  height: base(0.25);
+  background-color: var(--color-light-gray);
+
+  &:not(:last-child) {
+    margin-right: base(0.25);
+  }
+
+  &:hover {
+    background-color: var(--color-gray);
+  }
+
+  @include mid-break {
+    &:hover {
+      background-color: var(--color-light-gray); // disable hover on mobile
+    }
+  }
+}
+
+.dotIsActive {
+  background-color: var(--color-dark-gray);
+}
+
+:global(.isDark) {
+  &:local() {
+    .slide {
+      background-color: var(--color-dark-gray);
+
+      &:nth-child(even) {
+        background-color: var(--color-darkest-gray);
+      }
+    }
+
+    .dot {
+      background-color: var(--color-dark-gray);
+
+      &:hover {
+        background-color: var(--color-gray);
+      }
+
+      @include mid-break {
+        &:hover {
+           background-color: var(--color-gray); // disable hover on mobile
+        }
+      }
+    }
+
+    .dotIsActive {
+      background-color: white;
+    }
+  }
+}

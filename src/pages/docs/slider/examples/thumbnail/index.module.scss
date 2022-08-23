@@ -8,9 +8,14 @@
 .slide {
   padding: base();
   background-color: var(--color-lightest-gray);
+  text-align: center;
 
   &:nth-child(even) {
     background-color: var(--color-lighter-gray);
+  }
+
+  &.clickable {
+    cursor: pointer;
   }
 }
 
@@ -25,3 +30,4 @@
     }
   }
 }
+

@@ -26,10 +26,7 @@ const LightboxSliderExample = () => {
         {' for more information.'}
       </Margin>
       <Margin bottom="xs">
-        <SliderProvider
-          slidesToShow={2}
-          useFreeScroll
-        >
+        <SliderProvider slidesToShow={2}>
           <SliderTrack className={classes.track}>
             {slides.map((slide, index) => (
               <Slide
@@ -62,7 +59,6 @@ const LightboxSliderExample = () => {
             </ModalToggler>
             <SliderProvider
               slidesToShow={1}
-              useFreeScroll
               currentSlideIndex={sliderIndex}
             >
               <SliderTrack className={classes.track}>
@@ -81,7 +77,7 @@ const LightboxSliderExample = () => {
         </Modal>
       </Margin>
       <Hyperlink
-        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider/index.tsx`}
+        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox/index.tsx`}
         newTab
       >
         Source code
@@ -94,9 +90,9 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox-slider/index.tsx`}
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox/index.tsx`}
       metaTitle="Lightbox slider example"
-      metaDescription="Lightbox slider package."
+      metaDescription="Lightbox slider example."
     />
   )
 };

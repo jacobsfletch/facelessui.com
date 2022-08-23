@@ -14,6 +14,7 @@ module.exports = {
       // IMPORTANT: the next lines are for development only
       // keep them commented out unless actively developing local react modules
       //  "@faceless-ui/grid": path.resolve(__dirname, "../../faceless-ui/grid"),
+      "@faceless-ui/slider": path.resolve(__dirname, "../../faceless-ui/slider"),
       react: path.join(__dirname, "node_modules/react"),
       "react-dom": path.join(__dirname, "node_modules/react-dom")
     };
