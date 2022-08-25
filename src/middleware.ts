@@ -8,6 +8,6 @@ export async function middleware(req: NextRequest) {
   }
 
   if (pathname === '/docs/modal/examples') {
-    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/modal/lightbox`)
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/examples/lightbox`)
   }
 }
