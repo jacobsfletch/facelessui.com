@@ -179,6 +179,11 @@ export const sliderExamplesNav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/slider/examples/responsive",
+    label: 'Responsive Slider',
+  },
+  {
+    type: 'link',
     href: "/docs/slider/examples/snap",
     label: 'Snap Slider',
   },

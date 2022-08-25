@@ -13,7 +13,7 @@ const SliderDoc = () => {
         Slider
       </h1>
       <Margin bottom="xs">
-        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders can synchronize with other sliders and are very easy to control using the built-in navigation components or provided methods.'}
+        {'This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders are fully responsive and can even synchronize with other sliders. They are very easy to control using the built-in navigation components or provided methods.'}
       </Margin>
       <p>
         Some common uses for this package include:
@@ -38,7 +38,16 @@ const SliderDoc = () => {
             ),
             (
               <div key={3}>
-                Thumbnail sliders
+                <Hyperlink href="/docs/slider/examples/lightbox">
+                  Lightbox sliders
+                </Hyperlink>
+              </div>
+            ),
+            (
+              <div key={4}>
+                <Hyperlink href="/docs/slider/examples/thumbnail">
+                  Thumbnail sliders
+                </Hyperlink>
               </div>
             )
           ]}
@@ -65,6 +74,10 @@ const SliderDoc = () => {
           {' are configured like '}
           <InlineCode>
             slidesToShow
+          </InlineCode>
+          {' and '}
+          <InlineCode>
+            breakpoints
           </InlineCode>
           {'.'}
         </p>
@@ -95,12 +108,12 @@ const SliderDoc = () => {
           >
             root
           </Hyperlink>
-          {'.'}
+          {'. The last-most intersecting slide is considered active. With this pattern, we can freely navigate the track and trust the index is accurate. '}
         </p>
       </Margin>
       <Margin bottom="xs">
         <p>
-          {'Sliders that are not free-scrolling, drag-scrolling, or auto-playing will need to render navigation controls. The '}
+          {'By default, all sliders can be scrolled or dragged, although some sliders may want to render navigation controls. The '}
           <InlineCode>
             {'<SliderButton>'}
           </InlineCode>
@@ -113,13 +126,6 @@ const SliderDoc = () => {
             onSlide
           </InlineCode>
           {' prop of the provider.'}
-        </p>
-        <p>
-          {'The current progress of any slider can be displayed using the '}
-          <InlineCode>
-            {'<SliderProgress>'}
-          </InlineCode>
-          {' component — a powerful alternative to native scrollbars. This allows you to render a draggable scrollbar anywhere in your DOM, even outside of your track.'}
         </p>
       </Margin>
       <div>
@@ -135,7 +141,10 @@ const SliderDoc = () => {
           items={[
             (
               <div key={0}>
-                Free-scrolling
+                Scrollable
+                {/* <p>
+                  One big UX challenge with sliders is that they are often painful to navigate. Natural scroll behavior is either removed are hijacked.
+                </p> */}
               </div>
             ),
             (
@@ -157,10 +166,28 @@ const SliderDoc = () => {
               <div key={3}>
                 Synchronized sliders
               </div>
+            ), (
+              <div key={6}>
+                Anchor handling
+                {/* <p>
+                  {'A common pain point of sliders is that while you slide, nested anchor links are clicked. To prevent this, we recursively disable pointer events on all anchor links while the user is dragging using '}
+                  <InlineCode href="https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events">
+                    CSS pointer-events
+                  </InlineCode>
+                  {'.'}
+                </p> */}
+              </div>
             ),
             (
               <div key={6}>
                 Scrollbar component
+                {/* <p>
+                  {'Another common pain point of sliders are that the scrollbar is bound to the overflowing element. To fix this, the current progress of any slider can be displayed using the '}
+                  <InlineCode>
+                    {'<SliderProgress>'}
+                  </InlineCode>
+                  {' component — a powerful alternative to native scrollbars. This allows you to render a draggable scrollbar anywhere in your DOM, even outside of your track.'}
+                </p> */}
               </div>
             ),
           ]}

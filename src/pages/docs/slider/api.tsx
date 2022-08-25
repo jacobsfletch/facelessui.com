@@ -85,6 +85,24 @@ export const MyComponent = () => {
           The number of slides within the track. This effects the width of each slide.
         </p>
         <PropName
+          name="breakpoints"
+          type="object"
+        />
+        <p>
+          {'Makes your slider responsive by overriding your '}
+          <Hyperlink href="#provider-props">
+            slider settings
+          </Hyperlink>
+          {' for any '}
+          <Hyperlink
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries"
+            newTab
+          >
+            CSS media queries
+          </Hyperlink>
+          {'.'}
+        </p>
+        <PropName
           name="slideOnSelect"
           type="boolean"
         />

@@ -4,23 +4,32 @@ import Margin from '@components/Margin';
 import { SliderProvider, SliderTrack, Slide, SliderButton } from '@faceless-ui/slider'
 import classes from './index.module.scss';
 import { Hyperlink } from '@components/Hyperlink';
+import { InlineCode } from '@components/InlineCode';
 
 const slides = Array.from(Array(6).keys()); // NOTE: create array from number
 
-const SimpleSliderExample = () => {
+const ResponsiveSliderExample = () => {
   return (
     <Fragment>
       <h1>
-        Simple Slider Example
+        Responsive Slider Example
       </h1>
       <Margin bottom="xs">
-        This is a simple slider that shows a single slide at a time and auto-plays.
+        {`This is a responsive slider that shows two slides at a time on desktop, then only 1 slide at screens smaller than 576px wide. You can override any slider setting using any CSS media query using the `}
+        <InlineCode href="/docs/slider/api#breakpoints">
+          breakpoints
+        </InlineCode>
+        {' prop.'}
       </Margin>
       <Margin bottom="xs">
         <SliderProvider
           slidesToShow={1}
           autoPlay
-          breakpoints={{}}
+          breakpoints={{
+            '(max-width: 576px)': {
+              slidesToShow: 1
+            },
+          }}
         >
           <div className={classes.buttons}>
             <SliderButton direction="prev">
@@ -44,7 +53,7 @@ const SimpleSliderExample = () => {
         </SliderProvider>
       </Margin>
       <Hyperlink
-        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/simple/index.tsx`}
+        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/responsive/index.tsx`}
         newTab
       >
         Source code
@@ -57,13 +66,13 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/simple/index.tsx`}
-      metaTitle="Simple slider example"
-      metaDescription="Simple slider example."
+      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/responsive/index.tsx`}
+      metaTitle="Responsive slider example"
+      metaDescription="Responsive slider example."
     />
   )
 };
 
-SimpleSliderExample.Layout = DocLayout;
+ResponsiveSliderExample.Layout = DocLayout;
 
-export default SimpleSliderExample;
+export default ResponsiveSliderExample;

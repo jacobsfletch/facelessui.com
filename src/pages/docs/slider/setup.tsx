@@ -172,6 +172,58 @@ export const MyComponent = () => {
       </Margin>
       <Heading
         id="sync"
+        href="/docs/slider/setup#responsive"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/setup#responsive`}
+        element='h5'
+      >
+        Responsive sliders
+      </Heading>
+      <p>
+        {'It is very easy to make sliders responsive by overriding any of this settings at any CSS media query. For more information, see the '}
+        <InlineCode href="/docs/sliders/api#breakpoints">
+          breakpoints
+        </InlineCode>
+        {' prop.'}
+      </p>
+      <Margin bottom="xs">
+        <CodeBlock>
+          {`import React, { useState } from 'react';
+import { SliderProvider, SliderTrack, Slide } from \'@faceless-ui/slider\';
+
+export const MyComponent = () => {
+  const [index, setIndex] = useState();
+
+  return (
+    <SliderProvider
+      slidesToShow={2}
+      breakpoints={{
+        '@media (min-width: 768px)': {
+          slidesToShow: 1,
+        }
+      }}
+    >
+      <SliderTrack>
+        <Slide index={0}>
+          Slide 1
+        </Slide>
+        <Slide index={1}>
+          Slide 2
+        </Slide>
+      </SliderTrack>
+    </SliderProvider>
+  )
+}`}
+        </CodeBlock>
+      </Margin>
+      <p>
+        {'For a live example this, check out '}
+        <Hyperlink href="/docs/slider/examples/responsive">
+          responsive slider
+        </Hyperlink>
+        {'.'}
+      </p>
+      <Heading
+        id="sync"
         href="/docs/slider/setup#sync"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/setup#sync`}
         element='h5'
