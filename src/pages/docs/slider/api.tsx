@@ -207,6 +207,36 @@ export const MyComponent = () => {
           {'.'}
         </p>
         <PropName
+          name="marquee"
+          type="boolean"
+        />
+        <p>
+          {'Whether to marquee the slider which scrolls slowly through the track as opposed to sliding one-by-one. '}
+          <InlineCode href="#autoPlay">
+            autoPlay
+          </InlineCode>
+          {' must not be enabled.'}
+        </p>
+        <PropName
+          name="marqueeSpeed"
+          type="number"
+        />
+        <p>
+          {'The speed of the marquee. Only applicable when '}
+          <InlineCode href="#marquee">
+            marquee
+          </InlineCode>
+          {'is '}
+          <InlineCode>
+            true
+          </InlineCode>
+          {'. Defaults to '}
+          <InlineCode>
+            50
+          </InlineCode>
+          {'.'}
+        </p>
+        <PropName
           name="pauseOnHover"
           type="boolean"
         />

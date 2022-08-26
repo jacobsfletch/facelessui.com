@@ -189,6 +189,11 @@ export const sliderExamplesNav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/slider/examples/marquee",
+    label: 'Marquee Slider',
+  },
+  {
+    type: 'link',
     href: "/docs/slider/examples/free-scrolling",
     label: 'Free-Scrolling Slider',
   },
