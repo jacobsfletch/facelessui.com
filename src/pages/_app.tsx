@@ -18,9 +18,8 @@ import DarkModeProvider from '@root/providers/DarkMode';
 import { CustomCursorProvider } from '@root/providers/CustomCursorProvider';
 import { CustomCursor } from '@components/CustomCursor';
 import cssVariables from '../../cssVariables';
-import { ScrollToTopOnRouteChange } from '@components/ScrollToTopOnRouteChange';
 import { GoogleAnalytics } from '@components/GoogleAnalytics';
-import { CloseModalOnRouteChange } from '@components/CloseModalOnRouteChange';
+import { OnRouteChange } from '@components/OnRouteChange';
 
 import '../scss/app.scss';
 
@@ -91,8 +90,7 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                       <VersionsProvider versions={versions}>
                         <CustomCursorProvider>
                           <Fragment>
-                            <CloseModalOnRouteChange />
-                            <ScrollToTopOnRouteChange />
+                            <OnRouteChange />
                             <GoogleAnalytics />
                             <AppHead />
                             <Header />
