@@ -24,7 +24,7 @@
 :global(.isDark) {
   &:local() {
     .mobileNavToggler {
-      background-color: var(--color-darker-gray);
+      background-color: var(--color-gray-8);
       box-shadow: var(--shadow-2);
     }
   }

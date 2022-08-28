@@ -1,4 +1,5 @@
 import { Hyperlink } from '@components/Hyperlink'
+import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React from 'react'
 import classes from './index.module.scss';
 
@@ -15,10 +16,15 @@ export const Card: React.FC<{
     description
   } = props;
 
+  const { setHighlightCursor } = useCustomCursor();
+
   return (
     <Hyperlink
       href={href}
       className={classes.card}
+      onMouseEnter={() => { setHighlightCursor(true) }}
+      onMouseLeave={() => { setHighlightCursor(false) }}
+      underline={false}
     >
       {leader && (
         <div className={classes.leader}>

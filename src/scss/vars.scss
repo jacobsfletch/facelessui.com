@@ -1,46 +1,9 @@
-$html-font-size: 18;
-$html-line-height: 34;
-$html-font-size-mobile: 16;
-$html-line-height-mobile: 24;
-
 $fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 
 $blockContainerWidth: 1400px;
 
-$color-white: #ffffff;
-$color-lightest-gray: #f7fafc;
-$color-lighter-gray: #ebf0f5;
-$color-light-gray: #b4bfcc;
-$color-gray: #8b949e;
-$color-dark-gray: #282f38;
-$color-darker-gray: #1d2227;
-$color-darkest-gray: #161b22;
-$color-almost-black: #0d1117;
-$color-black: #000000;
-
-$color-blue: #58a6ff;
-
-$color-cream: #c9d1d9;
-
+// NOTE: can't be CSS variable because the media queries need to use them
 $breakpoint-s-width: 768px;
 $breakpoint-m-width: 1024px;
 $breakpoint-l-width: 1400px;
 $breakpoint-xl-width: 1680px;
-
-// IMPORTANT: must keep GridProvider settings in _app.js synced
-$mobile-gutter: 20px;
-$desktop-gutter: 20px;
-
-$modal-trans-time: 250ms; // match value in any ModalProvider (./pages/_app.tsx)
-$default-trans-time: 150ms;
-$slider-trans-time: 750ms;
-$page-trans-time: 750ms; // match timeout value in 'PageTransition' component
-
-$modal-z-index: 2;
-$header-z-index: 3;
-
-$stroke-width: 1px;
-$stroke-width-bold: 2px;
-
-$shadow-1: 0px 2px 4px rgba(0, 0, 0, 0.05);
-$shadow-2: 0px 4px 10px rgba(0, 0, 0, 0.25);

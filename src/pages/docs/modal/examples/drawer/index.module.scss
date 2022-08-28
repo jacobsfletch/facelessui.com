@@ -62,7 +62,7 @@
 :global(.isDark) {
   &:local() {
     .wrapper {
-      background-color: var(--color-darker-gray);
+      background-color: var(--color-gray-8);
     }
   }
 }

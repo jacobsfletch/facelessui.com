@@ -1,4 +1,7 @@
-export const copyToClipboard = (text: string, callback?: (text?: string) => void) => {
+export const copyToClipboard = (
+  text: string,
+  callback?: (text?: string) => void // eslint-disable-line no-unused-vars
+) => {
   const textArea = document.createElement("textarea");
   document.body.appendChild(textArea);
   textArea.value = text;

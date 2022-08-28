@@ -28,7 +28,7 @@
 :global(.isDark) {
   &:local() {
     .mobileNavModal {
-      background: var(--color-almost-black);
+      background: var(--color-gray-10);
     }
   }
 }

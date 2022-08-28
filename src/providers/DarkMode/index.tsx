@@ -60,18 +60,18 @@ const DarkModeProvider: React.FC<{
       if (theme === 'dark') {
         // IMPORTANT: must match /public/initDarkMode.js
         root.style.setProperty('--color-html', 'var(--color-cream)');
-        root.style.setProperty('--color-html-bg', 'var(--color-almost-black)');
-        root.style.setProperty('--color-cursor', 'var(--color-darker-gray)');
-        root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');
+        root.style.setProperty('--color-html-bg', 'var(--color-gray-10)');
+        root.style.setProperty('--color-cursor', 'var(--color-gray-8)');
+        root.style.setProperty('--color-cursor-highlight', 'var(--color-gray-4)');
         root.classList.add('isDark');
         setIsDark(true);
       }
 
       if (theme === 'light') {
-        root.style.setProperty('--color-html', 'var(--color-almost-black)');
+        root.style.setProperty('--color-html', 'var(--color-gray-10)');
         root.style.setProperty('--color-html-bg', 'var(--color-white)');
-        root.style.setProperty('--color-cursor', 'var(--color-lighter-gray)');
-        root.style.setProperty('--color-cursor-highlight', 'var(--color-gray)');
+        root.style.setProperty('--color-cursor', 'var(--color-gray-2)');
+        root.style.setProperty('--color-cursor-highlight', 'var(--color-gray-3)');
         root.classList.remove('isDark');
         setIsDark(false);
       }

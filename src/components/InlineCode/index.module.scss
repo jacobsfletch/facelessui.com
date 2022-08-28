@@ -2,7 +2,7 @@
 
 .code {
   @include code;
-  background-color: var(--color-lighter-gray);
+  background-color: var(--color-gray-2);
   padding: 4px 8px;
   border-radius: 2px;
   letter-spacing: 0.5px;
@@ -21,7 +21,7 @@
 :global(.isDark) {
   &:local(){
     .code {
-      background-color: var(--color-darker-gray);
+      background-color: var(--color-gray-8);
       color: var(--color-white);
     }
   }

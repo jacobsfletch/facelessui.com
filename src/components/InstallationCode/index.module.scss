@@ -9,7 +9,7 @@
   align-items: center;
   overflow: hidden;
   position: relative;
-  background-color: $color-almost-black;
+  background-color: var(--color-gray-10);
   cursor: pointer;
 }
 
@@ -33,8 +33,8 @@
     top: 0;
     background: linear-gradient(
       to right,
-      rgba(red($color-almost-black), green($color-almost-black), blue($color-almost-black), 0),
-      rgba(red($color-almost-black), green($color-almost-black), blue($color-almost-black), 1)
+      rgba(var(--color-gray-10-rgb), 0),
+      rgba(var(--color-gray-10-rgb), 1)
     );
   }
 
@@ -68,15 +68,15 @@
     }
 
     .codeBlockWrapper {
-      background-color: $color-darkest-gray;
+      background-color: var(--color-gray-9)
     }
 
     .codeBlock {
       &::after {
         background: linear-gradient(
           to right,
-          rgba(red($color-darkest-gray), green($color-darkest-gray), blue($color-darkest-gray), 0),
-          rgba(red($color-darkest-gray), green($color-darkest-gray), blue($color-darkest-gray), 1)
+          rgba(var(--color-gray-9-rgb), 0),
+          rgba(var(--color-gray-9-rgb), 1)
         );
       }
     }
@@ -92,7 +92,7 @@
   background: none;
   border: none;
   color: inherit;
-  color: var(--color-dark-gray);
+  color: var(--color-gray-5);
   cursor: pointer;
   text-decoration: underline;
   padding: 0;

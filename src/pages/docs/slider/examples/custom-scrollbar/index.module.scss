@@ -12,41 +12,41 @@
 
 .slide {
   padding: base();
-  background-color: var(--color-lightest-gray);
+  background-color: var(--color-gray-1);
   text-align: center;
 
   &:nth-child(even) {
-    background-color: var(--color-lighter-gray);
+    background-color: var(--color-gray-2);
   }
 }
 
 .progress {
   width: 100%;
   height: 10px;
-  background-color: var(--color-lighter-gray);
+  background-color: var(--color-gray-2);
   overflow: hidden;
 }
 
 .progressIndicator {
-  background-color: var(--color-light-gray);
+  background-color: var(--color-gray-3);
 }
 
 :global(.isDark) {
   &:local() {
     .slide {
-      background-color: var(--color-dark-gray);
+      background-color: var(--color-gray-5);
 
       &:nth-child(even) {
-        background-color: var(--color-darkest-gray);
+        background-color: var(--color-gray-9);
       }
     }
 
     .progress {
-      background-color: var(--color-darker-gray);
+      background-color: var(--color-gray-8);
     }
 
     .progressIndicator {
-      background-color: var(--color-dark-gray);
+      background-color: var(--color-gray-5);
     }
   }
 }

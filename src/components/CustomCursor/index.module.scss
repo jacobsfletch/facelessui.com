@@ -13,7 +13,7 @@
   position: absolute;
   will-change: background-color;
   background-color: var(--color-cursor);
-  transition: background-color var(--default-trans-time) linear;
+  // transition: background-color var(--default-trans-time) linear;
 
   &.isHighlighted {
     background-color: var(--color-cursor-highlight);

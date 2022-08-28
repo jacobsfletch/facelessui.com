@@ -27,7 +27,7 @@
 :global(.isDark) {
   &:local() {
     .notification {
-      background-color: var(--color-darker-gray);
+      background-color: var(--color-gray-8);
       color: white;
       box-shadow: var(--shadow-2);
     }

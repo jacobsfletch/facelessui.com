@@ -14,6 +14,7 @@ export const Heading: React.FC<{
   copyToClipboard?: string
   id?: string
   href?: string
+  className?: string
 }> = (props) => {
   const {
     element: Element = 'h1',
@@ -24,7 +25,8 @@ export const Heading: React.FC<{
     marginBottom,
     copyToClipboard: textToCopy,
     id,
-    href
+    href,
+    className
   } = props;
 
   const { setNotification } = useNotifications();
@@ -37,6 +39,7 @@ export const Heading: React.FC<{
   }, [setNotification])
 
   const classList = [
+    className,
     'heading',
     as && classes[as],
     margin === false && classes.noMargin,

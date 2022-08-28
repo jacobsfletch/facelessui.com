@@ -18,35 +18,35 @@
 .itemLabel {
   position: relative;
   font-weight: normal;
-  color: var(--color-gray);
+  color: var(--color-gray-4);
   display: flex;
   align-items: center;
 
   &:hover {
-    color: var(--color-dark-gray);
+    color: var(--color-gray-5);
   }
 }
 
 .jumplistLinkLabel {
-  color: var(--color-gray);
+  color: var(--color-gray-4);
   position: relative;
   line-height: 1.5;
 
   &:hover {
-    color: var(--color-dark-gray);
+    color: var(--color-gray-5);
   }
 }
 
 .itemIsActive {
-  color: var(--color-darker-gray);
+  color: var(--color-gray-8);
   &:hover {
-    color: var(--color-darker-gray);
+    color: var(--color-gray-8);
   }
 }
 
 .groupItems {
   padding-left: base(0.5);
-  border-left: var(--color-light-gray) solid var(--stroke-width);
+  border-left: var(--color-gray-3) solid var(--stroke-width);
   @include mid-break {
     margin-top: base(0.125);
   }
@@ -105,14 +105,14 @@
 :global(.isDark) {
   &:local() {
     .itemLabel {
-      color: var(--color-gray);
+      color: var(--color-gray-4);
       &:hover {
         color: var(--color-white);
       }
     }
 
     .jumplistLinkLabel {
-      color: var(--color-gray);
+      color: var(--color-gray-4);
       &:hover {
         color: var(--color-white);
       }

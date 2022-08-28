@@ -45,7 +45,7 @@
 }
 
 .type--primary {
-  background-color: var(--color-lightest-gray);
+  background-color: var(--color-gray-1);
   border: var(--stroke-width) solid var(--color-cursor-highlight);
 }
 
@@ -59,9 +59,9 @@
 
 .type--secondary {
   background-color: transparent;
-  border: var(--stroke-width) solid var(--color-darker-gray);
+  border: var(--stroke-width) solid var(--color-gray-8);
   &:hover {
-    border-color: var(--color-light-gray);
+    border-color: var(--color-gray-3);
   }
 }
 

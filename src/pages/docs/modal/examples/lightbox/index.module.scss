@@ -49,7 +49,7 @@
 :global(.isDark) {
   &:local() {
     .content {
-      background-color: var(--color-darker-gray);
+      background-color: var(--color-gray-8);
     }
   }
 }

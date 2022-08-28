@@ -29,17 +29,17 @@
 }
 
 .pre {
-  background: var(--color-lightest-gray) !important;
+  background: var(--color-gray-1) !important;
   padding: base(1) !important;
   margin: 0 !important;
-  border: var(--color-lighter-gray) 1px solid !important;
+  border: var(--color-gray-2) 1px solid !important;
 }
 
 :global(.isDark) {
   &:local(){
     .pre {
-      background: var(--color-darkest-gray) !important;
-      border: var(--color-dark-gray) 1px solid !important;
+      background: var(--color-gray-9) !important;
+      border: var(--color-gray-5) 1px solid !important;
     }
   }
 }

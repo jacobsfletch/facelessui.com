@@ -11,11 +11,11 @@
 
 .slide {
   padding: base();
-  background-color: var(--color-lightest-gray);
+  background-color: var(--color-gray-1);
   text-align: center;
 
   &:nth-child(even) {
-    background-color: var(--color-lighter-gray);
+    background-color: var(--color-gray-2);
   }
 }
 
@@ -30,47 +30,47 @@
   cursor: pointer;
   width: base(0.25);
   height: base(0.25);
-  background-color: var(--color-light-gray);
+  background-color: var(--color-gray-3);
 
   &:not(:last-child) {
     margin-right: base(0.25);
   }
 
   &:hover {
-    background-color: var(--color-gray);
+    background-color: var(--color-gray-4);
   }
 
   @include mid-break {
     &:hover {
-      background-color: var(--color-light-gray); // disable hover on mobile
+      background-color: var(--color-gray-3); // disable hover on mobile
     }
   }
 }
 
 .dotIsActive {
-  background-color: var(--color-dark-gray);
+  background-color: var(--color-gray-5);
 }
 
 :global(.isDark) {
   &:local() {
     .slide {
-      background-color: var(--color-dark-gray);
+      background-color: var(--color-gray-5);
 
       &:nth-child(even) {
-        background-color: var(--color-darkest-gray);
+        background-color: var(--color-gray-9);
       }
     }
 
     .dot {
-      background-color: var(--color-dark-gray);
+      background-color: var(--color-gray-5);
 
       &:hover {
-        background-color: var(--color-gray);
+        background-color: var(--color-gray-4);
       }
 
       @include mid-break {
         &:hover {
-           background-color: var(--color-gray); // disable hover on mobile
+           background-color: var(--color-gray-4); // disable hover on mobile
         }
       }
     }

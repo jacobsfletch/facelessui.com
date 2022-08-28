@@ -9,47 +9,49 @@
 
 :root {
   color-scheme: light dark;
-  --html-font-size: #{$html-font-size};
-  --html-line-height: #{$html-line-height};
-  --html-line-height: #{$html-line-height};
+  --html-font-size: 18;
+  --html-line-height: 34;
 
   --font-family: #{$fontFamily};
 
-  --color-white: #{$color-white};
-  --color-lightest-gray: #{$color-lightest-gray};
-  --color-lighter-gray: #{$color-lighter-gray};
-  --color-light-gray: #{$color-light-gray};
-  --color-gray: #{$color-gray};
-  --color-dark-gray: #{$color-dark-gray};
-  --color-darker-gray: #{$color-darker-gray};
-  --color-darkest-gray: #{$color-darkest-gray};
-  --color-almost-black: #{$color-almost-black};
-  --color-black: #{$color-black};
-  --color-html: #{$color-almost-black};
-  --color-html-bg: #{$color-white};
-  --color-cream: #{$color-cream};
-  --color-blue: #{color-blue};
+  --color-white: #ffffff;
+  --color-gray-1:#f7fafc; // lightest
+  --color-gray-2:#ebf0f5; // lighter
+  --color-gray-3:#b4bfcc; // light
+  --color-gray-4: #8b949e; // gray
+  --color-gray-5:#282f38; // dark
+  --color-gray-6:#30363d;
+  --color-gray-7: #1d2227;
+  --color-gray-8:#161b22 ; // darker
+  --color-gray-9: #161b22; // darkest
+  --color-gray-9-rgb: 22, 27, 34; // darkest
+  --color-gray-10: #0d1117; // almost black
+  --color-gray-10-rgb: 13, 17, 23; // darkest
+  --color-black: #000000;
 
-  --breakpoint-s-width: #{$breakpoint-s-width};
-  --breakpoint-m-width: #{$breakpoint-m-width};
-  --breakpoint-l-width: #{$breakpoint-l-width};
-  --breakpoint-xl-width: #{$breakpoint-xl-width};
+  --color-blue: #58a6ff;
+  --color-cream: #c9d1d9;
 
-  --modal-trans-time: #{$modal-trans-time};
-  --default-trans-time: #{$default-trans-time};
-  --slider-trans-time: #{$slider-trans-time};
-  --page-trans-time: #{$page-trans-time};
+  --color-html: var(--color-gray-10);
+  --color-html-bg: var(--color-white);
 
-  --mobile-gutter: #{$mobile-gutter};
-  --desktop-gutter: #{$desktop-gutter};
+  --modal-trans-time: 250ms; // match value in any ModalProvider (./pages/_app.tsx)
+  --default-trans-time: 150ms;
+  --slider-trans-time: 750ms;
+  --page-trans-time: 750ms; // match timeout value in 'PageTransition' component
 
-  --modal-z-index: #{$modal-z-index};
+  // IMPORTANT: must keep GridProvider settings in _app.js synced
+  --mobile-gutter: 20px;
+  --desktop-gutter: 20px;
 
-  --stroke-width: #{$stroke-width};
-  --stroke-width-bold: #{$stroke-width-bold};
+  --modal-z-index: 2;
+  --header-z-index: 3;
 
-  --shadow-1: #{$shadow-1};
-  --shadow-2: #{$shadow-2};
+  --stroke-width: 1px;
+  --stroke-width-bold: 2px;
+
+  --shadow-1: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-2: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
   --col-gap: 2rem;
 }
@@ -76,8 +78,8 @@ html {
   @include mid-break {
     @at-root {
       :root {
-        --html-font-size: #{$html-font-size-mobile};
-        --html-line-height: #{$html-line-height-mobile};
+        --html-font-size: 16;
+        --html-line-height: 24;
       }
     }
   }
