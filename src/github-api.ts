@@ -82,3 +82,32 @@ export const getGitHubVersionNumber = async (repo: string): Promise<string> => {
   console.warn(message);
   return '';
 }
+
+export type ReleaseData = {
+  body?: string
+  published_at: string
+  name: string
+  tag_name: string
+  packageName: string
+}
+
+export const getReleaseNotes = async (repo: string): Promise<ReleaseData[] | undefined> => {
+  try {
+    const res = await fetch(`https://api.github.com/repos/faceless-ui/${repo}/releases`, {
+      method: 'GET',
+      headers: defaultHeaders
+    });
+
+    const json: ReleaseData[] = await res.json();
+
+    if (res.status === 200) {
+      return json.map((release) => ({
+        ...release,
+        packageName: repo
+      }));
+    }
+  } catch (e) {
+    console.warn(e);
+  }
+}
+
