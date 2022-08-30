@@ -41,8 +41,8 @@ export const BlockContainer: React.FC<Props> = forwardRef<HTMLElement, Props>((p
       <Cell
         className={cellClassName}
         start={3}
-        startL={2}
         cols={12}
+        startL={2}
         colsL={12}
         colsM={8}
         startM={1}

@@ -64,9 +64,9 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                   >
                     <GridProvider
                       breakpoints={{
-                        s: 500,
-                        m: 768,
-                        l: 1024,
+                        s: cssVariables.breakpoints.s,
+                        m: cssVariables.breakpoints.m,
+                        l: cssVariables.breakpoints.l,
                       }}
                       rowGap={{
                         s: '1rem',
@@ -77,8 +77,8 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                       colGap={{
                         s: '10px',
                         m: '10px',
-                        l: '4rem',
-                        xl: '4rem',
+                        l: '3rem',
+                        xl: '3rem',
                       }}
                       cols={{
                         s: 8,

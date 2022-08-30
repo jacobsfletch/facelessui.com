@@ -22,6 +22,7 @@
 }
 
 .icon {
+  pointer-events: none;
   position: absolute;
   right: base(0.25);
   top: 50%;
