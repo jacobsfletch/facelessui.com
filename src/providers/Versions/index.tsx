@@ -1,4 +1,4 @@
-import { getAllVersions } from '@root/npm-api';
+import { getAllNPMVersions } from '@root/npm-api';
 import React, {
   createContext,
   useContext,
@@ -30,7 +30,7 @@ const VersionsProvider: React.FC<{
 
   useEffect(() => {
     const doFetch = async () => {
-      const allVersions = await getAllVersions();
+      const allVersions = await getAllNPMVersions();
       setVersions(allVersions);
     }
     doFetch();

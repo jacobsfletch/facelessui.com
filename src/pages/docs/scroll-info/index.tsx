@@ -4,7 +4,6 @@ import { InlineCode } from '@components/InlineCode';
 import { StyledList } from '@components/StyledList';
 import { useScrollInfo } from '@faceless-ui/scroll-info';
 import { LogProps } from '@components/LogProps';
-import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { Heading } from '@components/Heading';
 
@@ -74,14 +73,14 @@ const ScrollInfoDoc = () => {
       <div>
         <LogProps {...scrollInfo} />
       </div>
-      <Hyperlink
+      {/* <Hyperlink
         href="https://scroll-info.faceless-ui.com"
         newTab
       >
         <small>
-          Demo in playground
+          Code Sandbox
         </small>
-      </Hyperlink>
+      </Hyperlink> */}
     </Fragment>
   )
 }

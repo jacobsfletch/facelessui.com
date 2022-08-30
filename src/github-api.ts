@@ -65,30 +65,39 @@ export const getGitHubFile = async (fileName: string): Promise<GitHubFile> => {
   throw new Error(message);
 };
 
-export const getGitHubVersionNumber = async (repo: string): Promise<string> => {
-  const res = await fetch(`https://api.github.com/repos/faceless-ui/${repo}/releases/latest`, {
-    method: 'GET',
-    headers: defaultHeaders
-  });
+export const getLatestGitHubRelease = async (repo: string): Promise<ReleaseData | undefined> => {
+  try {
+    const res = await fetch(`https://api.github.com/repos/faceless-ui/${repo}/releases/latest`, {
+      method: 'GET',
+      headers: defaultHeaders
+    });
 
-  const json = await res.json();
-  const { message } = json;
+    const json: ReleaseData = await res.json();
 
-  if (res.status === 200) {
-    const { name } = json; // name of version
-    return name;
+    if (res.status === 200) {
+      return json;
+    }
+  } catch (e) {
+    console.error(e);
   }
-
-  console.warn(message);
-  return '';
 }
 
 export type ReleaseData = {
   body?: string
-  published_at: string
+  published_at: string // NOTE: date the release was created
   name: string
   tag_name: string
-  packageName: string
+  slug: string
+  url: string
+  html_url: string
+  node_id: string
+  target_commitish: string
+  draft: boolean
+  prerelease: boolean
+  created_at: string // NOTE: date of the commit used to create the release
+  assets: any[]
+  tarball_url: string
+  zipball_url: string
 }
 
 export const getReleaseNotes = async (repo: string): Promise<ReleaseData[] | undefined> => {
@@ -103,7 +112,7 @@ export const getReleaseNotes = async (repo: string): Promise<ReleaseData[] | und
     if (res.status === 200) {
       return json.map((release) => ({
         ...release,
-        packageName: repo
+        slug: repo
       }));
     }
   } catch (e) {

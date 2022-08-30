@@ -3,7 +3,8 @@ import Margin from '@components/Margin';
 import Meta from '@components/Meta';
 import { NextInDocs } from '@components/NextInDocs';
 import { Cell, Grid } from '@faceless-ui/css-grid';
-import React, { Fragment } from 'react';
+import { useCustomCursor } from '@root/providers/CustomCursorProvider';
+import React, { Fragment, useEffect } from 'react';
 import { BlockContainer } from '../BlockContainer';
 import { DesktopNav } from '../DocsNav/DesktopNav';
 import { MobileNav } from '../DocsNav/MobileNav';
@@ -21,6 +22,14 @@ export const Doc: React.FC<{
     metaTitle,
     metaDescription
   } = props;
+
+  const {
+    setShowCustomCursor,
+  } = useCustomCursor();
+
+  useEffect(() => {
+    setShowCustomCursor(false);
+  }, [setShowCustomCursor])
 
   return (
     <Fragment>

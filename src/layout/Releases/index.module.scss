@@ -1,0 +1,11 @@
+@use "@scss/common" as *;
+
+.release {
+  position: relative;
+}
+
+.latestInfo {
+  background: var(--color-gray-2);
+  padding: base();
+  margin-bottom: base();
+}

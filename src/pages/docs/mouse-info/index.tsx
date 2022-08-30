@@ -3,7 +3,6 @@ import { Doc } from '@root/layout/Doc';
 import { InlineCode } from '@components/InlineCode';
 import { StyledList } from '@components/StyledList';
 import { LogProps } from '@components/LogProps';
-import { Hyperlink } from '@components/Hyperlink';
 import { useMouseInfo } from '@faceless-ui/mouse-info';
 import Margin from '@components/Margin';
 import { Heading } from '@components/Heading';
@@ -74,14 +73,14 @@ const MouseInfoDoc = () => {
       <div>
         <LogProps {...mouseInfo} />
       </div>
-      <Hyperlink
+      {/* <Hyperlink
         href="https://mouse-info.faceless-ui.com"
         newTab
       >
         <small>
-          Demo in playground
+          Code Sandbox
         </small>
-      </Hyperlink>
+      </Hyperlink> */}
     </Fragment>
   )
 }

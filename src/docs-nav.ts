@@ -300,6 +300,11 @@ export const nav: DocsNav = [
         label: 'Examples',
         items: modalExamplesNav
       },
+      {
+        type: 'link',
+        href: "/docs/modal/releases",
+        label: 'Releases',
+      },
     ]
   },
   {
@@ -330,6 +335,11 @@ export const nav: DocsNav = [
         href: "/docs/slider/examples",
         items: sliderExamplesNav
       },
+      {
+        type: 'link',
+        href: "/docs/slider/releases",
+        label: 'Releases',
+      },
     ]
   },
   {
@@ -353,6 +363,11 @@ export const nav: DocsNav = [
         href: "/docs/css-grid/api",
         label: 'API Reference',
         items: cssGridJumplistNav
+      },
+      {
+        type: 'link',
+        href: "/docs/css-grid/releases",
+        label: 'Releases',
       },
     ]
   },
@@ -378,6 +393,11 @@ export const nav: DocsNav = [
         label: 'API Reference',
         items: jumplistJumplistNav
       },
+      {
+        type: 'link',
+        href: "/docs/jumplist/releases",
+        label: 'Releases',
+      },
     ]
   },
   {
@@ -401,6 +421,11 @@ export const nav: DocsNav = [
         href: "/docs/collapsibles/api",
         label: 'API Reference',
         items: collapsiblesJumplistNav
+      },
+      {
+        type: 'link',
+        href: "/docs/collapsibles/releases",
+        label: 'Releases',
       },
     ]
   },
@@ -429,6 +454,11 @@ export const nav: DocsNav = [
         href: "/docs/window-info/api",
         label: 'API Reference'
       },
+      {
+        type: 'link',
+        href: "/docs/window-info/releases",
+        label: 'Releases',
+      },
     ]
   },
   {
@@ -452,6 +482,11 @@ export const nav: DocsNav = [
         href: "/docs/scroll-info/api",
         label: 'API Reference'
       },
+      {
+        type: 'link',
+        href: "/docs/scroll-info/releases",
+        label: 'Releases',
+      },
     ]
   },
   {
@@ -474,6 +509,11 @@ export const nav: DocsNav = [
         type: 'link',
         href: "/docs/mouse-info/api",
         label: 'API Reference'
+      },
+      {
+        type: 'link',
+        href: "/docs/mouse-info/releases",
+        label: 'Releases',
       },
     ]
   },

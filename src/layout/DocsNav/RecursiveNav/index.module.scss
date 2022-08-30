@@ -21,9 +21,14 @@
   color: var(--color-gray-4);
   display: flex;
   align-items: center;
+  white-space: nowrap;
 
   &:hover {
     color: var(--color-gray-5);
+  }
+
+  @include mid-break {
+    white-space: auto;
   }
 }
 

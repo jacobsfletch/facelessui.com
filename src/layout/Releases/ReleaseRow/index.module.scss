@@ -1,0 +1,9 @@
+@use "@scss/common" as *;
+
+.releaseRow {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: base();
+  }
+}

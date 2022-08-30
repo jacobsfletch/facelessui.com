@@ -15,7 +15,7 @@ export const VersionNumber: React.FC<{
 
   return (
     <InlineCode size="small">
-      {`v${version}` || '...'}
+      {version ? `v${version}` : '...'}
     </InlineCode>
   )
 }

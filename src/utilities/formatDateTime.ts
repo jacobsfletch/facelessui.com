@@ -22,7 +22,7 @@ export const formatDateTime = (timestamp?: string): string | undefined => {
   // const seconds = date.getSeconds();
 
   // const MM = (months + 1 < 10) ? `0${months + 1}` : months + 1;
-  const monthName = monthNames[months];
+  const monthName = monthNamesAbbr[months];
   const DD = (days < 10) ? `0${days}` : days;
   const YYYY = date.getFullYear();
   // const AMPM = hours < 12 ? 'AM' : 'PM';

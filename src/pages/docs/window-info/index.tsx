@@ -4,7 +4,6 @@ import { InlineCode } from '@components/InlineCode';
 import { StyledList } from '@components/StyledList';
 import { useWindowInfo } from '@faceless-ui/window-info';
 import { LogProps } from '@components/LogProps';
-import { Hyperlink } from '@components/Hyperlink';
 import Margin from '@components/Margin';
 import { Heading } from '@components/Heading';
 
@@ -80,14 +79,14 @@ const WindowInfoDoc = () => {
         <div>
           <LogProps {...windowInfo} />
         </div>
-        <Hyperlink
+        {/* <Hyperlink
           href="https://window-info.faceless-ui.com"
           newTab
         >
           <small>
-            Demo in playground
+            Code Sandbox
           </small>
-        </Hyperlink>
+        </Hyperlink> */}
       </Margin>
     </Fragment>
   )

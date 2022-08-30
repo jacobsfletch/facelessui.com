@@ -26,7 +26,7 @@ export const getNPMVersion = async (packageName: string): Promise<string> => {
 };
 
 
-export const getAllVersions = async () => {
+export const getAllNPMVersions = async () => {
   const [
     windowInfoVersion,
     scrollInfoVersion,

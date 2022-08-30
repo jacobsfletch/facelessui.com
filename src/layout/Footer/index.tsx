@@ -37,6 +37,14 @@ export const Footer: React.FC = () => {
             </div>
             <div>
               <Hyperlink
+                href="/releases"
+                underline={false}
+              >
+                Releases
+              </Hyperlink>
+            </div>
+            <div>
+              <Hyperlink
                 newTab
                 href="https://www.npmjs.com/org/faceless-ui"
                 underline={false}
