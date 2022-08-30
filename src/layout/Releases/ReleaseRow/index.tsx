@@ -23,7 +23,7 @@ export const ReleaseRow: React.FC<ReleaseData & {
   } = props;
 
   const { versions } = useVersions();
-  const latestVersion = versions[packageSlug || ''];
+  const latestVersion = versions[packageSlug || '']?.version;
 
   return (
     <div

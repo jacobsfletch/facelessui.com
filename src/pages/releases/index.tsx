@@ -108,10 +108,7 @@ const Releases: NextPage = () => {
               <h1>
                 Releases
               </h1>
-              <Hyperlink href="https://github.com/faceless-ui/slider/releases">
-                See all
-              </Hyperlink>
-              <label>
+              {/* <label>
                 <div>
                   Showing
                 </div>
@@ -131,7 +128,7 @@ const Releases: NextPage = () => {
                     </option>
                   ))}
                 </select>
-              </label>
+              </label> */}
               {releasesByDate.map((releaseByDate, index) => {
                 const [date, releases] = releaseByDate;
 

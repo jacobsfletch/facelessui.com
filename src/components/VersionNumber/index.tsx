@@ -11,7 +11,7 @@ export const VersionNumber: React.FC<{
   } = props;
 
   const { versions } = useVersions();
-  const version = versions?.[name];
+  const version = versions?.[name]?.version;
 
   return (
     <InlineCode size="small">

@@ -1,41 +1,93 @@
 export type NPMDocument = {
-  "dist-tags": {
-    latest: string
+  name: string
+  version: string
+  main: string
+  types: string
+  repository: {
+    type: string,
+    url: string,
   }
-  "versions": {
-    [version: string]: NPMDocument
+  description: string,
+  author: {
+    email: string,
   }
+  license: string,
+  keywords: string[]
+  scripts: {
+    [key: string]: string
+  }
+  peerDependencies: {
+    [key: string]: string
+  }
+  devDependencies: {
+    [key: string]: string
+  }
+  gitHead: string
+  bugs: {
+    url: string
+  }
+  homepage: string
+  _id: string
+  _nodeVersion: string
+  _npmVersion: string
+  dist: {
+    integrity: string
+    shasum: string
+    tarball: string
+    fileCount: number
+    unpackedSize: number
+    signatures: [
+      {
+        keyid: string
+        sig: string
+      }
+    ],
+    "npm-signature": string
+  }
+  _npmUser: {
+    name: string
+    email: string
+  },
+  directories: {},
+  maintainers: [
+    {
+      name: string
+      email: string
+    }
+  ],
+  _npmOperationalInternal: {
+    host: string
+    tmp: string
+  }
+  _hasShrinkwrap: boolean
 }
 
-export const getNPMVersion = async (packageName: string): Promise<string> => {
-  const res = await fetch(`https://registry.npmjs.org/@faceless-ui/${packageName}`);
+export const getNPMVersion = async (packageName: string): Promise<NPMDocument> => {
+  const res = await fetch(`https://registry.npmjs.org/@faceless-ui/${packageName}/latest`);
   const json = await res.json();
 
   const {
-    "dist-tags": {
-      latest: latestVersion
-    },
     error
   } = json;
 
-  if (res.status === 200 && latestVersion) {
-    return latestVersion;
+  if (res.status === 200) {
+    return json;
   }
 
   throw new Error(error);
 };
 
 
-export const getAllNPMVersions = async () => {
+export const getAllNPM = async () => {
   const [
-    windowInfoVersion,
-    scrollInfoVersion,
-    mouseInfoVersion,
-    sliderVersion,
-    cssGridVersion,
-    modalVersion,
-    collapsiblesVersion,
-    jumplistVersion,
+    windowInfo,
+    scrollInfo,
+    mouseInfo,
+    slider,
+    cssGrid,
+    modal,
+    collapsibles,
+    jumplist,
   ] = await Promise.all([
     getNPMVersion('window-info'),
     getNPMVersion('scroll-info'),
@@ -48,13 +100,13 @@ export const getAllNPMVersions = async () => {
   ])
 
   return {
-    'window-info': windowInfoVersion,
-    'scroll-info': scrollInfoVersion,
-    'mouse-info': mouseInfoVersion,
-    slider: sliderVersion,
-    'css-grid': cssGridVersion,
-    modal: modalVersion,
-    collapsibles: collapsiblesVersion,
-    jumplist: jumplistVersion,
+    'window-info': windowInfo,
+    'scroll-info': scrollInfo,
+    'mouse-info': mouseInfo,
+    slider,
+    'css-grid': cssGrid,
+    modal,
+    collapsibles,
+    jumplist,
   }
 }

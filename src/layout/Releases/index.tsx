@@ -3,6 +3,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { ReleaseRow } from '@root/layout/Releases/ReleaseRow'
 import { useVersions } from '@root/providers/Versions'
 import classes from './index.module.scss';
+import { Hyperlink } from '@components/Hyperlink';
 
 const Releases: React.FC<{
   packageLabel?: string
@@ -18,7 +19,16 @@ const Releases: React.FC<{
 
   const { versions } = useVersions();
 
-  const latestVersion = versions?.[packageSlug];
+  const npmInfo = versions?.[packageSlug];
+
+  const {
+    version: latestVersion,
+    name: latestName,
+    dist: {
+      tarball: latestTarball = '',
+      unpackedSize: latestUnpackedSize = 0,
+    } = {}
+  } = npmInfo || {};
 
   useEffect(() => {
     setIsLoading(true);
@@ -50,8 +60,39 @@ const Releases: React.FC<{
       <div className={classes.latestInfo}>
         {latestVersion && (
           <div>
-            {`Latest: `}
-            {`v${latestVersion}`}
+            <div>
+              {`Name: `}
+              <span className={classes.latestName}>
+                {latestName}
+              </span>
+            </div>
+            <div>
+              {`Latest: `}
+              <span className={classes.latestVersion}>
+                {`v${latestVersion}`}
+              </span>
+            </div>
+            <div>
+              {`Size: `}
+              {latestUnpackedSize && (
+                <span className={classes.latestSize}>
+                  {`${latestUnpackedSize / 1000} KB`}
+                </span>
+              )}
+            </div>
+            <div>
+              <Hyperlink
+                href={`https://npmjs.org/${latestName}`}
+                newTab
+              >
+                View
+              </Hyperlink>
+            </div>
+            <div>
+              <Hyperlink href={latestTarball}>
+                Download
+              </Hyperlink>
+            </div>
           </div>
         )}
       </div>

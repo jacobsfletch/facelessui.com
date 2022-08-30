@@ -9,3 +9,17 @@
   padding: base();
   margin-bottom: base();
 }
+
+.latestVersion,
+.latestSize,
+.latestName {
+  font-weight: 600;
+}
+
+:global(.isDark) {
+  &:local() {
+    .latestInfo {
+      background: var(--color-gray-9);
+    }
+  }
+}
