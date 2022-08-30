@@ -1,37 +1,19 @@
 @use "@scss/common" as *;
 
 .nextInDocs {
-  will-change: border-color;
-  background-color: var(--color-gray-1);
+  position: relative;
+}
+
+.content {
   padding: base() base();
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   font-weight: normal;
-  border: 1px solid;
-  border-color: var(--color-cursor);
-  transition: border-color linear vaR(--default-trans-time);
-
-  &:hover {
-    border-color: var(--color-cursor-highlight);
-  }
-
-  @include mid-break {
-    &:hover {
-      border-color: var(--color-cursor);
-    }
-  }
+  position: relative;
 }
 
 .label {
   margin: 0;
-}
-
-:global(.isDark) {
-  &:local() {
-    .nextInDocs {
-      background-color: var(--color-black);
-    }
-  }
 }

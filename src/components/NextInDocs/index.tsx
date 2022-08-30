@@ -7,6 +7,8 @@ import { DocsNav, NavItem } from '@root/docs-nav'
 import { TextWithInlineIcon } from '@components/TextWithInlineIcon';
 
 import { nav } from '@root/docs-nav';
+import { CardBackground } from '@components/Card/Background';
+import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 
 type NavLink = {
   label: string
@@ -64,6 +66,8 @@ export const NextInDocs: React.FC<{
     className
   } = props;
 
+  const { setHighlightCursor, setShowCustomCursor } = useCustomCursor();
+
   const [nextNavItem, setNextNavItem] = useState<NavItem | null>();
 
   const router = useRouter();
@@ -110,18 +114,28 @@ export const NextInDocs: React.FC<{
           className,
           classes.nextInDocs,
         ].filter(Boolean).join(' ')}
+        onMouseEnter={() => {
+          setShowCustomCursor(true);
+          setHighlightCursor(true)
+        }}
+        onMouseLeave={() => {
+          setShowCustomCursor(false);
+          setHighlightCursor(false)
+        }}
       >
-        <div>
-          Next:
-        </div>
-        <div>
-          <TextWithInlineIcon
-            className={classes.label}
-            element="h5"
-            text={label}
-            icon={(<ArrowIcon bold />)}
-          />
-        </div>
+        <CardBackground className={classes.content}>
+          <div>
+            Next:
+          </div>
+          <div>
+            <TextWithInlineIcon
+              className={classes.label}
+              element="h5"
+              text={label}
+              icon={(<ArrowIcon bold />)}
+            />
+          </div>
+        </CardBackground>
       </Hyperlink>
     )
   }

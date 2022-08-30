@@ -14,25 +14,24 @@ export const CustomCursor: React.FC = () => {
   } = useCustomCursor();
 
   if (showCustomCursor) {
-    const lineClasses = [
-      classes.line,
-      highlightCursor && classes.isHighlighted
-    ].filter(Boolean).join(' ');
-
     return (
       <div
-        className={classes.customCursor}
+        className={[
+          classes.customCursor,
+          highlightCursor && classes.isHighlighted
+        ].filter(Boolean).join(' ')}
         style={{
           left: mouseX,
           top: mouseY
         }}
       >
-        <div className={lineClasses} />
-        <div className={lineClasses} />
-        <div className={lineClasses} />
-        <div className={lineClasses} />
+        <div className={classes.line} />
+        <div className={classes.line} />
+        <div className={classes.line} />
+        <div className={classes.line} />
       </div>
     )
   }
+
   return null
 }

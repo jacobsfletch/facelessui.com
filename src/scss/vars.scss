@@ -3,7 +3,6 @@ $fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue
 $blockContainerWidth: 1400px;
 
 // NOTE: can't be CSS variable because the media queries need to use them
-$breakpoint-s-width: 768px;
-$breakpoint-m-width: 1024px;
-$breakpoint-l-width: 1400px;
-$breakpoint-xl-width: 1680px;
+// IMPORTANT: must match vars found in ../pages/_app.tsx
+$breakpoint-m-width: 768px;
+$breakpoint-l-width: 1024px;

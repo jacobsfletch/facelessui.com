@@ -1,11 +1,5 @@
 @use "./vars.scss" as *;
 
-@mixin small-break {
-  @media (max-width: $breakpoint-s-width) {
-    @content;
-  }
-}
-
 @mixin mid-break {
   @media (max-width: $breakpoint-m-width) {
     @content;
@@ -14,12 +8,6 @@
 
 @mixin large-break {
   @media (max-width: $breakpoint-l-width) {
-    @content;
-  }
-}
-
-@mixin extra-large-break {
-  @media (max-width: $breakpoint-xl-width) {
     @content;
   }
 }

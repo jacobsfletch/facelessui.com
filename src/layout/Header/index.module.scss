@@ -3,7 +3,8 @@
 .header {
   width: 100%;
   margin: base(2) 0;
-  @include mid-break {
+
+  @include large-break {
     margin: base() 0;
   }
 }
@@ -30,6 +31,8 @@
 .logoAnchor {
   display: flex;
   align-items: center;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 .logo {

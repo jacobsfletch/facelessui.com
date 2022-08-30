@@ -3,13 +3,21 @@ import classes from './index.module.scss';
 
 export const MarginGrid: React.FC<{
   className?: string
-  size?: 'small'
+  marginSize?: 'small'
+  cols?: 4 | 3 | 2
+  colsL?: 4 | 3 | 2
+  fullWidthMobile?: boolean
   children: React.ReactNode
+  alignItems?: 'stretch'
 }> = (props) => {
   const {
     className,
     children,
-    size
+    marginSize = 'default',
+    cols = 2,
+    colsL,
+    fullWidthMobile = true,
+    alignItems
   } = props;
 
   return (
@@ -17,7 +25,11 @@ export const MarginGrid: React.FC<{
       className={[
         classes.marginGrid,
         className,
-        size && classes[size]
+        marginSize && classes[`size--${marginSize}`],
+        cols && classes[`cols--${cols}`],
+        colsL && classes[`colsL--${colsL}`],
+        fullWidthMobile && classes.fullWidthMobile,
+        alignItems === 'stretch' && classes.stretch
       ].filter(Boolean).join(' ')}
     >
       {children}

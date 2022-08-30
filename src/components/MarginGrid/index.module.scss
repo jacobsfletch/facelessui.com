@@ -1,22 +1,128 @@
 @use "@scss/common" as *;
 
+$smallMargin: #{base(0.5)};
+$defaultMargin: #{base()};
+
 .marginGrid {
-  margin: base(-1);
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
-  width: calc(100% - #{base(2)});
+}
+
+.size--default {
+  margin: calc($defaultMargin * -1);
+  width: calc(100% + ($defaultMargin * 2));
+  padding: calc($defaultMargin / 2);
 
   & > * {
-    margin: base();
+    margin: calc($defaultMargin / 2);
   }
 }
 
-.small {
-  margin: base(-0.25);
-  width: calc(100% - #{base(0.5)});
+.size--small {
+  margin: calc($smallMargin * -1);
+  width: calc(100% + ($smallMargin * 2));
+  padding: calc($smallMargin / 2);
 
   & > * {
-    margin: base(0.25);
+    margin: calc($smallMargin / 2);
+  }
+
+  &.cols--2 {
+    & > * {
+      width: calc(50% - #{$smallMargin});
+    }
+  }
+
+  &.cols--3 {
+    & > * {
+      width: calc(33.33% - (#{$smallMargin}));
+    }
+  }
+
+  &.cols--4 {
+    & > * {
+      width: calc(25% - (#{$smallMargin}));
+    }
+  }
+}
+
+.stretch {
+  align-items: stretch;
+}
+
+.cols--2 {
+  & > * {
+    width: calc(50% - #{$defaultMargin});
+  }
+
+  @include mid-break {
+    & > * {
+      width: calc(50% - #{$smallMargin});
+    }
+  }
+}
+
+.cols--3 {
+  & > * {
+    width: calc(33.33% - (#{$defaultMargin} ));
+  }
+
+  @include mid-break {
+    & > * {
+      width: calc(33.33% - (#{$smallMargin} / 2));
+    }
+  }
+}
+
+.cols--4 {
+  & > * {
+    width: calc(25% - (#{$defaultMargin} ));
+  }
+
+  @include mid-break {
+    & > * {
+      width: calc(25% - (#{$smallMargin} / 2));
+    }
+  }
+}
+
+.colsL--2 {
+  @include large-break {
+    & > * {
+      width: calc(50% - #{$defaultMargin});
+    }
+  }
+}
+
+.colsL--3 {
+  @include large-break {
+    & > * {
+      width: calc(33.33% - (#{$defaultMargin} ));
+    }
+  }
+}
+
+.colsL--4 {
+  @include large-break {
+    & > * {
+      width: calc(25% - (#{$defaultMargin} ));
+    }
+  }
+}
+
+.fullWidthMobile {
+  @include mid-break {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    & > * {
+      margin: 0;
+      width: 100% !important;
+
+      &:not(:last-child) {
+        margin-bottom: base(0.5);
+      }
+    }
   }
 }

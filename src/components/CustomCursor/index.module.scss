@@ -2,22 +2,24 @@
 
 .customCursor {
   position: fixed;
+  mix-blend-mode: difference;
   border-radius: 100%;
   z-index: 100000;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: -1;
+  opacity: 0.08;
+  color: var(--color-gray-1);
+
+  @include mid-break {
+    display: none;
+  }
 }
 
 .line {
   position: absolute;
   will-change: background-color;
-  background-color: var(--color-cursor);
-  // transition: background-color var(--default-trans-time) linear;
-
-  &.isHighlighted {
-    background-color: var(--color-cursor-highlight);
-  }
+  background-color: currentColor;
 
   &:nth-child(1) {
     width: 1px;
@@ -48,4 +50,9 @@
     top: 50%;
     transform: translateY(-50%);
   }
+}
+
+.isHighlighted {
+  color: var(--color-gray-4);
+  opacity: 0.4;
 }

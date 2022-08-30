@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 import { Cell, Grid } from '@faceless-ui/css-grid';
 import classes from './index.module.scss'
 
-// places two columns onto each side of its children,
-// reduces available columns in all child grids to 12 (easily divisible)
-export const BlockContainer: React.FC<{
+type Props = {
   id?: string
   className?: string
   cellClassName?: string
@@ -12,7 +10,12 @@ export const BlockContainer: React.FC<{
   onMouseEnter?: () => void
   onMouseLeave?: () => void
   children: React.ReactNode
-}> = (props) => {
+  ref?: Ref<HTMLElement>
+}
+
+// places two columns onto each side of its children,
+// reduces available columns in all child grids to 12 (easily divisible)
+export const BlockContainer: React.FC<Props> = forwardRef<HTMLElement, Props>((props, ref) => {
   const {
     id,
     children,
@@ -25,6 +28,7 @@ export const BlockContainer: React.FC<{
 
   return (
     <Grid
+      ref={ref}
       id={id}
       className={[
         classes.blockContainer,
@@ -36,8 +40,10 @@ export const BlockContainer: React.FC<{
     >
       <Cell
         className={cellClassName}
-        start={2}
+        start={3}
+        startL={2}
         cols={12}
+        colsL={12}
         colsM={8}
         startM={1}
       >
@@ -45,4 +51,6 @@ export const BlockContainer: React.FC<{
       </Cell>
     </Grid>
   );
-};
+});
+
+BlockContainer.displayName = 'BlockContainer';

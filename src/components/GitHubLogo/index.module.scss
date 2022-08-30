@@ -1,0 +1,21 @@
+@use "@scss/common" as *;
+
+.github {
+  display: flex;
+}
+
+.svg {
+  width: base(0.75);
+  height: base(0.75);
+  display: flex;
+
+  @include mid-break {
+    width: base();
+    height: base();
+  }
+}
+
+.fill {
+  fill: currentColor;
+  stroke-width: 0;
+}

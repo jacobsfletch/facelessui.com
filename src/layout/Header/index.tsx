@@ -1,3 +1,4 @@
+import { GitHubLogo } from '@components/GitHubLogo';
 import { Hyperlink } from '@components/Hyperlink';
 import React from 'react';
 import { BlockContainer } from '../BlockContainer';
@@ -20,20 +21,22 @@ export const Header: React.FC = () => {
                 src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/apple/325/face-without-mouth_1f636.png"
                 alt="logo"
               />
-              <b>
+              <span>
                 Faceless UI
-              </b>
+              </span>
             </Hyperlink>
           </div>
           <menu className={classes.menu}>
-            <div>
-              <Hyperlink
-                href="/docs/getting-started"
-                underline={false}
-              >
-                Docs
-              </Hyperlink>
-            </div>
+            <Hyperlink
+              href="/docs/getting-started"
+              underline={false}
+            >
+              Docs
+            </Hyperlink>
+            <GitHubLogo
+              href="https://github.com/faceless-ui"
+              newTab
+            />
           </menu>
         </div>
       </BlockContainer>

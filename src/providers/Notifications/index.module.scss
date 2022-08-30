@@ -17,7 +17,8 @@
   display: flex;
   align-items: center;
   border-radius: 2px;
-  background-color: white;
+  background-color: var(--color-gray-10);
+  color: var(--color-white);
   box-shadow: var(--shadow-1);
   &:not(:last-child) {
     margin-bottom: base(0.5);
@@ -27,8 +28,8 @@
 :global(.isDark) {
   &:local() {
     .notification {
-      background-color: var(--color-gray-8);
-      color: white;
+      background-color: var(--color-white);
+      color: var(--color-gray-10);
       box-shadow: var(--shadow-2);
     }
   }

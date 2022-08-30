@@ -64,27 +64,27 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                   >
                     <GridProvider
                       breakpoints={{
-                        s: 768,
-                        m: 1024,
-                        l: 1400,
+                        s: 500,
+                        m: 768,
+                        l: 1024,
                       }}
                       rowGap={{
                         s: '1rem',
                         m: '1rem',
-                        l: '2rem',
-                        xl: '2rem',
+                        l: '4rem',
+                        xl: '4rem',
                       }}
                       colGap={{
                         s: '10px',
                         m: '10px',
-                        l: '2rem',
-                        xl: '2rem',
+                        l: '4rem',
+                        xl: '4rem',
                       }}
                       cols={{
                         s: 8,
                         m: 8,
                         l: 14,
-                        xl: 14,
+                        xl: 16,
                       }}
                     >
                       <VersionsProvider versions={versions}>

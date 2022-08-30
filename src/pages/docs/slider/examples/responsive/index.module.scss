@@ -7,11 +7,12 @@
 
 .slide {
   padding: base();
-  background-color: var(--color-gray-1);
+  background-color: var(--color-gray-2);
   text-align: center;
+  cursor: pointer;
 
   &:nth-child(even) {
-    background-color: var(--color-gray-2);
+    background-color: var(--color-gray-3);
   }
 }
 
@@ -27,10 +28,10 @@
 :global(.isDark) {
   &:local() {
     .slide {
-      background-color: var(--color-gray-5);
+      background-color: var(--color-gray-7);
 
       &:nth-child(even) {
-        background-color: var(--color-gray-9);
+        background-color: var(--color-gray-8);
       }
     }
   }

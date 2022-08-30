@@ -1,6 +1,7 @@
 import { Hyperlink } from '@components/Hyperlink'
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React from 'react'
+import { CardBackground } from './Background';
 import classes from './index.module.scss';
 
 export const Card: React.FC<{
@@ -8,12 +9,14 @@ export const Card: React.FC<{
   title?: string
   leader?: JSX.Element
   description?: string
+  forceDark?: boolean
 }> = (props) => {
   const {
     href,
     leader,
     title,
-    description
+    description,
+    forceDark
   } = props;
 
   const { setHighlightCursor } = useCustomCursor();
@@ -26,21 +29,26 @@ export const Card: React.FC<{
       onMouseLeave={() => { setHighlightCursor(false) }}
       underline={false}
     >
-      {leader && (
-        <div className={classes.leader}>
-          {leader}
-        </div>
-      )}
-      {title && (
-        <h5 className={classes.title}>
-          {title}
-        </h5>
-      )}
-      {description && (
-        <p className={classes.description}>
-          {description}
-        </p>
-      )}
+      <CardBackground
+        className={classes.cardContent}
+        forceDark={forceDark}
+      >
+        {leader && (
+          <div className={classes.leader}>
+            {leader}
+          </div>
+        )}
+        {title && (
+          <h5 className={classes.title}>
+            {title}
+          </h5>
+        )}
+        {description && (
+          <p className={classes.description}>
+            {description}
+          </p>
+        )}
+      </CardBackground>
     </Hyperlink>
   )
 }

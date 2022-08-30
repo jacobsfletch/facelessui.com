@@ -26,9 +26,7 @@ export const CustomCursorProvider: React.FC<{
   } = useWindowInfo();
 
   useEffect(() => {
-    if (midBreak) {
-      setShowCustomCursor(false);
-    }
+    setShowCustomCursor(!midBreak);
   }, [midBreak]);
 
   return (

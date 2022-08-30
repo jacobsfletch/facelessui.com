@@ -8,17 +8,65 @@ const GettingStartedDoc = () => {
   return (
     <Fragment>
       <h1>
-        Getting Started
+        Getting started
       </h1>
       <p>
-        Faceless UI is an unstyled React library. It is component-first, so you can build your app using props instead of class names. If you know React, you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app or website as you need.
+        {'Faceless UI is an unstyled '}
+        <Hyperlink
+          href="https://reactjs.org/"
+          newTab
+        >
+          React
+        </Hyperlink>
+        +
+        <Hyperlink
+          href="https://www.typescriptlang.org/"
+          newTab
+        >
+          TypeScript
+        </Hyperlink>
+        {' UI library. Use it to focus on the aesthetics of your user interface instead of the implementation details. Faceless UI APIs are extremely powerful and heavily documented so you can deliver beautiful products that just work.'}
       </p>
-      <p>
-        Faceless UI components are lightweight wrappers around native browser APIs. This reduces dependencies and makes them feel very natural to use. Properties and methods often mirror these APIs exactly, and all settings are exposed for you to further customize.
-      </p>
-      <p>
-        Faceless UI components are abstract, making them perfectly suited to power other UI libraries. This also leaves Faceless UI core small and focused. This pattern allows you to freely reassemble the same set of components in many different ways. Your library can ship specific, styled implementations of the same core APIs.
-      </p>
+      <Margin bottom="xs">
+        <Heading
+          id="styling"
+          href="/docs/getting-started#react"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#react`}
+          element='h5'
+        >
+          React
+        </Heading>
+        <p>
+          {'Faceless UI is component-first, so you can build your app in a way that feels very natural. If you know '}
+          <Hyperlink
+            href="https://reactjs.org/"
+            newTab
+          >
+            React
+          </Hyperlink>
+          {', you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app or website as you need.'}
+        </p>
+      </Margin>
+      <Margin bottom="xs">
+        <Heading
+          id="styling"
+          href="/docs/getting-started#react"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#react`}
+          element='h5'
+        >
+          Web APIs
+        </Heading>
+        <p>
+          {'Faceless UI components lean on '}
+          <Hyperlink
+            href="https://developer.mozilla.org/en-US/docs/Web/API"
+            newTab
+          >
+            Web APIs
+          </Hyperlink>
+          {' as much as possible. This reduces dependencies, increases compatibility and performance, and keeps Faceless UI on the cutting-edge. Properties and methods often mirror these APIs exactly and are fully extensible.'}
+        </p>
+      </Margin>
       <Margin bottom="xs">
         <Heading
           id="styling"

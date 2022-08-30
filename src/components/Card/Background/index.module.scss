@@ -1,0 +1,90 @@
+@use "@scss/common" as *;
+
+@mixin dark {
+  background-color: var(--color-gray-9);
+
+  &:hover {
+    background-color: var(--color-gray-8);
+
+    &:local() {
+      .border {
+        border-color: var(--color-gray-3);
+        opacity: 0.4;
+      }
+    }
+  }
+
+  // NOTE: cancel hover effects on mobile
+  @include mid-break {
+    &:hover {
+      background-color: var(--color-gray-9);
+
+      &:local() {
+        .border {
+          border-color: var(--color-gray-1);
+          opacity: 0.08;
+        }
+      }
+    }
+  }
+
+  &:local() {
+    .border {
+      border-color: var(--color-gray-1);
+    }
+  }
+}
+
+.cardBackground {
+  background-color: var(--color-gray-1);
+
+  &:hover {
+    background-color: var(--color-gray-2);
+
+    &:local() {
+      .border {
+        border-color: var(--color-gray-3);
+        opacity: 0.4;
+      }
+    }
+  }
+
+  // NOTE: cancel hover effects on mobile
+  @include mid-break {
+    &:hover {
+      background-color:  var(--color-gray-1);
+
+      &:local() {
+        .border {
+          opacity: 0.08;
+          border-color:  var(--color-gray-2);
+        }
+      }
+    }
+  }
+}
+
+.border {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border: 1px solid;
+  mix-blend-mode: difference;
+  opacity: 0.08;
+  border-color: var(--color-gray-2);
+}
+
+.forceDark {
+  @include dark;
+}
+
+:global(.isDark) {
+  &:local() {
+    .cardBackground {
+      @include dark;
+    }
+  }
+}

@@ -1,16 +1,99 @@
 @use "@scss/common" as *;
 
 .mainHero {
-  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: base(4);
-  margin-bottom: base(4);
+}
+
+.heading {
+  margin-top: base(0.5);
+  margin-bottom: base(3);
+
+  @include large-break {
+    margin-top: base();
+  }
 
   @include mid-break {
-    padding-top: base(2);
-    min-height: 0;
-    margin-bottom: base(3);
+    margin-top: base();
+    margin-bottom: base(2);
   }
+}
+
+.headingText {
+  display: inline;
+}
+
+.headingLink {
+  display: inline;
+  margin-left: base(0.5);
+  position: relative;
+  top: -12px; // adjust for heading line height
+  white-space: nowrap;
+
+  @include mid-break {
+    @include small;
+    top: -4px;
+  }
+}
+
+.componentsContainer {
+  padding: base(3) 0;
+  position: relative;
+
+  @include large-break {
+    padding: base(2) 0;
+  }
+
+  @include mid-break {
+    padding: base(1) 0;
+  }
+}
+
+.backgroundGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundCell {
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  @include large-break {
+    padding: 0 calc(var(--desktop-gutter) * 2);
+  }
+
+  @include mid-break {
+    padding: 0;
+  }
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-gray-10);
+}
+
+.label {
+  @include small;
+  color: var(--color-gray-3);
+}
+
+.components {
+  position: relative;
+  margin-bottom: base();
+}
+
+.utilities {
+  position: relative;
+}
+
+.below {
+  color: var(--color-white);
+  margin-top: base(2)
 }
