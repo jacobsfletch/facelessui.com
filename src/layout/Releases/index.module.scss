@@ -8,12 +8,24 @@
   background: var(--color-gray-2);
   padding: base();
   margin-bottom: base();
+
+  @include mid-break {
+    margin-bottom: base(0.5);
+  }
 }
 
 .latestVersion,
 .latestSize,
 .latestName {
   font-weight: 600;
+}
+
+.loading {
+  margin-top: base(2);
+
+  @include mid-break {
+    margin-top: base();
+  }
 }
 
 :global(.isDark) {

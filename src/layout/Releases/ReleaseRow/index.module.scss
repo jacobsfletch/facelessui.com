@@ -2,8 +2,34 @@
 
 .releaseRow {
   position: relative;
+  border: 1px solid var(--color-gray-2);
+  padding: base();
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   &:not(:last-child) {
-    margin-bottom: base();
+    margin-bottom: base(0.5);
+  }
+
+  @include mid-break {
+    &:not(:last-child) {
+      margin-bottom: base(0.5);
+    }
+  }
+}
+
+.notes {
+  border-left: 1px solid currentColor;
+  margin-bottom: base(0.5);
+  margin-top: base(0.5);
+  padding-left: base(0.5);
+}
+
+:global(.isDark) {
+  &:local() {
+    .releaseRow {
+      border: 1px solid var(--color-gray-9);
+    }
   }
 }

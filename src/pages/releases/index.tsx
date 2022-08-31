@@ -9,7 +9,7 @@ import Meta from '../../components/Meta'
 import QueryString from 'qs';
 import Router, { useRouter } from 'next/router';
 import classes from './index.module.scss'
-import { Hyperlink } from '@components/Hyperlink'
+import { ReleaseRow } from '@root/layout/Releases/ReleaseRow'
 
 const pkgNames: {
   [key: string]: string
@@ -135,7 +135,7 @@ const Releases: NextPage = () => {
                 return (
                   <div
                     key={index}
-                    className={classes.releaseRow}
+                    className={classes.dateSection}
                   >
                     <Heading
                       id={date}
@@ -145,61 +145,17 @@ const Releases: NextPage = () => {
                     >
                       {formatDateTime(date)}
                     </Heading>
-                    <ul
-                      style={{
-                        paddingLeft: '20px',
-                        margin: 0
-                      }}
-                    >
-                      {releases.map((release, index2) => {
-                        const {
-                          slug,
-                          tag_name,
-                          body,
-                          html_url
-                        } = release;
-
-                        return (
-                          <li
-                            key={`${index}-${index2}`}
-                          >
-                            <div
-                              style={{
-                                display: 'flex',
-                                alignItems: 'center'
-                              }}
-                            >
-                              <h6 style={{ marginBottom: 0 }}>
-                                {pkgNames[slug]}
-                              </h6>
-                              &nbsp;
-                              <Hyperlink
-                                href={html_url}
-                                newTab
-                              >
-                                <h6 style={{ marginBottom: 0 }}>
-                                  {tag_name}
-                                </h6>
-                              </Hyperlink>
-                            </div>
-                            {body && (
-                              <div
-                                style={{
-                                  border: '1px solid var(--color-gray-3)',
-                                  marginBottom: '20px',
-                                  marginTop: '10px',
-                                  padding: '10px'
-                                }}
-                              >
-                                <p style={{ margin: 0 }}>
-                                  {body}
-                                </p>
-                              </div>
-                            )}
-                          </li>
-                        )
-                      })}
-                    </ul>
+                    {releases.map((release, index2) => {
+                      return (
+                        <ReleaseRow
+                          key={`${index}-${index2}`}
+                          packageName={pkgNames[release.slug]}
+                          showName
+                          showDate={false}
+                          {...release}
+                        />
+                      )
+                    })}
                   </div>
                 )
               })}

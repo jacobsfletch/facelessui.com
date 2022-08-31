@@ -1,16 +1,24 @@
 @use "@scss/common" as *;
 
-.releaseRow {
-  border-bottom-color: var(--color-gray-3);
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  padding: base();
-  padding-bottom: base(2);
-  width: calc(100% + #{base(2)});
+.dateSection {
   position: relative;
-  left: base(-1);
 
   &:not(:last-child) {
     margin-bottom: base(2);
+  }
+}
+
+.notes {
+  padding: base();
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+:global(.isDark) {
+  &:local() {
+    .li {
+      border: 1px solid var(--color-gray-9);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Heading } from '@components/Heading';
 import { Hyperlink } from '@components/Hyperlink';
+import { MarkdownRenderer } from '@components/MarkdownRenderer';
 import { ReleaseData } from '@root/github-api';
 import { useVersions } from '@root/providers/Versions';
 import { formatDateTime } from '@root/utilities/formatDateTime';
@@ -8,18 +9,24 @@ import classes from './index.module.scss';
 
 export const ReleaseRow: React.FC<ReleaseData & {
   packageSlug?: string
+  packageName?: string
   className?: string
   id?: string
+  showName?: boolean
+  showDate?: boolean
 }> = (props) => {
   const {
     packageSlug,
+    packageName,
     className,
     id,
     tag_name,
     html_url,
     body,
     published_at,
-    prerelease
+    prerelease,
+    showDate,
+    showName
   } = props;
 
   const { versions } = useVersions();
@@ -38,6 +45,12 @@ export const ReleaseRow: React.FC<ReleaseData & {
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/releases#${tag_name}`}
         element='h5'
       >
+        {showName && (
+          <span>
+            {packageName}
+            &nbsp;
+          </span>
+        )}
         {tag_name}
         {tag_name === latestVersion && (
           <span className={classes.latestVersion}>
@@ -52,9 +65,11 @@ export const ReleaseRow: React.FC<ReleaseData & {
           </span>
         )}
       </Heading>
-      <div>
-        {formatDateTime(published_at)}
-      </div>
+      {showDate && (
+        <div>
+          {formatDateTime(published_at)}
+        </div>
+      )}
       {!body && (
         <div>
           No release notes
@@ -65,17 +80,10 @@ export const ReleaseRow: React.FC<ReleaseData & {
           <p style={{ margin: 0 }}>
             Release notes:
           </p>
-          <div
-            style={{
-              border: '1px solid var(--color-gray-3)',
-              marginBottom: '10px',
-              marginTop: '10px',
-              padding: '10px'
-            }}
-          >
-            <p style={{ margin: 0 }}>
+          <div className={classes.notes}>
+            <MarkdownRenderer>
               {body}
-            </p>
+            </MarkdownRenderer>
           </div>
         </div>
       )}

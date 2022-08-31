@@ -97,8 +97,8 @@ const Releases: React.FC<{
         )}
       </div>
       {isLoading && (
-        <p>
-          Loading previous releases...
+        <p className={classes.loading}>
+          Loading release notes...
         </p>
       )}
       {!isLoading && (
