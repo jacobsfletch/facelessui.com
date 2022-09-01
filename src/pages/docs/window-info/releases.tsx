@@ -13,8 +13,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/releases.tsx`}
-      metaTitle="Window Info Releases - Faceless UI"
-      metaDescription="Version releases for the Window Info package."
+      metaTitle="Window Info Releases"
+      metaDescription="Release history of the @faceless-ui/window-info npm module."
+      metaURL="/docs/window-info/releases"
     />
   )
 };

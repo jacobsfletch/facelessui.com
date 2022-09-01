@@ -83,7 +83,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/installation.tsx`}
       metaTitle="Mouse Info Setup"
-      metaDescription="Basic setup for the Mouse Info package."
+      metaDescription="Setup documentation for the @faceless-ui/mouse-info npm module."
+      metaURL="/docs/mouse-info/setup"
     />
   )
 };

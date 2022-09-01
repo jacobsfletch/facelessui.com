@@ -15,12 +15,14 @@ export const Doc: React.FC<{
   children: React.ReactNode
   metaTitle?: string
   metaDescription?: string
+  metaURL?: string
 }> = (props) => {
   const {
     githubUrl,
     children,
     metaTitle,
-    metaDescription
+    metaDescription,
+    metaURL
   } = props;
 
   const {
@@ -36,6 +38,7 @@ export const Doc: React.FC<{
       <Meta
         title={metaTitle}
         description={metaDescription}
+        url={metaURL}
       />
       <BlockContainer>
         <Grid>

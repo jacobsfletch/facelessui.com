@@ -54,8 +54,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/dots/index.tsx`}
-      metaTitle="Dots nav slider example"
-      metaDescription="Dots nav slider example."
+      metaTitle="Example Dots Slider"
+      metaDescription="Example dots slider using the @faceless-ui/slider npm module."
+      metaURL="/docs/slider/examples/dots"
     />
   )
 };

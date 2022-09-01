@@ -52,8 +52,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/examples/lightbox/index.tsx`}
-      metaTitle="Lightbox modal example"
-      metaDescription="Lightbox modal package."
+      metaTitle="Example Lightbox Modal"
+      metaDescription="Example lightbox modal using the @faceless-ui/modal npm module."
+      metaURL="/docs/modal/examples/lightbox"
     />
   )
 };

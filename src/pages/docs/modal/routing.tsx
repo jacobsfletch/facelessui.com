@@ -194,7 +194,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/routing.tsx`}
       metaTitle="Modal Routing"
-      metaDescription="Routing docs for the Modal package."
+      metaDescription="Routing documentation for the @faceless-ui/modal npm module."
+      metaURL="/docs/modal/routing"
     />
   )
 };

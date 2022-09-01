@@ -83,7 +83,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/scroll-info/installation.tsx`}
       metaTitle="Scroll Info Setup"
-      metaDescription="Basic setup for the Scroll Info package."
+      metaDescription="Setup documentation for the @faceless-ui/scroll-info npm module."
+      metaURL="/docs/scroll-info/setup"
     />
   )
 };

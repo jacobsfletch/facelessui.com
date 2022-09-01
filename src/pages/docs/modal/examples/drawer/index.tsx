@@ -52,8 +52,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/modal/examples/drawer/index.tsx`}
-      metaTitle="Drawer modal example"
-      metaDescription="Drawer modal package."
+      metaTitle="Example Drawer Modal"
+      metaDescription="Example drawer modal using the @faceless-ui/modal npm module."
+      metaURL="/docs/modal/examples/drawer"
     />
   )
 };

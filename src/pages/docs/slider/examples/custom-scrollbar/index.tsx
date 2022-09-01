@@ -68,8 +68,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/custom-scrollbar/index.tsx`}
-      metaTitle="Custom scrollbar example"
-      metaDescription="Custom scrollbar example."
+      metaTitle="Example Custom Scrollbar Slider"
+      metaDescription="Example custom scrollbar slider using the @faceless-ui/slider npm module."
+      metaURL="/docs/slider/examples/custom-scrollbar"
     />
   )
 };

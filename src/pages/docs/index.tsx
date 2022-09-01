@@ -13,7 +13,9 @@ const DocsLanding = () => {
   return (
     <Fragment>
       <Meta
-        title="Docs"
+        title="Docs - Faceless UI"
+        description="An unstyled React+Typescript UI library for brands"
+        url="/docs"
       />
       <h1>
         Docs

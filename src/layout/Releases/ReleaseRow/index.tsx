@@ -25,8 +25,8 @@ export const ReleaseRow: React.FC<ReleaseData & {
     body,
     published_at,
     prerelease,
-    showDate,
-    showName
+    showDate = true,
+    showName = false
   } = props;
 
   const { versions } = useVersions();
@@ -76,7 +76,7 @@ export const ReleaseRow: React.FC<ReleaseData & {
         </div>
       )}
       {body && (
-        <div>
+        <div className={classes.body}>
           <p style={{ margin: 0 }}>
             Release notes:
           </p>

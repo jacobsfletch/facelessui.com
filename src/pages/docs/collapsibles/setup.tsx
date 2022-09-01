@@ -118,7 +118,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/setup.tsx`}
       metaTitle="Collapsibles Setup"
-      metaDescription="Basic setup for the collapsibles package."
+      metaDescription="Setup documentation for the @faceless-ui/collapsibles npm module."
+      metaURL="/docs/collapsibles/setup"
     />
   )
 };

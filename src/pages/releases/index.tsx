@@ -92,7 +92,9 @@ const Releases: NextPage = () => {
   return (
     <Fragment>
       <Meta
-        title="Faceless UI Releases"
+        title="Releases"
+        description="Release history for all Faceless UI packages"
+        url="/releases"
       />
       <main>
         {isLoading && (

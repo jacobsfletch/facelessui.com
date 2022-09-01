@@ -8,6 +8,9 @@ const Styleguide = () => {
   return (
     <Fragment>
       <NextHead>
+        <title>
+          Styleguide
+        </title>
         <meta
           key="robots"
           name="robots"

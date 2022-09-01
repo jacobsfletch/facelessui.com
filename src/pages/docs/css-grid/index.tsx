@@ -142,7 +142,8 @@ const DocLayout = (props: any) => {
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/css-grid/index.tsx`}
       metaTitle="CSS Grid "
-      metaDescription="The CSS Grid package."
+      metaDescription="Overview of the @faceless-ui/css-grid npm module."
+      metaURL="/docs/css-grid"
     />
   )
 };

@@ -76,8 +76,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/thumbnail/index.tsx`}
-      metaTitle="Thumbnail slider example"
-      metaDescription="Thumbnail slider example."
+      metaTitle="Example Thumbnail Slider"
+      metaDescription="Example thumbnail slider using the @faceless-ui/slider npm module."
+      metaURL="/docs/slider/examples/thumbnail"
     />
   )
 };

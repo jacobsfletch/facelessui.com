@@ -90,8 +90,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/scroll-info/index.tsx`}
-      metaTitle="Scroll Info"
-      metaDescription="The Scroll Info package."
+      metaTitle="Scroll Info "
+      metaDescription="Overview of the @faceless-ui/scroll-info npm module."
+      metaURL="/docs/scroll-info"
     />
   )
 };

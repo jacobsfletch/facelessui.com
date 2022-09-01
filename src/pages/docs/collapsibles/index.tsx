@@ -136,8 +136,9 @@ const DocLayout = (props: any) => {
     <Doc
       {...props}
       githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/collapsibles/index.tsx`}
-      metaTitle="Collapsibles"
-      metaDescription="The collapsibles package."
+      metaTitle="Collapsibles "
+      metaDescription="Overview of the @faceless-ui/collapsibles npm module."
+      metaURL="/docs/collapsibles"
     />
   )
 };
