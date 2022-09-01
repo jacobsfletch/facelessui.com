@@ -80,7 +80,11 @@ const Releases: NextPage = () => {
         .sort((a, b) => new Date(b[0]).getTime() - new Date(a[0]).getTime())
 
       setReleasesByDate(sortedByDate);
-      setIsLoading(false);
+
+      // NOTE: give the illusion of at least a 1 second load so that page doesn't flash too quickly and appear broken
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
     doFetch();
   }, []);
@@ -97,20 +101,19 @@ const Releases: NextPage = () => {
         url="/releases"
       />
       <main>
-        {isLoading && (
-          <BlockContainer>
-            <div>
-              Loading...
-            </div>
-          </BlockContainer>
-        )}
-        {!isLoading && (
-          <BlockContainer>
-            <Fragment>
-              <h1>
-                Releases
-              </h1>
-              {/* <label>
+        <BlockContainer>
+          <Fragment>
+            <h1>
+              Releases
+            </h1>
+            {isLoading && (
+              <p>
+                Loading...
+              </p>
+            )}
+            {!isLoading && (
+              <Fragment>
+                {/* <label>
                 <div>
                   Showing
                 </div>
@@ -131,39 +134,40 @@ const Releases: NextPage = () => {
                   ))}
                 </select>
               </label> */}
-              {releasesByDate.map((releaseByDate, index) => {
-                const [date, releases] = releaseByDate;
+                {releasesByDate.map((releaseByDate, index) => {
+                  const [date, releases] = releaseByDate;
 
-                return (
-                  <div
-                    key={index}
-                    className={classes.dateSection}
-                  >
-                    <Heading
-                      id={date}
-                      href={`/releases#${date}`}
-                      copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/releases#${date}`}
-                      element='h5'
+                  return (
+                    <div
+                      key={index}
+                      className={classes.dateSection}
                     >
-                      {formatDateTime(date)}
-                    </Heading>
-                    {releases.map((release, index2) => {
-                      return (
-                        <ReleaseRow
-                          key={`${index}-${index2}`}
-                          packageName={pkgNames[release.slug]}
-                          showName
-                          showDate={false}
-                          {...release}
-                        />
-                      )
-                    })}
-                  </div>
-                )
-              })}
-            </Fragment>
-          </BlockContainer>
-        )}
+                      <Heading
+                        id={date}
+                        href={`/releases#${date}`}
+                        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/releases#${date}`}
+                        element='h5'
+                      >
+                        {formatDateTime(date)}
+                      </Heading>
+                      {releases.map((release, index2) => {
+                        return (
+                          <ReleaseRow
+                            key={`${index}-${index2}`}
+                            packageName={pkgNames[release.slug]}
+                            showName
+                            showDate={false}
+                            {...release}
+                          />
+                        )
+                      })}
+                    </div>
+                  )
+                })}
+              </Fragment>
+            )}
+          </Fragment>
+        </BlockContainer>
       </main>
     </Fragment>
   )

@@ -60,7 +60,7 @@ const Home: NextPage = () => {
                   element="h1"
                   marginBottom={false}
                 >
-                  An unstyled React+Typescript UI library for brands
+                  An unstyled <span style={{ display: 'inline-block' }}>React+<wbr />Typescript</span> UI library for brands
                 </Heading>
                 <Hyperlink
                   className={classes.headingLink}

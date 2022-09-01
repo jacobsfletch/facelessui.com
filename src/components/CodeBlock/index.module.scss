@@ -33,6 +33,7 @@
   padding: base(1) !important;
   margin: 0 !important;
   border: var(--color-gray-2) 1px solid !important;
+  border-radius: 2px;
 }
 
 :global(.isDark) {

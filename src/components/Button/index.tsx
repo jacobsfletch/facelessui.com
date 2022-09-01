@@ -1,6 +1,7 @@
 import { Hyperlink } from '@components/Hyperlink';
 import { ArrowIcon } from '@root/icons/Arrow';
-import React from 'react';
+import { useCustomCursor } from '@root/providers/CustomCursorProvider';
+import React, { useEffect } from 'react';
 import classes from './index.module.scss';
 
 export type ButtonProps = {
@@ -35,6 +36,16 @@ export const Button: React.FC<ButtonProps> = (props) => {
     newTab
   } = props;
 
+  const [isHovered, setIsHovered] = React.useState(false);
+  const { setHighlightCursor } = useCustomCursor();
+
+  useEffect(() => {
+    setHighlightCursor(isHovered);
+  }, [
+    setHighlightCursor,
+    isHovered
+  ])
+
   const classList = [
     className,
     classes.button,
@@ -48,6 +59,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
         className={classList}
         type={type}
         onClick={onClick}
+        onMouseEnter={() => { setIsHovered(true) }}
+        onMouseLeave={() => { setIsHovered(false) }}
       >
         <span className={classes.contents}>
           {label}
@@ -62,7 +75,15 @@ export const Button: React.FC<ButtonProps> = (props) => {
   }
 
   return (
-    <div className={classList}>
+    <div
+      className={classList}
+      onMouseEnter={() => {
+        setIsHovered(true)
+      }}
+      onMouseLeave={() => {
+        setIsHovered(false)
+      }}
+    >
       <Hyperlink
         underline={false}
         href={href}

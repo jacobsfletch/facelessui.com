@@ -3,6 +3,7 @@ import React, { Fragment } from 'react';
 import NextHead from 'next/head';
 import { MarginGrid } from '@components/MarginGrid';
 import { Heading } from '@components/Heading';
+import { Button } from '@components/Button';
 
 const Styleguide = () => {
   return (
@@ -261,6 +262,53 @@ const Styleguide = () => {
               </div>
             </div>
           </div>
+        </div>
+      </BlockContainer>
+      <br />
+      <BlockContainer>
+        <Heading
+          id="buttons"
+          href="/styleguide#buttons"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/styleguide#buttons`}
+          element='h5'
+        >
+          Buttons
+        </Heading>
+        <div
+          style={{
+            marginTop: '20px',
+            marginBottom: '20px',
+          }}
+        >
+          <Button
+            appearance="primary"
+            href="/styleguide#buttons"
+            label='Lorem ipsum'
+          />
+          <Button
+            appearance="primary"
+            href="/styleguide#buttons"
+            label='Lorem ipsum'
+            size="small"
+          />
+        </div>
+        <div
+          style={{
+            backgroundColor: 'var(--color-gray-10',
+            padding: '20px'
+          }}
+        >
+          <Button
+            appearance="primary"
+            href="/styleguide#buttons"
+            label='Lorem ipsum'
+          />
+          <Button
+            appearance="primary"
+            href="/styleguide#buttons"
+            label='Lorem ipsum'
+            size="small"
+          />
         </div>
       </BlockContainer>
     </Fragment>

@@ -8,6 +8,7 @@
   background: var(--color-gray-2);
   padding: base();
   margin-bottom: base();
+  border-radius: 2px;
 
   @include mid-break {
     margin-bottom: base(0.5);
