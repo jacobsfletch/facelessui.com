@@ -1,12 +1,7 @@
 import { GetServerSideProps } from "next";
-import fs from "fs";
-const path = require("path");
+import { promises as fs } from "fs";
 
 const Sitemap = () => { };
-
-const blacklistedPaths = [
-  'api',
-]
 
 const blacklistedPages = [
   '/sitemap.xml',
@@ -19,70 +14,31 @@ const blacklistedPages = [
   '/styleguide',
 ];
 
+type Route = {
+  page: string
+}
+
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { res } = context;
 
-  const getStaticPages = () => {
-    const paths: {
-      path: string
-      lastModified: string
-    }[] = [];
+  const staticPaths: string[] = [];
 
-    const pathToPagesDir: string = process.env.NODE_ENV === 'production' ? '.next/server/pages' : 'src/pages';
-
-    const recursivelyGetPages = (directoryPath: string) => {
-      const directory = fs.readdirSync(directoryPath);
-
-      directory.forEach(fileName => {
-        const pathIsBlacklisted = blacklistedPaths.includes(fileName);
-        const isDynamic = fileName.startsWith('[');
-        console.log('fileName', fileName);
-
-        if (!pathIsBlacklisted && !isDynamic) {
-          const fileExt = path.extname(fileName);
-          const isJSFile = fileExt === ".js" || fileExt === '.tsx'; //  for develeopment
-          const isHTMLFile = fileExt === ".html"; // for production
-
-          const fullPath = path.join(directoryPath, fileName);
-
-          if (isJSFile || isHTMLFile) {
-            if (!pathIsBlacklisted) {
-              let permalink = fullPath
-                .replace(pathToPagesDir, '')
-                .replace('.tsx', '')
-                .replace('.js', '')
-                .replace('.html', '');
-
-
-              if (permalink.endsWith('/index')) permalink = permalink.replace('/index', '');
-
-              const pageIsBlacklisted = blacklistedPages.includes(permalink);
-
-              if (permalink && !pageIsBlacklisted) {
-                return paths.push({
-                  path: `${process.env.NEXT_PUBLIC_APP_URL}${permalink}`,
-                  lastModified: new Date().toISOString()
-                });
-              }
-            }
-          } else {
-            const isDirectory = fs.statSync(fullPath).isDirectory();
-
-            if (isDirectory) {
-              return recursivelyGetPages(fullPath);
-            }
+  if (process.env.NODE_ENV === 'production') {
+    try {
+      const file = await fs.readFile(`.next/routes-manifest.json`);
+      const routesManifest = await JSON.parse(file as unknown as string);
+      if (routesManifest.staticRoutes) {
+        routesManifest.staticRoutes.forEach((route: Route) => {
+          const { page } = route;
+          if (page && !blacklistedPages.includes(page)) {
+            staticPaths.push(page);
           }
-        }
-        return
-      });
+        });
+      }
+    } catch (err) {
+      console.error(err);
     }
-
-    recursivelyGetPages(pathToPagesDir);
-
-    return paths;
   }
-
-  const staticPaths = getStaticPages();
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -92,22 +48,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
       </url>
-      ${staticPaths.map((page) => {
-    const {
-      path,
-      lastModified
-    } = page;
-
+    ${staticPaths.map((path) => {
     return `<url>
-    <loc>${path}</loc>
-    <lastmod>${lastModified}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <loc>${`${process.env.NEXT_PUBLIC_APP_URL}${path}`}</loc>
+  <lastmod>${new Date().toISOString()}</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+</url>
 `;
-  })
-      .join("")}
-    </urlset>
+  }).join("")}
+</urlset>
   `;
 
   res.setHeader("Content-Type", "text/xml");
