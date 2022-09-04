@@ -36,6 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       directory.forEach(fileName => {
         const pathIsBlacklisted = blacklistedPaths.includes(fileName);
         const isDynamic = fileName.startsWith('[');
+        console.log('fileName', fileName);
 
         if (!pathIsBlacklisted && !isDynamic) {
           const fileExt = path.extname(fileName);
