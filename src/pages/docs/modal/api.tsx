@@ -623,8 +623,9 @@ export const MyComponent = () => {
           </InlineCode>
           {'.'}
         </p>
-        <CodeBlock>
-          {`import react from 'react';
+        <Margin bottom="xs">
+          <CodeBlock>
+            {`import react from 'react';
 import { asModal } from '@faceless-ui/modal;
 
 export const MyModal = asModal((props) => {
@@ -633,7 +634,8 @@ export const MyModal = asModal((props) => {
     ...
   )
 }, 'my-modal');`}
-        </CodeBlock>
+          </CodeBlock>
+        </Margin>
       </JumplistNode>
       <JumplistNode nodeID="typescript">
         <Heading
