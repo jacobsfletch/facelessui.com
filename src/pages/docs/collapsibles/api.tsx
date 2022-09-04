@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { Heading } from '@components/Heading';
 import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
-import { collapsiblesJumplistNav } from '@root/docs-nav';
+import { collapsiblesAPINav } from '@root/docs-nav';
 import { InlineCode } from '@components/InlineCode';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
@@ -19,7 +19,7 @@ const CollapsiblesAPI = () => {
   } = useJumplist();
 
   useEffect(() => {
-    const jumplist = collapsiblesJumplistNav.map((item) => ({
+    const jumplist = collapsiblesAPINav.map((item) => ({
       nodeID: item.id || '',
       label: item.label,
     }));
@@ -387,6 +387,28 @@ export const MyComponent = () => {
         <BasicContext
           href="#group-props"
         />
+      </JumplistNode>
+      <JumplistNode nodeID="typescript">
+        <Heading
+          id="typescript"
+          href="/docs/collapsibles/api#typescript"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#typescript`}
+          element='h4'
+        >
+          TypeScript
+        </Heading>
+        <p>
+          All types can be directly imported
+        </p>
+        <CodeBlock>{`import {
+  CollapsibleProps,
+  ICollapsibleContext,
+  CollapsibleContentProps,
+  CollapsibleTogglerProps,
+  ICollapsibleGroupContext,
+  CollapsibleGroupProps
+} from '@faceless-ui/collapsibles/dist/types';`}
+        </CodeBlock>
       </JumplistNode>
     </Fragment>
   )

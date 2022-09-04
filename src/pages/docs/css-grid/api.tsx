@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
 import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
-import { cssGridJumplistNav } from '@root/docs-nav';
+import { cssGridAPINav } from '@root/docs-nav';
 import { Heading } from '@components/Heading';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
@@ -19,7 +19,7 @@ const CSSGridAPI = () => {
   } = useJumplist();
 
   useEffect(() => {
-    const jumplist = cssGridJumplistNav.map((item) => ({ nodeID: item.id || '' }));
+    const jumplist = cssGridAPINav.map((item) => ({ nodeID: item.id || '' }));
     setJumplist(jumplist);
     return () => {
       clearJumplist();
@@ -437,6 +437,31 @@ export const MyComponent = () => {
 };`}
           </CodeBlock>
         </Margin>
+      </JumplistNode>
+      <JumplistNode nodeID="typescript">
+        <Heading
+          id="typescript"
+          href="/docs/css-grid/api#typescript"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#typescript`}
+          element='h4'
+        >
+          TypeScript
+        </Heading>
+        <p>
+          All types can be directly imported
+        </p>
+        <CodeBlock>{`import {
+  IGrid,
+  GridProps,
+  ICell,
+  CellProps,
+  SettingsProviderProps,
+  Settings,
+  Breakpoints,
+  Gaps,
+  Columns
+} from '@faceless-ui/css-grid/dist/types';`}
+        </CodeBlock>
       </JumplistNode>
     </Fragment>
   )

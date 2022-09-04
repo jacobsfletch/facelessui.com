@@ -113,6 +113,23 @@ export const MyComponent = withMouseInfo((props) => {
 };`}
         </CodeBlock>
       </Margin>
+      <Heading
+        id="typescript"
+        href="/docs/mouse-info/api#typescript"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#typescript`}
+        element='h4'
+      >
+        TypeScript
+      </Heading>
+      <p>
+        All types can be directly imported
+      </p>
+      <CodeBlock>{`import {
+  MouseInfoProviderProps,
+  MouseInfoProps,
+  IMouseInfoContext
+} from '@faceless-ui/mouse-info/dist/types';`}
+      </CodeBlock>
     </Fragment>
   )
 }

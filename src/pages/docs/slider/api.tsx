@@ -734,6 +734,32 @@ export const MyComponent = () => {
           </CodeBlock>
         </Margin>
       </JumplistNode>
+      <JumplistNode nodeID="typescript">
+        <Heading
+          id="typescript"
+          href="/docs/slider/api#typescript"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#typescript`}
+          element='h4'
+        >
+          TypeScript
+        </Heading>
+        <p>
+          All types can be directly imported
+        </p>
+        <CodeBlock>{`import {
+  ISliderContext,
+  SliderSettings,
+  SliderProviderProps,
+  ISlide,
+  SlideProps,
+  SliderProgressProps,
+  ProgressIndicatorProps,
+  SliderButtonProps,
+  DotsNavProps,
+  SliderTrackProps
+} from '@faceless-ui/slider/dist/types';`}
+        </CodeBlock>
+      </JumplistNode>
     </Fragment>
   )
 }

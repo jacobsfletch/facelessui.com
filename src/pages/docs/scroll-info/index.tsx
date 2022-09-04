@@ -73,14 +73,6 @@ const ScrollInfoDoc = () => {
       <div>
         <LogProps {...scrollInfo} />
       </div>
-      {/* <Hyperlink
-        href="https://scroll-info.faceless-ui.com"
-        newTab
-      >
-        <small>
-          Code Sandbox
-        </small>
-      </Hyperlink> */}
     </Fragment>
   )
 }

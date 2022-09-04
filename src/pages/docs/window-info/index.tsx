@@ -79,14 +79,6 @@ const WindowInfoDoc = () => {
         <div>
           <LogProps {...windowInfo} />
         </div>
-        {/* <Hyperlink
-          href="https://window-info.faceless-ui.com"
-          newTab
-        >
-          <small>
-            Code Sandbox
-          </small>
-        </Hyperlink> */}
       </Margin>
     </Fragment>
   )

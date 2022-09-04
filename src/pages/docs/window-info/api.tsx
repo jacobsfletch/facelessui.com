@@ -159,6 +159,24 @@ export const MyComponent = withWindowInfo((props) => {
 };`}
         </CodeBlock>
       </Margin>
+      <Heading
+        id="typescript"
+        href="/docs/window-info/api#typescript"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#typescript`}
+        element='h4'
+      >
+        TypeScript
+      </Heading>
+      <p>
+        All types can be directly imported
+      </p>
+      <CodeBlock>{`import {
+  IWindowInfoContext,
+  Breakpoints,
+  WindowInfoProviderProps,
+  WindowInfoProps
+} from '@faceless-ui/window-info/dist/types';`}
+      </CodeBlock>
     </Fragment>
   )
 }

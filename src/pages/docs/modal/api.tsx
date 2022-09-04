@@ -635,6 +635,26 @@ export const MyModal = asModal((props) => {
 }, 'my-modal');`}
         </CodeBlock>
       </JumplistNode>
+      <JumplistNode nodeID="typescript">
+        <Heading
+          id="typescript"
+          href="/docs/modal/api#typescript"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#typescript`}
+          element='h4'
+        >
+          TypeScript
+        </Heading>
+        <p>
+          All types can be directly imported
+        </p>
+        <CodeBlock>{`import {
+  ModalProviderProps,
+  IModalContext,
+  ModalContainerProps,
+  ModalProps
+} from '@faceless-ui/modal/dist/types';`}
+        </CodeBlock>
+      </JumplistNode>
     </Fragment>
   )
 }

@@ -4,7 +4,7 @@ import { JumplistNode, useJumplist } from '@faceless-ui/jumplist';
 import { BasicProps } from '@components/BasicProps';
 import { InlineCode } from '@components/InlineCode';
 import { Hyperlink } from '@components/Hyperlink';
-import { jumplistJumplistNav } from '@root/docs-nav';
+import { jumplistAPINav } from '@root/docs-nav';
 import { Heading } from '@components/Heading';
 import Margin from '@components/Margin';
 import { CodeBlock } from '@components/CodeBlock';
@@ -18,7 +18,7 @@ const JumplistAPI = () => {
   } = useJumplist();
 
   useEffect(() => {
-    const jumplist = jumplistJumplistNav.map((item) => ({ nodeID: item.id || '' }));
+    const jumplist = jumplistAPINav.map((item) => ({ nodeID: item.id || '' }));
     setJumplist(jumplist);
     return () => {
       clearJumplist();
@@ -364,6 +364,28 @@ export const MyComponent = () => {
 }`}
           </CodeBlock>
         </Margin>
+      </JumplistNode>
+      <JumplistNode nodeID="typescript">
+        <Heading
+          id="typescript"
+          href="/docs/jumplist/api#typescript"
+          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#typescript`}
+          element='h4'
+        >
+          TypeScript
+        </Heading>
+        <p>
+          All types can be directly imported
+        </p>
+        <CodeBlock>{`import {
+  JumplistButtonProps,
+  JumplistNodeProps,
+  IJumplistContext,
+  JumplistNode,
+  JumplistNodes,
+  JumplistProviderProps
+} from '@faceless-ui/jumplist/dist/types';`}
+        </CodeBlock>
       </JumplistNode>
     </Fragment>
   )

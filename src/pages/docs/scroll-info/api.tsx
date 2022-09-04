@@ -158,6 +158,23 @@ export const MyComponent = withScrollInfo((props) => {
 };`}
         </CodeBlock>
       </Margin>
+      <Heading
+        id="typescript"
+        href="/docs/scroll-info/api#typescript"
+        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#typescript`}
+        element='h4'
+      >
+        TypeScript
+      </Heading>
+      <p>
+        All types can be directly imported
+      </p>
+      <CodeBlock>{`import {
+  ScrollInfoProviderProps,
+  ScrollInfoProps,
+  IScrollInfoContext
+} from '@faceless-ui/scroll-info/dist/types';`}
+      </CodeBlock>
     </Fragment>
   )
 }

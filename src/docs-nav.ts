@@ -46,6 +46,12 @@ export const modalAPINav: NavItem[] = [
     id: 'asModal',
     label: 'asModal'
   },
+  {
+    type: 'link',
+    href: "/docs/modal/api#typescript",
+    label: 'TypeScript',
+    id: 'link'
+  },
 ];
 
 export const modalExamplesNav: NavItem[] = [
@@ -61,7 +67,7 @@ export const modalExamplesNav: NavItem[] = [
   },
 ]
 
-export const cssGridJumplistNav: NavItem[] = [
+export const cssGridAPINav: NavItem[] = [
   {
     type: 'link',
     href: "/docs/css-grid/api#provider",
@@ -97,10 +103,16 @@ export const cssGridJumplistNav: NavItem[] = [
     href: "/docs/css-grid/api#useSettings",
     label: 'useSettings',
     id: 'useSettings'
-  }
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#typescript",
+    label: 'TypeScript',
+    id: 'link'
+  },
 ]
 
-export const jumplistJumplistNav: NavItem[] = [
+export const jumplistAPINav: NavItem[] = [
   {
     type: 'link',
     href: "/docs/jumplist/api#provider",
@@ -124,6 +136,12 @@ export const jumplistJumplistNav: NavItem[] = [
     href: "/docs/jumplist/api#useJumplist",
     label: 'useJumplist',
     id: 'useJumplist',
+  },
+  {
+    type: 'link',
+    href: "/docs/jumplist/api#typescript",
+    label: 'TypeScript',
+    id: 'link'
   },
 ]
 
@@ -168,6 +186,12 @@ export const sliderAPINav: NavItem[] = [
     href: "/docs/slider/api#useSlider",
     label: 'useSlider',
     id: 'useSlider',
+  },
+  {
+    type: 'link',
+    href: "/docs/slider/api#typescript",
+    label: 'TypeScript',
+    id: 'link'
   },
 ]
 
@@ -219,7 +243,7 @@ export const sliderExamplesNav: NavItem[] = [
   },
 ]
 
-export const collapsiblesJumplistNav: NavItem[] = [
+export const collapsiblesAPINav: NavItem[] = [
   {
     type: 'link',
     href: "/docs/collapsibles/api#collapsible",
@@ -243,6 +267,12 @@ export const collapsiblesJumplistNav: NavItem[] = [
     href: "/docs/collapsibles/api#group",
     label: 'CollapsibleGroup',
     id: 'group'
+  },
+  {
+    type: 'link',
+    href: "/docs/collapsibles/api#typescript",
+    label: 'TypeScript',
+    id: 'link'
   },
 ];
 
@@ -362,7 +392,7 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/css-grid/api",
         label: 'API Reference',
-        items: cssGridJumplistNav
+        items: cssGridAPINav
       },
       {
         type: 'link',
@@ -391,7 +421,7 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/jumplist/api",
         label: 'API Reference',
-        items: jumplistJumplistNav
+        items: jumplistAPINav
       },
       {
         type: 'link',
@@ -420,7 +450,7 @@ export const nav: DocsNav = [
         type: 'jumplist',
         href: "/docs/collapsibles/api",
         label: 'API Reference',
-        items: collapsiblesJumplistNav
+        items: collapsiblesAPINav
       },
       {
         type: 'link',

@@ -73,14 +73,6 @@ const MouseInfoDoc = () => {
       <div>
         <LogProps {...mouseInfo} />
       </div>
-      {/* <Hyperlink
-        href="https://mouse-info.faceless-ui.com"
-        newTab
-      >
-        <small>
-          Code Sandbox
-        </small>
-      </Hyperlink> */}
     </Fragment>
   )
 }
