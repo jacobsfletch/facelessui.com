@@ -1,4 +1,5 @@
 const path = require('path');
+const csp = require('./csp');
 
 module.exports = {
   reactStrictMode: true,
@@ -30,6 +31,16 @@ module.exports = {
   ]),
   async headers() {
     const headers = [];
+
+    headers.push({
+      source: '/(.*)', // applies to all routes
+      headers: [
+        {
+          key: 'Content-Security-Policy',
+          value: csp,
+        }
+      ],
+    })
 
     if (!process.env.NEXT_PUBLIC_IS_LIVE) {
       headers.push({
