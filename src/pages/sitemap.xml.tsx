@@ -39,15 +39,18 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
         if (!pathIsBlacklisted && !isDynamic) {
           const fileExt = path.extname(fileName);
-          const isJSFile = fileExt === ".js" || fileExt === '.tsx';
+          const isJSFile = fileExt === ".js" || fileExt === '.tsx'; //  for develeopment
+          const isHTMLFile = fileExt === ".html"; // for production
+
           const fullPath = path.join(directoryPath, fileName);
 
-          if (isJSFile) {
+          if (isJSFile || isHTMLFile) {
             if (!pathIsBlacklisted) {
               let permalink = fullPath
                 .replace(pathToPagesDir, '')
                 .replace('.tsx', '')
-                .replace('.js', '');
+                .replace('.js', '')
+                .replace('.html', '');
 
 
               if (permalink.endsWith('/index')) permalink = permalink.replace('/index', '');
@@ -82,20 +85,25 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+        <loc>${process.env.NEXT_PUBLIC_APP_URL}</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+      </url>
       ${staticPaths.map((page) => {
     const {
       path,
       lastModified
     } = page;
 
-    return `
-            <url>
-              <loc>${path}</loc>
-              <lastmod>${lastModified}</lastmod>
-              <changefreq>monthly</changefreq>
-              <priority>1.0</priority>
-            </url>
-          `;
+    return `<url>
+    <loc>${path}</loc>
+    <lastmod>${lastModified}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+`;
   })
       .join("")}
     </urlset>
