@@ -54,7 +54,8 @@ const policies = {
     "*.googletagmanager.com",
     "*.google-analytics.com",
     "registry.npmjs.org",
-    "https://api.github.com"
+    "https://api.github.com",
+    "vitals.vercel-insights.com"
   ],
   "object-src": [
     "'self'",
