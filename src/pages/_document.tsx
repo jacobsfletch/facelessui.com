@@ -18,9 +18,13 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <link
-            href="https://fonts.cdnfonts.com/css/jetbrains-mono?display=swap"
-            rel="stylesheet"
+            rel="preconnect"
+            href="https://fonts.cdnfonts.com/css/jetbrains-mono"
+            crossOrigin="anonymous"
           />
+          <style data-href="https://fonts.cdnfonts.com/css/jetbrains-mono&display=swap">
+            {`@font-face{font-family:'JetBrains Mono';font-style:monospace;`}
+          </style>
         </Head>
         <body>
           <Main />
