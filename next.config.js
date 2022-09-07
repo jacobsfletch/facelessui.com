@@ -3,6 +3,7 @@ const csp = require('./csp');
 
 module.exports = {
   reactStrictMode: true,
+  productionBrowserSourceMaps: true,
   webpack: (config) => {
     const configCopy = { ...config };
     configCopy.resolve.alias = {
