@@ -12,7 +12,7 @@
     "@faceless-ui/collapsibles": "^1.1.1",
     "@faceless-ui/css-grid": "^1.2.0",
     "@faceless-ui/jumplist": "^1.0.10",
-    "@faceless-ui/modal": "^1.3.2",
+    "@faceless-ui/modal": "1.3.5",
     "@faceless-ui/mouse-info": "^1.3.0",
     "@faceless-ui/scroll-info": "^1.3.0",
     "@faceless-ui/slider": "^1.1.11",
