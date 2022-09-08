@@ -49,7 +49,8 @@ const ModalDoc = () => {
           id="how-it-works"
           href="/docs/modal#how-it-works"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal#how-it-works`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           How it works
         </Heading>
@@ -123,7 +124,8 @@ const ModalDoc = () => {
         id="features"
         href="/docs/modal#features"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal#features`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Key features
       </Heading>

@@ -42,7 +42,8 @@ const CollapsiblesAPI = () => {
           id="collapsible"
           href="/docs/collapsibles/api#collapsible"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#collapsible`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<Collapsible>'}
         </Heading>
@@ -81,7 +82,8 @@ export const MyComponent = () => {
           id="collapsible-props"
           href="#collapsible-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#collapsible-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -140,7 +142,8 @@ export const MyComponent = () => {
           id="context"
           href="#context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -183,7 +186,8 @@ export const MyComponent = () => {
           id="content"
           href="/docs/collapsibles/api#content"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#content`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<CollapsibleContent>'}
         </Heading>
@@ -217,7 +221,8 @@ export const MyComponent = () => {
           id="content-props"
           href="/docs/collapsibles/api#content-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#content-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -228,7 +233,8 @@ export const MyComponent = () => {
           id="toggler"
           href="/docs/collapsibles/api#toggler"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#toggler`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<CollapsibleToggler>'}
         </Heading>
@@ -255,7 +261,8 @@ export const MyComponent = () => {
           id="toggler-props"
           href="/docs/collapsibles/api#toggler-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#toggler-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -267,7 +274,8 @@ export const MyComponent = () => {
           id="toggler-a11y"
           href="toggler-a11y"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#toggler-a11y`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Accessibility
         </Heading>
@@ -296,7 +304,8 @@ export const MyComponent = () => {
           id="group"
           href="#group"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<CollapsibleGroup>'}
         </Heading>
@@ -334,7 +343,8 @@ export const MyComponent = () => {
           id="group-props"
           href="#group-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -372,7 +382,8 @@ export const MyComponent = () => {
           id="group-context"
           href="#group-context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#group-context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -393,7 +404,8 @@ export const MyComponent = () => {
           id="typescript"
           href="/docs/collapsibles/api#typescript"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#typescript`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           TypeScript
         </Heading>

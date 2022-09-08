@@ -1,4 +1,6 @@
+import { Heading } from '@components/Heading';
 import { Hyperlink } from '@components/Hyperlink'
+import { ArrowIcon } from '@root/icons/Arrow';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React from 'react'
 import { CardBackground } from './Background';
@@ -39,15 +41,26 @@ export const Card: React.FC<{
           </div>
         )}
         {title && (
-          <h5 className={classes.title}>
+          <Heading
+            className={classes.title}
+            element="h2"
+            as="h5"
+            margin={false}
+          >
             {title}
-          </h5>
+          </Heading>
         )}
-        {description && (
-          <p className={classes.description}>
-            {description}
-          </p>
-        )}
+        <p className={classes.description}>
+          {description}
+        </p>
+        <div className={classes.cta}>
+          <span className={classes.ctaText}>
+            Documentation&nbsp;
+          </span>
+          <span className={classes.ctaIcon}>
+            <ArrowIcon size="small" />
+          </span>
+        </div>
       </CardBackground>
     </Hyperlink>
   )

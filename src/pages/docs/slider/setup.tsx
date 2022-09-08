@@ -25,7 +25,8 @@ const SliderInstallation = () => {
           id="installation"
           href="/docs/slider/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>
@@ -84,7 +85,8 @@ export const MyComponent = () => {
         id="navigation"
         href="/docs/slider/setup#navigation"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/setup#navigation`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Slider navigation
       </Heading>
@@ -174,7 +176,8 @@ export const MyComponent = () => {
         id="sync"
         href="/docs/slider/setup#responsive"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/setup#responsive`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Responsive sliders
       </Heading>
@@ -226,7 +229,8 @@ export const MyComponent = () => {
         id="sync"
         href="/docs/slider/setup#sync"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/setup#sync`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Synchronized sliders
       </Heading>

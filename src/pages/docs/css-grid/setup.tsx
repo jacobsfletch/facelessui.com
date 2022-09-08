@@ -25,7 +25,8 @@ const CSSGridInstallation = () => {
           id="installation"
           href="/docs/css-grid/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>
@@ -131,7 +132,8 @@ export const MyComponent = () => {
         id="nested-grids"
         href="/docs/css-grid#nested-grids"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#nested-grids`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Nested grids
       </Heading>

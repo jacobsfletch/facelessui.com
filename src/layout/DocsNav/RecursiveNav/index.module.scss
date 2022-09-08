@@ -18,13 +18,13 @@
 .itemLabel {
   position: relative;
   font-weight: normal;
-  color: var(--color-gray-4);
+  color: var(--color-gray-5);
   display: flex;
   align-items: center;
   white-space: nowrap;
 
   &:hover {
-    color: var(--color-gray-5);
+    color: var(--color-gray-10);
   }
 
   @include mid-break {
@@ -43,9 +43,9 @@
 }
 
 .itemIsActive {
-  color: var(--color-gray-8);
+  color: var(--color-gray-10);
   &:hover {
-    color: var(--color-gray-8);
+    color: var(--color-gray-10);
   }
 }
 

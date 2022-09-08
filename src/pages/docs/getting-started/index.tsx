@@ -32,7 +32,8 @@ const GettingStartedDoc = () => {
           id="styling"
           href="/docs/getting-started#react"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#react`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           React
         </Heading>
@@ -52,7 +53,8 @@ const GettingStartedDoc = () => {
           id="styling"
           href="/docs/getting-started#react"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#react`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Web APIs
         </Heading>
@@ -72,7 +74,8 @@ const GettingStartedDoc = () => {
           id="styling"
           href="/docs/getting-started#styling"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#styling`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Styling
         </Heading>
@@ -92,7 +95,8 @@ const GettingStartedDoc = () => {
           id="accessibility"
           href="/docs/getting-started#accessibility"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#accessibility`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Accessibility
         </Heading>
@@ -105,7 +109,8 @@ const GettingStartedDoc = () => {
           id="typescript"
           href="/docs/getting-started#typescript"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/getting-started#typescript`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           TypeScript
         </Heading>

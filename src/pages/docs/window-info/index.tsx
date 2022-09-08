@@ -39,7 +39,8 @@ const WindowInfoDoc = () => {
         id="features"
         href="/docs/window-info#features"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info#features`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Key features
       </Heading>

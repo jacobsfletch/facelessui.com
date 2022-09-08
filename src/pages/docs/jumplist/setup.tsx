@@ -25,7 +25,8 @@ const JumplistSetup = () => {
           id="installation"
           href="/docs/jumplist/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>
@@ -169,7 +170,8 @@ export const MyComponent = () => {
         id="navigation"
         href="/docs/jumplist/setup#navigation"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#navigation`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Navigation
       </Heading>
@@ -227,7 +229,8 @@ export const MyComponent = () => {
           id="smooth-scroll"
           href="/docs/jumplist/setup#smooth-scroll"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Smooth-scrolling
         </Heading>

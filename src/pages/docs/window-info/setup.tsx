@@ -11,9 +11,9 @@ import { VersionNumber } from '@components/VersionNumber';
 const WindowInfoInstallation = () => {
   return (
     <Fragment>
-      <h4>
+      <h1>
         Basic Setup
-      </h4>
+      </h1>
       <p>
         {'Latest version: '}
         <VersionNumber name="window-info" />
@@ -23,7 +23,8 @@ const WindowInfoInstallation = () => {
           id="installation"
           href="/docs/window-info/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>

@@ -19,7 +19,8 @@ const ModalRouting = () => {
         id="history"
         href="/docs/modal/routing#history"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#history`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         History API
       </Heading>
@@ -62,7 +63,8 @@ export const MyApp = (props) => {
         id="custom"
         href="/docs/modal/routing#custom"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#custom`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Custom router
       </Heading>
@@ -144,7 +146,8 @@ export default App = () => {
         id="CloseModalOnRouteChange"
         href="#CloseModalOnRouteChange"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/routing#CloseModalOnRouteChange`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         {'<CloseModalOnRouteChange>'}
       </Heading>

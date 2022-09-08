@@ -30,7 +30,8 @@ const GridDoc = () => {
           id="how-it-works"
           href="/docs/css-grid#how-it-works"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#how-it-works`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           How it works
         </Heading>
@@ -93,7 +94,8 @@ const GridDoc = () => {
           id="features"
           href="/docs/css-grid#features"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid#features`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Key features
         </Heading>

@@ -39,7 +39,8 @@ const ScrollInfoDoc = () => {
         id="features"
         href="/docs/scroll-info#features"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info#features`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Key features
       </Heading>

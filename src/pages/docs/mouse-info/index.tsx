@@ -39,7 +39,8 @@ const MouseInfoDoc = () => {
         id="features"
         href="/docs/mouse-info#features"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info#features`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         Key features
       </Heading>

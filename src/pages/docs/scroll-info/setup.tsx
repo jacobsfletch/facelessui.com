@@ -11,9 +11,9 @@ import { VersionNumber } from '@components/VersionNumber';
 const ScrollInfoInstallation = () => {
   return (
     <Fragment>
-      <h4>
+      <h1>
         Basic Setup
-      </h4>
+      </h1>
       <p>
         {'Latest version: '}
         <VersionNumber
@@ -25,7 +25,8 @@ const ScrollInfoInstallation = () => {
           id="installation"
           href="/docs/scroll-info/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>

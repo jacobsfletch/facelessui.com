@@ -16,7 +16,8 @@ const WindowInfoAPI = () => {
         id="provider"
         href="/docs/window-info/api#provider"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#provider`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         {'<WindowInfoProvider>'}
       </Heading>
@@ -43,7 +44,8 @@ export const MyApp = () = (
         id="props"
         href="/docs/window-info/api#props"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#props`}
-        element='h5'
+        element="h3"
+        as="h5"
       >
         Props
       </Heading>
@@ -63,7 +65,8 @@ export const MyApp = () = (
         id="context"
         href="/docs/window-info/api#context"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#context`}
-        element='h5'
+        element="h3"
+        as="h5"
       >
         Context
       </Heading>
@@ -107,7 +110,8 @@ export const MyApp = () = (
         id="useWindowInfo"
         href="/docs/window-info/api#useWindowInfo"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#useWindowInfo`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         useWindowInfo
       </Heading>
@@ -135,7 +139,8 @@ export const MyComponent = () => {
         id="withWindowInfo"
         href="/docs/window-info/api#withWindowInfo"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#withWindowInfo`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         withWindowInfo
       </Heading>
@@ -163,7 +168,8 @@ export const MyComponent = withWindowInfo((props) => {
         id="typescript"
         href="/docs/window-info/api#typescript"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#typescript`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         TypeScript
       </Heading>

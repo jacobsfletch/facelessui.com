@@ -74,7 +74,6 @@ const DarkModeProvider: React.FC<{
     }
   }, [theme])
 
-
   // NOTE: populate stored theme on first load
   useEffect(() => {
     setStoredTheme(getStoredTheme());

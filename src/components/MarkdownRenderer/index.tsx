@@ -33,6 +33,26 @@ export const MarkdownRenderer: React.FC<{
                 </CodeBlock>
               )
             },
+            h1: ({ children }) => (
+              <h5>
+                {children}
+              </h5>
+            ),
+            h2: ({ children }) => (
+              <h5>
+                {children}
+              </h5>
+            ),
+            h3: ({ children }) => (
+              <h5>
+                {children}
+              </h5>
+            ),
+            h4: ({ children }) => (
+              <h5>
+                {children}
+              </h5>
+            ),
             p: ({ children }) => {
               return (
                 <p style={{ margin: 0 }}>

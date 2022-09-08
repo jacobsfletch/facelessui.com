@@ -44,7 +44,8 @@ const JumplistDoc = () => {
           id="how-it-works"
           href="#how-it-works"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#how-it-works`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           How it works
         </Heading>
@@ -136,7 +137,8 @@ const JumplistDoc = () => {
           id="features"
           href="#features"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist#features`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Key features
         </Heading>

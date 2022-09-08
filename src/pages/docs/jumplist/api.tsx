@@ -38,7 +38,8 @@ const JumplistAPI = () => {
           id="provider"
           href="/docs/jumplist/api#provider"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#provider`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<JumplistProvider>'}
         </Heading>
@@ -74,7 +75,8 @@ export const MyApp = () => {
           id="provider-props"
           href="/docs/jumplist/api#provider-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#provider-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -129,7 +131,8 @@ export const MyApp = () => {
           id="context"
           href="/docs/jumplist/api#context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -200,7 +203,8 @@ export const MyApp = () => {
           id="node"
           href="/docs/jumplist/api#node"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<JumplistNode>'}
         </Heading>
@@ -241,7 +245,8 @@ export const MyComponent = () => {
           id="node-props"
           href="/docs/jumplist/api#node-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -260,7 +265,8 @@ export const MyComponent = () => {
           id="button"
           href="/docs/jumplist/api#button"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#button`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<JumplistButton>'}
         </Heading>
@@ -294,7 +300,8 @@ export const MyComponent = () => {
           id="node-props"
           href="/docs/jumplist/api#node-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -314,7 +321,8 @@ export const MyComponent = () => {
           id="button-a11y"
           href="#button-a11y"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#button-a11y`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Accessibility
         </Heading>
@@ -339,7 +347,8 @@ export const MyComponent = () => {
           id="useJumplist"
           href="/docs/jumplist/api#useJumplist"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#useJumplist`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           useJumplist
         </Heading>
@@ -370,7 +379,8 @@ export const MyComponent = () => {
           id="typescript"
           href="/docs/jumplist/api#typescript"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#typescript`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           TypeScript
         </Heading>

@@ -25,7 +25,8 @@ const ModalSetupDoc = () => {
           id="installation"
           href="/docs/modal/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>

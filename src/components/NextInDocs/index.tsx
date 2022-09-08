@@ -4,11 +4,10 @@ import { useRouter } from 'next/dist/client/router';
 import React, { useEffect, useState } from 'react';
 import classes from './index.module.scss';
 import { DocsNav, NavItem } from '@root/docs-nav'
-import { TextWithInlineIcon } from '@components/TextWithInlineIcon';
-
 import { nav } from '@root/docs-nav';
 import { CardBackground } from '@components/Card/Background';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
+import { TextWithInlineIcon } from '@components/TextWithInlineIcon';
 
 type NavLink = {
   label: string
@@ -130,7 +129,7 @@ export const NextInDocs: React.FC<{
           <div>
             <TextWithInlineIcon
               className={classes.label}
-              element="h5"
+              element="p"
               text={label}
               icon={(<ArrowIcon bold />)}
             />

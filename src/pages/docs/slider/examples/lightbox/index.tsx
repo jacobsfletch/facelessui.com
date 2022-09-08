@@ -76,12 +76,14 @@ const LightboxSliderExample = () => {
           </div>
         </Modal>
       </Margin>
-      <Hyperlink
-        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/lightbox/index.tsx`}
-        newTab
-      >
-        Source code
-      </Hyperlink>
+      <Margin bottom="xs">
+        <Hyperlink
+          href="https://codesandbox.io/s/lightbox-slider-0m8tyu"
+          newTab
+        >
+          CodeSandbox
+        </Hyperlink>
+      </Margin>
     </Fragment>
   )
 }

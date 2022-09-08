@@ -57,7 +57,8 @@ const SliderDoc = () => {
         id="how-it-works"
         href="/docs/slider#how-it-works"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider#how-it-works`}
-        element='h5'
+        element="h2"
+        as="h5"
       >
         How it works
       </Heading>
@@ -133,7 +134,8 @@ const SliderDoc = () => {
           id="features"
           href="/docs/slider#features"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider#features`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Key features
         </Heading>

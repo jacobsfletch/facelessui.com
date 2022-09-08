@@ -66,7 +66,7 @@ const Home: NextPage = () => {
                   className={classes.headingLink}
                   href="/docs/getting-started"
                 >
-                  Learn more
+                  Get started
                 </Hyperlink>
               </div>
             </Cell>

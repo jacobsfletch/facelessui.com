@@ -16,5 +16,6 @@
 }
 
 .label {
+  @include h5;
   margin: 0;
 }

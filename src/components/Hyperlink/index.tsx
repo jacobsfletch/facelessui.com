@@ -16,6 +16,7 @@ export type HyperlinkProps = {
   underlineOnHover?: boolean
   colored?: boolean
   children?: React.ReactNode
+  'aria-label'?: string
 }
 
 export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
@@ -29,7 +30,8 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     newTab,
     underline = true,
     underlineOnHover,
-    colored
+    colored,
+    'aria-label': ariaLabel,
   } = props;
 
   const sharedProps = {
@@ -46,7 +48,8 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     ...newTab ? {
       rel: 'noopener noreferrer',
       target: '_blank'
-    } : {}
+    } : {},
+    'aria-label': ariaLabel
   }
 
   if (href) {

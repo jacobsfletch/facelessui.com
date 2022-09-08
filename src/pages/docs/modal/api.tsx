@@ -40,7 +40,8 @@ const ModalAPI = () => {
           id="provider"
           href="/docs/modal/api#provider"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#provider`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<ModalProvider>'}
         </Heading>
@@ -71,7 +72,8 @@ export const MyApp = () = (
           id="provider-props"
           href="/docs/modal/api#provider-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#provider-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -166,7 +168,8 @@ export const MyApp = () = (
           id="context"
           href="/docs/modal/api#context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -345,7 +348,8 @@ export const MyApp = () = (
           id="container"
           href="/docs/modal/api#container"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#container`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<ModalContainer>'}
         </Heading>
@@ -368,7 +372,8 @@ export const MyApp = () = (
           id="container-props"
           href="/docs/modal/api#container-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#container-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -379,7 +384,8 @@ export const MyApp = () = (
           id="modal"
           href="/docs/modal/api#modal"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#modal`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<Modal>'}
         </Heading>
@@ -448,7 +454,8 @@ export const MyModal = () => {
           id="modal-props"
           href="/docs/modal/api#modal-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#modal-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -498,7 +505,8 @@ export const MyModal = () => {
           id="modal-a11y"
           href="#modal-a11y"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#modal-a11y`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Accessibility
         </Heading>
@@ -523,7 +531,8 @@ export const MyModal = () => {
           id="toggler"
           href="/docs/modal/api#toggler"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#toggler`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<ModalToggler>'}
         </Heading>
@@ -558,7 +567,8 @@ export const MyComponent = () => {
           id="toggler-props"
           href="/docs/modal/api#toggler-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#toggler-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -582,7 +592,8 @@ export const MyComponent = () => {
           id="useModal"
           href="/docs/modal/api#useModal"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useModal`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           useModal
         </Heading>
@@ -612,7 +623,8 @@ export const MyComponent = () => {
           id="asModal"
           href="/docs/modal/api#asModal"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#asModal`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           asModal
         </Heading>
@@ -642,7 +654,8 @@ export const MyModal = asModal((props) => {
           id="typescript"
           href="/docs/modal/api#typescript"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#typescript`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           TypeScript
         </Heading>

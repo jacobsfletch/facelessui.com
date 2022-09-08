@@ -25,7 +25,8 @@ const CollapsiblesInstallation = () => {
           id="installation"
           href="/docs/collapsibles/setup#installation"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/setup#installation`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Installation
         </Heading>

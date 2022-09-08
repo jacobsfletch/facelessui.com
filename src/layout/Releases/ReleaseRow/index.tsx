@@ -43,7 +43,8 @@ export const ReleaseRow: React.FC<ReleaseData & {
       <Heading
         href={`#${tag_name}`}
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/releases#${tag_name}`}
-        element='h5'
+        element="h2"
+        as="h4"
       >
         {showName && (
           <span>

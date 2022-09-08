@@ -33,7 +33,7 @@ const Releases: NextPage = () => {
   const router = useRouter();
   const { pathname, asPath } = router;
 
-  const [packageToShow, setPackageToShow] = useState<string>(() => {
+  const [packageToShow] = useState<string>(() => {
     const search = QueryString.parse(asPath.split('?')[1]);
     return search.package as string || '';
   });
@@ -146,7 +146,8 @@ const Releases: NextPage = () => {
                         id={date}
                         href={`/releases#${date}`}
                         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/releases#${date}`}
-                        element='h5'
+                        element="h2"
+                        as="h5"
                       >
                         {formatDateTime(date)}
                       </Heading>

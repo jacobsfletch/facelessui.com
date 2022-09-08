@@ -38,7 +38,8 @@ const SliderAPI = () => {
           id="provider"
           href="/docs/slider/api#provider"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#provider`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<SliderProvider>'}
         </Heading>
@@ -73,7 +74,8 @@ export const MyComponent = () => {
           id="provider-props"
           href="/docs/slider/api#provider-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#provider-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -308,7 +310,8 @@ export const MyComponent = () => {
           id="context"
           href="/docs/slider/api#context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -407,7 +410,8 @@ export const MyComponent = () => {
           id="track"
           href="/docs/slider/api#track"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#track`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<SliderTrack>'}
         </Heading>
@@ -439,7 +443,8 @@ export const MyComponent = () => {
           id="track-props"
           href="/docs/slider/api#track-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#track-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -450,7 +455,8 @@ export const MyComponent = () => {
           id="slide"
           href="/docs/slider/api#slide"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#slide`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<Slide>'}
         </Heading>
@@ -491,7 +497,8 @@ export const MyComponent = () => {
           id="slide-props"
           href="/docs/slider/api#slide-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#slide-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -509,7 +516,8 @@ export const MyComponent = () => {
           id="button"
           href="/docs/slider/api#button"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#button`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<SliderButton>'}
         </Heading>
@@ -538,7 +546,8 @@ export const MyComponent = () => {
           id="button-props"
           href="/docs/slider/api#button-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#button-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -572,7 +581,8 @@ export const MyComponent = () => {
           id="button-a11y"
           href="#button-a11y"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#button-a11y`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Accessibility
         </Heading>
@@ -601,7 +611,8 @@ export const MyComponent = () => {
           id="progress"
           href="/docs/slider/api#progress"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<SliderProgress>'}
         </Heading>
@@ -626,7 +637,8 @@ export const MyComponent = () => {
           id="progress-props"
           href="/docs/slider/api#progress-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -644,7 +656,8 @@ export const MyComponent = () => {
           id="dotnav"
           href="/docs/slider/api#dotnav"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#dotnav`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<DotNav>'}
         </Heading>
@@ -673,7 +686,8 @@ export const MyComponent = () => {
           id="dotnav-props"
           href="/docs/slider/api#dotnav-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#dotnav-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -709,7 +723,8 @@ export const MyComponent = () => {
           id="useSlider"
           href="/docs/slider/api#useSlider"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#useSlider`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           useSlider
         </Heading>
@@ -739,7 +754,8 @@ export const MyComponent = () => {
           id="typescript"
           href="/docs/slider/api#typescript"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#typescript`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           TypeScript
         </Heading>

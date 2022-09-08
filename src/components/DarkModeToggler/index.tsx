@@ -20,7 +20,7 @@ export const DarkModeToggler: React.FC = () => {
         <select
           id="dark-mode-toggler"
           className={classes.select}
-          value={storedTheme}
+          value={storedTheme || "auto"}
           onChange={(e) => {
             const newTheme = e.target.value as Theme;
             setStoredTheme(newTheme)

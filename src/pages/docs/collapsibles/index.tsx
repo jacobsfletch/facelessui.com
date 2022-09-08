@@ -39,7 +39,8 @@ const CollapsiblesDoc = () => {
           id="how-it-works"
           href="/docs/collapsibles#how-it-works"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles#how-it-works`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           How it works
         </Heading>
@@ -108,7 +109,8 @@ const CollapsiblesDoc = () => {
           id="features"
           href="/docs/collapsibles#features"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles#features`}
-          element='h5'
+          element="h2"
+          as="h5"
         >
           Key features
         </Heading>

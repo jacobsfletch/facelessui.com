@@ -16,7 +16,8 @@ const MouseInfoAPI = () => {
         id="provider"
         href="/docs/mouse-info/api#provider"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#provider`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         {'<MouseInfoProvider>'}
       </Heading>
@@ -36,7 +37,8 @@ export const MyApp = () = (
         id="props"
         href="/docs/mouse-info/api#props"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#props`}
-        element='h5'
+        element="h3"
+        as="h5"
       >
         Props
       </Heading>
@@ -50,7 +52,8 @@ export const MyApp = () = (
         id="context"
         href="/docs/mouse-info/api#context"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#context`}
-        element='h5'
+        element="h3"
+        as="h5"
       >
         Context
       </Heading>
@@ -61,7 +64,8 @@ export const MyApp = () = (
         id="useMouseInfo"
         href="/docs/mouse-info/api#useMouseInfo"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#useMouseInfo`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         useMouseInfo
       </Heading>
@@ -89,7 +93,8 @@ export const MyComponent = () => {
         id="withMouseInfo"
         href="/docs/mouse-info/api#withMouseInfo"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#withMouseInfo`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         withMouseInfo
       </Heading>
@@ -117,7 +122,8 @@ export const MyComponent = withMouseInfo((props) => {
         id="typescript"
         href="/docs/mouse-info/api#typescript"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#typescript`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         TypeScript
       </Heading>

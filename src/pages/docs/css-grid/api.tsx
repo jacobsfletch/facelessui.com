@@ -39,7 +39,8 @@ const CSSGridAPI = () => {
           id="provider"
           href="#provider"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#provider`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<GridProvider>'}
         </Heading>
@@ -94,7 +95,8 @@ export const MyApp = () = (
           id="provider-props"
           href="#provider-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#provider-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -161,7 +163,8 @@ export const MyApp = () = (
           id="context"
           href="#context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -183,7 +186,8 @@ export const MyApp = () = (
           id="grid"
           href="#grid"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<Grid>'}
         </Heading>
@@ -223,7 +227,8 @@ export const MyComponent = () = (
           id="grid"
           href="#grid-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -232,7 +237,8 @@ export const MyComponent = () = (
           id="grid-context"
           href="#grid-context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid-context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -250,7 +256,8 @@ export const MyComponent = () = (
           id="cell"
           href="#cell"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           {'<Cell>'}
         </Heading>
@@ -297,7 +304,8 @@ export const MyApp = () = (
           id="cell"
           href="#cell-props"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell-props`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Props
         </Heading>
@@ -335,7 +343,8 @@ export const MyApp = () = (
           id="cell-context"
           href="#cell-context"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell-context`}
-          element='h5'
+          element="h3"
+          as="h5"
         >
           Context
         </Heading>
@@ -353,7 +362,8 @@ export const MyApp = () = (
           id="useCell"
           href="#useCell"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useCell`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           useCell
         </Heading>
@@ -383,7 +393,8 @@ export const MyComponent = () => {
           id="useGrid"
           href="#useGrid"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useGrid`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           useGrid
         </Heading>
@@ -413,7 +424,8 @@ export const MyComponent = () => {
           id="useSettings"
           href="#useSettings"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useSettings`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           useSettings
         </Heading>
@@ -443,7 +455,8 @@ export const MyComponent = () => {
           id="typescript"
           href="/docs/css-grid/api#typescript"
           copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#typescript`}
-          element='h4'
+          element="h2"
+          as="h4"
         >
           TypeScript
         </Heading>

@@ -3,6 +3,8 @@ import React, { useCallback } from 'react';
 import classes from './index.module.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+// import a11yDark from 'react-syntax-highlighter/dist/cjs/styles/hljs/a11y-dark';
+// import a11yLight from 'react-syntax-highlighter/dist/cjs/styles/hljs/a11y-light';
 import { copyToClipboard } from '@root/utilities/copyToClipboard';
 import { useNotifications } from '@root/providers/Notifications';
 import { CopyIcon } from '@root/icons/Copy';

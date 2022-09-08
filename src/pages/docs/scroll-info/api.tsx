@@ -16,7 +16,8 @@ const ScrollInfoAPI = () => {
         id="provider"
         href="/docs/scroll-info/api#provider"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#provider`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         {'<ScrollInfoProvider>'}
       </Heading>
@@ -36,7 +37,8 @@ export const MyApp = () = (
         id="props"
         href="/docs/scroll-info/api#props"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#props`}
-        element='h5'
+        element="h3"
+        as="h5"
       >
         Props
       </Heading>
@@ -50,7 +52,8 @@ export const MyApp = () = (
         id="context"
         href="/docs/scroll-info/api#context"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#context`}
-        element='h5'
+        element="h3"
+        as="h5"
       >
         Context
       </Heading>
@@ -106,7 +109,8 @@ export const MyApp = () = (
         id="useScrollInfo"
         href="/docs/scroll-info/api#useScrollInfo"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#useScrollInfo`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         useScrollInfo
       </Heading>
@@ -134,7 +138,8 @@ export const MyComponent = () => {
         id="withScrollInfo"
         href="/docs/scroll-info/api#withScrollInfo"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#withScrollInfo`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         withScrollInfo
       </Heading>
@@ -162,7 +167,8 @@ export const MyComponent = withScrollInfo((props) => {
         id="typescript"
         href="/docs/scroll-info/api#typescript"
         copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#typescript`}
-        element='h4'
+        element="h2"
+        as="h4"
       >
         TypeScript
       </Heading>
