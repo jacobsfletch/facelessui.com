@@ -23,7 +23,7 @@ const ResponsiveSliderExample = () => {
       </Margin>
       <Margin bottom="xs">
         <SliderProvider
-          slidesToShow={1}
+          slidesToShow={2}
           autoPlay
           breakpoints={{
             '(max-width: 576px)': {
