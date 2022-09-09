@@ -91,10 +91,10 @@
   resolved "https://registry.yarnpkg.com/@faceless-ui/scroll-info/-/scroll-info-1.3.0.tgz#4d9f76afa4c004018697424f77f8bc362ccaae08"
   integrity sha512-X+doJMzQqyVGpwV/YgXUAalNWepP2W8ThgZspKZLFG43zTYLVTU17BYCjjY+ggKuA3b0W3JyXZ2M8f247AdmHw==
 
-"@faceless-ui/slider@^1.1.11":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@faceless-ui/slider/-/slider-1.1.11.tgz#0a111c25e88d00a926fa92fd369e934a0864b0ec"
-  integrity sha512-10A6eW1kx4g0jF3bd+4AUM1gVyHDcHAxQVjj2I876s3V90cWJej7/07ZLNetBqLuWXtylJj8/O0ssWdfam/ngg==
+"@faceless-ui/slider@^1.1.13":
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/@faceless-ui/slider/-/slider-1.1.13.tgz#4e174726d70444dcf6860c6b99179e998677a6c2"
+  integrity sha512-c247f7Qt6pm0a+e1O0JW9QK/AjRkIESfxt2EccPMMpdMIuEObSncbwRXVCU+jftb3KrOFBmr78RyQ5369/qb3A==
   dependencies:
     smoothscroll-polyfill "^0.4.4"
 
