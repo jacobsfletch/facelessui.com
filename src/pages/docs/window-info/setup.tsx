@@ -87,7 +87,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/window-info/installation.tsx`}
+      githubUrl={`/window-info/installation.tsx`}
       metaTitle="Window Info Setup"
       metaDescription="Setup documentation for the @faceless-ui/window-info npm module."
       metaURL="/docs/window-info/setup"

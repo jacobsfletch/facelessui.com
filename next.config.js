@@ -1,9 +1,19 @@
 const path = require('path');
 const csp = require('./csp');
 
-module.exports = {
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+    providerImportSource: "@mdx-js/react",
+  },
+})
+
+module.exports = withMDX({
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   webpack: (config) => {
     const configCopy = { ...config };
     configCopy.resolve.alias = {
@@ -55,4 +65,4 @@ module.exports = {
 
     return headers;
   }
-}
+})

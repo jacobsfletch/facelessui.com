@@ -82,7 +82,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/mouse-info/index.tsx`}
+      githubUrl={`/mouse-info/index.tsx`}
       metaTitle="Mouse Info "
       metaDescription="Overview of the @faceless-ui/mouse-info npm module."
       metaURL="/docs/mouse-info"

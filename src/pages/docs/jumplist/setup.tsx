@@ -310,7 +310,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/jumplist/setup.tsx`}
+      githubUrl={`/jumplist/setup.tsx`}
       metaTitle="Jumplist Setup"
       metaDescription="Setup documentation for the @faceless-ui/jumplist npm module."
       metaURL="/docs/jumplist/setup"

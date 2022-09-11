@@ -56,7 +56,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/free-scrolling/index.tsx`}
+      githubUrl={`/slider/examples/free-scrolling/index.tsx`}
       metaTitle="Example Free Scrolling Slider"
       metaDescription="Example free scrolling slider using the @faceless-ui/slider npm module."
       metaURL="/docs/slider/examples/free-scrolling"

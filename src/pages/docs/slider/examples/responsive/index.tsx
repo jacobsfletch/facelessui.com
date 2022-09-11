@@ -66,7 +66,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/examples/responsive/index.tsx`}
+      githubUrl={`/slider/examples/responsive/index.tsx`}
       metaTitle="Example Responsive Slider"
       metaDescription="Example responsive slider using the @faceless-ui/slider npm module."
       metaURL="/docs/slider/examples/responsive"

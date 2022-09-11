@@ -12,7 +12,7 @@ export const EditOnGitHub: React.FC<{
   return (
     <div className={classes.editOnGitHub}>
       <Hyperlink
-        href={href}
+        href={`${process.env.NEXT_PUBLIC_GITHUB_URL}${href}`}
         newTab
         underline
       >

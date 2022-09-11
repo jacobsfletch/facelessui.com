@@ -20,6 +20,8 @@ import { CustomCursor } from '@components/CustomCursor';
 import cssVariables from '../../cssVariables';
 import { GoogleAnalytics } from '@components/GoogleAnalytics';
 import { OnRouteChange } from '@components/OnRouteChange';
+import { MDXProvider } from '@mdx-js/react'
+import { mdxComponents } from '@root/mdx';
 
 import '../scss/app.scss';
 
@@ -42,77 +44,79 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
   const Layout = Component.Layout || Fragment;
 
   return (
-    <DarkModeProvider>
-      <MouseInfoProvider>
-        <WindowInfoProvider
-          breakpoints={{
-            s: `(max-width: ${cssVariables.breakpoints.s}px)`,
-            m: `(max-width: ${cssVariables.breakpoints.m}px)`,
-            l: `(max-width: ${cssVariables.breakpoints.l}px)`,
-            xl: `(max-width: ${cssVariables.breakpoints.xl}px)`,
-          }}
-        >
-          <ScrollInfoProvider>
-            <MouseInfoProvider>
-              <NotificationsProvider>
-                <JumplistProvider
-                  rootMargin="-100px 0px 0px 0px"
-                >
-                  <ModalProvider
-                    zIndex={99}
-                    transTime={250}
+    <MDXProvider components={mdxComponents}>
+      <DarkModeProvider>
+        <MouseInfoProvider>
+          <WindowInfoProvider
+            breakpoints={{
+              s: `(max-width: ${cssVariables.breakpoints.s}px)`,
+              m: `(max-width: ${cssVariables.breakpoints.m}px)`,
+              l: `(max-width: ${cssVariables.breakpoints.l}px)`,
+              xl: `(max-width: ${cssVariables.breakpoints.xl}px)`,
+            }}
+          >
+            <ScrollInfoProvider>
+              <MouseInfoProvider>
+                <NotificationsProvider>
+                  <JumplistProvider
+                    rootMargin="-100px 0px 0px 0px"
                   >
-                    <GridProvider
-                      breakpoints={{
-                        s: cssVariables.breakpoints.s,
-                        m: cssVariables.breakpoints.m,
-                        l: cssVariables.breakpoints.l,
-                      }}
-                      rowGap={{
-                        s: '1rem',
-                        m: '1rem',
-                        l: '4rem',
-                        xl: '4rem',
-                      }}
-                      colGap={{
-                        s: '10px',
-                        m: '10px',
-                        l: '3rem',
-                        xl: '3rem',
-                      }}
-                      cols={{
-                        s: 8,
-                        m: 8,
-                        l: 14,
-                        xl: 16,
-                      }}
+                    <ModalProvider
+                      zIndex={99}
+                      transTime={250}
                     >
-                      <VersionsProvider versions={versions}>
-                        <CustomCursorProvider>
-                          <Fragment>
-                            <OnRouteChange />
-                            <GoogleAnalytics />
-                            <AppHead />
-                            <Header />
-                            <Layout>
-                              {/* @ts-ignore TODO: fix this, its a typescript error */}
-                              <Component {...pageProps} />
-                            </Layout>
-                            <ModalContainer />
-                            <Footer />
-                            <CustomCursor />
-                          </Fragment>
-                        </CustomCursorProvider>
-                      </VersionsProvider>
-                    </GridProvider>
-                  </ModalProvider>
-                </JumplistProvider>
-              </NotificationsProvider>
-            </MouseInfoProvider>
-          </ScrollInfoProvider>
-        </WindowInfoProvider>
-      </MouseInfoProvider>
-    </DarkModeProvider>
+                      <GridProvider
+                        breakpoints={{
+                          s: cssVariables.breakpoints.s,
+                          m: cssVariables.breakpoints.m,
+                          l: cssVariables.breakpoints.l,
+                        }}
+                        rowGap={{
+                          s: '1rem',
+                          m: '1rem',
+                          l: '4rem',
+                          xl: '4rem',
+                        }}
+                        colGap={{
+                          s: '10px',
+                          m: '10px',
+                          l: '3rem',
+                          xl: '3rem',
+                        }}
+                        cols={{
+                          s: 8,
+                          m: 8,
+                          l: 14,
+                          xl: 16,
+                        }}
+                      >
+                        <VersionsProvider versions={versions}>
+                          <CustomCursorProvider>
+                            <Fragment>
+                              <OnRouteChange />
+                              <GoogleAnalytics />
+                              <AppHead />
+                              <Header />
+                              <Layout>
+                                {/* @ts-ignore TODO: fix this, its a typescript error */}
+                                <Component {...pageProps} />
+                              </Layout>
+                              <ModalContainer />
+                              <Footer />
+                              <CustomCursor />
+                            </Fragment>
+                          </CustomCursorProvider>
+                        </VersionsProvider>
+                      </GridProvider>
+                    </ModalProvider>
+                  </JumplistProvider>
+                </NotificationsProvider>
+              </MouseInfoProvider>
+            </ScrollInfoProvider>
+          </WindowInfoProvider>
+        </MouseInfoProvider>
+      </DarkModeProvider>
+    </MDXProvider>
   )
 }
 

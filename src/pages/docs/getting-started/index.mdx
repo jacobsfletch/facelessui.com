@@ -1,0 +1,33 @@
+import { Doc } from '@root/layout/Doc';
+
+# Getting started
+
+Faceless UI is an unstyled [React](https://reactjs.org) and [TypeScript](https://www.typescriptlang.org)  library. Use it to focus on the aesthetics of your user interface instead of the implementation details. Faceless UI APIs are extremely powerful and heavily documented so you can deliver beautiful products that just work.
+
+## React
+
+Faceless UI is component-first, so you can build your app in a way that feels very natural. If you know [React][https://reactjs.org] you know Faceless UI — and since each package is independently versioned, you can integrate as little or as much into your existing app or website as you need.
+
+## Web APIs
+
+Faceless UI components lean on [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) as much as possible. This reduces dependencies, increases compatibility and performance, and keeps Faceless UI on the cutting-edge. Properties and methods often mirror these APIs exactly and are fully extensible.
+
+## Styling
+
+Faceless UI components have no appearance and apply as little CSS as possible to achieve core functionality. To customize the appearance of Faceless UI components, use your existing CSS setup. Every Faceless UI component exposes its DOM entirely, letting you customize the markup to meet your exact needs. A typical pattern is to pass class names or style objects to these components through props. This makes it possible to tie into any CSS framework, such as [CSS Modules](https://github.com/css-modules/css-modules).
+
+## Accessibility
+
+Accessibility is a top-priority of Faceless UI, which ensures best web practices out-of-the-box. By default, all Faceless UI components are fully accessible using the latest WAI-ARIA standards — and since every component exposes its DOM, you can easily add your own accessibility features as necessary.
+
+## TypeScript
+
+All of Faceless UI is built with TypeScript. All types are exported for you to consume or extend as needed. See each individual API for full details.
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/getting-started/index.mdx"
+  metaTitle="Getting Started"
+  metaDescription="Getting started with Faceless UI"
+  metaURL="/docs/getting-started"
+/>
