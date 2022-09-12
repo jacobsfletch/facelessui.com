@@ -37,7 +37,6 @@ const JumplistAPI = () => {
         <Heading
           id="provider"
           href="/docs/jumplist/api#provider"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#provider`}
           element="h2"
           as="h4"
         >
@@ -74,7 +73,6 @@ export const MyApp = () => {
         <Heading
           id="provider-props"
           href="/docs/jumplist/api#provider-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#provider-props`}
           element="h3"
           as="h5"
         >
@@ -130,7 +128,6 @@ export const MyApp = () => {
         <Heading
           id="context"
           href="/docs/jumplist/api#context"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#context`}
           element="h3"
           as="h5"
         >
@@ -202,7 +199,6 @@ export const MyApp = () => {
         <Heading
           id="node"
           href="/docs/jumplist/api#node"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node`}
           element="h2"
           as="h4"
         >
@@ -244,7 +240,6 @@ export const MyComponent = () => {
         <Heading
           id="node-props"
           href="/docs/jumplist/api#node-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node-props`}
           element="h3"
           as="h5"
         >
@@ -264,7 +259,6 @@ export const MyComponent = () => {
         <Heading
           id="button"
           href="/docs/jumplist/api#button"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#button`}
           element="h2"
           as="h4"
         >
@@ -299,7 +293,6 @@ export const MyComponent = () => {
         <Heading
           id="node-props"
           href="/docs/jumplist/api#node-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#node-props`}
           element="h3"
           as="h5"
         >
@@ -320,7 +313,6 @@ export const MyComponent = () => {
         <Heading
           id="button-a11y"
           href="#button-a11y"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#button-a11y`}
           element="h3"
           as="h5"
         >
@@ -346,7 +338,6 @@ export const MyComponent = () => {
         <Heading
           id="useJumplist"
           href="/docs/jumplist/api#useJumplist"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#useJumplist`}
           element="h2"
           as="h4"
         >
@@ -378,7 +369,6 @@ export const MyComponent = () => {
         <Heading
           id="typescript"
           href="/docs/jumplist/api#typescript"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/api#typescript`}
           element="h2"
           as="h4"
         >

@@ -37,7 +37,6 @@ const SliderAPI = () => {
         <Heading
           id="provider"
           href="/docs/slider/api#provider"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#provider`}
           element="h2"
           as="h4"
         >
@@ -73,7 +72,6 @@ export const MyComponent = () => {
         <Heading
           id="provider-props"
           href="/docs/slider/api#provider-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#provider-props`}
           element="h3"
           as="h5"
         >
@@ -309,7 +307,6 @@ export const MyComponent = () => {
         <Heading
           id="context"
           href="/docs/slider/api#context"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#context`}
           element="h3"
           as="h5"
         >
@@ -409,7 +406,6 @@ export const MyComponent = () => {
         <Heading
           id="track"
           href="/docs/slider/api#track"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#track`}
           element="h2"
           as="h4"
         >
@@ -442,7 +438,6 @@ export const MyComponent = () => {
         <Heading
           id="track-props"
           href="/docs/slider/api#track-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#track-props`}
           element="h3"
           as="h5"
         >
@@ -454,7 +449,6 @@ export const MyComponent = () => {
         <Heading
           id="slide"
           href="/docs/slider/api#slide"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#slide`}
           element="h2"
           as="h4"
         >
@@ -496,7 +490,6 @@ export const MyComponent = () => {
         <Heading
           id="slide-props"
           href="/docs/slider/api#slide-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#slide-props`}
           element="h3"
           as="h5"
         >
@@ -515,7 +508,6 @@ export const MyComponent = () => {
         <Heading
           id="button"
           href="/docs/slider/api#button"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#button`}
           element="h2"
           as="h4"
         >
@@ -545,7 +537,6 @@ export const MyComponent = () => {
         <Heading
           id="button-props"
           href="/docs/slider/api#button-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#button-props`}
           element="h3"
           as="h5"
         >
@@ -580,7 +571,6 @@ export const MyComponent = () => {
         <Heading
           id="button-a11y"
           href="#button-a11y"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/api#button-a11y`}
           element="h3"
           as="h5"
         >
@@ -610,7 +600,6 @@ export const MyComponent = () => {
         <Heading
           id="progress"
           href="/docs/slider/api#progress"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress`}
           element="h2"
           as="h4"
         >
@@ -636,7 +625,6 @@ export const MyComponent = () => {
         <Heading
           id="progress-props"
           href="/docs/slider/api#progress-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#progress-props`}
           element="h3"
           as="h5"
         >
@@ -655,7 +643,6 @@ export const MyComponent = () => {
         <Heading
           id="dotnav"
           href="/docs/slider/api#dotnav"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#dotnav`}
           element="h2"
           as="h4"
         >
@@ -685,7 +672,6 @@ export const MyComponent = () => {
         <Heading
           id="dotnav-props"
           href="/docs/slider/api#dotnav-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#dotnav-props`}
           element="h3"
           as="h5"
         >
@@ -722,7 +708,6 @@ export const MyComponent = () => {
         <Heading
           id="useSlider"
           href="/docs/slider/api#useSlider"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#useSlider`}
           element="h2"
           as="h4"
         >
@@ -753,7 +738,6 @@ export const MyComponent = () => {
         <Heading
           id="typescript"
           href="/docs/slider/api#typescript"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/slider/api#typescript`}
           element="h2"
           as="h4"
         >

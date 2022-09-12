@@ -1,0 +1,106 @@
+import { Doc } from '@root/layout/Doc';
+
+# Modal routing
+
+You can opt-in to having the modal react to changes in the URL, and push changes to the URL as necessary. This would allow you to directly link to an open modal. There are two ways to do this — using the native browser history API, or your app&apos;s existing router.
+
+## History API
+
+To allow the modal to handle URL changes using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), pass `handleParamChange` to the `ModalProvider`. The `?modal=` param will appear in the URL as modals are navigated. Modals will also react to external changes to this param, so your app can load with an open modal. This enables you to directly link to modal content.
+
+```jsx
+import { ModalProvider } from \'@faceless-ui/modal\';
+
+export const MyApp = (props) => {
+  return (
+    <ModalProvider handleParamChange>
+      ...
+    </ModalProvider>
+  );
+}
+```
+
+## Custom router
+
+If your app already uses a router, send a callback function to `handleParamChange` instead. Here are some examples using common router libraries.
+
+### NextJS
+
+```jsx
+import React, { useCallback } from 'react';
+import { ModalProvider } from '@faceless-ui/modal';
+import Router from 'next/router';
+
+export default App = () => {
+  const handleParamChange = useCallback((incomingSlug) => {
+    Router.push({
+      query: { modal: incomingSlug },
+    })
+  }, []);
+
+  return (
+    <ModalProvider handleParamChange={handleParamChange}>
+      ...
+    </ModalProvider>
+  )
+}
+```
+
+### React Router
+
+```jsx
+import React, { useCallback } from 'react';
+import { ModalProvider } from '@faceless-ui/modal';
+import { useLocation, useHistory } from 'react-router-dom';
+import qs from 'qs';
+
+export default App = () => {
+  const history = useHistory();
+  const { url, search } = useLocation();
+
+  const handleParamChange = useCallback((incomingSlug) => {
+    const withChangedSlug = qs.parse(search, { ignoreQueryPrefix: true });
+    withChangedSlug.slug = incomingSlug;
+    newSearchString = qs.stringify(withChangedSlug, { encode: false });
+    history.push(\`\${url}\${newSearchString}\`)
+  }, [url, search, history]);
+
+  return (
+    <ModalProvider handleParamChange={handleParamChange}>
+      ...
+    </ModalProvider>
+  )
+}
+```
+
+## `<CloseModalOnRouteChange>`
+
+Often you will want to close all modals on route changes. This is a very common pattern that is very easily solved by tying into your apps existing router, and firing the `closeAll` method at the right time.
+
+### NextJS
+
+```jsx
+import React from 'react';
+import { useModal } from "@faceless-ui/modal";
+import { Router } from "next/router";
+import { useEffect } from "react"
+
+export const CloseModalOnRouteChange = () => {
+  const { closeAll } = useModal();
+  useEffect(() => {
+    Router.events.on('routeChangeComplete', () => {
+      closeAll();
+    });
+  }, [closeAll]);
+
+  return null;
+}
+```
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/modal/routing.mdx`}
+  metaTitle="Modal Routing"
+  metaDescription="Routing documentation for the @faceless-ui/modal npm module."
+  metaURL="/docs/modal/routing"
+/>

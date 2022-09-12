@@ -12,7 +12,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`/modal/releases.tsx`}
+      githubUrl="/modal/releases.tsx"
       metaTitle="Modal Releases"
       metaDescription="Release history for the @faceless-ui/modal npm module."
       metaURL="/docs/modal/releases"

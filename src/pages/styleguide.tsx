@@ -30,12 +30,7 @@ const Styleguide = () => {
         <h1>
           Styleguide
         </h1>
-        <Heading
-          id="typography"
-          href="/styleguide#typography"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/styleguide#typography`}
-          element='h5'
-        >
+        <Heading element='h5'>
           Typography
         </Heading>
         <h1>
@@ -58,12 +53,7 @@ const Styleguide = () => {
         </p>
       </BlockContainer>
       <BlockContainer>
-        <Heading
-          id="colors"
-          href="/styleguide#colors"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/styleguide#colors`}
-          element='h5'
-        >
+        <Heading element='h5'>
           Colors
         </Heading>
         <MarginGrid
@@ -266,12 +256,7 @@ const Styleguide = () => {
       </BlockContainer>
       <br />
       <BlockContainer>
-        <Heading
-          id="buttons"
-          href="/styleguide#buttons"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/styleguide#buttons`}
-          element='h5'
-        >
+        <Heading element='h5'>
           Buttons
         </Heading>
         <div

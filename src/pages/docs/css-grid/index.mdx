@@ -1,0 +1,30 @@
+import { Doc } from '@root/layout/Doc';
+
+# Grid
+
+This package enables the rapid development of fully responsive layouts. With the grid, elements start and stop at consistent points across the horizontal plane and respond based on screen size. This ensures proper alignment and spacing across your entire app. The grid is a lightweight, component-centric wrapper around [CSS Grid Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) — so props mirror this API very closely.
+
+A powerful feature of the grid are its breakpoints &mdash; where grid settings change across devices sizes. For example, a 14 column desktop grid with a 10px gutter could change to 8 column grid with a 5px gutter on mobile. Cells will span a different number of these columns as breakpoints are met based on their own props.
+
+## How it works
+
+`<Grid>` and `<Cell>`components are used as often as necessary to achieve your desired layout. The `<Grid>` component has no required props and is only used to provide context to cells. Each `<Cell>` is controlled using props like `col` and `start` to determine how many columns the cell will span and which column to begin on. As the grid breaks down on smaller screens there is an additional prop for each breakpoint, like `colsM` and `startM`. See the [API](/docs/css-grid/api) for full details.
+
+At the top-level of your app is the `<GridProvider>`. This is where you define your global [grid settings](/docs/css-grid#provider-props), such as breakpoints and gutters. Behind the scenes, it generates a tiny stylesheet containing classes for every grid and cell combination based on your particular configuration. These classes are dynamically injected into every `<Cell>` component, based on its props. This provides size and position to the cell as conditions are met.
+
+## Key features
+
+- Rapid layout development
+- Responsive cells
+- Nested grids
+- Follows native CSS Grid Layout
+- Separate desktop and mobile grids
+- Consistent spacing and alignment
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/css-grid/index.tsx`}
+  metaTitle="CSS Grid "
+  metaDescription="Overview of the @faceless-ui/css-grid npm module."
+  metaURL="/docs/css-grid"
+/>

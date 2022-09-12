@@ -53,7 +53,9 @@ export const Doc: React.FC<{
             cols={9}
             colsM={8}
           >
-            {children}
+            <div className={classes.content}>
+              {children}
+            </div>
             <Margin top="small">
               <NextInDocs />
             </Margin>

@@ -1,0 +1,54 @@
+import React, { Fragment } from 'react';
+import { Doc } from '@root/layout/Doc';
+import { Hyperlink } from '@components/Hyperlink';
+import { CodeBlock } from '@components/CodeBlock';
+import { InlineCode } from '@components/InlineCode';
+import Margin from '@components/Margin';
+import { Heading } from '@components/Heading';
+import { InstallationCode } from '@components/InstallationCode';
+import { VersionNumber } from '@components/VersionNumber';
+
+# Basic Setup
+
+Latest version: <VersionNumber  name="scroll-info" />
+
+# Installation
+
+<InstallationCode name="scroll-info" />
+
+First, wrap your app with the provider. This component does not render anything in the DOM, and should be placed nearest to the top of your app as possible to provide context to any components that need it.
+
+```jsx
+import { ScrollInfoProvider } from \'@faceless-ui/scroll-info\';
+
+export const App = () => {
+  return (
+    <ScrollInfoProvider>
+      ...
+    </ScrollInfoProvider>
+  )
+}
+```
+
+Then consume the context however needed, most commonly with the `useScrollInfo` hook.
+
+```jsx
+import { useScrollInfo } from \'@faceless-ui/scroll-info\';
+
+export const MyComponent = (props) => {
+    const scrollInfo = useScrollInfo();
+    return (
+      ...
+    );
+}
+```
+
+For more advanced setups, see the full [API reference](/docs/scroll-info/api).
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/scroll-info/setup.mdx`}
+  metaTitle="Scroll Info Setup"
+  metaDescription="Setup documentation for the @faceless-ui/scroll-info npm module."
+  metaURL="/docs/scroll-info/setup"
+/>
