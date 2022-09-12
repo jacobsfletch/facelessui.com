@@ -6,6 +6,8 @@ import Margin from '@components/Margin';
 import { StyledList } from '@components/StyledList';
 import { Heading } from '@components/Heading';
 
+{/* DOC_START */}
+
 # Slider
 
 This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders are fully responsive and can even synchronize with other sliders. They are very easy to control using the built-in navigation components or provided methods.
@@ -38,6 +40,8 @@ By default, all sliders can be scrolled or dragged, although some sliders may wa
   A common pain point of sliders is that while you slide, nested anchor links are clicked. To prevent this, we recursively disable pointer events on all anchor links while the user is dragging using [CSS pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events).
 - Scrollbar component
   Another common pain point of sliders are that the scrollbar is bound to the overflowing element. To fix this, the current progress of any slider can be displayed using the `<SliderProgress>` component — a powerful alternative to native scrollbars. This allows you to render a draggable scrollbar anywhere in your DOM, even outside of your track.
+
+{/* DOC_END */}
 
 export default (props) => <Doc
   {...props}

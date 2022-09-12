@@ -15,7 +15,6 @@ const WindowInfoAPI = () => {
       <Heading
         id="provider"
         href="/docs/window-info/api#provider"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#provider`}
         element="h2"
         as="h4"
       >
@@ -43,7 +42,6 @@ export const MyApp = () = (
       <Heading
         id="props"
         href="/docs/window-info/api#props"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#props`}
         element="h3"
         as="h5"
       >
@@ -64,7 +62,6 @@ export const MyApp = () = (
       <Heading
         id="context"
         href="/docs/window-info/api#context"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#context`}
         element="h3"
         as="h5"
       >
@@ -109,7 +106,6 @@ export const MyApp = () = (
       <Heading
         id="useWindowInfo"
         href="/docs/window-info/api#useWindowInfo"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#useWindowInfo`}
         element="h2"
         as="h4"
       >
@@ -138,7 +134,6 @@ export const MyComponent = () => {
       <Heading
         id="withWindowInfo"
         href="/docs/window-info/api#withWindowInfo"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#withWindowInfo`}
         element="h2"
         as="h4"
       >
@@ -167,7 +162,6 @@ export const MyComponent = withWindowInfo((props) => {
       <Heading
         id="typescript"
         href="/docs/window-info/api#typescript"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/window-info/api#typescript`}
         element="h2"
         as="h4"
       >

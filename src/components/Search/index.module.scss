@@ -1,0 +1,59 @@
+@use "@scss/common" as *;
+
+.search {
+  position: relative;
+}
+
+.results {
+  background-color: white;
+  color: var(--color-gray-10);
+  padding: base(0.5);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.label {
+  @include p;
+  margin: 0;
+}
+
+.input {
+  all: unset;
+  margin: 0;
+  background-color: var(--color-gray-7);
+  color: var(--color-gray-10);
+  padding: 0 base(0.25);
+  width: base(4);
+  border-radius: 2px;
+  border: 1px solid var(--color-gray-6);
+
+  &:focus {
+    background-color: var(--color-cream);
+  }
+}
+
+.hasValue {
+  background-color: var(--color-cream);
+}
+
+.clearButton {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate3d(0, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: base();
+  height: base();
+}

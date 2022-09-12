@@ -14,7 +14,7 @@ module.exports = withMDX({
   reactStrictMode: true,
   productionBrowserSourceMaps: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-  webpack: (config) => {
+  webpack: (config, { isServer }) => {
     const configCopy = { ...config };
     configCopy.resolve.alias = {
       ...config.resolve.alias,
@@ -30,6 +30,11 @@ module.exports = withMDX({
       // react: path.join(__dirname, "node_modules/react"),
       // "react-dom": path.join(__dirname, "node_modules/react-dom")
     };
+
+    // on build, also build the search cache
+    if (isServer) {
+      require('./search/makeCache')
+    }
 
     return configCopy;
   },

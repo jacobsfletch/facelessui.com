@@ -15,7 +15,6 @@ const MouseInfoAPI = () => {
       <Heading
         id="provider"
         href="/docs/mouse-info/api#provider"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#provider`}
         element="h2"
         as="h4"
       >
@@ -36,7 +35,6 @@ export const MyApp = () = (
       <Heading
         id="props"
         href="/docs/mouse-info/api#props"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#props`}
         element="h3"
         as="h5"
       >
@@ -51,7 +49,6 @@ export const MyApp = () = (
       <Heading
         id="context"
         href="/docs/mouse-info/api#context"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#context`}
         element="h3"
         as="h5"
       >
@@ -63,7 +60,6 @@ export const MyApp = () = (
       <Heading
         id="useMouseInfo"
         href="/docs/mouse-info/api#useMouseInfo"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#useMouseInfo`}
         element="h2"
         as="h4"
       >
@@ -92,7 +88,6 @@ export const MyComponent = () => {
       <Heading
         id="withMouseInfo"
         href="/docs/mouse-info/api#withMouseInfo"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#withMouseInfo`}
         element="h2"
         as="h4"
       >
@@ -121,7 +116,6 @@ export const MyComponent = withMouseInfo((props) => {
       <Heading
         id="typescript"
         href="/docs/mouse-info/api#typescript"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/mouse-info/api#typescript`}
         element="h2"
         as="h4"
       >

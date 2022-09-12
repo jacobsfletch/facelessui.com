@@ -1,4 +1,3 @@
-import { Heading } from '@components/Heading';
 import { Hyperlink } from '@components/Hyperlink'
 import { ArrowIcon } from '@root/icons/Arrow';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
@@ -41,14 +40,9 @@ export const Card: React.FC<{
           </div>
         )}
         {title && (
-          <Heading
-            className={classes.title}
-            element="h2"
-            as="h5"
-            margin={false}
-          >
+          <h2 className={classes.title}>
             {title}
-          </Heading>
+          </h2>
         )}
         <p className={classes.description}>
           {description}

@@ -3,7 +3,8 @@ import React, { useCallback } from 'react';
 import classes from './index.module.scss';
 import { copyToClipboard } from '@root/utilities/copyToClipboard';
 import { useNotifications } from '@root/providers/Notifications';
-import kebabCase from "lodash.kebabcase";
+
+const toKebab = (str: string) => str.replace(/\s+/g, '-').toLowerCase();
 
 export const Heading: React.FC<{
   element?: keyof JSX.IntrinsicElements
@@ -28,7 +29,7 @@ export const Heading: React.FC<{
     className
   } = props;
 
-  const kebab = kebabCase(children as string);
+  const kebab = typeof children === 'string' ? toKebab(children as string) : '';
   const pathname = typeof window !== 'undefined' ? window.location.pathname : '';
   const textToCopy = `${process.env.NEXT_PUBLIC_APP_URL}${pathname}#${kebab}`;
 

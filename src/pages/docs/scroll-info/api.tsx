@@ -15,7 +15,6 @@ const ScrollInfoAPI = () => {
       <Heading
         id="provider"
         href="/docs/scroll-info/api#provider"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#provider`}
         element="h2"
         as="h4"
       >
@@ -36,7 +35,6 @@ export const MyApp = () = (
       <Heading
         id="props"
         href="/docs/scroll-info/api#props"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#props`}
         element="h3"
         as="h5"
       >
@@ -51,7 +49,6 @@ export const MyApp = () = (
       <Heading
         id="context"
         href="/docs/scroll-info/api#context"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#context`}
         element="h3"
         as="h5"
       >
@@ -108,7 +105,6 @@ export const MyApp = () = (
       <Heading
         id="useScrollInfo"
         href="/docs/scroll-info/api#useScrollInfo"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#useScrollInfo`}
         element="h2"
         as="h4"
       >
@@ -137,7 +133,6 @@ export const MyComponent = () => {
       <Heading
         id="withScrollInfo"
         href="/docs/scroll-info/api#withScrollInfo"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#withScrollInfo`}
         element="h2"
         as="h4"
       >
@@ -166,7 +161,6 @@ export const MyComponent = withScrollInfo((props) => {
       <Heading
         id="typescript"
         href="/docs/scroll-info/api#typescript"
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/scroll-info/api#typescript`}
         element="h2"
         as="h4"
       >

@@ -1,0 +1,269 @@
+import { Doc } from '@root/layout/Doc';
+import { JumplistNode } from '@faceless-ui/jumplist';
+import { collapsiblesAPINav } from '@root/docs-nav';
+import { ClassPrefix } from '@components/ClassPrefix';
+import { PropName } from '@components/PropName';
+import { BasicContext } from '@components/BasicContext';
+import { BasicProps } from '@components/BasicProps';
+
+{/* DOC_START */}
+
+# Collapsibles API
+
+<JumplistNode nodeID="collapsible">
+
+## \<Collapsible\>
+
+This component provides a new [collapsible context](#context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [collapsible settings](#collapsible-props) are defined.
+
+```jsx
+import React from 'react';
+import { Collapsible } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible
+      openOnInit
+      transTime={250}
+      transCurve="linear"
+      onToggle={() => { console.log('toggled') }}
+      // open={false} NOTE: can also be used to control a collapsible
+    >
+      ...
+    </Collapsible>
+  )
+}
+```
+
+### Props
+
+<PropName
+  name="openOnInit"
+  type="boolean"
+/>
+
+If true, the collapsible will be open on initial render.
+
+<PropName
+  name="transTime"
+  type="number"
+/>
+
+The time in it takes for each collapsible to expand and collapse. Default is 0ms.
+
+<PropName
+  name="transCurve"
+  type="string"
+/>
+
+The timing function to use for the animation. Default is `linear`.
+
+<PropName
+  name="initialHeight"
+  type="number"
+/>
+
+The height in pixels to animate to and from. Defaults to `0`.
+
+<PropName
+  name="open"
+  type="boolean"
+/>
+
+If true, the collapsible will be open. This is a useful pattern to control the collapsible with external state.
+
+<PropName
+  name="onToggle()"
+  type="method"
+/>
+
+A callback function that is executed when the collapsible is toggled.
+
+<ClassPrefix />
+
+### Context
+
+<PropName
+  name="isOpen"
+  type="boolean"
+  isContextProp
+/>
+
+The current status of the collapsible.
+
+<PropName
+  name="rootClass"
+  type="string"
+  isContextProp
+/>
+
+The root class for the collapsible. Appends [`classPrefix`](#classPrev) to the class name, when defined.
+
+<PropName
+  name="handleClick()"
+  type="object"
+  isContextProp
+/>
+
+Used internally to report the toggle to the nearest `<CollapsibleGroup>`, if nested.
+
+<BasicContext />
+
+</JumplistNode>
+
+<JumplistNode nodeID="content">
+
+## \<CollapsibleContent\>
+
+The height of this component will be animated from 0 to auto-height content when the collapsible is triggered. This is made possible through [react-animate-height](https://github.com/Stanko/react-animate-height). This component has no required props.
+
+```jsx
+import React from 'react';
+import { Collapsible, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible>
+      <CollapsibleContent>
+        ...
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+### Props
+
+<BasicProps />
+
+</JumplistNode>
+
+<JumplistNode nodeID="toggler">
+
+## \<CollapsibleToggler\>
+
+This component renders a button that opens and closes the nearest collapsible when clicked. This is the easiest way to open and close a modal.
+
+```jsx
+import React from 'react';
+import { Collapsible, CollapsibleToggler } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible>
+      <CollapsibleToggler>
+        ...
+      </CollapsibleToggler>
+    </Collapsible>
+  )
+}
+```
+
+### Props
+
+<BasicProps
+  defaultElement="button"
+  idPrefix='toggler'
+/>
+
+### Accessibility
+
+The `type` attribute is automatically set to "button" when the [`htmlElement`](#toggler-htmlElement) is `button`. The `aria-label` attribute is also preset and easily overridden.
+
+</JumplistNode>
+
+<JumplistNode nodeID="group">
+
+## \<CollapsibleGroup\>
+
+This component provides a new [group context](#group-context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [group settings](#group-props) are defined.
+
+```jsx
+import React from 'react';
+import { CollapsibleGroup, Collapsible, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+
+export const MyComponent = () => {
+  return (
+    <CollapsibleGroup allowMultiple={false}>
+      <Collapsible openOnInit>
+        ...
+      </Collapsible>
+      <Collapsible>
+        ...
+      </Collapsible>
+    </CollapsibleGroup>
+  )
+}
+```
+
+### Props
+
+<PropName
+  name="allowMultiple"
+  type="boolean"
+/>
+
+When false, will close all collapsibles in the group when one is opened.
+
+<PropName
+  name="transTime"
+  type="number"
+/>
+
+Standardizes all transition times of the collapsibles within the group. Can be overridden on each collapsible with the [`transTime`](`#transTime`) prop.
+
+<PropName
+  name="transCurve"
+  type="string"
+/>
+
+Standardizes all transition curves of the collapsibles within the group. Can be overridden on each collapsible with the [`transCurve`](`#transCurve`) prop.
+
+<ClassPrefix />
+
+### Context
+
+<PropName
+  name="toggleCount"
+  type="number"
+  isContextProp
+/>
+
+The number of times the group has been toggled. Incremented every time a collapsible is opened or closed.
+
+<BasicContext  href="#group-props" />
+
+</JumplistNode>
+
+<JumplistNode nodeID="typescript">
+
+## TypeScript
+
+All types can be directly imported
+
+```jsx
+import {
+  CollapsibleProps,
+  ICollapsibleContext,
+  CollapsibleContentProps,
+  CollapsibleTogglerProps,
+  ICollapsibleGroupContext,
+  CollapsibleGroupProps
+} from '@faceless-ui/collapsibles/dist/types';
+```
+
+</JumplistNode>
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/collapsibles/api.mdx`}
+  metaTitle="Collapsibles API"
+  metaDescription="API documentation for the @faceless-ui/collapsibles npm module."
+  metaURL="/docs/collapsibles/api"
+  jumplist={collapsiblesAPINav.map((item) => ({
+    nodeID: item.id || '',
+    label: item.label,
+  }))}
+/>

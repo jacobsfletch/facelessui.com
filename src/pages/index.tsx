@@ -4,7 +4,6 @@ import Meta from '../components/Meta'
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import { useWindowInfo } from '@faceless-ui/window-info';
 import { Card } from '@components/Card';
-import { Heading } from '@components/Heading';
 import { Hyperlink } from '@components/Hyperlink';
 import { MarginGrid } from '@components/MarginGrid';
 import { Cell, Grid } from '@faceless-ui/css-grid';
@@ -55,13 +54,9 @@ const Home: NextPage = () => {
               colsM={12}
             >
               <div className={classes.heading}>
-                <Heading
-                  className={classes.headingText}
-                  element="h1"
-                  marginBottom={false}
-                >
+                <h1 className={classes.headingText}>
                   An unstyled <span style={{ display: 'inline-block' }}>React+<wbr />Typescript</span> UI library for brands
-                </Heading>
+                </h1>
                 <Hyperlink
                   className={classes.headingLink}
                   href="/docs/getting-started"

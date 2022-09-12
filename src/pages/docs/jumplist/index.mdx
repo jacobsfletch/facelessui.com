@@ -1,5 +1,7 @@
 import { Doc } from '@root/layout/Doc';
 
+{/* DOC_START */}
+
 # Jumplist
 
 The jumplist package provides a way to track DOM elements as they enter and exit the viewport. This can be especially useful for pages with lengthy content, allowing you to style active and inactive menu items as the page is scrolled. When a menu item is clicked, the page is scrolled to the corresponding node using native browser behavior.
@@ -25,6 +27,8 @@ If you need more granular control, see the [API](/docs/jumplist/api) for full de
 - Tracks DOM elements as they enter and exit the viewport
 - Is a lightweight wrapper around the Intersection Observer API
 - Uses no third-party scroll packages
+
+{/* DOC_END */}
 
 export default (props) => <Doc
   {...props}

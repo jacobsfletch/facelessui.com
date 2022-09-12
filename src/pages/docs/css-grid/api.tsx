@@ -38,7 +38,6 @@ const CSSGridAPI = () => {
         <Heading
           id="provider"
           href="#provider"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#provider`}
           element="h2"
           as="h4"
         >
@@ -94,7 +93,6 @@ export const MyApp = () = (
         <Heading
           id="provider-props"
           href="#provider-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#provider-props`}
           element="h3"
           as="h5"
         >
@@ -162,7 +160,6 @@ export const MyApp = () = (
         <Heading
           id="context"
           href="#context"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#context`}
           element="h3"
           as="h5"
         >
@@ -185,7 +182,6 @@ export const MyApp = () = (
         <Heading
           id="grid"
           href="#grid"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid`}
           element="h2"
           as="h4"
         >
@@ -226,7 +222,6 @@ export const MyComponent = () = (
         <Heading
           id="grid"
           href="#grid-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid-props`}
           element="h3"
           as="h5"
         >
@@ -236,7 +231,6 @@ export const MyComponent = () = (
         <Heading
           id="grid-context"
           href="#grid-context"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#grid-context`}
           element="h3"
           as="h5"
         >
@@ -255,7 +249,6 @@ export const MyComponent = () = (
         <Heading
           id="cell"
           href="#cell"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell`}
           element="h2"
           as="h4"
         >
@@ -303,7 +296,6 @@ export const MyApp = () = (
         <Heading
           id="cell"
           href="#cell-props"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell-props`}
           element="h3"
           as="h5"
         >
@@ -342,7 +334,6 @@ export const MyApp = () = (
         <Heading
           id="cell-context"
           href="#cell-context"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#cell-context`}
           element="h3"
           as="h5"
         >
@@ -361,7 +352,6 @@ export const MyApp = () = (
         <Heading
           id="useCell"
           href="#useCell"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useCell`}
           element="h2"
           as="h4"
         >
@@ -392,7 +382,6 @@ export const MyComponent = () => {
         <Heading
           id="useGrid"
           href="#useGrid"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useGrid`}
           element="h2"
           as="h4"
         >
@@ -423,7 +412,6 @@ export const MyComponent = () => {
         <Heading
           id="useSettings"
           href="#useSettings"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/api#useSettings`}
           element="h2"
           as="h4"
         >
@@ -454,7 +442,6 @@ export const MyComponent = () => {
         <Heading
           id="typescript"
           href="/docs/css-grid/api#typescript"
-          copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/css-grid/api#typescript`}
           element="h2"
           as="h4"
         >
@@ -476,7 +463,7 @@ export const MyComponent = () => {
 } from '@faceless-ui/css-grid/dist/types';`}
         </CodeBlock>
       </JumplistNode>
-    </Fragment>
+    </Fragment >
   )
 }
 

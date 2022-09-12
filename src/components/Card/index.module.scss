@@ -20,6 +20,11 @@
   margin-bottom: base(0.5);
 }
 
+.title {
+  @include h5;
+  margin-bottom: 0;
+}
+
 .description {
   @include small;
   flex-grow: 1;

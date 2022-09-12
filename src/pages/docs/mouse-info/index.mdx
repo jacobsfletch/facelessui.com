@@ -1,6 +1,8 @@
 import { Doc } from '@root/layout/Doc';
 import { LogMouseInfo } from '@root/examples/LogMouseInfo';
 
+{/* DOC_START */}
+
 # Mouse Info
 
 This is a utility to efficiently subscribe to window mouse events. As components in your application interact with mouse position, they compound mouse listeners which can be expensive to handle. To get around this, the `useMouseInfo` hook reads context from the `<MouseInfoProvider>` — which attaches only a single event listener to the window. These events are also piped through `requestAnimationFrame` so they are already optimized for performance.
@@ -16,6 +18,8 @@ This utility also conveniently interprets mouse data for you, such as direction 
 Move your cursor to see the effect:
 
 <LogMouseInfo />
+
+{/* DOC_END */}
 
 export default (props) => <Doc
   {...props}

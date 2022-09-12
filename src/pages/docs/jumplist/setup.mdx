@@ -2,6 +2,8 @@ import { Doc } from '@root/layout/Doc';
 import { VersionNumber } from '@components/VersionNumber';
 import { InstallationCode } from '@components/InstallationCode';
 
+{/* DOC_START */}
+
 # Basic Setup
 
 Latest version: <VersionNumber name="jumplist" />
@@ -135,7 +137,7 @@ Or use the [smoothScroll](/docs/jumplist/api#provider-props) prop on the provide
 
 There may also be cases where you want to temporarily disable smooth-scrolling, like between page transitions. To do this, you will need to add and remove this property dynamically using your app\'s existing router.
 
-###### NextJS
+### NextJS
 
 ```jsx
 import { Router } from "next/router";
@@ -163,6 +165,8 @@ export const ScrollToTopOnRouteChange = () => {
   return null;
 }
 ```
+
+{/* DOC_END */}
 
 export default (props) => <Doc
   {...props}
