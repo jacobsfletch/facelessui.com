@@ -1,22 +1,33 @@
 import { Hyperlink } from '@components/Hyperlink';
 import { CloseIcon } from '@root/icons/CloseIcon';
 import useClickAway from '@root/utilities/useClickAway';
-import React, { useEffect } from 'react';
-import searchCache from '../../../search/searchCache';
+import React, { useCallback, useEffect } from 'react';
 import classes from './index.module.scss';
 
 export const Search: React.FC = () => {
-  const [results, setResults] = React.useState<string[]>([]);
+  const [results, setResults] = React.useState<{
+    path: string
+    snippets: string[]
+  }[]>([]);
+
   const [value, setValue] = React.useState('');
   const [showResults, setShowResults] = React.useState(false);
+
   const ref = React.useRef<HTMLDivElement>(null);
-  useClickAway(ref, () => setShowResults(false));
+  const handleClickAway = useCallback(() => {
+    setShowResults(false);
+    ref.current?.scrollTo(0, 0);
+  }, []);
+
+  useClickAway(ref, handleClickAway);
 
   useEffect(() => {
     if (value && value.length >= 3) {
       const doSearch = async () => {
-        const newResults = await searchCache(value);
-        setResults(newResults);
+        const req = await fetch(`/api/search?search=${value}`);
+        const newResults = await req.json();
+        const parsedJSON = JSON.parse(newResults);
+        setResults(parsedJSON);
         setShowResults(true);
       }
       doSearch();
@@ -25,7 +36,13 @@ export const Search: React.FC = () => {
     }
   }, [value])
 
-  const hasResults = results && results.length > 0;
+  const hasResults = results && Array.isArray(results) && results.length > 0;
+
+  // console.log(typeof results);
+
+  useEffect(() => {
+    ref.current?.scrollTo(0, 0);
+  }, [value])
 
   return (
     <div className={classes.search}>
@@ -70,13 +87,38 @@ export const Search: React.FC = () => {
             No results found
           </div>
         )}
-        {hasResults && results.map((result, index) => (
-          <div key={index}>
-            <Hyperlink href={result}>
-              {result}
-            </Hyperlink>
-          </div>
-        ))}
+        {hasResults && results.map((result, index) => {
+          const {
+            path,
+            snippets
+          } = result;
+
+          const hasSnippets = snippets && snippets.length > 0;
+
+          return (
+            <div
+              key={index}
+              className={classes.result}
+            >
+              <Hyperlink
+                href={path}
+                underline={false}
+                className={classes.resultLink}
+              >
+                <div className={classes.pathName}>
+                  {path}
+                </div>
+                {hasSnippets && snippets.map((snippet, index) => (
+                  <div
+                    key={index}
+                    className={classes.snippet}
+                    dangerouslySetInnerHTML={{ __html: snippet }}
+                  />
+                ))}
+              </Hyperlink>
+            </div>
+          )
+        })}
       </div>
     </div>
   )

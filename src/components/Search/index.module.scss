@@ -4,22 +4,6 @@
   position: relative;
 }
 
-.results {
-  background-color: white;
-  color: var(--color-gray-10);
-  padding: base(0.5);
-  position: absolute;
-  top: 100%;
-  left: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.show {
-  opacity: 1;
-  pointer-events: all;
-}
-
 .label {
   @include p;
   margin: 0;
@@ -31,9 +15,10 @@
   background-color: var(--color-gray-7);
   color: var(--color-gray-10);
   padding: 0 base(0.25);
-  width: base(4);
+  width: base(8);
   border-radius: 2px;
   border: 1px solid var(--color-gray-6);
+  cursor: text;
 
   &:focus {
     background-color: var(--color-cream);
@@ -56,4 +41,50 @@
   justify-content: center;
   width: base();
   height: base();
+}
+
+.results {
+  width: 100%;
+  background-color: white;
+  color: var(--color-gray-10);
+  padding: base(0.5);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 50vh;
+  overflow: auto;
+  z-index: 999;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.result {
+  border: 1px solid var(--color-gray-6);
+  border-radius: 2px;
+
+  &:not(:last-child) {
+    margin-bottom: base(0.25);
+  }
+
+  &:hover {
+    background-color: var(--color-gray-2);
+  }
+}
+
+.resultLink {
+  padding: base(0.25);
+  display: block;
+}
+
+.pathName {
+  text-decoration: underline;
+}
+
+.snippet {
+  border: 1px solid var(--color-gray-6);
 }
