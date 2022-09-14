@@ -1,7 +1,6 @@
 import { Button } from '@components/Button';
 import { GitHubLogo } from '@components/GitHubLogo';
 import { Hyperlink } from '@components/Hyperlink';
-import { Search } from '@components/Search';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React, { useEffect } from 'react';
 import { BlockContainer } from '../BlockContainer';
@@ -67,7 +66,6 @@ export const Header: React.FC = () => {
             </Hyperlink>
           </div>
           <menu className={classes.menu}>
-            <Search />
             <Button
               appearance='primary'
               href="/docs/getting-started"
