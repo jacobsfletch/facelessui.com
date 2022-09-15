@@ -26,6 +26,12 @@
   & > *:not(:last-child) {
     margin-right: base();
   }
+
+  @include mid-break {
+    & > *:not(:last-child) {
+      margin-right: base(0.5);
+    }
+  }
 }
 
 .logoAnchor {

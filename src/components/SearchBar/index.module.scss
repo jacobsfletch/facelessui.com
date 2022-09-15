@@ -12,22 +12,29 @@
 .input {
   all: unset;
   margin: 0;
-  background-color: var(--color-gray-7);
+  background-color: var(--color-white);
   color: var(--color-gray-10);
   padding: 0 base(0.25);
   width: 100%;
   box-sizing: border-box;
   border-radius: 2px;
-  border: 1px solid var(--color-gray-6);
+  border: 1px solid;
+  border-color: var(--color-gray-4);
   cursor: text;
 
   &:focus {
-    background-color: var(--color-cream);
+    background-color: var(--color-gray-2);
+    border-color: var(--color-gray-8);
+  }
+
+  @include mid-break {
+    padding: base(0.25) base(0.25);
   }
 }
 
 .hasValue {
-  background-color: var(--color-cream);
+  background-color: var(--color-gray-2);
+  border-color: var(--color-gray-8);
 }
 
 .clearButton {
@@ -40,8 +47,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: base();
-  height: base();
+  aspect-ratio: 1;
+  height: 100%;
 }
 
 .results {
@@ -88,4 +95,22 @@
 
 .snippet {
   border: 1px solid var(--color-gray-6);
+}
+
+:global(.isDark) {
+  &:local() {
+    .input {
+      background-color: var(--color-gray-7);
+
+      &:focus {
+        background-color: var(--color-white);
+        border-color: var(--color-gray-2);
+      }
+    }
+
+    .hasValue {
+      background-color: var(--color-white);
+      border-color: var(--color-gray-2);
+    }
+  }
 }

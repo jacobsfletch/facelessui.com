@@ -2,33 +2,8 @@
 
 .results {
   width: 100%;
-  background-color: white;
-  color: var(--color-gray-10);
-  padding: base(0.5);
 }
 
-.result {
-  border: 1px solid var(--color-gray-6);
-  border-radius: 2px;
-
-  &:not(:last-child) {
-    margin-bottom: base(0.25);
-  }
-
-  &:hover {
-    background-color: var(--color-gray-2);
-  }
-}
-
-.resultLink {
-  padding: base(0.25);
-  display: block;
-}
-
-.pathName {
-  text-decoration: underline;
-}
-
-.snippet {
-  border: 1px solid var(--color-gray-6);
+.noResults {
+  @include small;
 }

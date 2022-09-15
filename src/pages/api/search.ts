@@ -2,6 +2,16 @@ const fs = require('fs');
 const path = require('path')
 const cache = require('../../../search/cache/index.json');
 
+const removePunctuation = (side: 'leading' | 'trailing', text: string) => {
+  const match = text.match(new RegExp(`[^a-zA-Z0-9]+${side === 'leading' ? '$' : '^'}`));
+  // No match found
+  if (!match || !match.index) {
+    return text;
+  }
+  // Return sliced text
+  return text.slice(0, match.index);
+}
+
 // To use this API, you can make a GET request to `/api/search` with the `?search=` query parameter
 // You can adjust the snippet padding by adding a the `?padding=` query parameter
 
@@ -36,11 +46,15 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
               const snippets = [...page.matchAll(new RegExp(word, 'gi'))].map(a => {
                 const before = page.substring(a.index - snippetPadding, a.index);
                 const after = page.substring(a.index + word.length, a.index + word.length + snippetPadding);
-                return `...${before}<mark>${word}</mark>${after}...`;
+
+                // remove trailing  punctuation
+                // const beforeClean = removePunctuation('leading', before);
+                const afterClean = removePunctuation('trailing', after);
+                return `...${before}<mark>${word}</mark>${afterClean}...`;
               });
 
               results.push({
-                path: pathToPage.split('/index')[0],
+                path: `/docs/${pathToPage.split('/index')[0]}`,
                 snippets
               })
             } catch (e) {

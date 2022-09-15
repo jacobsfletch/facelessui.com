@@ -23,22 +23,31 @@
 }
 
 .headingText {
+  @include jumbo;
   display: inline;
   margin-bottom: 0;
 }
 
-.headingLink {
-  display: inline;
-  margin-left: base(0.5);
-  position: relative;
-  top: -12px; // adjust for heading line height
-  white-space: nowrap;
+// .headingLink {
+//   display: inline;
+//   margin-left: base(0.5);
+//   position: relative;
+//   top: -26px; // adjust for heading line height
+//   white-space: nowrap;
 
-  @include mid-break {
-    @include small;
-    top: -4px;
-  }
-}
+//   @include x-large-break {
+//     top: -18px;
+//   }
+
+//   @include large-break {
+//     top: -12px;
+//   }
+
+//   @include mid-break {
+//     @include small;
+//     top: -8px;
+//   }
+// }
 
 .componentsContainer {
   padding: base(3) 0;

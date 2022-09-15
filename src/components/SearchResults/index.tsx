@@ -1,10 +1,20 @@
-import { Hyperlink } from '@components/Hyperlink';
 import React, { useEffect } from 'react';
 import classes from './index.module.scss';
 import { useSearch } from '@root/providers/SearchProvider';
+import { SearchResult } from './SearchResult';
 
-export const SearchResults = () => {
-  const { results, hasResults } = useSearch();
+export const SearchResults: React.FC<{
+  forceDark?: boolean
+}> = (props) => {
+  const {
+    forceDark
+  } = props;
+
+  const {
+    results,
+    hasResults,
+    search
+  } = useSearch();
 
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -24,43 +34,23 @@ export const SearchResults = () => {
         className={classes.results}
         ref={ref}
       >
-        {!hasResults && (
+        {search && !hasResults && (
+          <p className={classes.noResults}>
+            {`No results for "${search}". Try again with a different keyword.`}
+          </p>
+        )}
+        {!search && (
           <div>
-            No results found
+            Start typing to search
           </div>
         )}
-        {hasResults && results.map((result, index) => {
-          const {
-            path,
-            snippets
-          } = result;
-
-          const hasSnippets = snippets && snippets.length > 0;
-
-          return (
-            <div
-              key={index}
-              className={classes.result}
-            >
-              <Hyperlink
-                href={path}
-                underline={false}
-                className={classes.resultLink}
-              >
-                <div className={classes.pathName}>
-                  {path}
-                </div>
-                {hasSnippets && snippets.map((snippet, index) => (
-                  <div
-                    key={index}
-                    className={classes.snippet}
-                    dangerouslySetInnerHTML={{ __html: snippet }}
-                  />
-                ))}
-              </Hyperlink>
-            </div>
-          )
-        })}
+        {hasResults && results.map((result, index) => (
+          <SearchResult
+            key={index}
+            {...result}
+            forceDark={forceDark}
+          />
+        ))}
       </div>
     </div>
   )

@@ -3,12 +3,16 @@
 @use "./vars.scss" as *;
 
 @mixin jumbo {
-  font-size: base(3.5);
+  font-size: base(3.25);
   line-height: 1;
   font-weight: 600;
   margin: 0 0 base();
 
-  @include mid-break {
+  @include x-large-break {
+    font-size: base(2.75);
+  }
+
+  @include large-break {
     font-size: base(2);
   }
 }
@@ -112,6 +116,6 @@
 }
 
 @mixin small {
-  font-size: 75%;
+  font-size: 14px;
   line-height: 1.25;
 }

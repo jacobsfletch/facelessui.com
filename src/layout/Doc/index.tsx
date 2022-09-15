@@ -65,6 +65,7 @@ export const Doc: React.FC<{
         <Grid>
           <Cell
             cols={3}
+            colsL={4}
             colsM={8}
             className={classes.desktopNav}
           >
@@ -72,6 +73,7 @@ export const Doc: React.FC<{
           </Cell>
           <Cell
             cols={9}
+            colsL={8}
             colsM={8}
           >
             <div className={classes.content}>
@@ -87,7 +89,7 @@ export const Doc: React.FC<{
             )}
           </Cell>
         </Grid>
-        <MobileNav className={classes.mobileNav} />
+        <MobileNav />
       </BlockContainer>
     </Fragment>
   );

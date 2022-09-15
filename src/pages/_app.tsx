@@ -45,7 +45,7 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
   const Layout = Component.Layout || Fragment;
 
   return (
-    <SearchProvider>
+    <SearchProvider threshold={3}>
       <MDXProvider components={mdxComponents}>
         <DarkModeProvider>
           <MouseInfoProvider>

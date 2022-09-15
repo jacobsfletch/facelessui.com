@@ -17,6 +17,7 @@ export type HyperlinkProps = {
   colored?: boolean
   children?: React.ReactNode
   'aria-label'?: string
+  dimOnHover?: boolean
 }
 
 export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
@@ -32,6 +33,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     underlineOnHover,
     colored,
     'aria-label': ariaLabel,
+    dimOnHover
   } = props;
 
   const sharedProps = {
@@ -40,7 +42,8 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
       classes.hyperlink,
       underline && classes.underline,
       (underline !== true && underlineOnHover) && classes.underlineOnHover,
-      colored && classes.colored
+      colored && classes.colored,
+      dimOnHover && classes.dimOnHover
     ].filter(Boolean).join(' '),
     onMouseEnter,
     onMouseLeave,

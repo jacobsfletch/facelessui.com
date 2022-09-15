@@ -54,14 +54,12 @@ const Home: NextPage = () => {
               colsM={12}
             >
               <div className={classes.heading}>
-                <h1 className={classes.headingText}>
-                  An unstyled <span style={{ display: 'inline-block' }}>React+<wbr />Typescript</span> UI library for brands
-                </h1>
                 <Hyperlink
-                  className={classes.headingLink}
                   href="/docs/getting-started"
                 >
-                  Get started
+                  <h1 className={classes.headingText}>
+                    An unstyled <span style={{ display: 'inline-block' }}>React+<wbr />Typescript</span> UI library for brands
+                  </h1>
                 </Hyperlink>
               </div>
             </Cell>

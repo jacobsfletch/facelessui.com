@@ -1,43 +1,99 @@
 import { CloseIcon } from '@root/icons/CloseIcon';
 import { useSearch } from '@root/providers/SearchProvider';
-import React from 'react';
+import useDebounce from '@root/utilities/useDebounce';
+import React, { useCallback, useEffect, useRef } from 'react';
 import classes from './index.module.scss';
 
-export const SearchBar: React.FC = () => {
-  const { search, setSearch } = useSearch();
+type Props = {
+  className?: string
+}
+
+export const SearchBar: React.FC<Props> = (props) => {
+  const {
+    search: valueFromContext,
+    setSearch: setSearchContext
+  } = useSearch();
+
+  const {
+    className,
+  } = props;
+
+  const ref = useRef<HTMLInputElement>(null);
+
+  const [internalValue, setInternalValue] = React.useState(valueFromContext || '');
+  const debouncedSearch = useDebounce(internalValue, 50);
+  const prevValue = useRef(valueFromContext);
+
+  // enable keyboard shortcut
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (ref && ref.current && e.key === '/') {
+      e.preventDefault();
+      ref.current.focus();
+    }
+  }, [ref])
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [handleKeyDown])
+
+  // report throttled search to context
+  useEffect(() => {
+    if (typeof setSearchContext === 'function') {
+      setSearchContext(debouncedSearch);
+    }
+  }, [
+    debouncedSearch,
+    setSearchContext
+  ]);
+
+  // NOTE: let external changes to the search value update the input
+  useEffect(() => {
+    if (valueFromContext !== undefined && valueFromContext !== prevValue.current) {
+      setInternalValue(valueFromContext)
+    };
+  }, [valueFromContext]);
+
+  useEffect(() => {
+    prevValue.current = internalValue;
+  }, [internalValue])
 
   return (
-    <div className={classes.search}>
+    <div
+      className={[
+        classes.search,
+        className
+      ].filter(Boolean).join(' ')}
+    >
       <label>
         <input
+          ref={ref}
           type="text"
           placeholder="Search (beta)"
           className={[
             classes.input,
-            search && classes.hasValue
+            internalValue && classes.hasValue
           ].filter(Boolean).join(' ')}
           onChange={(e) => {
-            if (typeof setSearch === 'function') {
-              setSearch(e.target.value);
-            }
+            setInternalValue(e.target.value);
           }}
-          value={search}
+          value={internalValue}
         />
       </label>
-      {search && (
+      {internalValue && (
         <button
           className={classes.clearButton}
           type="button"
           onClick={() => {
-            if (typeof setSearch === 'function') {
-              setSearch('');
-            }
+            setInternalValue('');
           }}
         >
           <CloseIcon
             color="black"
+            className={classes.clearIcon}
             bold
-            size="small"
           />
         </button>
       )}
