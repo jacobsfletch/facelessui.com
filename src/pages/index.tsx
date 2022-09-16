@@ -5,7 +5,6 @@ import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import { useWindowInfo } from '@faceless-ui/window-info';
 import { Card } from '@components/Card';
 import { Hyperlink } from '@components/Hyperlink';
-import { MarginGrid } from '@components/MarginGrid';
 import { Cell, Grid } from '@faceless-ui/css-grid';
 import { BlockContainer } from '@root/layout/BlockContainer';
 import React from 'react';
@@ -82,13 +81,9 @@ const Home: NextPage = () => {
           <BlockContainer>
             <div className={classes.components}>
               <p className={classes.label}>
-                Components
+                Components:
               </p>
-              <MarginGrid
-                cols={3}
-                colsL={2}
-                fullWidthMobile
-              >
+              <div className={classes.cards}>
                 <Card
                   title="Modal"
                   href="/docs/modal"
@@ -119,17 +114,13 @@ const Home: NextPage = () => {
                   description='Dots, page navigation, table of contents, quick-lists, jumplists'
                   forceDark
                 />
-              </MarginGrid>
+              </div>
             </div>
             <div className={classes.utilities}>
               <p className={classes.label}>
-                Utilities
+                Utilities:
               </p>
-              <MarginGrid
-                cols={3}
-                colsL={2}
-                fullWidthMobile
-              >
+              <div className={classes.cards}>
                 <Card
                   title="Window Info"
                   href="/docs/window-info"
@@ -148,7 +139,7 @@ const Home: NextPage = () => {
                   description="Mouse position, movement, direction, etc with a single event listener"
                   forceDark
                 />
-              </MarginGrid>
+              </div>
             </div>
           </BlockContainer>
         </div>

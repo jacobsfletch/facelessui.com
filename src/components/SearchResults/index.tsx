@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment } from 'react';
 import classes from './index.module.scss';
 import { useSearch } from '@root/providers/SearchProvider';
 import { SearchResult } from './SearchResult';
@@ -12,21 +12,14 @@ export const SearchResults: React.FC<{
 
   const {
     results,
-    hasResults,
-    search
+    search,
+    isLoading,
+    hasLoaded
   } = useSearch();
 
+  const hasResults = results && results.length > 0;
+
   const ref = React.useRef<HTMLDivElement>(null);
-
-  const hasInitialized = React.useRef(false);
-
-  useEffect(() => {
-    if (hasInitialized.current) {
-      ref.current?.scrollTo(0, 0);
-    }
-
-    hasInitialized.current = true;
-  }, [results])
 
   return (
     <div className={classes.search}>
@@ -34,23 +27,30 @@ export const SearchResults: React.FC<{
         className={classes.results}
         ref={ref}
       >
-        {search && !hasResults && (
-          <p className={classes.noResults}>
-            {`No results for "${search}". Try again with a different keyword.`}
-          </p>
+        {!isLoading && hasLoaded && (
+          <Fragment>
+            {!hasResults ? (
+              <p className={classes.noResults}>
+                {`No results for "${search}". Try again with a different keyword.`}
+              </p>
+            ) : (
+              <Fragment>
+                {results?.map((result, index) => (
+                  <SearchResult
+                    key={index}
+                    {...result}
+                    forceDark={forceDark}
+                  />
+                ))}
+              </Fragment>
+            )}
+          </Fragment>
         )}
-        {!search && (
+        {isLoading && (
           <div>
-            Start typing to search
+            Loading...
           </div>
         )}
-        {hasResults && results.map((result, index) => (
-          <SearchResult
-            key={index}
-            {...result}
-            forceDark={forceDark}
-          />
-        ))}
       </div>
     </div>
   )

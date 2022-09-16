@@ -25,6 +25,7 @@ import { mdxComponents } from '@root/mdx';
 
 import '../scss/app.scss';
 import { SearchProvider } from '@root/providers/SearchProvider';
+import { MobileNav } from '@root/layout/DocsNav/MobileNav';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -104,6 +105,7 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                                   <Component {...pageProps} />
                                 </Layout>
                                 <ModalContainer />
+                                <MobileNav />
                                 <Footer />
                                 <CustomCursor />
                               </Fragment>

@@ -8,7 +8,6 @@ import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React, { Fragment, useEffect } from 'react';
 import { BlockContainer } from '../BlockContainer';
 import { DesktopNav } from '../DocsNav/DesktopNav';
-import { MobileNav } from '../DocsNav/MobileNav';
 import classes from './index.module.scss';
 
 export const Doc: React.FC<{
@@ -89,7 +88,6 @@ export const Doc: React.FC<{
             )}
           </Cell>
         </Grid>
-        <MobileNav />
       </BlockContainer>
     </Fragment>
   );

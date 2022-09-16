@@ -29,6 +29,9 @@
 
   @include mid-break {
     white-space: auto;
+    &:hover {
+      color: var(--color-gray-5);
+    }
   }
 }
 
@@ -39,6 +42,12 @@
 
   &:hover {
     color: var(--color-gray-5);
+  }
+
+  @include mid-break {
+    &:hover {
+      color: var(--color-gray-4);
+    }
   }
 }
 
@@ -111,20 +120,35 @@
   &:local() {
     .itemLabel {
       color: var(--color-gray-4);
+
       &:hover {
         color: var(--color-white);
+      }
+
+      @include mid-break {
+        &:hover {
+          color: var(--color-gray-4);
+        }
       }
     }
 
     .jumplistLinkLabel {
       color: var(--color-gray-4);
+
       &:hover {
         color: var(--color-white);
+      }
+
+      @include mid-break {
+        &:hover {
+          color: var(--color-gray-4);
+        }
       }
     }
 
     .itemIsActive {
       color: var(--color-white);
+
       &:hover {
         color: var(--color-white);
       }

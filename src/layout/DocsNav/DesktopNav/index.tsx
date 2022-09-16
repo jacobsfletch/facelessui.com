@@ -1,5 +1,5 @@
 import { nav } from '@root/docs-nav';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import classes from './index.module.scss';
 import { RecursiveNav } from '../RecursiveNav';
 import { SearchBar } from '@components/SearchBar';
@@ -10,10 +10,9 @@ import useClickAway from '@root/utilities/useClickAway';
 
 export const DesktopNav: React.FC = () => {
   const {
-    thresholdMet
+    renderResults,
+    setRenderResults
   } = useSearch();
-
-  const [showResults, setShowResults] = useState(false);
 
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -23,33 +22,9 @@ export const DesktopNav: React.FC = () => {
     } = {}
   } = useWindowInfo();
 
-  useEffect(() => {
-    if (thresholdMet) {
-      setShowResults(true);
-    } else {
-      setShowResults(false);
-    }
-  }, [
-    thresholdMet
-  ])
-
   useClickAway(ref, () => {
-    setShowResults(false);
+    if (typeof setRenderResults === 'function') setRenderResults(false);
   });
-
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setShowResults(false);
-      }
-    }
-
-    document.addEventListener('keydown', handleEscape);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    }
-  }, [])
 
   return (
     <div
@@ -61,10 +36,10 @@ export const DesktopNav: React.FC = () => {
           <SearchBar />
         </div>
       )}
-      {showResults && (
+      {renderResults && (
         <SearchResults />
       )}
-      {!showResults && (
+      {!renderResults && (
         <RecursiveNav items={nav} />
       )}
     </div >

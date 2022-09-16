@@ -56,14 +56,14 @@ export const Heading: React.FC<{
       ].filter(Boolean).join(' ')}
     >
       <Hyperlink
-        href={hrefFromProps || `#${kebab}`}
+        className={classes.headingAnchor}
+        // href={hrefFromProps || `#${kebab}`} // TODO: Fix this mismatch href from server to client
         underline={false}
         onClick={() => {
           if (textToCopy) {
             copyToClipboard(textToCopy, onCopy);
           }
         }}
-        className={classes.headingAnchor}
       >
         {textToCopy && (
           <span className={classes.hashMark}>

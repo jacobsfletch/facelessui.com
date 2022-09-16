@@ -1,7 +1,7 @@
 import { CloseIcon } from '@root/icons/CloseIcon';
 import { useSearch } from '@root/providers/SearchProvider';
 import useDebounce from '@root/utilities/useDebounce';
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import classes from './index.module.scss';
 
 type Props = {
@@ -22,6 +22,7 @@ export const SearchBar: React.FC<Props> = (props) => {
 
   const [internalValue, setInternalValue] = React.useState(valueFromContext || '');
   const debouncedSearch = useDebounce(internalValue, 50);
+  const [hasValue, setHasValue] = useState(false);
   const prevValue = useRef(valueFromContext);
 
   // enable keyboard shortcut
@@ -49,7 +50,12 @@ export const SearchBar: React.FC<Props> = (props) => {
     setSearchContext
   ]);
 
-  // NOTE: let external changes to the search value update the input
+  // NOTE: this is necessary for UII hydration when server rendering
+  useEffect(() => {
+    setHasValue(Boolean(internalValue));
+  }, [internalValue])
+
+  // NOTE: allow external changes to the search, (like clearing, etc)
   useEffect(() => {
     if (valueFromContext !== undefined && valueFromContext !== prevValue.current) {
       setInternalValue(valueFromContext)
@@ -74,7 +80,7 @@ export const SearchBar: React.FC<Props> = (props) => {
           placeholder="Search (beta)"
           className={[
             classes.input,
-            internalValue && classes.hasValue
+            hasValue && classes.hasValue
           ].filter(Boolean).join(' ')}
           onChange={(e) => {
             setInternalValue(e.target.value);
@@ -82,7 +88,7 @@ export const SearchBar: React.FC<Props> = (props) => {
           value={internalValue}
         />
       </label>
-      {internalValue && (
+      {hasValue && (
         <button
           className={classes.clearButton}
           type="button"

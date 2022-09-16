@@ -4,7 +4,7 @@
   width: 100%;
   margin: base(2) 0;
 
-  @include large-break {
+  @include x-large-break {
     margin: base() 0;
   }
 }
