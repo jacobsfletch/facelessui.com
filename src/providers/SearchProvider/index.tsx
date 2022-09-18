@@ -98,6 +98,7 @@ export const SearchProvider: React.FC<{
 
       if (isHighlight) {
         setSearch('');
+        setResults(undefined);
         setRenderResults(false);
       }
     }

@@ -11,7 +11,8 @@ type Props = {
 export const SearchBar: React.FC<Props> = (props) => {
   const {
     search: valueFromContext,
-    setSearch: setSearchContext
+    setSearch: setSearchContext,
+    setRenderResults
   } = useSearch();
 
   const {
@@ -31,7 +32,9 @@ export const SearchBar: React.FC<Props> = (props) => {
       e.preventDefault();
       ref.current.focus();
     }
-  }, [ref])
+  }, [
+    ref,
+  ])
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown);
@@ -84,6 +87,11 @@ export const SearchBar: React.FC<Props> = (props) => {
           ].filter(Boolean).join(' ')}
           onChange={(e) => {
             setInternalValue(e.target.value);
+          }}
+          onFocus={() => {
+            if (typeof setRenderResults === 'function') {
+              setRenderResults(true)
+            }
           }}
           value={internalValue}
         />
