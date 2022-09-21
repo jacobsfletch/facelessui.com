@@ -1,17 +1,14 @@
 const fs = require('fs')
 const path = require('path')
-const glob = require('glob')
+const glob = require('glob');
+const { match } = require('assert');
 
 // This file dynamically generates cached JSON from MDX files
 
 const toKebab = (str) => str.replace(/\s+/g, '-').toLowerCase();
-const removePunctuation = (string) => {
-  return string
-    .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "")
-    .replace(/\s{2,}/g, " ");
-};
 
-function makeCache() {
+function makeCache(jsxTransformations) {
+
   const makeIndex = async () => {
     // NOTE: first prepare the directory
     try {
@@ -27,9 +24,6 @@ function makeCache() {
 
     if (pages && Array.isArray(pages) && pages.length > 0) {
       pages.forEach((filePath) => {
-        let pagePath = filePath
-          .replace('.mdx', '');
-
         let pageContents = fs.readFileSync(path.join('src/pages/docs', filePath), 'utf8');
 
         // NOTE: sanitize the MDX
@@ -37,13 +31,44 @@ function makeCache() {
         pageContents = pageContents.split("{/* DOC_START */}")[1] || pageContents; // NOTE: safely remove the js imports at the beginning of each doc
         pageContents = pageContents.split("{/* DOC_END */}")[0] // NOTE: remove the raw jsx at the end of each file
 
+        // apply react component transformations
+        if (jsxTransformations) {
+          Object.keys(jsxTransformations).forEach((componentName) => {
+            // NOTE same as above
+            const regexSelfClosing = new RegExp(`<${componentName}[\\s\\S]*?/>`, "gm"); // include multiline
+            const matches = [...pageContents.matchAll(regexSelfClosing)];
+
+            if (matches.length > 0) {
+              let prevIndex = 0;
+              let transformedPage = '';
+
+              for (const match of matches) {
+                const indexOfMatch = match.index;
+                const transformedText = jsxTransformations[componentName](match[0]);
+                transformedPage += pageContents.slice(prevIndex, indexOfMatch) + transformedText;
+
+                const isLastMatch = matches.indexOf(match) === matches.length - 1;
+                if (isLastMatch) {
+                  transformedPage += pageContents.slice(indexOfMatch + match[0].length);
+                }
+
+                prevIndex = indexOfMatch + match[0].length;
+              }
+
+              pageContents = transformedPage;
+            }
+          });
+        }
+
+        // if (filePath === 'collapsibles/api.mdx') console.log(pageContents);
+
         sanitizedPage = pageContents
           .replace(/```[\s\S]*?```/g, '') // NOTE: remove all code blocks
-          .replace(/\(.*\)/g, '') // remove parenthesis content if a link i.e. [title](url)
-          .replace(/[\[\]`]+/g, '') // remove unwanted special characters, i.e. brackets and backticks
-          .replace(/<[^>]*\/>/g, '') // remove self-closing react components
-
-        // TODO: remove non-self closing react components
+          .replace(/ *\([^)]*\)*/g, '') // remove parenthesis content if a link i.e. [title](url)
+          .replace(/[\[\]]+/g, '') // remove unwanted special characters, i.e. brackets
+          .replace(' .', '.') // cleanup space empty space before punctuation
+          .replace(/\n{2,}/g, '\n')// replace all consecutive newlines with a single newline
+        // .replace(/<[^>]*\/>/g, '') // remove self-closing react components
 
         // NOTE: prepare the folder structure to be written into
         const pathSegments = filePath.split('/');
@@ -59,18 +84,38 @@ function makeCache() {
         })
 
         // Split file by heading, then cache each heading in its own file, i.e. "page#heading.json"
-        var regex = new RegExp('# ', 'gi');
-        while (regex.exec(sanitizedPage)) {
+        var regex = new RegExp('\n#', 'gi');
+        let breadcrumbs = [];
+        let prevHeadingSize = 0;
+
+        let match;
+        while (match = regex.exec(sanitizedPage)) {
           // first extract only the heading text
           const indexOfMatch = regex.lastIndex;
           const textAfterMatch = sanitizedPage.slice(indexOfMatch);
           const indexOfNewline = textAfterMatch.indexOf("\n");
-          const fullText = textAfterMatch
+
+          // determine heading size in order to build the breadcrumbs
+          const numberOfHashes = textAfterMatch.match(/^[^\s]+/)?.[0].length || 0; // NOTE: the original regex removed the first hash
+          const headingSize = numberOfHashes + 1; // i.e. h1, h2, etc
+
+          const headingText = textAfterMatch
             .slice(0, indexOfNewline)
-            .replace(/[{(`"'.,#;/\\<>—:@)}]/g, '') // remove unwanted special characters
+            .replace(/[{(`"'.,#;/\\<>—:@)}]/g, '') // remove unwanted special characters (text-only headings)
             .trim();
 
-          const kebabHeading = toKebab(fullText);
+          // NOTE: build the breadcrumbs based on heading sizes
+          if (headingSize > prevHeadingSize) breadcrumbs.push(headingText); // only push cascading headings into the breadcrumbs
+          if (prevHeadingSize === headingSize) breadcrumbs[breadcrumbs.length - 1] = headingText; // replace the last breadcrumb if the heading size is the same
+          if (headingSize < prevHeadingSize) breadcrumbs = [breadcrumbs[0], headingText]; // if the heading size is smaller, start over
+          prevHeadingSize = headingSize;
+
+          const kebabHeading = toKebab(headingText);
+
+          // find markdown headings leading up to this one and concatenate them
+          // const indexOfPrevHeading = sanitizedPage.slice(0, indexOfMatch).lastIndexOf("# ");
+          // const allHeadings = `${prevHeading} - ${headingText}`;
+          // prevHeading = headingText;
 
           // NOTE: splice only the contents this heading to write to the file
           const contentAfterHeading = textAfterMatch.slice(indexOfNewline);
@@ -131,7 +176,10 @@ function makeCache() {
               }
             })
 
-          const json = JSON.stringify(sanitizedCache);
+          const json = JSON.stringify({
+            title: breadcrumbs.join(' - '),
+            content: sanitizedCache
+          });
 
           // NOTE: write the file
           // TODO: do this synchronously
@@ -160,4 +208,15 @@ function makeCache() {
   makeIndex();
 }
 
-makeCache();
+makeCache({
+  'PropName': (string) => {
+    const propName = string.match(/name="(.*)"/)?.[1];
+    return propName ? `\`${propName}\`` : 'PROP_NAME'
+  },
+  'InstallationCode': (arg) => 'INSTALLATION_CODE',
+  'ClassPrefix': (arg) => 'CLASS_PREFIX',
+  'BasicProps': (arg) => 'BASIC_PROPS',
+  'BasicContext': (arg) => 'BASIC_CONTEXT',
+  'VersionNumber': (arg) => 'VERSION_NUMBER',
+  // 'JumplistNode': (arg) => 'JUMPLIST_NODE', // NOTE: this one is tricker because it's not self-closing
+});

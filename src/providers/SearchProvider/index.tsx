@@ -11,6 +11,7 @@ import QueryString from "qs";
 
 export type SearchResult = {
   path: string
+  title: string
   snippets: string[]
 }
 

@@ -12,6 +12,7 @@ const removePunctuation = (side: 'leading' | 'trailing', text: string) => {
   return text.slice(0, match.index);
 }
 
+import { SearchResult } from '@root/providers/SearchProvider';
 // To use this API, you can make a GET request to `/api/search` with the `?search=` query parameter
 // You can adjust the snippet padding by adding a the `?padding=` query parameter
 
@@ -21,10 +22,7 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
   const searchString = req.query.search as string;
   const snippetPadding = Number(req.query.padding as string || 20);
 
-  const results: {
-    path: string
-    snippets: string[]
-  }[] = [];
+  const results: SearchResult[] = [];
 
   const searchWords = searchString.toLowerCase().split(" ");
 
@@ -37,24 +35,44 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
           if (!results.find((result) => result.path === pathToPage)) {
             // results.push(result);
             const pathWithoutDocs = pathToPage.replace('/docs', '');
+
             try {
-              let pageContents = fs.readFileSync(path.join('search/cache', `${pathWithoutDocs}.json`), 'utf8');
-              const page = JSON.parse(pageContents);
+              let pageData = fs.readFileSync(path.join('search/cache', `${pathWithoutDocs}.json`), 'utf8');
+              const pageJSON = JSON.parse(pageData);
+              const {
+                title,
+                content
+              } = pageJSON;
 
               // get all the indexes of the word in the page
               // then return a snippet of the page with the word highlighted
-              const snippets = [...page.matchAll(new RegExp(word, 'gi'))].map(a => {
-                const before = page.substring(a.index - snippetPadding, a.index);
-                const after = page.substring(a.index + word.length, a.index + word.length + snippetPadding);
+              const snippets = [...content.matchAll(new RegExp(word, 'gi'))].map(a => {
+                const before = content.substring(a.index - snippetPadding, a.index);
+                const after = content.substring(a.index + word.length, a.index + word.length + snippetPadding);
 
                 // remove trailing  punctuation
                 // const beforeClean = removePunctuation('leading', before);
                 const afterClean = removePunctuation('trailing', after);
-                return `...${before}<mark>${word}</mark>${afterClean}...`;
+
+                // determine if we need to add an ellipsis and truncate the string
+                const nearestPunctuation = before.match(/[^/n]|[^'. ']+$/); // newlines OR period+space
+                let beforeClean = before;
+                let prependEllipsis = true;
+
+                // console.log(nearestPunctuation);
+                if (nearestPunctuation && typeof nearestPunctuation.index === 'number') {
+                  beforeClean = before.substring(nearestPunctuation.index + 1);
+                  prependEllipsis = false;
+                }
+
+                // const beforeClean = before.replace(/^\s+/, '');
+
+                return `${prependEllipsis ? '...' : ''}${beforeClean}<mark>${word}</mark>${afterClean}...`;
               });
 
               results.push({
-                path: `/docs/${pathToPage.split('/index')[0]}`,
+                title,
+                path: `/docs${pathToPage.split('/index')[0]}`,
                 snippets
               })
             } catch (e) {

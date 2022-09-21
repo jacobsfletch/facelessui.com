@@ -33,7 +33,7 @@ module.exports = withMDX({
 
     // on build, also build the search cache
     if (isServer) {
-      require('./search/makeCache')
+      require('./search/makeCache');
     }
 
     return configCopy;

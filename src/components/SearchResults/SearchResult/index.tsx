@@ -9,7 +9,8 @@ export const SearchResult: React.FC<SearchResultType & {
   const {
     forceDark,
     snippets,
-    path
+    path,
+    title
   } = props;
 
   const hasSnippets = snippets && snippets.length > 0;
@@ -26,9 +27,9 @@ export const SearchResult: React.FC<SearchResultType & {
         underline={false}
         className={classes.resultLink}
       >
-        <div className={classes.pathName}>
-          {`(${snippets.length}) ${path}`}
-        </div>
+        <p className={classes.title}>
+          {title}
+        </p>
         {hasSnippets && snippets.map((snippet, index) => {
           if (index < 3) {
             return (

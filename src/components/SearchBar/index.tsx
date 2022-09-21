@@ -12,7 +12,8 @@ export const SearchBar: React.FC<Props> = (props) => {
   const {
     search: valueFromContext,
     setSearch: setSearchContext,
-    setRenderResults
+    setRenderResults,
+    results
   } = useSearch();
 
   const {
@@ -89,7 +90,7 @@ export const SearchBar: React.FC<Props> = (props) => {
             setInternalValue(e.target.value);
           }}
           onFocus={() => {
-            if (typeof setRenderResults === 'function') {
+            if (typeof setRenderResults === 'function' && results && results.length > 0) {
               setRenderResults(true)
             }
           }}
