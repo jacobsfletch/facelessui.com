@@ -1,0 +1,385 @@
+import React, { Fragment, useEffect } from 'react';
+import { Doc } from '@root/layout/Doc';
+import { InlineCode } from '@components/InlineCode';
+import { CodeBlock } from '@components/CodeBlock';
+import { Hyperlink } from '@components/Hyperlink';
+import Margin from '@components/Margin';
+import { JumplistNode } from '@faceless-ui/jumplist';
+import { useJumplist } from '@faceless-ui/jumplist';
+import { modalAPINav } from '@root/docs-nav';
+import { BasicProps } from '@components/BasicProps';
+import { Heading } from '@components/Heading';
+import { ClassPrefix } from '@components/ClassPrefix';
+import { PropName } from '@components/PropName';
+import { BasicContext } from '@components/BasicContext';
+
+{/* DOC_START */}
+
+# Modal API
+
+<JumplistNode nodeID="provider">
+
+## \<ModalProvider\>
+
+This component provides the [modal context](#context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#provider-props) are defined.
+
+```js
+import react from 'react';
+import { ModalProvider } from '@faceless-ui/modal;
+
+export const MyApp = () = (
+  <ModalProvider>
+    ...
+  </ModalProvider>
+);
+```
+
+### \<ModalProvider\> Props
+
+<PropName
+  name="zIndex"
+  type="number"
+/>
+
+Applies z-index to the [`<ModalContainer>`](#modalcontainer). If [`generateCSS`](#generateCSS) is false, this prop is ignored. Defaults to `9999`.
+
+<PropName
+  name="transTime"
+  type="number"
+/>
+
+The transition duration of modals and the modal container, in milliseconds. Defaults to `250`.
+
+<PropName
+  name="handleParamChange"
+  type="boolean or function"
+/>
+
+If true, will set and reset the `?modal=` URL parameter using [`pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) from the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). If sent a callback, will execute your function with a slug for you to handle, see [Routing](/docs/modal/routing) for more details.
+
+<ClassPrefix id="classPrefix" />
+
+<PropName
+  name="generateCSS"
+  type="boolean"
+/>
+
+Generates a tiny CSS stylesheet (~650B), rendered at the root of the provider. This is used for core positioning and transition timing, not visual styling. Defaults to `true`.
+
+<PropName
+  name="minifyCSS"
+  type="boolean"
+/>
+
+Minifies the result of [`generateCSS`](#generateCSS). Defaults to `true`.
+
+### Context
+
+<PropName
+  name="currentModal"
+  type="string"
+  isContextProp
+/>
+
+The slug of the currently open modal. Modals compare their slug with this value to determine their open status. If the page was loaded with a `?modal=x` URL parameter, this value will be used even if no matches are found.
+
+<PropName
+  name="oneIsOpen"
+  type="boolean"
+  isContextProp
+/>
+
+True when [`currentModal`](#currentModal) has value. The [`<ModalContainer>`](#modalcontainer) will undergo transition every time this changes.
+
+<PropName
+  name="open(slug: string)"
+  type="method"
+  isContextProp
+/>
+
+Sets [`currentModal`](#currentModal) to the given slug. Will either add modal to the URL parameters or fire the given callback function based on [`handleParamChange`](#handleParamChange).
+
+<PropName
+  name="toggle(slug: string)"
+  type="method"
+  isContextProp
+/>
+
+Takes the slug of any modal and opens or closes that modal based on its current status, using the [`open`](#open) and [`close`](#close) methods.
+
+<PropName
+  name="closeAll()"
+  type="method"
+  isContextProp
+/>
+
+Resets [`currentModal`](#currentModal) and [`oneIsOpen`](#oneIsOpen). Will either remove modal from the URL parameters or fire the given callback function based on [`handleParamChange`](#handleParamChange). Unlocks all body scroll locks.
+
+<PropName
+  name="closeOnBlur"
+  type="boolean"
+  id="closeOnBlur-context"
+  isContextProp
+/>
+
+Enables a click event on the [`<ModalContainer>`](#modalcontainer) that, when clicked, will close all modals.
+
+<PropName
+  name="setCloseOnBlur()"
+  type="method"
+  isContextProp
+/>
+
+Used internally to set the global [`closeOnBlur`](#closeOnBlur-context) status. Fired each time a modal is opened based on its own [`closeOnBlur`](#closeOnBlur) prop.
+
+<PropName
+  name="bodyScrollIsLocked"
+  type="boolean"
+  isContextProp
+/>
+
+The current state of body scroll lock, useful when multiple modals differ in [`lockBodyScroll`](#lockBodyScroll).
+
+<PropName
+  name="setBodyScrollLock(set: boolean)"
+  type="method"
+  isContextProp
+/>
+
+Enables and disables scroll on the HTML body using [`body-scroll-lock`](https://www.npmjs.com/package/body-scroll-lock). Fired by [`lockBodyScroll`](#lockBodyScroll) on each modal individually. Check [bodyScrollIsLocked](#bodyScrollIsLocked) for the global status after overrides.
+
+<PropName
+  name="containerRef"
+  type="object"
+  isContextProp
+/>
+
+A reference to [`<ModalContainer>`](#modalcontainer), where each modal portals into.
+
+<PropName
+  name="setContainerRef(ref: React.MutableRefObject<HTMLElement>)"
+  type="method"
+  isContextProp
+/>
+
+Used by [`<ModalContainer>`](#modalcontainer) to populate `containerRef` on mount.
+
+<BasicContext />
+
+</JumplistNode>
+
+<JumplistNode nodeID="container">
+
+## \<ModalContainer\>
+
+This component will add an element to the DOM where every modal will portal into. It will receive transition classes when any modal is opened.
+
+```js
+import react from 'react';
+import { ModalContainer } from '@faceless-ui/modal;
+
+export const MyApp = () = (
+  <ModalContainer>
+    ...
+  </ModalContainer>
+);
+```
+
+### \<ModalContainer\> Props
+
+</JumplistNode>
+
+<JumplistNode nodeID="modal">
+
+## \<Modal\>
+
+Each modal is portaled into the [`<ModalContainer>`](#modalcontainer)  and receives transition classes when opened or closed. The only required prop is a unique `slug`.
+
+```js
+import react from 'react';
+import { Modal } from '@faceless-ui/modal;
+
+export const MyModal = () => {
+  return (
+    <Modal slug="my-modal">
+      ...
+    </Modal>
+  )
+};
+```
+
+You can also pass a function as a child to conveniently access [modal context](#context). You could access the same context with the [useModal](#useModal) hook, but this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
+
+```js
+import react from 'react';
+import { Modal } from '@faceless-ui/modal;
+
+export const MyModal = () => {
+  return (
+    <Modal slug="my-modal">
+      {(modalContext) => {
+        return (
+          ...
+        )
+      }}
+    </Modal>
+  )
+};
+```
+
+### \<Modal\> Props
+
+<PropName
+  name="slug"
+  type="string"
+  required
+/>
+
+A unique identifier for this modal.
+
+<PropName
+  name="closeOnBlur"
+  type="boolean"
+/>
+
+Will close the modal when the user clicks outside of it. Defaults to true.
+
+<PropName
+  name="lockBodyScroll"
+  type="boolean"
+/>
+
+Will prevent the document from scrolling while the modal is open. Defaults to true.
+
+<ClassPrefix />
+
+<PropName
+  name="callbacks"
+  type="method"
+/>
+
+{/* These methods still need documentation: onOpen
+  onClose
+  onEnter
+  onEntered
+  onEntering
+  onExit
+  onExiting
+  onExited
+  openOnInit */}
+
+<BasicProps
+  defaultElement='dialog'
+  idPrefix='modal'
+/>
+
+### Accessibility
+
+The `open` attribute is automatically set when the modal opens and closes and the [htmlElement](#modal-htmlElement) is `dialog`.
+
+</JumplistNode>
+
+<JumplistNode nodeID="toggler">
+
+## \<ModalToggler\>
+
+This is a button that will open or close a modal based on its current status. It\'s a simple wrapper around the [useModal](#useModal)  hook. It\'s only required prop is a unique [`slug`](#toggler-slug).
+
+```js
+import react from 'react';
+import { ModalToggler } from '@faceless-ui/modal;
+
+export const MyComponent = () => {
+  return (
+    <ModalToggler slug="my-modal">
+      ...
+    </ModalToggler>
+  )
+};
+```
+
+### \<ModalToggler\> Props
+
+<PropName
+  name="slug"
+  id="toggler-slug"
+  type="string"
+  required
+/>
+
+The unique [slug](#slug) of the modal to open or close.
+
+<BasicProps />
+
+</JumplistNode>
+
+<JumplistNode nodeID="useModal">
+
+## useModal
+
+This is a hook you can use to access the [modal context](#context).
+
+```js
+import react from 'react';
+import { useModal } from '@faceless-ui/modal;
+
+export const MyComponent = () => {
+  const modal = useModal();
+  return (
+    ...
+  )
+};
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="asModal">
+
+## asModal
+
+For advanced setups, use this higher order component to create your own modal entirely from scratch. Wrap your React component with this HOC to have it function as a modal. It will attach the modal context into the props of the wrapped component. The second argument is the unique [slug](#slug).
+
+```js
+import react from 'react';
+import { asModal } from '@faceless-ui/modal;
+
+export const MyModal = asModal((props) => {
+  const { modal } = props;
+  return (
+    ...
+  )
+}, 'my-modal');
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="typescript">
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  ModalProviderProps,
+  IModalContext,
+  ModalContainerProps,
+  ModalProps
+} from '@faceless-ui/modal/dist/types';
+```
+
+</JumplistNode>
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/modal/api.mdx"
+  metaTitle="Modal API"
+  metaDescription="API documentation for the @faceless-ui/modal npm module."
+  metaURL="/docs/modal/api"
+  jumplist={modalAPINav.map((item) => ({
+    nodeID: item.id || '',
+    label: item.label,
+  }))}
+/>

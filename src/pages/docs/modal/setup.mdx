@@ -12,9 +12,9 @@ Latest version: <VersionNumber name="modal" />
 
 <InstallationCode name="modal" />
 
-First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the [global settings](/docs/modal/api#provider-props) are defined.
+First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the [global settings](/docs/modal/api#modalprovider-props) are defined.
 
-Anywhere inside of this, render the [`<ModalContainer>`](/docs/modal/api#container). This is where each modal will portal into so its best to keep this relatively high in your tree.
+Anywhere inside of this, render the [`<ModalContainer>`](/docs/modal/api#modalcontainer). This is where each modal will portal into so its best to keep this relatively high in your tree.
 
 ```jsx
 import React from 'react';
@@ -29,7 +29,7 @@ export const MyApp = () => {
 }
 ```
 
-Now to create a modal, render a [`<Modal>`](/docs/modal/api#modal) component anywhere in your app. The only required prop is the unique `slug` that identifies this modal. The simplest way to open and close the modal is to use the [`<ModalToggler>`](/docs/modal/api#toggler) component. This component takes the slug of any modal and toggles it open or closed based on the current state of that modal.
+Now to create a modal, render a [`<Modal>`](/docs/modal/api#modal) component anywhere in your app. The only required prop is the unique `slug` that identifies this modal. The simplest way to open and close the modal is to use the [`<ModalToggler>`](/docs/modal/api#modaltoggler) component. This component takes the slug of any modal and toggles it open or closed based on the current state of that modal.
 
 ```jsx
 import React from 'react';

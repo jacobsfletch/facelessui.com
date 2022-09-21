@@ -14,7 +14,7 @@ Some common uses for this package include:
 
 ## How it works
 
-The jumplist is a lightweight, component-centric wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) — so props mirror this API very closely. Global [jumplist settings](/docs/jumplist/api#provider-props), like `threshold` and `rootMargin`, are defined at the top-level of your app on the `<JumplistProvider>`. This provides the [jumplist context](/docs/jumplist/api#context) for all the components and hooks to work together.
+The jumplist is a lightweight, component-centric wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) — so props mirror this API very closely. Global [jumplist settings](/docs/jumplist/api#jumplistprovider-props), like `threshold` and `rootMargin`, are defined at the top-level of your app on the `<JumplistProvider>`. This provides the [jumplist context](/docs/jumplist/api#jumplistprovider-context) for all the components and hooks to work together.
 
 As each `<JumplistNode>` traverses in and out of the viewport, its intersection status is reported to the jumplist provider. With the `useJumplist` hook you can access the `isIntersecting` property of each jumplist node. Other properties in the context like `currentJumplistIndex` and `activeJumplistIndex` are also helpful when multiple nodes, or none, are in the viewport. These can be used to style the active and inactive states of any navigation menu.
 

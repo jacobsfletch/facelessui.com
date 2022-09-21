@@ -1,0 +1,84 @@
+import { Doc } from '@root/layout/Doc';
+import { PropName } from '@root/components/PropName';
+
+{/* DOC_START */}
+
+# Mouse Info API
+
+## \<MouseInfoProvider\>
+
+```js
+import react from 'react';
+import MouseInfoProvider from '@faceless-ui/mouse-info;
+
+export const MyApp = () = (
+  <MouseInfoProvider>
+    ...
+  </MouseInfoProvider>
+);
+```
+
+### Props
+
+<PropName
+  name="children"
+  type="React.ReactNode"
+/>
+
+### Context
+
+This section has no content.
+
+## useMouseInfo
+
+This is a hook you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { useMouseInfo } from '@faceless-ui/mouse-info;
+
+export const MyComponent = () => {
+  const mouseInfo = useMouseInfo();
+  return (
+    ...
+  )
+};
+```
+
+## withMouseInfo
+
+This is a higher-order component you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { withMouseInfo } from '@faceless-ui/mouse-info;
+
+export const MyComponent = withMouseInfo((props) => {
+  const { mouseInfo } = props;
+  return (
+    ...
+  )
+};
+```
+
+## TypeScript
+
+All types can be directly imported
+
+```js
+import {
+  MouseInfoProviderProps,
+  MouseInfoProps,
+  IMouseInfoContext
+} from '@faceless-ui/mouse-info/dist/types';
+```
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/mouse-info/api.mdx"
+  metaTitle="Mouse Info API"
+  metaDescription="API documentation for the @faceless-ui/mouse-info npm module."
+  metaURL="/docs/mouse-info/api"
+/>

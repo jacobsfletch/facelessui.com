@@ -12,13 +12,13 @@ export type DocsNav = NavItem[];
 export const modalAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/modal/api#provider",
+    href: "/docs/modal/api#modalprovider",
     id: 'provider',
     label: 'ModalProvider'
   },
   {
     type: 'link',
-    href: "/docs/modal/api#container",
+    href: "/docs/modal/api#modalcontainer",
     id: 'container',
     label: 'ModalContainer'
   },
@@ -30,19 +30,19 @@ export const modalAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/modal/api#toggler",
+    href: "/docs/modal/api#modaltoggler",
     id: 'toggler',
     label: 'ModalToggler'
   },
   {
     type: 'link',
-    href: "/docs/modal/api#useModal",
+    href: "/docs/modal/api#usemodal",
     id: 'useModal',
     label: 'useModal'
   },
   {
     type: 'link',
-    href: "/docs/modal/api#asModal",
+    href: "/docs/modal/api#asmodal",
     id: 'asModal',
     label: 'asModal'
   },
@@ -88,19 +88,19 @@ export const cssGridAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/css-grid/api#useGrid",
-    label: 'useGrid',
-    id: 'useGrid'
-  },
-  {
-    type: 'link',
-    href: "/docs/css-grid/api#useCell",
+    href: "/docs/css-grid/api#usecell",
     label: 'useCell',
     id: 'useCell'
   },
   {
     type: 'link',
-    href: "/docs/css-grid/api#useSettings",
+    href: "/docs/css-grid/api#usegrid",
+    label: 'useGrid',
+    id: 'useGrid'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#usesettings",
     label: 'useSettings',
     id: 'useSettings'
   },
@@ -133,7 +133,7 @@ export const jumplistAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/jumplist/api#useJumplist",
+    href: "/docs/jumplist/api#usejumplist",
     label: 'useJumplist',
     id: 'useJumplist',
   },
@@ -183,7 +183,7 @@ export const sliderAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/slider/api#useSlider",
+    href: "/docs/slider/api#useslider",
     label: 'useSlider',
     id: 'useSlider',
   },

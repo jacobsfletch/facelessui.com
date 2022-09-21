@@ -21,7 +21,7 @@ Now each modal can be independently controlled in a number of ways. Most commonl
 
 By default, all modals trap focus using [focus-trap](https://github.com/focus-trap/focus-trap), a popular open-source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, focus is restored to the element used to open the modal.
 
-The final piece to this is the `<ModalProvider>` which should wrap your entire app and where you define the [global settings](/docs/modal/api#provider-props). This provides the [modal context](/docs/modal/api#context) for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with modals. See the [API](/docs/modal/api) for full details.
+The final piece to this is the `<ModalProvider>` which should wrap your entire app and where you define the [global settings](/docs/modal/api#modalprovider-props). This provides the [modal context](/docs/modal/api#modalprovider-context) for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with modals. See the [API](/docs/modal/api) for full details.
 
 ## Key features
 

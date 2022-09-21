@@ -1,0 +1,287 @@
+import { Doc } from '@root/layout/Doc';
+import { JumplistNode } from '@faceless-ui/jumplist';
+import { cssGridAPINav } from '@root/docs-nav';
+import { BasicProps } from '@components/BasicProps';
+import { PropName } from '@components/PropName';
+import { ClassPrefix } from '@components/ClassPrefix';
+import { BasicContext } from '@components/BasicContext';
+
+{/* DOC_START */}
+
+# CSS Grid API
+
+<JumplistNode nodeID="provider">
+
+## \<GridProvider\>
+
+This component provides the [grid context](#context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#provider-props") are defined.
+
+```js
+import react from 'react';
+import { GridProvider } from '@faceless-ui/css-grid;
+
+export const MyApp = () = (
+  <GridProvider
+    breakpoints={{
+      s: 768,
+      m: 1279,
+      l: 1679
+    }}
+    rowGap={{
+      s: '1rem',
+      m: '1rem',
+      l: '4rem',
+      xl: '4rem',
+    }}
+    colGap={{
+      s: '10px',
+      m: '10px',
+      l: '4rem',
+      xl: '4rem',
+    }}
+    cols={{
+      s: 8,
+      m: 8,
+      l: 14,
+      xl: 16,
+    }}
+  >
+    ...
+  </GridProvider>
+);
+```
+
+### \<GridProvider\> Props
+
+<PropName
+  name="breakpoints"
+  type="object"
+/>
+
+An object of breakpoints `l`, `m`, and `s`, equal to the width of the breakpoint in pixels. These breakpoints are used by the [`<Cell>`](#cell) components to make them responsive. These are also used to make the column and row gaps responsive.
+
+<PropName
+  name="rowGap"
+  type="string"
+/>
+
+An object of row-gap values, one for each breakpoint. See the [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap) for exact browser specifications.
+
+<PropName
+  name="colGap"
+  type="string"
+/>
+
+An object of column-gap values, one for each breakpoint. See the [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap) for exact browser specifications.
+
+<PropName
+  name="cols"
+  type="number"
+/>
+
+The number of columns available at each breakpoint. Once a row reaches maximum capacity, cells will begin to wrap onto the next row.
+
+<ClassPrefix />
+
+### \<GridProvider\> Context
+
+<PropName
+  name="smallestBreakpointReached"
+  type="string"
+/>
+
+The key of the smallest breakpoint reached. See [breakpoints](#breakpoints).
+
+<BasicContext />
+
+</JumplistNode>
+
+<JumplistNode nodeID="grid">
+
+## \<Grid\>
+
+This component wraps cells and has no required props. It creates a DOM element with the [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) CSS property — a dynamic value set based on the [grid settings](#grid settings) and the number of columns currently available. You can also [nest grids](#nested-grids) inside other grids.
+
+```js
+import react from 'react';
+import { Grid, Cell } from '@faceless-ui/css-grid;
+
+export const MyComponent = () = (
+  <Grid>
+    <Cell>
+      ...
+    </Cell>
+  </Grid>
+);
+```
+
+### \<Grid\> Props
+
+<BasicProps />
+
+### \<Grid\> Context
+
+<PropName
+  name="cols"
+  type="object"
+  isContextProp
+/>
+
+The number of currently available columns, per breakpoint.
+
+</JumplistNode>
+
+<JumplistNode nodeID="cell">
+
+## \<Cell\>
+
+This component will create a DOM element that spans the columns of your grid based on the `cols` prop, which dynamically sets the [grid-column-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end) CSS property. Cells will display inline to one another and wrap to the next row once that row reaches maximum capacity. To make the cell responsive, redefine the number of columns it spans on each [breakpoint](#breakpoints), such as `colsM`.
+
+```js
+import react from 'react';
+import { Grid, Cell } from '@faceless-ui/css-grid;
+
+export const MyApp = () = (
+  <Grid>
+    <Cell
+      cols={12}
+      colsM={6}
+    >
+      ...
+    </Cell>
+  </Grid>
+);
+```
+
+### \<Cell\> Props
+
+<PropName
+  name="cols"
+  type="number"
+/>
+
+The number of columns for the cell to span.
+
+<PropName
+  name="colsM"
+  type="number"
+/>
+
+The number of columns for the cell to span at your `m` breakpoint.
+
+<PropName
+  name="colsL"
+  type="number"
+/>
+
+The number of columns for the cell to span at your `l` breakpoint.
+
+<BasicProps />
+
+### \<Cell\> Context
+
+  <PropName
+    name="cols"
+    type="object"
+    isContextProp
+  />
+
+The number of currently available columns, per breakpoint.
+
+</JumplistNode>
+
+<JumplistNode nodeID="useCell">
+
+## useCell
+
+This is a hook you can use to access the context of any [`<Cell>`](#cell-context) component.
+
+```js
+import react from 'react';
+import { useCell } from '@faceless-ui/css-grid;
+
+export const MyComponent = () => {
+  const cell = useCell();
+  return (
+    ...
+  )
+};
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="useGrid">
+
+## useGrid
+
+This is a hook you can use to access the context of any [`<Grid>`](#grid-context) component.
+
+```js
+import react from 'react';
+import { useGrid } from '@faceless-ui/css-grid;
+
+export const MyComponent = () => {
+  const grid = useGrid();
+  return (
+    ...
+  )
+};
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="useSettings">
+
+## useSettings
+
+This is a hook you can use to access the global [grid settings](#context).
+
+```js
+import react from 'react';
+import { useSettings } from '@faceless-ui/css-grid;
+
+export const MyComponent = () => {
+  const settings = useSettings();
+  return (
+    ...
+  )
+};
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="typescript">
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  IGrid,
+  GridProps,
+  ICell,
+  CellProps,
+  SettingsProviderProps,
+  Settings,
+  Breakpoints,
+  Gaps,
+  Columns
+} from '@faceless-ui/css-grid/dist/types';
+```
+
+</JumplistNode>
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/css-grid/api.mdx"
+  metaTitle="CSS Grid API"
+  metaDescription="API documentation for the @faceless-ui/css-grid npm module."
+  metaURL="/docs/css-grid/api"
+  jumplist={cssGridAPINav.map((item) => ({
+    nodeID: item.id || '',
+    label: item.label,
+  }))}
+/>

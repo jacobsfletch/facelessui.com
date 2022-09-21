@@ -12,7 +12,7 @@ Latest version: <VersionNumber name="jumplist" />
 
 <InstallationCode name="jumplist" />
 
-To track elements as they enter and exit the viewport, you first need to wrap your app with the [`<JumplistProvider>`](/docs/jumplist/api#provider). This does not render anything in the DOM and is where the [global settings](/docs/jumplist/api#provider-props) are defined. This will maintain the state of every jumplist node in your app and provide this state through context.
+To track elements as they enter and exit the viewport, you first need to wrap your app with the [`<JumplistProvider>`](/docs/jumplist/api#jumplistprovider). This does not render anything in the DOM and is where the [global settings](/docs/jumplist/api#jumplistprovider-props) are defined. This will maintain the state of every jumplist node in your app and provide this state through context.
 
 ```jsx
 import React from 'react';
@@ -30,7 +30,7 @@ export const MyApp = () => {
 }
 ```
 
-Then, use a [`<JumplistNode>`](/docs/jumplist/api#node) for every element you want to track. The only required prop of this component is the `nodeID`, the unique string identifying each node.
+Then, use a [`<JumplistNode>`](/docs/jumplist/api#jumplistnode) for every element you want to track. The only required prop of this component is the `nodeID`, the unique string identifying each node.
 
 ```jsx
 import React from 'react';
@@ -50,7 +50,7 @@ export const MyComponent = () => {
 }
 ```
 
-Every node is a wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), reporting their `isIntersecting` status to the [jumplist context](/docs/jumplist/api#context). You can access this from anywhere with the [`useJumplist`](/docs/jumplist/api#useJumplist) hook.
+Every node is a wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), reporting their `isIntersecting` status to the [jumplist context](/docs/jumplist/api#jumplistprovider-context). You can access this from anywhere with the [`useJumplist`](/docs/jumplist/api#useJumplist) hook.
 
 ```jsx
 import React from 'react';
@@ -133,7 +133,7 @@ This package does not perform any smooth-scrolling of its own, and instead relie
   html: { scroll-behavior: smooth; }
 ```
 
-Or use the [smoothScroll](/docs/jumplist/api#provider-props) prop on the provider, which sets this property as inline CSS.
+Or use the [smoothScroll](/docs/jumplist/api#jumplistprovider-props) prop on the provider, which sets this property as inline CSS.
 
 There may also be cases where you want to temporarily disable smooth-scrolling, like between page transitions. To do this, you will need to add and remove this property dynamically using your app\'s existing router.
 
