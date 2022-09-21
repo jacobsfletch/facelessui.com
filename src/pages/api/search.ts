@@ -2,17 +2,8 @@ const fs = require('fs');
 const path = require('path')
 const cache = require('../../../search/cache/index.json');
 
-const removePunctuation = (side: 'leading' | 'trailing', text: string) => {
-  const match = text.match(new RegExp(`[^a-zA-Z0-9]+${side === 'leading' ? '$' : '^'}`));
-  // No match found
-  if (!match || !match.index) {
-    return text;
-  }
-  // Return sliced text
-  return text.slice(0, match.index);
-}
-
 import { SearchResult } from '@root/providers/SearchProvider';
+
 // To use this API, you can make a GET request to `/api/search` with the `?search=` query parameter
 // You can adjust the snippet padding by adding a the `?padding=` query parameter
 
@@ -46,28 +37,62 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
 
               // get all the indexes of the word in the page
               // then return a snippet of the page with the word highlighted
-              const snippets = [...content.matchAll(new RegExp(word, 'gi'))].map(a => {
-                const before = content.substring(a.index - snippetPadding, a.index);
-                const after = content.substring(a.index + word.length, a.index + word.length + snippetPadding);
+              const wordsInContent = [...content.matchAll(new RegExp(word, 'gi'))];
 
-                // remove trailing  punctuation
-                // const beforeClean = removePunctuation('leading', before);
-                const afterClean = removePunctuation('trailing', after);
+              const snippets = wordsInContent.map(word => {
+                const wordLength = word[0].length;
+                let before = content.substring(word.index - snippetPadding, word.index);
+                const lastCharBeforeSnippet = content[word.index - snippetPadding - 1];
 
                 // determine if we need to add an ellipsis and truncate the string
-                const nearestPunctuation = before.match(/[^/n]|[^'. ']+$/); // newlines OR period+space
-                let beforeClean = before;
+                // if there is punctuation in the "before" string, then slice it off and don't ellipse
+                const punctuationInBefore = [...before.matchAll(new RegExp('[^a-zA-Z0-9\\s]\\s', 'gm'))];
                 let prependEllipsis = true;
-
-                // console.log(nearestPunctuation);
-                if (nearestPunctuation && typeof nearestPunctuation.index === 'number') {
-                  beforeClean = before.substring(nearestPunctuation.index + 1);
+                if (punctuationInBefore.length > 0) {
+                  const indexOfLastPunctuation = punctuationInBefore[punctuationInBefore.length - 1].index;
+                  before = before.substring(indexOfLastPunctuation + 2); // add two because we want to remove the period and space
                   prependEllipsis = false;
                 }
 
-                // const beforeClean = before.replace(/^\s+/, '');
+                // if first character is a space, and the last character before the snippet is a period, then don't ellipse
+                if (before[0] === ' ' && lastCharBeforeSnippet === '.') {
+                  prependEllipsis = false;
+                }
 
-                return `${prependEllipsis ? '...' : ''}${beforeClean}<mark>${word}</mark>${afterClean}...`;
+                if (before.length < snippetPadding) {
+                  prependEllipsis = false;
+                }
+
+                before = before.replace('^\s+', ''); // remove leading whitespace
+
+                ////// NOW DO THE SAME FOR AFTER
+
+                let after = content.substring(word.index + wordLength, word.index + wordLength + snippetPadding);
+                const firstCharAfterSnippet = content[word.index + wordLength + snippetPadding];
+
+                // determine if we need to add an ellipsis and truncate the string
+                // if there is punctuation in the "after" string, then slice it off and don't ellipse
+                const punctuationInAfter = [...after.matchAll(new RegExp('[^a-zA-Z0-9\\s]\\s', 'gm'))];
+
+                let appendEllipsis = true;
+                if (punctuationInAfter.length > 0) {
+                  const indexOfFirstPunctuation = punctuationInAfter[0].index;
+                  after = after.substring(0, indexOfFirstPunctuation + 1); // NOTE: add one to include the punctuation
+                  appendEllipsis = false;
+                }
+
+                // if last character is a space, and the first character after the snippet is a period, then don't ellipse
+                if (after[after.length - 1] === ' ' && firstCharAfterSnippet === '.') {
+                  appendEllipsis = false;
+                }
+
+                if (after.length < snippetPadding) {
+                  appendEllipsis = false;
+                }
+
+                after = after.replace('^\s+$', ''); // remove trailing whitespace and punctuation
+
+                return `${prependEllipsis ? '...' : ''}${before}<mark>${word}</mark>${after}${appendEllipsis ? '...' : ''}`;
               });
 
               results.push({

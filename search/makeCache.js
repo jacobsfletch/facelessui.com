@@ -65,7 +65,7 @@ function makeCache(jsxTransformations) {
         sanitizedPage = pageContents
           .replace(/```[\s\S]*?```/g, '') // NOTE: remove all code blocks
           .replace(/ *\([^)]*\)*/g, '') // remove parenthesis content if a link i.e. [title](url)
-          .replace(/[\[\]]+/g, '') // remove unwanted special characters, i.e. brackets
+          .replace(/[\[\]`]+/g, '') // remove unwanted special characters, i.e. brackets and backticks
           .replace(' .', '.') // cleanup space empty space before punctuation
           .replace(/\n{2,}/g, '\n')// replace all consecutive newlines with a single newline
         // .replace(/<[^>]*\/>/g, '') // remove self-closing react components
@@ -211,7 +211,7 @@ function makeCache(jsxTransformations) {
 makeCache({
   'PropName': (string) => {
     const propName = string.match(/name="(.*)"/)?.[1];
-    return propName ? `\`${propName}\`` : 'PROP_NAME'
+    return `${propName}\n` || 'PROP_NAME'
   },
   'InstallationCode': (arg) => 'INSTALLATION_CODE',
   'ClassPrefix': (arg) => 'CLASS_PREFIX',
