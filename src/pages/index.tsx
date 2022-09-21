@@ -104,7 +104,7 @@ const Home: NextPage = () => {
                 />
                 <Card
                   title="Collapsible"
-                  href="/docs/collapsible"
+                  href="/docs/collapsibles"
                   description='Dropdowns, accordions, expandable content, collapsible sections'
                   forceDark
                 />
