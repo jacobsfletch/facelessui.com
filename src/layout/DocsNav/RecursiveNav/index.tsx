@@ -9,6 +9,7 @@ import { VersionNumber } from "@components/VersionNumber";
 import { useJumplist } from '@faceless-ui/jumplist'
 import { useWindowInfo } from "@faceless-ui/window-info";
 import { useEffect } from "react";
+import QueryString from "qs";
 
 export const RecursiveNav: React.FC<{
   items?: NavItem[]
@@ -25,7 +26,7 @@ export const RecursiveNav: React.FC<{
 
   const [canUseDOM, setCanUseDOM] = useState(false);
   const { activeJumplistIndex } = useJumplist();
-  const { pathname } = useRouter();
+  const { pathname, query } = useRouter();
 
   useEffect(() => {
     setCanUseDOM(true);
@@ -186,14 +187,23 @@ export const RecursiveNav: React.FC<{
 
                                 let isActiveLink = false;
 
+                                let hrefToUse = itemHref;
+
                                 if (type === 'jumplist') isActiveLink = activeJumplistIndex === jumplistItemIndex;
                                 if (type === 'subnav') isActiveLink = itemHref === pathname;
+
+                                // keep query params on href if jumplist type
+                                if (type === 'jumplist' && itemHref && Object.keys(query).length > 0) {
+                                  const pathBeforeHash = itemHref.split('#')[0];
+                                  const hash = itemHref.split('#')[1];
+                                  hrefToUse = `${pathBeforeHash}?${QueryString.stringify(query)}${hash ? `#${hash}` : ''}`;
+                                }
 
                                 return (
                                   <Hyperlink
                                     underline={false}
                                     key={`${index}-${jumplistItemIndex}`}
-                                    href={itemHref}
+                                    href={hrefToUse}
                                     className={classes.jumplistLink}
                                   >
                                     <div

@@ -98,8 +98,8 @@ export const SearchProvider: React.FC<{
       const isHighlight = query.get('highlight');
 
       if (isHighlight) {
+        setResults(undefined); // TODO: this isn't working, I think because the search is occurring twice, once on clear, but then again on the route change and search is prefilled still
         setSearch('');
-        setResults(undefined);
         setRenderResults(false);
       }
     }

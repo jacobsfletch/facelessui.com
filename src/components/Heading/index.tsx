@@ -4,7 +4,10 @@ import classes from './index.module.scss';
 import { copyToClipboard } from '@root/utilities/copyToClipboard';
 import { useNotifications } from '@root/providers/Notifications';
 
-const toKebab = (str: string) => str.replace(/\s+/g, '-').toLowerCase();
+const toKebab = (str: string) => str
+  .replace(/[^a-zA-Z0-9-\s]/g, '') // remove non-alphanumeric characters
+  .replace(/\s+/g, '-') // transform whitespace to slashes
+  .toLowerCase();
 
 export const Heading: React.FC<{
   element?: keyof JSX.IntrinsicElements
@@ -57,7 +60,7 @@ export const Heading: React.FC<{
     >
       <Hyperlink
         className={classes.headingAnchor}
-        // href={hrefFromProps || `#${kebab}`} // TODO: Fix this mismatch href from server to client
+        href={hrefFromProps || `#${kebab}`} // TODO: Fix this mismatch href from server to client
         underline={false}
         onClick={() => {
           if (textToCopy) {

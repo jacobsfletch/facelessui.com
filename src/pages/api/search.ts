@@ -95,13 +95,16 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
                 return `${prependEllipsis ? '...' : ''}${before}<mark>${word}</mark>${after}${appendEllipsis ? '...' : ''}`;
               });
 
+              const hash = pathToPage.split('#')[1];
+              const sanitizedPath = pathToPage.split('/index')[0];
+
               results.push({
                 title,
-                path: `/docs${pathToPage.split('/index')[0]}`,
+                path: `/docs${sanitizedPath}${hash ? `#${hash}` : ''}`,
                 snippets
               })
             } catch (e) {
-              console.log(e);
+              console.error(e);
             }
           }
         })

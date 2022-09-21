@@ -252,19 +252,19 @@ export const collapsiblesAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/collapsibles/api#content",
+    href: "/docs/collapsibles/api#collapsiblecontent",
     label: 'CollapsibleContent',
     id: 'content'
   },
   {
     type: 'link',
-    href: "/docs/collapsibles/api#toggler",
+    href: "/docs/collapsibles/api#collapsibletoggler",
     label: 'CollapsibleToggler',
     id: 'toggler'
   },
   {
     type: 'link',
-    href: "/docs/collapsibles/api#group",
+    href: "/docs/collapsibles/api#collapsiblegroup",
     label: 'CollapsibleGroup',
     id: 'group'
   },

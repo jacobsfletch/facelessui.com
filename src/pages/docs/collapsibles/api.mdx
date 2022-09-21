@@ -35,7 +35,7 @@ export const MyComponent = () => {
 }
 ```
 
-### Props
+### \<Collapsible\> Props
 
 <PropName
   name="openOnInit"
@@ -81,7 +81,7 @@ A callback function that is executed when the collapsible is toggled.
 
 <ClassPrefix />
 
-### Context
+### \<Collapsible\> Context
 
 <PropName
   name="isOpen"
@@ -97,11 +97,11 @@ The current status of the collapsible.
   isContextProp
 />
 
-The root class for the collapsible. Appends [`classPrefix`](#classPrev) to the class name, when defined.
+The root class for the collapsible. Appends [`classPrefix`](#classPrefix) to the class name, when defined.
 
 <PropName
   name="handleClick()"
-  type="object"
+  type="method"
   isContextProp
 />
 
@@ -132,7 +132,7 @@ export const MyComponent = () => {
 }
 ```
 
-### Props
+### \<CollapsibleContent\> Props
 
 <BasicProps />
 
@@ -159,7 +159,7 @@ export const MyComponent = () => {
 }
 ```
 
-### Props
+### \<CollapsibleToggler\> Props
 
 <BasicProps
   defaultElement="button"
@@ -196,7 +196,7 @@ export const MyComponent = () => {
 }
 ```
 
-### Props
+### \<CollapsibleGroup\> Props
 
 <PropName
   name="allowMultiple"
@@ -210,18 +210,18 @@ When false, will close all collapsibles in the group when one is opened.
   type="number"
 />
 
-Standardizes all transition times of the collapsibles within the group. Can be overridden on each collapsible with the [`transTime`](`#transTime`) prop.
+Standardizes all transition times of the collapsibles within the group. Can be overridden on each collapsible with the [`transTime`](#transTime) prop.
 
 <PropName
   name="transCurve"
   type="string"
 />
 
-Standardizes all transition curves of the collapsibles within the group. Can be overridden on each collapsible with the [`transCurve`](`#transCurve`) prop.
+Standardizes all transition curves of the collapsibles within the group. Can be overridden on each collapsible with the [`transCurve`](#transCurve) prop.
 
 <ClassPrefix />
 
-### Context
+### \<CollapsibleGroup\> Context
 
 <PropName
   name="toggleCount"

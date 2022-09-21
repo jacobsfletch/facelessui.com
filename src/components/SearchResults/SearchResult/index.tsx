@@ -14,6 +14,9 @@ export const SearchResult: React.FC<SearchResultType & {
   } = props;
 
   const hasSnippets = snippets && snippets.length > 0;
+  const pathWithoutHash = path.split('#')[0];
+  const hash = path.split('#')[1];
+  const href = `${pathWithoutHash}?highlight=1${hash ? `#${hash}` : ''}`;
 
   return (
     <div
@@ -23,7 +26,7 @@ export const SearchResult: React.FC<SearchResultType & {
       ].filter(Boolean).join(' ')}
     >
       <Hyperlink
-        href={`${path}?highlight=1`}
+        href={href}
         underline={false}
         className={classes.resultLink}
       >

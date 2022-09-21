@@ -136,45 +136,49 @@ function makeCache(jsxTransformations) {
           const cachePath = `/${filePath.replace('.mdx', '')}#${kebabHeading}`;
 
           // Now send this page up to the inverted index by searching is contents for keywords and reporting the url
-          sanitizedCache
-            .split(" ").forEach(incomingWord => {
-              const word = incomingWord.toLowerCase()
-              // NOTE: remove empty lines and multilines, returns [ '\n', '\n', '\n', '\n' ]
-              // do this here instead of above to avoid concatenating unrelated words
-              const isEmptyLines = word.match(/\n/g);
+          const wordsToCache = [
+            ...headingText.split(' ') || [],
+            ...sanitizedCache.split(' ') || []
+          ];
 
-              // NOTE: only index words that are 3 characters or more
-              if (word && word.length >= 3 && !isEmptyLines) {
+          wordsToCache.forEach(incomingWord => {
+            const word = incomingWord.toLowerCase()
+            // NOTE: remove empty lines and multilines, returns [ '\n', '\n', '\n', '\n' ]
+            // do this here instead of above to avoid concatenating unrelated words
+            const isEmptyLines = word.match(/\n/g);
 
-                const sanitizedWord = word
-                  // .replace(/\(.*\)/, '') // remove parenthesis content if a link i.e. [title](url)
-                  .replace(/[,.]+/g, '') // remove unwanted special characters, i.e. punctuation
+            // NOTE: only index words that are 3 characters or more
+            if (word && word.length >= 3 && !isEmptyLines) {
 
-                // NOTE: now split the word into all of its fragments to enable partial word matches
-                // i.e. [ 'face', 'facele', 'faceles', 'faceless', 'facelessu', 'facelessui' ]
-                // const wordFragments = sanitizedWord.split('').reduce((acc, letter, i) => {
-                //   if (i >= 2) {
-                //     const wordFragment = sanitizedWord.slice(0, i + 1);
-                //     acc.push(wordFragment);
-                //   }
-                //   return acc;
-                // }, []);
+              const sanitizedWord = word
+                // .replace(/\(.*\)/, '') // remove parenthesis content if a link i.e. [title](url)
+                .replace(/[,.]+/g, '') // remove unwanted special characters, i.e. punctuation
 
-                const wordFragments = [sanitizedWord];
+              // NOTE: now split the word into all of its fragments to enable partial word matches
+              // i.e. [ 'face', 'facele', 'faceles', 'faceless', 'facelessu', 'facelessui' ]
+              // const wordFragments = sanitizedWord.split('').reduce((acc, letter, i) => {
+              //   if (i >= 2) {
+              //     const wordFragment = sanitizedWord.slice(0, i + 1);
+              //     acc.push(wordFragment);
+              //   }
+              //   return acc;
+              // }, []);
 
-                if (wordFragments && Array.isArray(wordFragments) && wordFragments.length > 0) {
-                  wordFragments.forEach(wordFragment => {
-                    if (!invertedIndex[wordFragment]) {
-                      // word is not yet indexed
-                      invertedIndex[wordFragment] = [cachePath]
-                    } else if (!invertedIndex[wordFragment].includes(cachePath)) {
-                      // NOTE: page is not yet indexed on this word
-                      invertedIndex[wordFragment].push(cachePath);
-                    }
-                  })
-                }
+              const wordFragments = [sanitizedWord];
+
+              if (wordFragments && Array.isArray(wordFragments) && wordFragments.length > 0) {
+                wordFragments.forEach(wordFragment => {
+                  if (!invertedIndex[wordFragment]) {
+                    // word is not yet indexed
+                    invertedIndex[wordFragment] = [cachePath]
+                  } else if (!invertedIndex[wordFragment].includes(cachePath)) {
+                    // NOTE: page is not yet indexed on this word
+                    invertedIndex[wordFragment].push(cachePath);
+                  }
+                })
               }
-            })
+            }
+          })
 
           const json = JSON.stringify({
             title: breadcrumbs.join(' - '),
