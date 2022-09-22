@@ -5,9 +5,11 @@ import { SearchResult } from './SearchResult';
 
 export const SearchResults: React.FC<{
   forceDark?: boolean
+  className?: string
 }> = (props) => {
   const {
-    forceDark
+    forceDark,
+    className
   } = props;
 
   const {
@@ -22,7 +24,12 @@ export const SearchResults: React.FC<{
   const ref = React.useRef<HTMLDivElement>(null);
 
   return (
-    <div className={classes.search}>
+    <div
+      className={[
+        classes.search,
+        className
+      ].filter(Boolean).join(' ')}
+    >
       <div
         className={classes.results}
         ref={ref}

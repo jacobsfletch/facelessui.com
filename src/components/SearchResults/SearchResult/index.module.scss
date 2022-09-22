@@ -44,18 +44,20 @@
 .resultLink {
   padding: base(0.5);
   display: block;
+
+  & > *:not(:last-child) {
+    margin-bottom: base(0.15);
+  }
 }
 
 .title {
   @include small;
   margin: 0;
-  margin-bottom: base(0.25);
   font-weight: bold;
 }
 
 .snippet {
   @include small;
-  margin-bottom: base(0.25);
 }
 
 .remaining {

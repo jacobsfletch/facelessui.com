@@ -1,14 +1,11 @@
-import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
-import { InlineCode } from '@components/InlineCode';
-import { Hyperlink } from '@components/Hyperlink';
-import Margin from '@components/Margin';
-import { StyledList } from '@components/StyledList';
-import { Heading } from '@components/Heading';
+import { PackageInfo } from '@root/components/PackageInfo';
 
 {/* DOC_START */}
 
 # Slider
+
+<PackageInfo packageSlug="slider" />
 
 This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders are fully responsive and can even synchronize with other sliders. They are very easy to control using the built-in navigation components or provided methods.
 
@@ -22,7 +19,7 @@ Some common uses for this package include:
 
 ## How it works
 
-The `<SliderProvider>` component wraps any section of your code with a new slider context. This component does not render anything in the DOM. This is where the [slider settings](/docs/slider/api#provider-props)  are configured like `slidesToShow` and `breakpoints`.
+The `<SliderProvider>` component wraps any section of your code with a new slider context. This component does not render anything in the DOM. This is where the [slider settings](/docs/slider/api#sliderprovider-props)  are configured like `slidesToShow` and `breakpoints`.
 
 Inside this is the `<SliderTrack>` component, which renders a scrollable element onto the page and overflows its content as necessary. Within the track are `<Slide>` components, each of which is a simple wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). These slides report their intersection statuses to the `<SliderProvider>` as they happen, using the track as their [root](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root). The last-most intersecting slide is considered active. With this pattern, we can freely navigate the track and trust the index is accurate.
 

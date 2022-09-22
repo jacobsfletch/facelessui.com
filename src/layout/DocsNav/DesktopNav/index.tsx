@@ -37,7 +37,7 @@ export const DesktopNav: React.FC = () => {
         </div>
       )}
       {renderResults && (
-        <SearchResults />
+        <SearchResults className={classes.searchResults} />
       )}
       {!renderResults && (
         <RecursiveNav items={nav} />

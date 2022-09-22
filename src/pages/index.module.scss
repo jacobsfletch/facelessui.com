@@ -17,8 +17,8 @@
   }
 
   @include mid-break {
-    margin-top: base();
-    margin-bottom: base(2.5);
+    margin-top: base(0.75);
+    margin-bottom: base(1.75);
   }
 }
 
@@ -33,11 +33,11 @@
   position: relative;
 
   @include large-break {
-    padding: base(2) 0;
+    padding: base(1.5) 0;
   }
 
   @include mid-break {
-    padding: var(--mobile-gutter) 0;
+    padding: base() 0;
   }
 }
 
@@ -74,31 +74,42 @@
   @include small;
   font-weight: bold;
   color: var(--color-gray-3);
-  margin-bottom: base(0.5);
-  @include mid-break {
+  margin-bottom: base();
+
+  @include large-break {
     margin-bottom: base();
+  }
+
+  @include mid-break {
+    display: none;
   }
 }
 
 .components {
   position: relative;
-  margin-bottom: base();
+  margin-bottom: base(1.75);
 
   @include mid-break {
-    margin-bottom: base(0.5);
+    margin-bottom: base(0.25);
   }
 }
 
 .cards {
+  padding: base(1) 0;
+  @include mid-break {
+    padding: 0;
+  }
+}
+
+.cardsInner {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 base(-1.5);
+  margin: base(-1.5);
 
   & > * {
     margin: base(0.5);
     width: calc(33.33% - #{base()});
   }
-
 
   @include large-break {
     & > * {
@@ -107,12 +118,14 @@
   }
 
   @include mid-break {
-    margin: 0 calc(var(--mobile-gutter) * -0.5);
+    margin: 0;
 
     & > * {
       margin: 0;
-      margin-bottom: calc(var(--mobile-gutter) / 2);
       width: 100%;
+      &:not(:last-child) {
+        margin-bottom: base(0.25);
+      }
     }
   }
 }

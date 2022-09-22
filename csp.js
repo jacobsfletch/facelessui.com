@@ -17,7 +17,8 @@ const policies = {
     "data:",
     "blob:",
     "https://facelessui.com",
-    "https://maps.gstatic.com"
+    "https://maps.gstatic.com",
+    "*.googletagmanager.com"
   ],
   "style-src": [
     "'self'",

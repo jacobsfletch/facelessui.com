@@ -217,10 +217,10 @@ makeCache({
     const propName = string.match(/name="(.*)"/)?.[1];
     return `${propName}\n` || 'PROP_NAME'
   },
-  'InstallationCode': (arg) => 'INSTALLATION_CODE',
-  'ClassPrefix': (arg) => 'CLASS_PREFIX',
-  'BasicProps': (arg) => 'BASIC_PROPS',
-  'BasicContext': (arg) => 'BASIC_CONTEXT',
-  'VersionNumber': (arg) => 'VERSION_NUMBER',
+  'InstallationCode': () => '',
+  'ClassPrefix': () => '',
+  'BasicProps': (string) => 'BASIC_PROPS',
+  'BasicContext': (string) => 'BASIC_CONTEXT',
+  'PackageInfo': () => '',
   // 'JumplistNode': (arg) => 'JUMPLIST_NODE', // NOTE: this one is tricker because it's not self-closing
 });

@@ -34,6 +34,9 @@
   margin: 0 !important;
   border: var(--color-gray-2) 1px solid !important;
   border-radius: 2px;
+  @include mid-break {
+    padding: base(0.5) !important;
+  }
 }
 
 :global(.isDark) {

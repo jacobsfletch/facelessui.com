@@ -1,7 +1,6 @@
-import { getReleaseNotes, ReleaseData } from '@root/github-api'
+import { getReleaseNotes, GitHubRelease } from '@root/github-api'
 import { Fragment, useEffect, useState } from 'react'
 import { ReleaseRow } from '@root/layout/Releases/ReleaseRow'
-import { useVersions } from '@root/providers/Versions'
 import classes from './index.module.scss';
 import { Hyperlink } from '@components/Hyperlink';
 
@@ -14,21 +13,8 @@ const Releases: React.FC<{
     packageLabel = packageSlug,
   } = props;
 
-  const [releasesByDate, setReleasesByDate] = useState<ReleaseData[]>([]);
+  const [releasesByDate, setReleasesByDate] = useState<GitHubRelease[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const { versions } = useVersions();
-
-  const npmInfo = versions?.[packageSlug];
-
-  const {
-    version: latestVersion,
-    name: latestName,
-    dist: {
-      tarball: latestTarball = '',
-      unpackedSize: latestUnpackedSize = 0,
-    } = {}
-  } = npmInfo || {};
 
   useEffect(() => {
     setIsLoading(true);
@@ -57,48 +43,9 @@ const Releases: React.FC<{
       <h1>
         {`${packageLabel} Releases`}
       </h1>
-      <div className={classes.latestInfo}>
-        {latestVersion && (
-          <div>
-            <div>
-              {`Name: `}
-              <span className={classes.latestName}>
-                {latestName}
-              </span>
-            </div>
-            <div>
-              {`Latest: `}
-              <span className={classes.latestVersion}>
-                {`v${latestVersion}`}
-              </span>
-            </div>
-            <div>
-              {`Size: `}
-              {latestUnpackedSize && (
-                <span className={classes.latestSize}>
-                  {`${latestUnpackedSize / 1000} KB`}
-                </span>
-              )}
-            </div>
-            <div>
-              <Hyperlink
-                href={`https://npmjs.org/${latestName}`}
-                newTab
-              >
-                View
-              </Hyperlink>
-            </div>
-            <div>
-              <Hyperlink href={latestTarball}>
-                Download
-              </Hyperlink>
-            </div>
-          </div>
-        )}
-      </div>
       {isLoading && (
         <p className={classes.loading}>
-          Loading release notes...
+          Loading releases...
         </p>
       )}
       {!isLoading && (
@@ -113,6 +60,14 @@ const Releases: React.FC<{
           })}
         </Fragment>
       )}
+      <div className={classes.releasesLink}>
+        <Hyperlink
+          href={`https://github.com/faceless-ui/${packageSlug}/releases`}
+          newTab
+        >
+          See all releases
+        </Hyperlink>
+      </div>
     </main>
   )
 }

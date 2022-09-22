@@ -1,9 +1,12 @@
 import { Doc } from '@root/layout/Doc';
 import { LogWindowInfo } from '@root/examples/LogWindowInfo';
+import { PackageInfo } from '@root/components/PackageInfo';
 
 {/* DOC_START */}
 
 # Window Info
+
+<PackageInfo packageSlug="window-info" />
 
 This is a utility to efficiently subscribe to window resize events. As components in your application interact with window size, they compound resize listeners which can be expensive to handle. To get around this, the `useWindowInfo` hook reads context from the `<WindowInfoProvider>` — which attaches only a single event listener to the window. These events are also piped through `requestAnimationFrame` so they are already optimized for performance.
 

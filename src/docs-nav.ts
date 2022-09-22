@@ -70,7 +70,7 @@ export const modalExamplesNav: NavItem[] = [
 export const cssGridAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/css-grid/api#provider",
+    href: "/docs/css-grid/api#gridprovider",
     label: 'GridProvider',
     id: 'provider'
   },
@@ -115,19 +115,19 @@ export const cssGridAPINav: NavItem[] = [
 export const jumplistAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/jumplist/api#provider",
+    href: "/docs/jumplist/api#jumplistprovider",
     label: 'JumplistProvider',
     id: 'provider',
   },
   {
     type: 'link',
-    href: "/docs/jumplist/api#node",
+    href: "/docs/jumplist/api#jumplistnode",
     label: 'JumplistNode',
     id: 'node',
   },
   {
     type: 'link',
-    href: "/docs/jumplist/api#button",
+    href: "/docs/jumplist/api#jumplistbutton",
     label: 'JumplistButton',
     id: 'button',
   },
@@ -148,13 +148,13 @@ export const jumplistAPINav: NavItem[] = [
 export const sliderAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/slider/api#provider",
+    href: "/docs/slider/api#sliderprovider",
     label: 'SliderProvider',
     id: 'provider',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#track",
+    href: "/docs/slider/api#slidertrack",
     label: 'SliderTrack',
     id: 'track',
   },
@@ -166,20 +166,21 @@ export const sliderAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/slider/api#button",
+    href: "/docs/slider/api#sliderbutton",
     label: 'SliderButton',
-    id: 'button',
+    id: 'sliderbutton',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#progress",
+    href: "/docs/slider/api#sliderprogress",
     label: 'SliderProgress',
     id: 'progress',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#dots",
+    href: "/docs/slider/api#dotnav",
     label: 'DotNav',
+    id: 'dotnav'
   },
   {
     type: 'link',

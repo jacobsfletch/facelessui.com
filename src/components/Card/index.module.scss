@@ -16,7 +16,7 @@
   border-radius: 2px;
 
   @include mid-break {
-    padding: var(--mobile-gutter) calc(var(--mobile-gutter) / 2);
+    padding: var(--mobile-gutter);
   }
 }
 

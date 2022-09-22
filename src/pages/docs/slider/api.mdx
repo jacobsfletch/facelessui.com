@@ -13,11 +13,11 @@ import { BasicContext } from '@components/BasicContext';
 
 ## \<SliderProvider\>
 
-This component provides a new [slider context](#context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [slider settings](#provider-props) are defined.
+This component provides a new [slider context](#sliderprovider-context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [slider settings](#sliderprovider-props) are defined.
 
 ```js
 import React from 'react';
-import { SliderProvider } from \'@faceless-ui/slider\';
+import { SliderProvider } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -44,7 +44,7 @@ The number of slides within the track. This effects the width of each slide.
   type="object"
 />
 
-Makes your slider responsive by overriding your [slider settings](#provider-props)for any [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
+Makes your slider responsive by overriding your [slider settings](#sliderprovider-props) for any [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
 
 <PropName
   name="slideOnSelect"
@@ -100,21 +100,21 @@ Whether to autoplay on load. Defaults to `false`.
   type="number"
 />
 
-The speed of the autoplay. Only applicable when (autoPlay)[#autoPlay] is `true`. Defaults to `2000`.
+The speed of the autoplay. Only applicable when [`autoplay`](#autoPlay) is `true`. Defaults to `2000`.
 
 <PropName
   name="marquee"
   type="boolean"
 />
 
-Whether to marquee the slider which scrolls slowly through the track as opposed to sliding one-by-one. [autoPlay](#autoPlay) must not be enabled.
+Whether to marquee the slider which scrolls slowly through the track as opposed to sliding one-by-one. [`autoPlay`](#autoPlay) must not be enabled.
 
 <PropName
   name="marqueeSpeed"
   type="number"
 />
 
-The speed of the marquee. Only applicable when [marquee](#marquee) is `true`. Defaults to `50`.
+The speed of the marquee. Only applicable when [`marquee`](#marquee) is `true`. Defaults to `50`.
 
 <PropName
   name="pauseOnHover"
@@ -135,7 +135,7 @@ Stops and starts[`autoPlay`](#autoPlay). Set to `undefined` to return control ba
   type="string or number"
 />
 
-Renders an invisible div at the end of your [`<SliderTrack>`](#track) used to align the last slide of your slider to various points along your track. Accepts a CSS value or number, with negative values beginning from track-right (i.e. 40, -25px, etc). Set to `trackLeft` to align to the left edge of your last slide to the left edge of your slider track. Set to `offsetLeft` to include your [`scrollOffset`](#scrollOffset).
+Renders an invisible div at the end of your [`<SliderTrack>`](#slidertrack) used to align the last slide of your slider to various points along your track. Accepts a CSS value or number, with negative values beginning from track-right (i.e. 40, -25px, etc). Set to `trackLeft` to align to the left edge of your last slide to the left edge of your slider track. Set to `offsetLeft` to include your [`scrollOffset`](#scrollOffset).
 
 <PropName
   name="useFreeScroll [DEPRECATED]"
@@ -216,9 +216,9 @@ The current scroll progress of the slider.
   isContextProp
 />
 
-The width of each slide in pixels, based on [slidesToShow](#slidesToShow).
+The width of each slide in pixels, based on [`slidesToShow`](#slidesToShow).
 
-<BasicContext />
+<BasicContext href="#sliderprovider-props" />
 
 </JumplistNode>
 
@@ -230,7 +230,7 @@ This will add a scrollable element onto the page which overflows its content as 
 
 ```js
 import React from 'react';
-import { SliderTrack } from \'@faceless-ui/slider\';
+import { SliderTrack } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -255,7 +255,7 @@ Each slide is a wrapper around the  [Intersection Observer API](https://develope
 
 ```js
 import React from 'react';
-import { Slide } from \'@faceless-ui/slider\';
+import { Slide } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -284,15 +284,15 @@ The index of the slide.
 
 </JumplistNode>
 
-<JumplistNode nodeID="button">
+<JumplistNode nodeID="sliderbutton">
 
 ## \<SliderButton\>
 
-The slider button is a simple wrapper around the [`useSlider`](#useSlider) hook, used to quickly and easily navigate to any slide in the slider.
+The slider button is a simple wrapper around the [`useSlider`](#useslider) hook, used to quickly and easily navigate to any slide in the slider.
 
 ```js
 import React from 'react';
-import { SliderButton } from \'@faceless-ui/slider\';
+import { SliderButton } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -338,7 +338,7 @@ An alternative to the native scrollbar. It can be placed anywhere in your slider
 
 ```js
 import React from 'react';
-import { SliderProgress } from \'@faceless-ui/slider\';
+import { SliderProgress } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -370,7 +370,7 @@ A dot-based navigation component used to control your slider and/or indicate its
 
 ```js
 import React from 'react';
-import { DotNav } from \'@faceless-ui/slider\';
+import { DotNav } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -416,7 +416,7 @@ Arbitrary rops to spread onto each dot button.
 
 ## useSlider
 
-This is a hook you can use to access the [context](#context).
+This is a hook you can use to access the [context](#sliderprovider-context).
 
 ```js
 import react from 'react';
@@ -436,7 +436,7 @@ export const MyComponent = () => {
 
 ## TypeScript
 
-All types can be directly imported
+All types can be directly imported.
 
 ```js
 import {
@@ -463,4 +463,8 @@ export default (props) => <Doc
   metaTitle="Slider API"
   metaDescription="API documentation for the @faceless-ui/slider npm module."
   metaURL="/docs/slider/api"
+  jumplist={sliderAPINav.map((item) => ({
+    nodeID: item.id || '',
+    label: item.label,
+  }))}
 />

@@ -1,11 +1,19 @@
 @use "@scss/common" as *;
 
+.heading {
+  word-break: break-word;
+}
+
 .headingAnchor {
   display: inline-flex;
+
   &:hover {
     &:local() {
       .hashMark {
         display: block;
+        @include mid-break {
+          display: none;
+        }
       }
     }
   }
@@ -22,11 +30,7 @@
   display: none;
 
   @include mid-break {
-    display: block;
-    position: relative;
-    top: unset;
-    right: unset;
-    margin-right: base(0.5)
+    display: none;
   }
 }
 

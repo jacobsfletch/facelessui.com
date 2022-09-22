@@ -50,7 +50,7 @@ export const Heading: React.FC<{
       id={idFromProps || kebab}
       className={[
         className,
-        'heading',
+        classes.heading,
         as && classes[as],
         margin === false && classes.noMargin,
         marginTop === false && classes.noMarginTop,

@@ -67,6 +67,7 @@ export const Header: React.FC = () => {
           </div>
           <menu className={classes.menu}>
             <Button
+              className={classes.docsButton}
               appearance='primary'
               href="/docs/getting-started"
               label="Docs"

@@ -4,6 +4,7 @@ import classes from './index.module.scss';
 import { useWindowInfo } from '@faceless-ui/window-info';
 import { SearchResults } from '@components/SearchResults';
 import { SearchBar } from '@components/SearchBar';
+import { InlineCode } from '@components/InlineCode';
 
 export const SearchModal: React.FC = () => {
   const { closeAll } = useModal();
@@ -28,12 +29,25 @@ export const SearchModal: React.FC = () => {
       slug="search"
       className={classes.searchModal}
     >
-      {midBreak && ( // NOTE: conditionally render this to that two of these are not on the page at once (one for the desktop sidebar nav)
-        <div className={classes.searchBar}>
-          <SearchBar />
+      <div className={classes.wrapper}>
+        {midBreak && ( // NOTE: conditionally render this to that two of these are not on the page at once (one for the desktop sidebar nav)
+          <div className={classes.searchBar}>
+            <SearchBar />
+          </div>
+        )}
+        <div>
+          Suggestions:
+          &nbsp;
+          <InlineCode>
+            Slider
+          </InlineCode>
+          &nbsp;
+          <InlineCode>
+            transTime
+          </InlineCode>
         </div>
-      )}
-      <SearchResults />
+        <SearchResults />
+      </div>
     </Modal>
   )
 }

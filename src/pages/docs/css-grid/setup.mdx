@@ -1,12 +1,9 @@
 import { Doc } from '@root/layout/Doc';
-import { VersionNumber } from '@components/VersionNumber';
 import { InstallationCode } from '@components/InstallationCode';
 
 {/* DOC_START */}
 
-# Basic Setup
-
-Latest version: <VersionNumber name="css-grid" />
+# Grid Setup
 
 ## Installation
 
@@ -15,7 +12,7 @@ Latest version: <VersionNumber name="css-grid" />
 First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the [global settings](/docs/css-grid/api#gridprovider-props) are defined.
 
 ```jsx
-import { GridProvider } from \'@faceless-ui/css-grid\';
+import { GridProvider } from '@faceless-ui/css-grid';
 
 export const MyApp = () => {
   return (
@@ -54,7 +51,7 @@ Now you can begin building layouts using the `<Grid>` and `<Cell>` components. E
 
 ```jsx
 import React from 'react';
-import { Grid, Cell } from \'@faceless-ui/css-grid\';
+import { Grid, Cell } from '@faceless-ui/css-grid';
 
 export const MyComponent = () => {
   return (
@@ -86,7 +83,7 @@ Grids are easily nested. To do this, render a `<Grid>` component as a descendant
 
 ```jsx
 import React from 'react';
-import { Grid } from \'@faceless-ui/css-grid\';
+import { Grid } from '@faceless-ui/css-grid';
 
 export const MyComponent = () => {
   return (
@@ -122,14 +119,13 @@ export const MyComponent = () => {
 }
 ```
 
-Pro tip: Grids do not need to be direct descendants of cells.
-
+Pro tip: grids do not need to be direct descendants of cells.
 
 {/* DOC_END */}
 
 export default (props) => <Doc
   {...props}
-  githubUrl={`/css-grid/setup.tsx`}
+  githubUrl={`/css-grid/setup.mdx`}
   metaTitle="CSS Grid Setup"
   metaDescription="Setup documentation for the @faceless-ui/css-grid npm module."
   metaURL="/docs/css-grid/setup"

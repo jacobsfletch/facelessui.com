@@ -13,9 +13,11 @@ import QueryString from "qs";
 
 export const RecursiveNav: React.FC<{
   items?: NavItem[]
+  className?: string
 }> = (props) => {
   const {
     items,
+    className,
   } = props;
 
   const {
@@ -39,7 +41,12 @@ export const RecursiveNav: React.FC<{
       <CollapsibleGroup
         allowMultiple={midBreak}
       >
-        <nav className={classes.nav}>
+        <nav
+          className={[
+            classes.nav,
+            className
+          ].filter(Boolean).join(' ')}
+        >
           {items.map((item, index) => {
             const {
               type,
@@ -117,6 +124,7 @@ export const RecursiveNav: React.FC<{
                             {label}
                             {isOpen && versionName && (
                               <Fragment>
+                                &nbsp;
                                 &nbsp;
                                 <VersionNumber name={versionName} />
                               </Fragment>

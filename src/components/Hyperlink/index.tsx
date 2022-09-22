@@ -56,13 +56,30 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   }
 
   if (href) {
-    if (!newTab) {
+    const beginsWithSlash = href?.startsWith('/') || href?.startsWith('#');
+    let isLocal = beginsWithSlash;
+
+    // continue to check whether this is a local href by comparing the url origin
+    if (!beginsWithSlash) {
+      try {
+        const url = new URL(href);
+        if (url.origin !== process.env.NEXT_PUBLIC_APP_URL) {
+          isLocal = false;
+        }
+      } catch (e) {
+        console.log(href);
+        console.error(e)
+      };
+    }
+
+
+    if (!newTab && isLocal) {
       return (
         <Link
           href={href}
           scroll={false}
         >
-          <a {...sharedProps} >
+          <a  {...sharedProps}>
             {children}
           </a>
         </Link>
@@ -73,6 +90,8 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
       <a
         href={href}
         {...sharedProps}
+        rel="noopener noreferrer"
+        target="_blank"
       >
         {children}
       </a>
@@ -80,9 +99,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   }
 
   return (
-    <span
-      {...sharedProps}
-    >
+    <span {...sharedProps}>
       {children}
     </span>
   )

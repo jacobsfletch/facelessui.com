@@ -15,64 +15,73 @@
   @include large-break {
     font-size: base(2);
   }
+
+  @include mid-break {
+    font-size: base(1.5);
+  }
 }
 
 @mixin h1 {
-  font-size: base(2);
+  font-size: base(1.5);
   line-height: 1.125;
   margin: 0 0 base();
   font-weight: 600;
 
   @include mid-break {
-    font-size: base(1.5);
+    font-size: base(1);
+    margin: 0 0 base(.5);
   }
 }
 
 @mixin h2 {
-  font-size: base(1.75);
+  font-size: base(1.15);
   line-height: 1.25;
   font-weight: 600;
-  margin: 0 0 base(1);
+  margin: 0 0 base(.75);
 
   @include mid-break {
-    font-size: base(1.5);
+    font-size: base(.8);
+    margin: 0 0 base(.5);
   }
 }
 
 @mixin h3 {
-  font-size: base(1.5);
+  font-size: base(.85);
   line-height: 1.25;
   font-weight: 600;
-  margin: 0 0 base(1);
+  margin: 0 0 base(.75);
 
   @include mid-break {
-    font-size: base(1.25);
+    font-size: base(0.7);
+    margin: 0 0 base(.5);
   }
 }
 
 @mixin h4 {
-  font-size: base(1.25);
+  font-size: base(.65);
   line-height: 1.25;
   font-weight: 600;
   margin: 0 0 base(0.5);
 
   @include mid-break {
-    font-size: base();
+    font-size: base(.65);
   }
 }
 
 @mixin h5 {
-  font-size: base(0.7);
+  font-size: base(0.5);
+  line-height: 1.25;
   font-weight: 600;
   margin: 0 0 base(0.5);
 
   @include mid-break {
-    font-size: base(.8);
+    font-size: inherit;
   }
 }
 
 @mixin h6 {
   font-size: inherit;
+  line-height: 1.25;
   font-weight: 600;
   margin: 0 0 base(0.5);
 }
@@ -114,10 +123,10 @@
 
 @mixin code {
   font-family: "JetBrains Mono", monospace;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 @mixin small {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.25;
 }

@@ -1,12 +1,9 @@
 import { Doc } from '@root/layout/Doc';
 import { InstallationCode } from '@components/InstallationCode';
-import { VersionNumber } from '@components/VersionNumber';
 
 {/* DOC_START */}
 
-# Basic Setup
-
-Latest version: <VersionNumber  name="css-grid"  />
+# Collapsibles Setup
 
 ## Installation
 
@@ -16,7 +13,7 @@ To create a new collapsible, wrap any section of your app with a [`<Collapsible>
 
 ```jsx
 import React from 'react';
-import { Collapsible, CollapsibleToggler, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+import { Collapsible, CollapsibleToggler, CollapsibleContent } from '@faceless-ui/collapsibles';
 
 export const MyComponent = () => {
   return (
@@ -36,7 +33,7 @@ Pro tip: set the `openOnInit` prop to have the collapsible open on first render.
 
 ```jsx
 import React from 'react';
-import { CollapsibleGroup, Collapsible } from \'@faceless-ui/collapsibles\';
+import { CollapsibleGroup, Collapsible } from '@faceless-ui/collapsibles';
 
 export const MyComponent = () => {
   return (

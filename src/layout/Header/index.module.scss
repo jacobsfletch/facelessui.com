@@ -76,3 +76,9 @@
     opacity: 0;
   }
 }
+
+.docsButton {
+  @include mid-break {
+    display: none;
+  }
+}

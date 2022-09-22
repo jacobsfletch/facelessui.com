@@ -1,14 +1,7 @@
-import React, { Fragment, useEffect } from 'react';
 import { Doc } from '@root/layout/Doc';
-import { InlineCode } from '@components/InlineCode';
-import { CodeBlock } from '@components/CodeBlock';
-import { Hyperlink } from '@components/Hyperlink';
-import Margin from '@components/Margin';
 import { JumplistNode } from '@faceless-ui/jumplist';
-import { useJumplist } from '@faceless-ui/jumplist';
 import { modalAPINav } from '@root/docs-nav';
 import { BasicProps } from '@components/BasicProps';
-import { Heading } from '@components/Heading';
 import { ClassPrefix } from '@components/ClassPrefix';
 import { PropName } from '@components/PropName';
 import { BasicContext } from '@components/BasicContext';
@@ -21,7 +14,7 @@ import { BasicContext } from '@components/BasicContext';
 
 ## \<ModalProvider\>
 
-This component provides the [modal context](#context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#provider-props) are defined.
+This component provides the [modal context](#modalprovider-context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#modalprovider-props) are defined.
 
 ```js
 import react from 'react';
@@ -73,7 +66,7 @@ Generates a tiny CSS stylesheet (~650B), rendered at the root of the provider. T
 
 Minifies the result of [`generateCSS`](#generateCSS). Defaults to `true`.
 
-### Context
+### \<ModalProvider\> Context
 
 <PropName
   name="currentModal"
@@ -146,7 +139,7 @@ The current state of body scroll lock, useful when multiple modals differ in [`l
   isContextProp
 />
 
-Enables and disables scroll on the HTML body using [`body-scroll-lock`](https://www.npmjs.com/package/body-scroll-lock). Fired by [`lockBodyScroll`](#lockBodyScroll) on each modal individually. Check [bodyScrollIsLocked](#bodyScrollIsLocked) for the global status after overrides.
+Enables and disables scroll on the HTML body using [`body-scroll-lock`](https://www.npmjs.com/package/body-scroll-lock). Fired by [`lockBodyScroll`](#lockBodyScroll) on each modal individually. Check [`bodyScrollIsLocked`](#bodyScrollIsLocked) for the global status after overrides.
 
 <PropName
   name="containerRef"
@@ -164,7 +157,7 @@ A reference to [`<ModalContainer>`](#modalcontainer), where each modal portals i
 
 Used by [`<ModalContainer>`](#modalcontainer) to populate `containerRef` on mount.
 
-<BasicContext />
+<BasicContext href="#modalprovider-props" />
 
 </JumplistNode>
 
@@ -187,6 +180,8 @@ export const MyApp = () = (
 
 ### \<ModalContainer\> Props
 
+<BasicProps />
+
 </JumplistNode>
 
 <JumplistNode nodeID="modal">
@@ -208,7 +203,7 @@ export const MyModal = () => {
 };
 ```
 
-You can also pass a function as a child to conveniently access [modal context](#context). You could access the same context with the [useModal](#useModal) hook, but this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
+You can also pass a function as a child to conveniently access [modal context](#modalprovider-context). You could access the same context with the [useModal](#usemodal) hook, but this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
 
 ```js
 import react from 'react';
@@ -283,7 +278,7 @@ The `open` attribute is automatically set when the modal opens and closes and th
 
 ## \<ModalToggler\>
 
-This is a button that will open or close a modal based on its current status. It\'s a simple wrapper around the [useModal](#useModal)  hook. It\'s only required prop is a unique [`slug`](#toggler-slug).
+This is a button that will open or close a modal based on its current status. It\'s a simple wrapper around the [useModal](#usemodal)  hook. It\'s only required prop is a unique [`slug`](#toggler-slug).
 
 ```js
 import react from 'react';
@@ -317,7 +312,7 @@ The unique [slug](#slug) of the modal to open or close.
 
 ## useModal
 
-This is a hook you can use to access the [modal context](#context).
+This is a hook you can use to access the [modal context](#modalprovider-context).
 
 ```js
 import react from 'react';

@@ -13,11 +13,11 @@ import { BasicContext } from '@components/BasicContext';
 
 ## \<JumplistProvider\>
 
-This component provides the [jumplist context](#context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#provider-props) are defined.
+This component provides the [jumplist context](#jumplistprovider-context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#jumplistprovider-props) are defined.
 
 ```js
 import React from 'react';
-import { JumplistProvider } from \'@faceless-ui/jumplist\';
+import { JumplistProvider } from '@faceless-ui/jumplist';
 
 export const MyApp = () => {
   return (
@@ -52,7 +52,7 @@ The threshold of the intersection observer. See the [Intersection Observer API](
   type="boolean"
 />
 
-Will inject `html: { scroll-behavior: smooth; }` as inline CSS onto the root html element of your DOM. See [smooth-scrolling](`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/setup#smooth-scroll`) for more details. Defaults to `true`.
+Will inject `html: { scroll-behavior: smooth; }` as inline CSS onto the root html element of your DOM. See [smooth-scrolling](/docs/jumplist/setup#smooth-scrolling) for more details. Defaults to `true`.
 
 ### \<JumplistProvider\> Context
 
@@ -62,7 +62,7 @@ Will inject `html: { scroll-behavior: smooth; }` as inline CSS onto the root htm
   isContextProp
 />
 
-This is an array of jumplist nodes, each with its [isIntersecting](#isIntersecting) status.
+This is an array of jumplist nodes, each with its `isIntersecting` status.
 
 <PropName
   name="clearJumplist()"
@@ -86,7 +86,7 @@ The first-most active jumplist node. Sometimes multiple nodes might be intersect
   isContextProp
 />
 
-The most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the [currentJumplistIndex](#currentJumplistIndex) is `-1`. This property is essentially a cached index.'}
+The most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the [`currentJumplistIndex`](#currentJumplistIndex) is `-1`. This property is essentially a cached index.
 
 <PropName
   name="setJumplist(jumplist: array)"
@@ -96,7 +96,7 @@ The most recent jumplist node that has intersected. This is helpful when no node
 
 A method used to set the jumplist.
 
-<BasicContext />
+<BasicContext href="#jumplistprovider-props" />
 
 </JumplistNode>
 
@@ -108,7 +108,7 @@ Each jumplist node is a wrapper around the [Intersection Observer API](https://d
 
 ```js
 import React from 'react';
-import { JumplistNode } from \'@faceless-ui/jumplist\';
+import { JumplistNode } from '@faceless-ui/jumplist';
 
 export const MyComponent = () => {
   return (
@@ -146,7 +146,7 @@ The jumplist button is a simple wrapper around the [`useJumplist`](#usejumplist)
 
 ```js
 import React from 'react';
-import { JumplistNode } from \'@faceless-ui/jumplist\';
+import { JumplistNode } from '@faceless-ui/jumplist';
 
 export const MyComponent = () => {
   return (
@@ -181,11 +181,11 @@ The `type` attribute is automatically set to "button" when the [htmlElement](#bu
 
 ## useJumplist
 
-A hook used to access the [jumplist context](#context).
+A hook used to access the [jumplist context](#jumplistprovider-context).
 
 ```js
 import React from 'react';
-import { useJumplist } from \'@faceless-ui/jumplist\';
+import { useJumplist } from '@faceless-ui/jumplist';
 
 export const MyComponent = () => {
   const jumplist = useJumplist();

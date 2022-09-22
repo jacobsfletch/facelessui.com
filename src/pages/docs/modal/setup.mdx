@@ -1,12 +1,9 @@
 import { Doc } from '@root/layout/Doc';
-import { VersionNumber } from '@components/VersionNumber';
 import { InstallationCode } from '@components/InstallationCode';
 
 {/* DOC_START */}
 
-# Basic Setup
-
-Latest version: <VersionNumber name="modal" />
+# Modal Setup
 
 ## Installation
 
@@ -18,7 +15,7 @@ Anywhere inside of this, render the [`<ModalContainer>`](/docs/modal/api#modalco
 
 ```jsx
 import React from 'react';
-import { ModalProvider, ModalContainer } from \'@faceless-ui/modal\';
+import { ModalProvider, ModalContainer } from '@faceless-ui/modal';
 
 export const MyApp = () => {
   return (
@@ -33,7 +30,7 @@ Now to create a modal, render a [`<Modal>`](/docs/modal/api#modal) component any
 
 ```jsx
 import React from 'react';
-import { Modal, ModalToggler } from \'@faceless-ui/modal\';
+import { Modal, ModalToggler } from '@faceless-ui/modal';
 
 export const MyComponent = () => {
   return (
@@ -51,11 +48,11 @@ export const MyComponent = () => {
 }
 ```
 
-Alternatively, you could build your own button. To do this, the `toggle` method can be directly accessed from the [modal context](/docs/modal/api#context) with the [useModal](/docs/modal/api#useModal) hook.
+Alternatively, you could build your own button. To do this, the `toggle` method can be directly accessed from the [modal context](/docs/modal/api#modalprovider-context) with the [useModal](/docs/modal/api#usemodal) hook.
 
 ```jsx
 import React from 'react';
-import { useModal } from \'@faceless-ui/modal\';
+import { useModal } from '@faceless-ui/modal';
 
 export const MyComponent = (props) => {
   const { toggle } = useModal();

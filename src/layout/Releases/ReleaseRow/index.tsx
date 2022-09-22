@@ -1,17 +1,16 @@
 import { Heading } from '@components/Heading';
 import { Hyperlink } from '@components/Hyperlink';
 import { MarkdownRenderer } from '@components/MarkdownRenderer';
-import { ReleaseData } from '@root/github-api';
+import { GitHubRelease } from '@root/github-api';
 import { useVersions } from '@root/providers/Versions';
 import { formatDateTime } from '@root/utilities/formatDateTime';
 import React from 'react';
 import classes from './index.module.scss';
 
-export const ReleaseRow: React.FC<ReleaseData & {
+export const ReleaseRow: React.FC<GitHubRelease & {
   packageSlug?: string
   packageName?: string
   className?: string
-  id?: string
   showName?: boolean
   showDate?: boolean
 }> = (props) => {
@@ -29,12 +28,12 @@ export const ReleaseRow: React.FC<ReleaseData & {
     showName = false
   } = props;
 
-  const { versions } = useVersions();
-  const latestVersion = versions[packageSlug || '']?.version;
+  const { githubVersions } = useVersions();
+  const latestVersion = githubVersions[packageSlug || '']?.tag_name;
 
   return (
     <div
-      id={id}
+      id={id.toString()}
       className={[
         className,
         classes.releaseRow,
@@ -42,7 +41,6 @@ export const ReleaseRow: React.FC<ReleaseData & {
     >
       <Heading
         href={`#${tag_name}`}
-        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/docs/modal/releases#${tag_name}`}
         element="h2"
         as="h4"
       >

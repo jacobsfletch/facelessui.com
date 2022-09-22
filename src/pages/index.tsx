@@ -53,13 +53,11 @@ const Home: NextPage = () => {
               colsM={12}
             >
               <div className={classes.heading}>
-                <Hyperlink
-                  href="/docs/getting-started"
-                >
-                  <h1 className={classes.headingText}>
+                <h1 className={classes.headingText}>
+                  <Hyperlink href="/docs/getting-started">
                     An unstyled <span style={{ display: 'inline-block' }}>React+<wbr />Typescript</span> UI library for brands
-                  </h1>
-                </Hyperlink>
+                  </Hyperlink>
+                </h1>
               </div>
             </Cell>
           </Grid>
@@ -84,61 +82,67 @@ const Home: NextPage = () => {
                 Components:
               </p>
               <div className={classes.cards}>
-                <Card
-                  title="Modal"
-                  href="/docs/modal"
-                  description='Dialogs, lightboxes, drawers, mega menus, confirmations, popups, alerts'
-                  forceDark
-                />
-                <Card
-                  title="Slider"
-                  href="/docs/slider"
-                  description='Carousels, image galleries, slideshows, thumbnail sliders, lightbox sliders, marquee'
-                  forceDark
-                />
-                <Card
-                  title="CSS Grid"
-                  href="/docs/css-grid"
-                  description='Grid system for rapid layout development'
-                  forceDark
-                />
-                <Card
-                  title="Collapsibles"
-                  href="/docs/collapsibles"
-                  description='Dropdowns, accordions, expandable content, collapsible sections'
-                  forceDark
-                />
-                <Card
-                  title="Jumplist"
-                  href="/docs/jumplist"
-                  description='Dots, page navigation, table of contents, quick-lists, jumplists'
-                  forceDark
-                />
+                <div className={classes.cardsInner}>
+                  <Card
+                    title="Modal"
+                    href="/docs/modal"
+                    description='Dialogs, lightboxes, drawers, mega menus, confirmations, popups, alerts'
+                    forceDark
+                  />
+                  <Card
+                    title="Slider"
+                    href="/docs/slider"
+                    description='Carousels, image galleries, slideshows, thumbnail sliders, lightbox sliders, marquee'
+                    forceDark
+                  />
+                  <Card
+                    title="CSS Grid"
+                    href="/docs/css-grid"
+                    description='Grid system for rapid layout development'
+                    forceDark
+                  />
+                  <Card
+                    title="Collapsibles"
+                    href="/docs/collapsibles"
+                    description='Dropdowns, accordions, expandable content, collapsible sections'
+                    forceDark
+                  />
+                  <Card
+                    title="Jumplist"
+                    href="/docs/jumplist"
+                    description='Dots, page navigation, table of contents, quick-lists, jumplists'
+                    forceDark
+                  />
+                </div>
               </div>
             </div>
-            <div className={classes.utilities}>
-              <p className={classes.label}>
-                Utilities:
-              </p>
-              <div className={classes.cards}>
-                <Card
-                  title="Window Info"
-                  href="/docs/window-info"
-                  description="Viewport dimensions and media-query breakpoints with a single event listener"
-                  forceDark
-                />
-                <Card
-                  title="Scroll Info"
-                  href="/docs/scroll-info"
-                  description="Scroll percentage, direction, position, etc with a single event listener"
-                  forceDark
-                />
-                <Card
-                  title="Mouse Info"
-                  href="/docs/mouse-info"
-                  description="Mouse position, movement, direction, etc with a single event listener"
-                  forceDark
-                />
+            <div>
+              <div className={classes.utilities}>
+                <p className={classes.label}>
+                  Utilities:
+                </p>
+                <div className={classes.cards}>
+                  <div className={classes.cardsInner}>
+                    <Card
+                      title="Window Info"
+                      href="/docs/window-info"
+                      description="Viewport dimensions and media-query breakpoints with a single event listener"
+                      forceDark
+                    />
+                    <Card
+                      title="Scroll Info"
+                      href="/docs/scroll-info"
+                      description="Scroll percentage, direction, position, etc with a single event listener"
+                      forceDark
+                    />
+                    <Card
+                      title="Mouse Info"
+                      href="/docs/mouse-info"
+                      description="Mouse position, movement, direction, etc with a single event listener"
+                      forceDark
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </BlockContainer>

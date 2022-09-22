@@ -8,13 +8,13 @@ import { BasicContext } from '@components/BasicContext';
 
 {/* DOC_START */}
 
-# CSS Grid API
+# Grid API
 
 <JumplistNode nodeID="provider">
 
 ## \<GridProvider\>
 
-This component provides the [grid context](#context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#provider-props") are defined.
+This component provides the [grid context](#gridprovider-context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#gridprovider-props) are defined.
 
 ```js
 import react from 'react';
@@ -92,7 +92,7 @@ The number of columns available at each breakpoint. Once a row reaches maximum c
 
 The key of the smallest breakpoint reached. See [breakpoints](#breakpoints).
 
-<BasicContext />
+<BasicContext href="#gridprovider-props" />
 
 </JumplistNode>
 
@@ -100,7 +100,7 @@ The key of the smallest breakpoint reached. See [breakpoints](#breakpoints).
 
 ## \<Grid\>
 
-This component wraps cells and has no required props. It creates a DOM element with the [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) CSS property — a dynamic value set based on the [grid settings](#grid settings) and the number of columns currently available. You can also [nest grids](#nested-grids) inside other grids.
+This component wraps cells and has no required props. It creates a DOM element with the [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) CSS property — a dynamic value set based on the [grid settings](#grid settings) and the number of columns currently available. You can also [nest grids](/docs/css-grid/setup#nested-grids) inside other grids.
 
 ```js
 import react from 'react';
@@ -234,7 +234,7 @@ export const MyComponent = () => {
 
 ## useSettings
 
-This is a hook you can use to access the global [grid settings](#context).
+This is a hook you can use to access the global [grid settings](#gridprovider-context).
 
 ```js
 import react from 'react';

@@ -33,7 +33,6 @@ export const CodeBlock: React.FC<{
         language="javascript"
         style={isDark ? vscDarkPlus : vs}
         className={classes.pre}
-        wrapLongLines
         codeTagProps={{
           className: classes.code
         }}

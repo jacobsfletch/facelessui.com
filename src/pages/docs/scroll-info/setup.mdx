@@ -1,18 +1,9 @@
-import React, { Fragment } from 'react';
 import { Doc } from '@root/layout/Doc';
-import { Hyperlink } from '@components/Hyperlink';
-import { CodeBlock } from '@components/CodeBlock';
-import { InlineCode } from '@components/InlineCode';
-import Margin from '@components/Margin';
-import { Heading } from '@components/Heading';
 import { InstallationCode } from '@components/InstallationCode';
-import { VersionNumber } from '@components/VersionNumber';
 
 {/* DOC_START */}
 
-# Basic Setup
-
-Latest version: <VersionNumber  name="scroll-info" />
+# Scroll Info Setup
 
 ## Installation
 
@@ -21,7 +12,7 @@ Latest version: <VersionNumber  name="scroll-info" />
 First, wrap your app with the provider. This component does not render anything in the DOM, and should be placed nearest to the top of your app as possible to provide context to any components that need it.
 
 ```jsx
-import { ScrollInfoProvider } from \'@faceless-ui/scroll-info\';
+import { ScrollInfoProvider } from '@faceless-ui/scroll-info';
 
 export const App = () => {
   return (
@@ -35,7 +26,7 @@ export const App = () => {
 Then consume the context however needed, most commonly with the `useScrollInfo` hook.
 
 ```jsx
-import { useScrollInfo } from \'@faceless-ui/scroll-info\';
+import { useScrollInfo } from '@faceless-ui/scroll-info';
 
 export const MyComponent = (props) => {
     const scrollInfo = useScrollInfo();

@@ -25,9 +25,97 @@ export const MyApp = () = (
   type="React.ReactNode"
 />
 
+React children.
+
 ### Context
 
-This section has no content.
+<PropName
+  name="x"
+  type="number"
+  isContextProp
+/>
+
+Current mouse position along the x-axis
+
+<PropName
+  name="y"
+  type="number"
+  isContextProp
+/>
+
+Current mouse position along the y-axis
+
+<PropName
+  name="xDifference"
+  type="number"
+  isContextProp
+/>
+
+Last number of pixels moved along the x-axis
+
+<PropName
+  name="yDifference"
+  type="number"
+  isContextProp
+/>
+
+Last number of pixels moved along the y-axis
+
+<PropName
+  name="xDirection"
+  type="string"
+  isContextProp
+/>
+
+Direction of the last mouse movement along the x-axis
+
+<PropName
+  name="yDirection"
+  type="string"
+  isContextProp
+/>
+
+Direction of the last mouse movement along the y-axis
+
+<PropName
+  name="xPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage moved along the x-axis
+
+<PropName
+  name="yPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage moved along the y-axis
+
+<PropName
+  name="totalPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage moved along the both and x and y-axes
+
+<PropName
+  name="eventsFired"
+  type="number"
+  isContextProp
+/>
+
+Number of animation frames completed
+
+<PropName
+  name="isInViewport"
+  type="boolean"
+  isContextProp
+/>
+
+Toggled as the mouse enters and leaves the viewport
 
 ## useMouseInfo
 
@@ -63,7 +151,7 @@ export const MyComponent = withMouseInfo((props) => {
 
 ## TypeScript
 
-All types can be directly imported
+All types can be directly imported.
 
 ```js
 import {

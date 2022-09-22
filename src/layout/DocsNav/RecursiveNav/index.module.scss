@@ -1,9 +1,6 @@
 @use "@scss/common" as *;
 
 .nav {
-  display: flex;
-  flex-direction: column;
-
   @include mid-break {
     & > *:not(:last-child) {
       margin-bottom: base(0.25);
@@ -100,7 +97,7 @@
   background-color: currentColor;
   position: absolute;
   left: base(-0.5);
-  top: base(0.5);
+  top: 16px;
 }
 
 .jumplistBullet {
@@ -109,7 +106,7 @@
   background-color: currentColor;
   position: absolute;
   left: base(-0.5);
-  top: 15px;
+  top: 16px;
 }
 
 .linkLabel {

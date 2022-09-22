@@ -1,22 +1,19 @@
 import { Doc } from '@root/layout/Doc';
-import { VersionNumber } from '@components/VersionNumber';
 import { InstallationCode } from '@components/InstallationCode';
 
 {/* DOC_START */}
 
-# Basic Setup
-
-Latest version: <VersionNumber  name="slider" />
+# Slider Setup
 
 ## Installation
 
 <InstallationCode name="slider" />
 
-To create a slider, wrap any portion of your app with the [`<SliderProvider>`](/docs/slider/api#provider). This component does not render anything in the DOM and is where the [slider settings](/docs/slider/api#provider-props) are defined. Inside of this, render a [`<SliderTrack>`](/docs/slider/api#track). This will add a scrollable element onto the page which overflows its content as necessary. Then, nest as many [`<Slide>`](/docs/slider/api#slide) components within the track as necessary.
+To create a slider, wrap any portion of your app with the [`<SliderProvider>`](/docs/slider/api#sliderprovider). This component does not render anything in the DOM and is where the [slider settings](/docs/slider/api#sliderprovider-props) are defined. Inside of this, render a [`<SliderTrack>`](/docs/slider/api#slidertrack). This will add a scrollable element onto the page which overflows its content as necessary. Then, nest as many [`<Slide>`](/docs/slider/api#slide) components within the track as necessary.
 
 ```jsx
 import React from 'react';
-import { SliderProvider, SliderTrack, Slide } from \'@faceless-ui/slider\';
+import { SliderProvider, SliderTrack, Slide } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -38,11 +35,11 @@ Pro tip: These components do not need to be direct descendants of one another.
 
 ## Slider navigation
 
-If your slider is not free-scrolling, drag-scrolling, or auto-playing, you will need to render navigation buttons. Conveniently, the [`<SliderButton>`](/docs/slider/api#button) component solves the most common navigation needs and is highly customizable.
+If your slider is not free-scrolling, drag-scrolling, or auto-playing, you will need to render navigation buttons. Conveniently, the [`<SliderButton>`](/docs/slider/api#sliderbutton) component solves the most common navigation needs and is highly customizable.
 
 ```jsx
 import React from 'react';
-import { SliderProvider, SliderTrack, Slide, SliderButton } from \'@faceless-ui/slider\';
+import { SliderProvider, SliderTrack, Slide, SliderButton } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   return (
@@ -66,10 +63,10 @@ export const MyComponent = () => {
 }
 ```
 
-Alternatively, you could wire up your own button using methods on the [slider context](/docs/slider/api#context). To do this, access the `goToNextSlide` method with the `useSlider` hook.
+Alternatively, you could wire up your own button using methods on the [slider context](/docs/slider/api#sliderprovider-context). To do this, access the `goToNextSlide` method with the `useSlider` hook.
 
 ```jsx
-import { SliderProvider, SliderTrack, Slide, useSlider } from \'@faceless-ui/slider\';
+import { SliderProvider, SliderTrack, Slide, useSlider } from '@faceless-ui/slider';
 
 export const MyButton = () => {
   const { goToNextSlide } = useSlider();
@@ -103,7 +100,7 @@ It is very easy to make sliders responsive by overriding any of this settings at
 
 ```jsx
 import React, { useState } from 'react';
-import { SliderProvider, SliderTrack, Slide } from \'@faceless-ui/slider\';
+import { SliderProvider, SliderTrack, Slide } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   const [index, setIndex] = useState();
@@ -138,7 +135,7 @@ It is also possible to synchronize multiple sliders, so the navigation of one sl
 
 ```jsx
 import React, { useState } from 'react';
-import { SliderProvider, SliderTrack, Slide } from \'@faceless-ui/slider\';
+import { SliderProvider, SliderTrack, Slide } from '@faceless-ui/slider';
 
 export const MyComponent = () => {
   const [index, setIndex] = useState();

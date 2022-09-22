@@ -3,11 +3,10 @@ import { AppHead } from '../components/AppHead';
 import { Footer } from '../layout/Footer';
 import { Header } from '../layout/Header';
 import { GridProvider } from '@faceless-ui/css-grid'
-import { ModalProvider, ModalContainer } from '@faceless-ui/modal';
+import { ModalProvider } from '@faceless-ui/modal';
 import { Fragment } from 'react';
 import { NextPage } from 'next';
 import { Doc } from '@root/layout/Doc';
-import { Versions as VersionsType } from '../providers/Versions';
 import VersionsProvider from '@root/providers/Versions';
 import { NotificationsProvider } from '@root/providers/Notifications';
 import { WindowInfoProvider } from '@faceless-ui/window-info';
@@ -22,10 +21,11 @@ import { GoogleAnalytics } from '@components/GoogleAnalytics';
 import { OnRouteChange } from '@components/OnRouteChange';
 import { MDXProvider } from '@mdx-js/react'
 import { mdxComponents } from '@root/mdx';
-
-import '../scss/app.scss';
 import { SearchProvider } from '@root/providers/SearchProvider';
 import { MobileNav } from '@root/layout/DocsNav/MobileNav';
+
+import '../scss/app.scss';
+import { ModalContainer } from '@root/layout/ModalContainer';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -33,14 +33,12 @@ type NextPageWithLayout = NextPage & {
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout,
-  versions: VersionsType
 }
 
 const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
   const {
     Component,
     pageProps,
-    versions
   } = appProps;
 
   const Layout = Component.Layout || Fragment;
@@ -93,7 +91,7 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                             xl: 16,
                           }}
                         >
-                          <VersionsProvider versions={versions}>
+                          <VersionsProvider>
                             <CustomCursorProvider>
                               <Fragment>
                                 <OnRouteChange />

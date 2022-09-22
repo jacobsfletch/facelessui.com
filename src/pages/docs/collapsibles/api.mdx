@@ -14,11 +14,11 @@ import { BasicProps } from '@components/BasicProps';
 
 ## \<Collapsible\>
 
-This component provides a new [collapsible context](#context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [collapsible settings](#collapsible-props) are defined.
+This component provides a new [collapsible context](#collapsible-context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [collapsible settings](#collapsible-props) are defined.
 
 ```jsx
 import React from 'react';
-import { Collapsible } from \'@faceless-ui/collapsibles\';
+import { Collapsible } from '@faceless-ui/collapsibles';
 
 export const MyComponent = () => {
   return (
@@ -107,7 +107,7 @@ The root class for the collapsible. Appends [`classPrefix`](#classPrefix) to the
 
 Used internally to report the toggle to the nearest `<CollapsibleGroup>`, if nested.
 
-<BasicContext />
+<BasicContext href="#collapsible-props" />
 
 </JumplistNode>
 
@@ -119,7 +119,7 @@ The height of this component will be animated from 0 to auto-height content when
 
 ```jsx
 import React from 'react';
-import { Collapsible, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+import { Collapsible, CollapsibleContent } from '@faceless-ui/collapsibles';
 
 export const MyComponent = () => {
   return (
@@ -146,7 +146,7 @@ This component renders a button that opens and closes the nearest collapsible wh
 
 ```jsx
 import React from 'react';
-import { Collapsible, CollapsibleToggler } from \'@faceless-ui/collapsibles\';
+import { Collapsible, CollapsibleToggler } from '@faceless-ui/collapsibles';
 
 export const MyComponent = () => {
   return (
@@ -176,11 +176,11 @@ The `type` attribute is automatically set to "button" when the [`htmlElement`](#
 
 ## \<CollapsibleGroup\>
 
-This component provides a new [group context](#group-context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [group settings](#group-props) are defined.
+This component provides a new [group context](#collapsiblegroup-context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [group settings](#collapsiblegroup-props) are defined.
 
 ```jsx
 import React from 'react';
-import { CollapsibleGroup, Collapsible, CollapsibleContent } from \'@faceless-ui/collapsibles\';
+import { CollapsibleGroup, Collapsible, CollapsibleContent } from '@faceless-ui/collapsibles';
 
 export const MyComponent = () => {
   return (
@@ -231,7 +231,7 @@ Standardizes all transition curves of the collapsibles within the group. Can be 
 
 The number of times the group has been toggled. Incremented every time a collapsible is opened or closed.
 
-<BasicContext  href="#group-props" />
+<BasicContext  href="#collapsiblegroup-props" />
 
 </JumplistNode>
 

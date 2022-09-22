@@ -14,10 +14,4 @@
   & > *:last-child {
     margin-bottom: 0;
   }
-
-  &:global() {
-    h2, h3, h4, h5, h6 {
-      @include h5;
-    }
-  }
 }

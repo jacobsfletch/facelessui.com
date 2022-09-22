@@ -1,5 +1,5 @@
 import { Heading } from '@components/Heading'
-import { getReleaseNotes, ReleaseData } from '@root/github-api'
+import { getReleaseNotes, GitHubRelease } from '@root/github-api'
 import { BlockContainer } from '@root/layout/BlockContainer'
 import { useCustomCursor } from '@root/providers/CustomCursorProvider'
 import { formatDateTime } from '@root/utilities/formatDateTime'
@@ -27,7 +27,7 @@ const pkgNames: {
 const pkgs = Object.keys(pkgNames);
 
 const Releases: NextPage = () => {
-  const [releasesByDate, setReleasesByDate] = useState<[string, ReleaseData[]][]>([]);
+  const [releasesByDate, setReleasesByDate] = useState<[string, GitHubRelease[]][]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { setShowCustomCursor } = useCustomCursor();
   const router = useRouter();
@@ -74,7 +74,7 @@ const Releases: NextPage = () => {
             acc[date].push(release);
           }
           return acc;
-        }, {} as Record<string, ReleaseData[]>);
+        }, {} as Record<string, GitHubRelease[]>);
 
       const sortedByDate = Object.entries(releasesByDate)
         .sort((a, b) => new Date(b[0]).getTime() - new Date(a[0]).getTime())
@@ -145,7 +145,6 @@ const Releases: NextPage = () => {
                       <Heading
                         id={date}
                         href={`/releases#${date}`}
-                        copyToClipboard={`${process.env.NEXT_PUBLIC_APP_URL}/releases#${date}`}
                         element="h2"
                         as="h5"
                       >
