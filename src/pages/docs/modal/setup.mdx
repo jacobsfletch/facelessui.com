@@ -20,13 +20,14 @@ import { ModalProvider, ModalContainer } from '@faceless-ui/modal';
 export const MyApp = () => {
   return (
     <ModalProvider transTime={250}>
+      ...
       <ModalContainer />
     </ModalProvider>
   )
 }
 ```
 
-Now to create a modal, render a [`<Modal>`](/docs/modal/api#modal) component anywhere in your app. The only required prop is the unique `slug` that identifies this modal. The simplest way to open and close the modal is to use the [`<ModalToggler>`](/docs/modal/api#modaltoggler) component. This component takes the slug of any modal and toggles it open or closed based on the current state of that modal.
+Now to create a modal, render a [`<Modal>`](/docs/modal/api#modal) component anywhere in your app. The only required prop is the unique `slug` that identifies this modal. Then, the simplest way to open and close the modal is to use the [`<ModalToggler>`](/docs/modal/api#modaltoggler) component. It takes the slug of any modal and toggles it open or closed based on the current state of that modal.
 
 ```jsx
 import React from 'react';
@@ -48,7 +49,7 @@ export const MyComponent = () => {
 }
 ```
 
-Alternatively, you could build your own button. To do this, the `toggle` method can be directly accessed from the [modal context](/docs/modal/api#modalprovider-context) with the [useModal](/docs/modal/api#usemodal) hook.
+Alternatively, you could build your own button. To do this, the `toggle` method can be directly accessed from the [modal context](/docs/modal/api#modalprovider-context) with the [`useModal`](/docs/modal/api#usemodal) hook.
 
 ```jsx
 import React from 'react';

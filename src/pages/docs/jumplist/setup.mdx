@@ -27,7 +27,7 @@ export const MyApp = () => {
 }
 ```
 
-Then, use a [`<JumplistNode>`](/docs/jumplist/api#jumplistnode) for every element you want to track. The only required prop of this component is the `nodeID`, the unique string identifying each node.
+Then, use a [`<JumplistNode>`](/docs/jumplist/api#jumplistnode) for every element you want to track. The only required prop of this component is the `nodeID`, a unique string identifying each node.
 
 ```jsx
 import React from 'react';
@@ -47,7 +47,7 @@ export const MyComponent = () => {
 }
 ```
 
-Every node is a wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), reporting their `isIntersecting` status to the [jumplist context](/docs/jumplist/api#jumplistprovider-context). You can access this from anywhere with the [`useJumplist`](/docs/jumplist/api#usejumplist) hook.
+Every node is a wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), reporting its `isIntersecting` status to the [jumplist context](/docs/jumplist/api#jumplistprovider-context). You can access this from anywhere with the [`useJumplist`](/docs/jumplist/api#usejumplist) hook.
 
 ```jsx
 import React from 'react';
@@ -62,7 +62,7 @@ export const MyComponent = () => {
         const { isIntersecting } = node;
         return (
           <div key={index}>
-            {\`Node \${index} is intersecting: \${isIntersecting}\`}
+            {`Node ${index} is intersecting: ${isIntersecting}`}
           </div>
         )
       })}
@@ -82,7 +82,7 @@ export const MyComponent = () => {
     <JumplistNode nodeID="node-1">
       {({ isIntersecting }) => (
         <div>
-          {\`Is intersecting: \${isIntersecting}\`}
+          {`Is intersecting: ${isIntersecting}`}
         </div>
       )}
     </JumplistNode>

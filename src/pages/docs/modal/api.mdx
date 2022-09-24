@@ -203,7 +203,7 @@ export const MyModal = () => {
 };
 ```
 
-You can also pass a function as a child to conveniently access [modal context](#modalprovider-context). You could access the same context with the [useModal](#usemodal) hook, but this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
+You can also pass a function as a child to conveniently access [modal context](#modalprovider-context). You could access the same context with the [`useModal`](#usemodal) hook, but this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
 
 ```js
 import react from 'react';
@@ -270,7 +270,7 @@ Will prevent the document from scrolling while the modal is open. Defaults to tr
 
 ### Accessibility
 
-The `open` attribute is automatically set when the modal opens and closes and the [htmlElement](#modal-htmlElement) is `dialog`.
+The `open` attribute is automatically set when the modal opens and closes and the [`htmlElement`](#modal-htmlElement) is `dialog`.
 
 </JumplistNode>
 
@@ -278,7 +278,7 @@ The `open` attribute is automatically set when the modal opens and closes and th
 
 ## \<ModalToggler\>
 
-This is a button that will open or close a modal based on its current status. It\'s a simple wrapper around the [useModal](#usemodal)  hook. It\'s only required prop is a unique [`slug`](#toggler-slug).
+This is a button that will open or close a modal based on its current status. It\'s a simple wrapper around the [`useModal`](#usemodal)  hook. It\'s only required prop is a unique [`slug`](#toggler-slug).
 
 ```js
 import react from 'react';
@@ -302,7 +302,7 @@ export const MyComponent = () => {
   required
 />
 
-The unique [slug](#slug) of the modal to open or close.
+The unique [`slug`](#slug) of the modal to open or close.
 
 <BasicProps />
 
@@ -332,7 +332,7 @@ export const MyComponent = () => {
 
 ## asModal
 
-For advanced setups, use this higher order component to create your own modal entirely from scratch. Wrap your React component with this HOC to have it function as a modal. It will attach the modal context into the props of the wrapped component. The second argument is the unique [slug](#slug).
+For advanced setups, use this higher order component to create your own modal entirely from scratch. Wrap your React component with this HOC to have it function as a modal. It will attach the modal context into the props of the wrapped component. The second argument is the unique [`slug`](#slug).
 
 ```js
 import react from 'react';

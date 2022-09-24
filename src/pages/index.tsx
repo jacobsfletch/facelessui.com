@@ -92,7 +92,7 @@ const Home: NextPage = () => {
                   <Card
                     title="Slider"
                     href="/docs/slider"
-                    description='Carousels, image galleries, slideshows, thumbnail sliders, lightbox sliders, marquee'
+                    description='Carousels, image galleries, slideshows, thumbnail sliders, lightbox sliders, marquee sliderss'
                     forceDark
                   />
                   <Card
@@ -126,19 +126,19 @@ const Home: NextPage = () => {
                     <Card
                       title="Window Info"
                       href="/docs/window-info"
-                      description="Viewport dimensions and media-query breakpoints with a single event listener"
+                      description="Viewport dimensions, media-query breakpoints, and more with a single event listener"
                       forceDark
                     />
                     <Card
                       title="Scroll Info"
                       href="/docs/scroll-info"
-                      description="Scroll percentage, direction, position, etc with a single event listener"
+                      description="Scroll percentage, direction, position and more with a single event listener"
                       forceDark
                     />
                     <Card
                       title="Mouse Info"
                       href="/docs/mouse-info"
-                      description="Mouse position, movement, direction, etc with a single event listener"
+                      description="Mouse position, movement, direction and more with a single event listener"
                       forceDark
                     />
                   </div>

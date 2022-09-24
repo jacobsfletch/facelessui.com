@@ -70,13 +70,12 @@ export const NextInDocs: React.FC<{
   const [nextNavItem, setNextNavItem] = useState<NavItem | null>();
 
   const router = useRouter();
-  const { asPath: asPathFromRouter } = router;
-  const asPath = asPathFromRouter.split('#')[0];
+  const { pathname } = router;
 
   useEffect(() => {
     const activeNavIndex = navLinks.findIndex((item) => {
       const { href } = item;
-      return Boolean(href && asPath.startsWith(href));
+      return Boolean(href && pathname === href);
     });
 
     const nextIndex = activeNavIndex + 1;
@@ -97,7 +96,7 @@ export const NextInDocs: React.FC<{
 
       setNextNavItem(nextNavItem)
     } else setNextNavItem(null);
-  }, [asPath]);
+  }, [pathname]);
 
   if (nextNavItem) {
     const {
