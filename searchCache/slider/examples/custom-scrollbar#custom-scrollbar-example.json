@@ -1,0 +1,1 @@
+{"title":"Custom Scrollbar Example","content":"This is a slider which displays a custom scrollbar using the <SliderProgress /> component. This component can be placed anywhere in your DOM. The native scrollbar is hidden from the track basic css. Scroll or drag the slider to see the effect.\n<CustomScrollbarExample />"}

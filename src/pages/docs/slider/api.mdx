@@ -1,0 +1,470 @@
+import { Doc } from '@root/layout/Doc';
+import { JumplistNode } from '@faceless-ui/jumplist';
+import { sliderAPINav } from '@root/docs-nav';
+import { BasicProps } from '@components/BasicProps';
+import { PropName } from '@components/PropName';
+import { BasicContext } from '@components/BasicContext';
+
+{/* DOC_START */}
+
+# Slider API
+
+<JumplistNode nodeID="provider">
+
+## \<SliderProvider\>
+
+This component provides a new [slider context](#sliderprovider-context) to any section of your app. It has no required props and renders nothing in the DOM. This is where the [slider settings](#sliderprovider-props) are defined.
+
+```js
+import React from 'react';
+import { SliderProvider } from '@faceless-ui/slider';
+
+export const MyComponent = () => {
+  return (
+    <SliderProvider
+      slidesToShow={3}
+    >
+      ...
+    </SliderProvider>
+  )
+}
+```
+
+### \<SliderProvider\> Props
+
+<PropName
+  name="slidesToShow"
+  type="number"
+/>
+
+The number of slides within the track. This effects the width of each slide.
+
+<PropName
+  name="breakpoints"
+  type="object"
+/>
+
+Makes your slider responsive by overriding your [slider settings](#sliderprovider-props) for any [CSS media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries).
+
+<PropName
+  name="slideOnSelect"
+  type="boolean"
+/>
+
+When `true`, navigates the slider directly to any slide that is clicked.
+
+<PropName
+  name="scrollOffset"
+  type="number"
+/>
+
+Adjusts the scroll target when navigating slides. Useful when slides need to maintain alignment with other elements on the page. Defaults to `0`.
+
+<PropName
+  name="onSlide(index: number)"
+  type="method"
+/>
+
+A callback fired on every slide change. Returns the current slide index.
+
+<PropName
+  name="scrollable"
+  type="boolean"
+/>
+
+Enables both wheel and drag-based events to scroll the track. Defaults to `true`. If desired, you can disable [dragScroll](#scrollable) independently.
+
+<PropName
+  name="dragScroll"
+  type="boolean"
+/>
+
+Enables drag-based events to scroll the track. Automatically enabled when [scrollable](#scrollable) scrollable is `true`.
+
+<PropName
+  name="scrollSnap"
+  type="boolean"
+/>
+
+Enables native [CSS Scroll Snap](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap). Defaults to `true`.
+
+<PropName
+  name="autoPlay"
+  type="boolean"
+/>
+
+Whether to autoplay on load. Defaults to `false`.
+
+<PropName
+  name="autoplaySpeed"
+  type="number"
+/>
+
+The speed of the autoplay. Only applicable when [`autoplay`](#autoPlay) is `true`. Defaults to `2000`.
+
+<PropName
+  name="marquee"
+  type="boolean"
+/>
+
+Whether to marquee the slider which scrolls slowly through the track as opposed to sliding one-by-one. [`autoPlay`](#autoPlay) must not be enabled.
+
+<PropName
+  name="marqueeSpeed"
+  type="number"
+/>
+
+The speed of the marquee. Only applicable when [`marquee`](#marquee) is `true`. Defaults to `50`.
+
+<PropName
+  name="pauseOnHover"
+  type="boolean"
+/>
+
+Only applicable when [`autoPlay`](#autoPlay) is `true`. Defaults to `true`.
+
+<PropName
+  name="pause"
+  type="boolean"
+/>
+
+Stops and starts[`autoPlay`](#autoPlay). Set to `undefined` to return control back to the slider.
+
+<PropName
+  name="alignLastSlide"
+  type="string or number"
+/>
+
+Renders an invisible div at the end of your [`<SliderTrack>`](#slidertrack) used to align the last slide of your slider to various points along your track. Accepts a CSS value or number, with negative values beginning from track-right (i.e. 40, -25px, etc). Set to `trackLeft` to align to the left edge of your last slide to the left edge of your slider track. Set to `offsetLeft` to include your [`scrollOffset`](#scrollOffset).
+
+<PropName
+  name="useFreeScroll [DEPRECATED]"
+  type="boolean"
+/>
+
+This prop will be deprecated in the next major release. Use  [`scrollable`](#scrollable) instead.
+
+### \<SliderProvider\> Context
+
+<PropName
+  name="currentSlideIndex"
+  type="number"
+  isContextProp
+/>
+
+The index of the current slide.
+
+<PropName
+  name="sliderTrackRef"
+  type="object"
+  isContextProp
+/>
+
+A reference to the [`<SliderTrack>`](#slidertrack).
+
+<PropName
+  name="goToNextSlide()"
+  type="method"
+  isContextProp
+/>
+
+Navigates to the next slide. If on the last slide, navigates to the first.
+
+<PropName
+  name="goToPrevSlide()"
+  type="method"
+  isContextProp
+/>
+
+Navigates to the previous slide. If on the first slide, navigates to the last.
+
+<PropName
+  name="goToSlideIndex(index: string)"
+  type="method"
+  isContextProp
+/>
+
+Navigates to the given slide index.
+
+<PropName
+  name="slides"
+  type="array"
+  isContextProp
+/>
+
+An array of every slide in the slider.
+
+<PropName
+  name="isPaused"
+  type="boolean"
+  isContextProp
+/>
+
+Returns whether the slider is currently paused. One applicable when [`pauseOnHover`](#autoPlay) is `true`.
+
+<PropName
+  name="scrollRatio"
+  type="number"
+  isContextProp
+/>
+
+The current scroll progress of the slider.
+
+<PropName
+  name="slideWidth"
+  type="string"
+  isContextProp
+/>
+
+The width of each slide in pixels, based on [`slidesToShow`](#slidesToShow).
+
+<BasicContext href="#sliderprovider-props" />
+
+</JumplistNode>
+
+<JumplistNode nodeID="track">
+
+## \<SliderTrack\>
+
+This will add a scrollable element onto the page which overflows its content as necessary. Acts as the [root](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root) of each slide\'s intersection observer.
+
+```js
+import React from 'react';
+import { SliderTrack } from '@faceless-ui/slider';
+
+export const MyComponent = () => {
+  return (
+    <SliderTrack>
+      ...
+    </SliderTrack>
+  )
+}
+```
+
+### \<SliderTrack\> Props
+
+<BasicProps />
+
+</JumplistNode>
+
+<JumplistNode nodeID="slide">
+
+## \<Slide\>
+
+Each slide is a wrapper around the  [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), and syncs its `isIntersecting` status to the provider.
+
+```js
+import React from 'react';
+import { Slide } from '@faceless-ui/slider';
+
+export const MyComponent = () => {
+  return (
+    <SliderTrack>
+      <Slide index={0}>
+        ...
+      </Slide>
+      <Slide index={1}>
+        ...
+      </Slide>
+    </SliderTrack>
+  )
+}
+```
+
+### \<Slide\> Props
+
+<PropName
+  name="index"
+  required
+/>
+
+The index of the slide.
+
+<BasicProps />
+
+</JumplistNode>
+
+<JumplistNode nodeID="sliderbutton">
+
+## \<SliderButton\>
+
+The slider button is a simple wrapper around the [`useSlider`](#useslider) hook, used to quickly and easily navigate to any slide in the slider.
+
+```js
+import React from 'react';
+import { SliderButton } from '@faceless-ui/slider';
+
+export const MyComponent = () => {
+  return (
+    <SliderButton direction="next">
+      ...
+    </SliderButton>
+  )
+}
+```
+
+### \<SliderButton\> Props
+
+<PropName
+  name="direction"
+  type="string"
+/>
+
+Set to `previous` or `next` to navigate to the slider to either the previous or next slide.
+
+<PropName
+  name="index"
+  type="number"
+/>
+
+Navigates the slider to the given index.
+
+<BasicProps
+  idPrefix='button'
+  defaultElement='button'
+/>
+
+### Accessibility
+
+The `type` attribute is automatically set to "button" when the [`htmlElement`](#button-htmlElement) is `button`. The`aria-label`attribute is also preset and easily overridden.
+
+</JumplistNode>
+
+<JumplistNode nodeID="progress">
+
+## \<SliderProgress\>
+
+An alternative to the native scrollbar. It can be placed anywhere in your slider DOM.
+
+```js
+import React from 'react';
+import { SliderProgress } from '@faceless-ui/slider';
+
+export const MyComponent = () => {
+  return (
+    <SliderProvider>
+      <SliderProgress />
+    </SliderProvider>
+  )
+}
+```
+
+### \<SliderProgress\> Props
+
+<BasicProps />
+
+<PropName
+  name="indicator"
+  type="object"
+/>
+
+Allows you to customize the indicator component.
+
+</JumplistNode>
+
+<JumplistNode nodeID="dotnav">
+
+## \<DotNav\>
+
+A dot-based navigation component used to control your slider and/or indicate its current position.
+
+```js
+import React from 'react';
+import { DotNav } from '@faceless-ui/slider';
+
+export const MyComponent = () => {
+  return (
+    <SliderProvider>
+      <DotNav
+        className="dot"
+        dotClassName="dot"
+        activeDotClassName="dotIsActive"
+      />
+    </SliderProvider>
+  )
+}
+```
+
+### \<DotNav\> Props
+
+<PropName
+  name="dotClassName"
+  type="string"
+/>
+
+A class name to apply to each dot. This could also be achieve using [`dotProps`](#dotProps).
+
+<PropName
+  name="activeDotClassName"
+  type="string"
+/>
+
+A class name to apply to active dots.
+
+<PropName
+  name="dotProps"
+  type="object"
+/>
+
+Arbitrary rops to spread onto each dot button.
+
+</JumplistNode>
+
+<BasicProps />
+
+<JumplistNode nodeID="useSlider">
+
+## useSlider
+
+This is a hook you can use to access the [context](#sliderprovider-context).
+
+```js
+import react from 'react';
+import { useSlider } from '@faceless-ui/slider;
+
+export const MyComponent = () => {
+  const slider = useSlider();
+  return (
+    ...
+  )
+};
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="typescript">
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  ISliderContext,
+  SliderSettings,
+  SliderProviderProps,
+  ISlide,
+  SlideProps,
+  SliderProgressProps,
+  ProgressIndicatorProps,
+  SliderButtonProps,
+  DotsNavProps,
+  SliderTrackProps
+} from '@faceless-ui/slider/dist/types';
+```
+
+</JumplistNode>
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/slider/api.mdx"
+  metaTitle="Slider API"
+  metaDescription="API documentation for the @faceless-ui/slider npm module."
+  metaURL="/docs/slider/api"
+  jumplist={sliderAPINav.map((item) => ({
+    nodeID: item.id || '',
+    label: item.label,
+  }))}
+/>

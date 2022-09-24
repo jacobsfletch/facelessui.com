@@ -1,0 +1,1 @@
+{"title":"Collapsibles API - CollapsibleGroup","content":"This component provides a new group context to any section of your app. It has no required props and renders nothing in the DOM. This is where the group settings are defined."}

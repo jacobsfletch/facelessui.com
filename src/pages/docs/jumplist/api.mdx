@@ -1,0 +1,232 @@
+import { Doc } from '@root/layout/Doc';
+import { JumplistNode } from '@faceless-ui/jumplist';
+import { BasicProps } from '@components/BasicProps';
+import { jumplistAPINav } from '@root/docs-nav';
+import { PropName } from '@components/PropName';
+import { BasicContext } from '@components/BasicContext';
+
+{/* DOC_START */}
+
+# Jumplist API
+
+<JumplistNode nodeID="provider">
+
+## \<JumplistProvider\>
+
+This component provides the [jumplist context](#jumplistprovider-context) to your app. It does not have any required props and renders nothing in the DOM. This is where the [global settings](#jumplistprovider-props) are defined.
+
+```js
+import React from 'react';
+import { JumplistProvider } from '@faceless-ui/jumplist';
+
+export const MyApp = () => {
+  return (
+    <JumplistProvider
+      threshold={0.5}
+      rootMargin="-100px 0px 0px 0px"
+    >
+      ...
+    </JumplistProvider>
+  )
+}
+```
+
+### \<JumplistProvider\> Props
+
+<PropName
+  name="rootMargin"
+  type="string"
+/>
+
+The root margin of the intersection observer. See the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+<PropName
+  name="threshold"
+  type="string"
+/>
+
+The threshold of the intersection observer. See the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API).
+
+<PropName
+  name="smoothScroll"
+  type="boolean"
+/>
+
+Will inject `html: { scroll-behavior: smooth; }` as inline CSS onto the root html element of your DOM. See [smooth-scrolling](/docs/jumplist/setup#smooth-scrolling) for more details. Defaults to `true`.
+
+### \<JumplistProvider\> Context
+
+<PropName
+  name="jumplist"
+  type="array"
+  isContextProp
+/>
+
+This is an array of jumplist nodes, each with its `isIntersecting` status.
+
+<PropName
+  name="clearJumplist()"
+  type="method"
+  isContextProp
+/>
+
+This is a method you can use to empty the jumplist array.
+
+<PropName
+  name="currentJumplistIndex"
+  type="number"
+  isContextProp
+/>
+
+The first-most active jumplist node. Sometimes multiple nodes might be intersecting the viewport simultaneously. Is `-1` if no nodes are intersecting.
+
+<PropName
+  name="activeJumplistIndex"
+  type="number"
+  isContextProp
+/>
+
+The most recent jumplist node that has intersected. This is helpful when no nodes are intersecting and the [`currentJumplistIndex`](#currentJumplistIndex) is `-1`. This property is essentially a cached index.
+
+<PropName
+  name="setJumplist(jumplist: array)"
+  type="method"
+  isContextProp
+/>
+
+A method used to set the jumplist.
+
+<BasicContext href="#jumplistprovider-props" />
+
+</JumplistNode>
+
+<JumplistNode nodeID="node">
+
+## \<JumplistNode\>
+
+Each jumplist node is a wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), and syncs its `isIntersecting` status to the provider.
+
+```js
+import React from 'react';
+import { JumplistNode } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <JumplistNode nodeID="node-1">
+        ...
+      </JumplistNode>
+      <JumplistNode nodeID="node-2">
+        ...
+      </JumplistNode>
+    </div>
+  )
+}
+```
+
+### \<JumplistNode\> Props
+
+<PropName
+  name="nodeID"
+  required
+  type="string"
+/>
+
+A unique string to identify this node.
+
+<BasicProps />
+
+</JumplistNode>
+
+<JumplistNode nodeID="button">
+
+## \<JumplistButton\>
+
+The jumplist button is a simple wrapper around the [`useJumplist`](#usejumplist) hook, used to quickly and easily navigate to any node in the jumplist.
+
+```js
+import React from 'react';
+import { JumplistNode } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <JumplistNode nodeID="node-1">
+        ...
+      </JumplistNode>
+      <JumplistNode nodeID="node-2">
+        ...
+      </JumplistNode>
+    </div>
+  )
+}
+```
+
+### \<JumplistButton\> Props
+
+A unique string to identify this node.
+
+        <BasicProps
+          idPrefix="button"
+          defaultElement='button'
+        />
+
+### Accessibility
+
+The `type` attribute is automatically set to "button" when the [htmlElement](#button-htmlElement) is `button`.
+
+</JumplistNode>
+
+<JumplistNode nodeID="useJumplist">
+
+## useJumplist
+
+A hook used to access the [jumplist context](#jumplistprovider-context).
+
+```js
+import React from 'react';
+import { useJumplist } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  const jumplist = useJumplist();
+
+  return (
+    ...
+  )
+}
+```
+
+</JumplistNode>
+
+<JumplistNode nodeID="typescript">
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  JumplistButtonProps,
+  JumplistNodeProps,
+  IJumplistContext,
+  JumplistNode,
+  JumplistNodes,
+  JumplistProviderProps
+} from '@faceless-ui/jumplist/dist/types';
+```
+
+</JumplistNode>
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/jumplist/api.mdx"
+  metaTitle="Jumplist API"
+  metaDescription="API documentation for the @faceless-ui/jumplist npm module."
+  metaURL="/docs/jumplist/api"
+  jumplist={jumplistAPINav.map((item) => ({
+    nodeID: item.id || '',
+    label: item.label,
+  }))}
+/>

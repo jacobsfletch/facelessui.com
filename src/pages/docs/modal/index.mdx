@@ -1,0 +1,46 @@
+import { Doc } from '@root/layout/Doc';
+import { PackageInfo } from '@root/components/PackageInfo';
+
+{/* DOC_START */}
+
+# Modal
+
+<PackageInfo packageSlug="modal" />
+
+This package makes it incredibly easy to create highly customized modals from anywhere in your app. Every modal comes with built-in transitions, allowing you to easily build unique open and close effects. You can also open modals using the URL or your existing router, enabling direct links to modal content. All modals are fully accessible out-of-the-box. They trap focus, bind escape, and so much more.
+
+Some common uses for this package include:
+
+- Mega menus
+- Search menus
+- Media lightboxes
+- Dialogue boxes
+
+## How it works
+
+Each modal is a wrapper around [React Portal](https://reactjs.org/docs/portals.html). This means that you can render a `<Modal>` from anywhere in your app and it will be portaled into the `<ModalContainer>`. This lifts them out of their current stacking context and makes it possible to apply fullscreen transitions. The modal container can also be used to standardize transitions.
+
+Now each modal can be independently controlled in a number of ways. Most commonly you will render a `<ModalToggler>` component, but you could also use methods on the `useModal` hook or even the URL. When a modal is opened, transition events are fired using [React Transition Group](https://reactcommunity.org/react-transition-group). These transitions can be styled using css classes or any of the transition event callbacks.
+
+By default, all modals trap focus using [focus-trap](https://github.com/focus-trap/focus-trap), a popular open-source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, focus is restored to the element used to open the modal.
+
+The final piece to this is the `<ModalProvider>` which should wrap your entire app and where you define the [global settings](/docs/modal/api#modalprovider-props). This provides the [modal context](/docs/modal/api#modalprovider-context) for all the components and hooks to work together. If you need more granular control, there are more advanced ways to set up and interact with modals. See the [API](/docs/modal/api) for full details.
+
+## Key features
+
+- Allows you to render a modal from anywhere in your DOM tree
+- Built-in, fully customizable transitions
+- Optionally controlled via the URL, enabling direct links
+- Easily ties into your existing router, if desired
+- Focus-trapping
+- Fully ARIA accessible and easily extendable
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/modal/index.mdx"
+  metaTitle="Modal "
+  metaDescription="Overview of the @faceless-ui/modal npm module."
+  metaURL="/docs/modal"
+/>

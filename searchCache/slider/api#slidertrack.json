@@ -1,0 +1,1 @@
+{"title":"Slider API - SliderTrack","content":"This will add a scrollable element onto the page which overflows its content as necessary. Acts as the root of each slide\\'s intersection observer."}

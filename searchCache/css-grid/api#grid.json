@@ -1,0 +1,1 @@
+{"title":"Grid API - Grid","content":"This component wraps cells and has no required props. It creates a DOM element with the grid-template-columns CSS property — a dynamic value set based on the grid settings and the number of columns currently available. You can also nest grids inside other grids."}

@@ -6,16 +6,19 @@
 }
 
 .content {
-  padding: base() base();
+  padding: base();
   cursor: pointer;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   font-weight: normal;
   position: relative;
+
+  @include mid-break {
+    padding: base(0.75);
+  }
 }
 
 .label {
-  @include h5;
   margin: 0;
 }

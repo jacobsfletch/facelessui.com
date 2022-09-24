@@ -1,0 +1,9 @@
+@use "@scss/common" as *;
+
+.results {
+  width: 100%;
+}
+
+.noResults {
+  @include small;
+}

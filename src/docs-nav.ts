@@ -12,13 +12,13 @@ export type DocsNav = NavItem[];
 export const modalAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/modal/api#provider",
+    href: "/docs/modal/api#modalprovider",
     id: 'provider',
     label: 'ModalProvider'
   },
   {
     type: 'link',
-    href: "/docs/modal/api#container",
+    href: "/docs/modal/api#modalcontainer",
     id: 'container',
     label: 'ModalContainer'
   },
@@ -30,19 +30,19 @@ export const modalAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/modal/api#toggler",
+    href: "/docs/modal/api#modaltoggler",
     id: 'toggler',
     label: 'ModalToggler'
   },
   {
     type: 'link',
-    href: "/docs/modal/api#useModal",
+    href: "/docs/modal/api#usemodal",
     id: 'useModal',
     label: 'useModal'
   },
   {
     type: 'link',
-    href: "/docs/modal/api#asModal",
+    href: "/docs/modal/api#asmodal",
     id: 'asModal',
     label: 'asModal'
   },
@@ -70,7 +70,7 @@ export const modalExamplesNav: NavItem[] = [
 export const cssGridAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/css-grid/api#provider",
+    href: "/docs/css-grid/api#gridprovider",
     label: 'GridProvider',
     id: 'provider'
   },
@@ -88,19 +88,19 @@ export const cssGridAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/css-grid/api#useGrid",
-    label: 'useGrid',
-    id: 'useGrid'
-  },
-  {
-    type: 'link',
-    href: "/docs/css-grid/api#useCell",
+    href: "/docs/css-grid/api#usecell",
     label: 'useCell',
     id: 'useCell'
   },
   {
     type: 'link',
-    href: "/docs/css-grid/api#useSettings",
+    href: "/docs/css-grid/api#usegrid",
+    label: 'useGrid',
+    id: 'useGrid'
+  },
+  {
+    type: 'link',
+    href: "/docs/css-grid/api#usesettings",
     label: 'useSettings',
     id: 'useSettings'
   },
@@ -115,25 +115,25 @@ export const cssGridAPINav: NavItem[] = [
 export const jumplistAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/jumplist/api#provider",
+    href: "/docs/jumplist/api#jumplistprovider",
     label: 'JumplistProvider',
     id: 'provider',
   },
   {
     type: 'link',
-    href: "/docs/jumplist/api#node",
+    href: "/docs/jumplist/api#jumplistnode",
     label: 'JumplistNode',
     id: 'node',
   },
   {
     type: 'link',
-    href: "/docs/jumplist/api#button",
+    href: "/docs/jumplist/api#jumplistbutton",
     label: 'JumplistButton',
     id: 'button',
   },
   {
     type: 'link',
-    href: "/docs/jumplist/api#useJumplist",
+    href: "/docs/jumplist/api#usejumplist",
     label: 'useJumplist',
     id: 'useJumplist',
   },
@@ -148,13 +148,13 @@ export const jumplistAPINav: NavItem[] = [
 export const sliderAPINav: NavItem[] = [
   {
     type: 'link',
-    href: "/docs/slider/api#provider",
+    href: "/docs/slider/api#sliderprovider",
     label: 'SliderProvider',
     id: 'provider',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#track",
+    href: "/docs/slider/api#slidertrack",
     label: 'SliderTrack',
     id: 'track',
   },
@@ -166,24 +166,25 @@ export const sliderAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/slider/api#button",
+    href: "/docs/slider/api#sliderbutton",
     label: 'SliderButton',
-    id: 'button',
+    id: 'sliderbutton',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#progress",
+    href: "/docs/slider/api#sliderprogress",
     label: 'SliderProgress',
     id: 'progress',
   },
   {
     type: 'link',
-    href: "/docs/slider/api#dots",
+    href: "/docs/slider/api#dotnav",
     label: 'DotNav',
+    id: 'dotnav'
   },
   {
     type: 'link',
-    href: "/docs/slider/api#useSlider",
+    href: "/docs/slider/api#useslider",
     label: 'useSlider',
     id: 'useSlider',
   },
@@ -252,19 +253,19 @@ export const collapsiblesAPINav: NavItem[] = [
   },
   {
     type: 'link',
-    href: "/docs/collapsibles/api#content",
+    href: "/docs/collapsibles/api#collapsiblecontent",
     label: 'CollapsibleContent',
     id: 'content'
   },
   {
     type: 'link',
-    href: "/docs/collapsibles/api#toggler",
+    href: "/docs/collapsibles/api#collapsibletoggler",
     label: 'CollapsibleToggler',
     id: 'toggler'
   },
   {
     type: 'link',
-    href: "/docs/collapsibles/api#group",
+    href: "/docs/collapsibles/api#collapsiblegroup",
     label: 'CollapsibleGroup',
     id: 'group'
   },

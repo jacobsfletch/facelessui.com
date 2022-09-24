@@ -1,0 +1,49 @@
+import { Doc } from '@root/layout/Doc';
+import { PackageInfo } from '@root/components/PackageInfo';
+
+{/* DOC_START */}
+
+# Slider
+
+<PackageInfo packageSlug="slider" />
+
+This package makes it incredibly easy to create sliders of every kind — free-scrolling, drag-scrolling, snapping, auto-playing, and so much more. Sliders are fully responsive and can even synchronize with other sliders. They are very easy to control using the built-in navigation components or provided methods.
+
+Some common uses for this package include:
+
+- Image sliders
+- Content sliders
+- Fullscreen sliders
+- Lightbox sliders
+- Thumbnail sliders
+
+## How it works
+
+The `<SliderProvider>` component wraps any section of your code with a new slider context. This component does not render anything in the DOM. This is where the [slider settings](/docs/slider/api#sliderprovider-props)  are configured like `slidesToShow` and `breakpoints`.
+
+Inside this is the `<SliderTrack>` component, which renders a scrollable element onto the page and overflows its content as necessary. Within the track are `<Slide>` components, each of which is a simple wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). These slides report their intersection statuses to the `<SliderProvider>` as they happen, using the track as their [root](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/root). The last-most intersecting slide is considered active. With this pattern, we can freely navigate the track and trust the index is accurate.
+
+By default, all sliders can be scrolled or dragged, although some sliders may want to render navigation controls. The `<SliderButton>` covers the most common navigation needs, but sliders are also easily controlled using methods provided by the `useSlider` hook. It is also possible to subscribe to slide events using the `onSlide` prop of the provider.
+
+## Key features
+
+- Scrollable
+  One big UX challenge with sliders is that they are often painful to navigate. Natural scroll behavior is either removed are hijacked.
+- Snap-scrolling
+- Drag-scrolling
+- Auto-playing
+- Synchronized sliders
+- Anchor handling
+  A common pain point of sliders is that while you slide, nested anchor links are clicked. To prevent this, we recursively disable pointer events on all anchor links while the user is dragging using [CSS pointer-events](https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events).
+- Scrollbar component
+  Another common pain point of sliders are that the scrollbar is bound to the overflowing element. To fix this, the current progress of any slider can be displayed using the `<SliderProgress>` component — a powerful alternative to native scrollbars. This allows you to render a draggable scrollbar anywhere in your DOM, even outside of your track.
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/slider/index.mdx"
+  metaTitle="Slider "
+  metaDescription="Overview of the @faceless-ui/slider npm module."
+  metaURL="/docs/slider"
+/>

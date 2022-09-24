@@ -1,0 +1,1 @@
+{"title":"Jumplist API - JumplistNode - JumplistNode Props","content":"<PropName\n  name=\"nodeID\"\n  required\n  type=\"string\"\n/>\nA unique string to identify this node.\n<BasicProps />\n</JumplistNode>\n<JumplistNode nodeID=\"button\">"}

@@ -1,24 +1,49 @@
 @use "@scss/common" as *;
 
+.fixedBottomNav {
+  position: fixed;
+  pointer-events: none;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999999;
+  align-items: center;
+  display: none;
+  padding: 0 var(--mobile-gutter);
+  padding-bottom: var(--mobile-gutter);
+
+  & > *:not(:last-child) {
+    margin-right: base(0.5);
+  }
+
+  @include mid-break {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
 .mobileNavToggler {
   all: unset;
+  position: relative;
+  pointer-events: all;
   cursor: pointer;
   width: base(1.5);
   height: base(1.5);
-  position: fixed;
-  bottom: var(--mobile-gutter);
-  right: var(--mobile-gutter);
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: white;
   border-radius: 100%;
-  z-index: 9999999;
-  padding: base(0.5);
+  padding: base(0.25);
   box-shadow: var(--shadow-1);
   opacity: 1;
   will-change: opacity;
   transition: opacity var(--modal-trans-time) linear;
+}
+
+.hide {
+  opacity: .5;
+  pointer-events: none;
 }
 
 :global(.isDark) {
@@ -31,14 +56,12 @@
   }
 }
 
-.hide {
-  opacity: 0;
-  pointer-events: none;
-}
-
 .icon {
   position: absolute;
   left: 50%;
   top: calc(50% - 1px);
   transform: translate3d(-50%, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -7,7 +7,8 @@
   align-items: center;
 
   @include mid-break {
-    padding: base() 0;
+    padding: base(.75) 0;
+    padding-bottom: base(3);
   }
 }
 

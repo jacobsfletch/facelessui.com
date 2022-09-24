@@ -1,0 +1,1 @@
+{"title":"Slider API - SliderProgress - SliderProgress Props","content":"<BasicProps />\n<PropName\n  name=\"indicator\"\n  type=\"object\"\n/>\nAllows you to customize the indicator component.\n</JumplistNode>\n<JumplistNode nodeID=\"dotnav\">"}

@@ -2,15 +2,15 @@
 
 .mobileNavModal {
   width: 100vw;
-  height: 100vh;
-  background: white;
+  height: calc(var(--vh) * 100);
+  background: transparent;
   border: none;
   color: var(--color-html);
-  padding: base();
   overflow: auto;
   will-change: opacity;
   transition: opacity var(--modal-trans-time) linear;
   opacity: 0;
+  padding: 0;
 
   &:global(.modal-item--appearActive),
   &:global(.modal-item--appearDone),
@@ -25,10 +25,14 @@
   }
 }
 
-:global(.isDark) {
-  &:local() {
-    .mobileNavModal {
-      background: var(--color-gray-10);
-    }
+.wrapper {
+  padding: var(--mobile-gutter) var(--mobile-gutter) 0;
+  position: relative;
+  height: 100%;
+
+  &::after {
+    content: ' ';
+    padding-top: base(3);
+    display: block;
   }
 }

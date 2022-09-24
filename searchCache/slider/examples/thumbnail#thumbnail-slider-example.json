@@ -1,0 +1,1 @@
+{"title":"Thumbnail Slider Example","content":"This is a \"thumbnail slider\" which allows a one slider to control another, larger slider. In this case, the lower slider is free scrolling while the other snaps. Click on any slide in the lower slider to see the effect. See synchronized sliders for more information.\n<ThumbnailSliderExample />"}

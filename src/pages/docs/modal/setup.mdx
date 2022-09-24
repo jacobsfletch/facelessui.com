@@ -1,0 +1,81 @@
+import { Doc } from '@root/layout/Doc';
+import { InstallationCode } from '@components/InstallationCode';
+
+{/* DOC_START */}
+
+# Modal Setup
+
+## Installation
+
+<InstallationCode name="modal" />
+
+First, wrap your app with the provider. This component does not render anything and should be nearest to the top of your app as possible. This is where the [global settings](/docs/modal/api#modalprovider-props) are defined.
+
+Anywhere inside of this, render the [`<ModalContainer>`](/docs/modal/api#modalcontainer). This is where each modal will portal into so its best to keep this relatively high in your tree.
+
+```jsx
+import React from 'react';
+import { ModalProvider, ModalContainer } from '@faceless-ui/modal';
+
+export const MyApp = () => {
+  return (
+    <ModalProvider transTime={250}>
+      <ModalContainer />
+    </ModalProvider>
+  )
+}
+```
+
+Now to create a modal, render a [`<Modal>`](/docs/modal/api#modal) component anywhere in your app. The only required prop is the unique `slug` that identifies this modal. The simplest way to open and close the modal is to use the [`<ModalToggler>`](/docs/modal/api#modaltoggler) component. This component takes the slug of any modal and toggles it open or closed based on the current state of that modal.
+
+```jsx
+import React from 'react';
+import { Modal, ModalToggler } from '@faceless-ui/modal';
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <Modal slug="my-modal">
+        <h1>
+          Hello, world!
+        </h1>
+      </Modal>
+      <ModalToggler slug="my-modal">
+        Toggle
+      </ModalToggler>
+    </div>
+  )
+}
+```
+
+Alternatively, you could build your own button. To do this, the `toggle` method can be directly accessed from the [modal context](/docs/modal/api#modalprovider-context) with the [useModal](/docs/modal/api#usemodal) hook.
+
+```jsx
+import React from 'react';
+import { useModal } from '@faceless-ui/modal';
+
+export const MyComponent = (props) => {
+  const { toggle } = useModal();
+
+  return (
+    <button
+      onClick={() => toggle('my-modal')}
+      type="button"
+    >
+      Toggle
+    </button>
+  )
+}
+```
+
+{/* DOC_END */}
+
+It is also possible to open and close modals with the URL or your router, see [Routing](/docs/modal/routing) for full details. For more advanced setups, see the full [API reference](/docs/modal/api).
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/modal/setup.mdx"
+  metaTitle="Modal Setup"
+  metaDescription="Setup documentation for the @faceless-ui/modal npm module."
+  metaURL="/docs/modal/setup"
+/>

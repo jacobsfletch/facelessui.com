@@ -1,0 +1,27 @@
+@use "@scss/common" as *;
+
+.packageInfo {
+  background: var(--color-gray-2);
+  padding: base();
+  margin-bottom: base();
+  border-radius: 2px;
+
+  @include mid-break {
+    padding: base(0.5);
+    margin-bottom: base(0.5);
+  }
+}
+
+.latestVersion,
+.latestSize,
+.latestName {
+  font-weight: 600;
+}
+
+:global(.isDark) {
+  &:local() {
+    .packageInfo {
+      background: var(--color-gray-9);
+    }
+  }
+}

@@ -7,46 +7,37 @@
 }
 
 .heading {
-  margin-top: base(0.5);
-  margin-bottom: base(3);
+  // @include h1;
+  margin-top: base(2);
+  margin-bottom: base(5);
 
-  @include large-break {
-    margin-top: base();
+  @include x-large-break {
+    margin-top: base(2);
+    margin-bottom: base(4);
   }
 
   @include mid-break {
-    margin-top: base();
-    margin-bottom: base(2);
+    margin-top: base(0.75);
+    margin-bottom: base(1.75);
   }
 }
 
 .headingText {
+  @include jumbo;
   display: inline;
-}
-
-.headingLink {
-  display: inline;
-  margin-left: base(0.5);
-  position: relative;
-  top: -12px; // adjust for heading line height
-  white-space: nowrap;
-
-  @include mid-break {
-    @include small;
-    top: -4px;
-  }
+  margin-bottom: 0;
 }
 
 .componentsContainer {
-  padding: base(3) 0;
+  padding: base(2) 0;
   position: relative;
 
   @include large-break {
-    padding: base(2) 0;
+    padding: base(1.5) 0;
   }
 
   @include mid-break {
-    padding: base(1) 0;
+    padding: base() 0;
   }
 }
 
@@ -65,7 +56,7 @@
   position: relative;
 
   @include large-break {
-    padding: 0 calc(var(--desktop-gutter) * 2);
+    padding: 0;
   }
 
   @include mid-break {
@@ -81,12 +72,62 @@
 
 .label {
   @include small;
+  font-weight: bold;
   color: var(--color-gray-3);
+  margin-bottom: base();
+
+  @include large-break {
+    margin-bottom: base();
+  }
+
+  @include mid-break {
+    display: none;
+  }
 }
 
 .components {
   position: relative;
-  margin-bottom: base();
+  margin-bottom: base(1.75);
+
+  @include mid-break {
+    margin-bottom: base(0.25);
+  }
+}
+
+.cards {
+  padding: base(1) 0;
+  @include mid-break {
+    padding: 0;
+  }
+}
+
+.cardsInner {
+  display: flex;
+  flex-wrap: wrap;
+  margin: base(-1.5);
+
+  & > * {
+    margin: base(0.5);
+    width: calc(33.33% - #{base()});
+  }
+
+  @include large-break {
+    & > * {
+      width: calc(50% - #{base()});
+    }
+  }
+
+  @include mid-break {
+    margin: 0;
+
+    & > * {
+      margin: 0;
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: base(0.25);
+      }
+    }
+  }
 }
 
 .utilities {

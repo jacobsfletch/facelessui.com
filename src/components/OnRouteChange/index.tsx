@@ -8,11 +8,11 @@ export const OnRouteChange = () => {
   const { setHighlightCursor, setShowCustomCursor } = useCustomCursor();
 
   useEffect(() => {
-    Router.events.on('routeChangeStart', () => {
+    const routeChangeStart = () => {
       document.documentElement.style.scrollBehavior = 'auto'; // scroll instantly
-    })
+    };
 
-    Router.events.on('routeChangeComplete', (newRoute) => {
+    const routeChangeComplete = (newRoute: string) => {
       closeAll();
       setHighlightCursor(false);
       setShowCustomCursor(newRoute === '/');
@@ -23,7 +23,17 @@ export const OnRouteChange = () => {
       });
 
       document.documentElement.style.removeProperty('scroll-behavior');
-    });
+    }
+
+    Router.events.on('routeChangeStart', routeChangeStart)
+    Router.events.on('routeChangeComplete', routeChangeComplete);
+    // Router.events.on('hashChangeComplete', hashChangeComplete)
+
+    return () => {
+      Router.events.off('routeChangeStart', routeChangeStart);
+      Router.events.off('routeChangeComplete', routeChangeComplete);
+      // Router.events.off('hashChangeComplete', hashChangeComplete);
+    }
   }, [
     closeAll,
     setHighlightCursor,

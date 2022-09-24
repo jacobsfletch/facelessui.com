@@ -1,9 +1,6 @@
 @use "@scss/common" as *;
 
 .nav {
-  display: flex;
-  flex-direction: column;
-
   @include mid-break {
     & > *:not(:last-child) {
       margin-bottom: base(0.25);
@@ -29,6 +26,9 @@
 
   @include mid-break {
     white-space: auto;
+    &:hover {
+      color: var(--color-gray-5);
+    }
   }
 }
 
@@ -39,6 +39,12 @@
 
   &:hover {
     color: var(--color-gray-5);
+  }
+
+  @include mid-break {
+    &:hover {
+      color: var(--color-gray-4);
+    }
   }
 }
 
@@ -91,7 +97,7 @@
   background-color: currentColor;
   position: absolute;
   left: base(-0.5);
-  top: base(0.5);
+  top: 16px;
 }
 
 .jumplistBullet {
@@ -100,7 +106,7 @@
   background-color: currentColor;
   position: absolute;
   left: base(-0.5);
-  top: 15px;
+  top: 16px;
 }
 
 .linkLabel {
@@ -111,20 +117,35 @@
   &:local() {
     .itemLabel {
       color: var(--color-gray-4);
+
       &:hover {
         color: var(--color-white);
+      }
+
+      @include mid-break {
+        &:hover {
+          color: var(--color-gray-4);
+        }
       }
     }
 
     .jumplistLinkLabel {
       color: var(--color-gray-4);
+
       &:hover {
         color: var(--color-white);
+      }
+
+      @include mid-break {
+        &:hover {
+          color: var(--color-gray-4);
+        }
       }
     }
 
     .itemIsActive {
       color: var(--color-white);
+
       &:hover {
         color: var(--color-white);
       }

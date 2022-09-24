@@ -1,0 +1,1 @@
+{"title":"Modal API - ModalToggler - ModalToggler Props","content":"<PropName\n  name=\"slug\"\n  id=\"toggler-slug\"\n  type=\"string\"\n  required\n/>\nThe unique slug of the modal to open or close.\n<BasicProps />\n</JumplistNode>\n<JumplistNode nodeID=\"useModal\">"}

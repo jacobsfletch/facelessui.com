@@ -28,7 +28,9 @@ export const MobileNavModal: React.FC = () => {
       slug="mobile-nav"
       className={classes.mobileNavModal}
     >
-      <RecursiveNav items={nav} />
+      <div className={classes.wrapper}>
+        <RecursiveNav items={nav} />
+      </div>
     </Modal>
   )
 }

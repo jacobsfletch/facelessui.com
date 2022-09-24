@@ -1,0 +1,1 @@
+{"title":"Modal API - ModalContainer","content":"This component will add an element to the DOM where every modal will portal into. It will receive transition classes when any modal is opened."}

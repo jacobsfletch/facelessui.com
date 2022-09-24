@@ -3,11 +3,11 @@ import Margin from '@components/Margin';
 import Meta from '@components/Meta';
 import { NextInDocs } from '@components/NextInDocs';
 import { Cell, Grid } from '@faceless-ui/css-grid';
+import { JumplistNodes, useJumplist } from '@faceless-ui/jumplist/dist/JumplistProvider/context';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React, { Fragment, useEffect } from 'react';
 import { BlockContainer } from '../BlockContainer';
 import { DesktopNav } from '../DocsNav/DesktopNav';
-import { MobileNav } from '../DocsNav/MobileNav';
 import classes from './index.module.scss';
 
 export const Doc: React.FC<{
@@ -16,13 +16,15 @@ export const Doc: React.FC<{
   metaTitle?: string
   metaDescription?: string
   metaURL?: string
+  jumplist?: JumplistNodes
 }> = (props) => {
   const {
     githubUrl,
     children,
     metaTitle,
     metaDescription,
-    metaURL
+    metaURL,
+    jumplist
   } = props;
 
   const {
@@ -32,6 +34,24 @@ export const Doc: React.FC<{
   useEffect(() => {
     setShowCustomCursor(false);
   }, [setShowCustomCursor])
+
+  const {
+    setJumplist,
+    clearJumplist
+  } = useJumplist();
+
+  useEffect(() => {
+    if (jumplist) {
+      setJumplist(jumplist);
+    }
+    return () => {
+      clearJumplist();
+    }
+  }, [
+    setJumplist,
+    clearJumplist,
+    jumplist
+  ])
 
   return (
     <Fragment>
@@ -44,6 +64,7 @@ export const Doc: React.FC<{
         <Grid>
           <Cell
             cols={3}
+            colsL={4}
             colsM={8}
             className={classes.desktopNav}
           >
@@ -51,9 +72,12 @@ export const Doc: React.FC<{
           </Cell>
           <Cell
             cols={9}
+            colsL={8}
             colsM={8}
           >
-            {children}
+            <div className={classes.content}>
+              {children}
+            </div>
             <Margin top="small">
               <NextInDocs />
             </Margin>
@@ -64,7 +88,6 @@ export const Doc: React.FC<{
             )}
           </Cell>
         </Grid>
-        <MobileNav className={classes.mobileNav} />
       </BlockContainer>
     </Fragment>
   );

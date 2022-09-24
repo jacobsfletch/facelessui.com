@@ -1,0 +1,117 @@
+@use "@scss/common" as *;
+
+.search {
+  position: relative;
+}
+
+.label {
+  @include p;
+  margin: 0;
+}
+
+.input {
+  all: unset;
+  margin: 0;
+  background-color: var(--color-white);
+  color: var(--color-gray-10);
+  padding: base(0.15) base(0.25);
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid;
+  border-color: var(--color-gray-4);
+  cursor: text;
+  font-size: inherit; // this is require to avoid auto-zoom to input on mobile
+
+  &:focus {
+    background-color: var(--color-gray-2);
+    border-color: var(--color-gray-4);
+  }
+
+  @include mid-break {
+    padding: base(0.25) base(0.25);
+  }
+}
+
+.hasValue {
+  background-color: var(--color-gray-2);
+  border-color: var(--color-gray-4);
+}
+
+.clearButton {
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate3d(0, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  height: 100%;
+}
+
+.results {
+  width: 100%;
+  background-color: white;
+  color: var(--color-gray-10);
+  padding: base(0.5);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  max-height: 50vh;
+  overflow: auto;
+  z-index: 999;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.result {
+  border: 1px solid var(--color-gray-6);
+  border-radius: 2px;
+
+  &:not(:last-child) {
+    margin-bottom: base(0.25);
+  }
+
+  &:hover {
+    background-color: var(--color-gray-2);
+  }
+}
+
+.resultLink {
+  padding: base(0.25);
+  display: block;
+}
+
+.pathName {
+  text-decoration: underline;
+}
+
+.snippet {
+  border: 1px solid var(--color-gray-6);
+}
+
+:global(.isDark) {
+  &:local() {
+    .input {
+      background-color: var(--color-gray-7);
+
+      &:focus {
+        background-color: var(--color-white);
+        border-color: var(--color-gray-2);
+      }
+    }
+
+    .hasValue {
+      background-color: var(--color-white);
+      border-color: var(--color-gray-2);
+    }
+  }
+}

@@ -4,7 +4,7 @@
   width: 100%;
   margin: base(2) 0;
 
-  @include large-break {
+  @include x-large-break {
     margin: base() 0;
   }
 }
@@ -25,6 +25,12 @@
 
   & > *:not(:last-child) {
     margin-right: base();
+  }
+
+  @include mid-break {
+    & > *:not(:last-child) {
+      margin-right: base(0.5);
+    }
   }
 }
 
@@ -68,5 +74,11 @@
 
   @include mid-break {
     opacity: 0;
+  }
+}
+
+.docsButton {
+  @include mid-break {
+    display: none;
   }
 }

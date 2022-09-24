@@ -2,18 +2,21 @@ import { Hyperlink } from "@components/Hyperlink";
 import { Collapsible, CollapsibleContent, CollapsibleGroup, CollapsibleToggler } from "@faceless-ui/collapsibles";
 import { NavItem } from "@root/docs-nav";
 import { Chevron } from "@root/icons/Chevron";
-import { Fragment } from "react";
+import { useState } from "react";
 import classes from './index.module.scss';
 import { useRouter } from "next/dist/client/router";
-import { VersionNumber } from "@components/VersionNumber";
 import { useJumplist } from '@faceless-ui/jumplist'
 import { useWindowInfo } from "@faceless-ui/window-info";
+import { useEffect } from "react";
+import QueryString from "qs";
 
 export const RecursiveNav: React.FC<{
   items?: NavItem[]
+  className?: string
 }> = (props) => {
   const {
     items,
+    className,
   } = props;
 
   const {
@@ -22,8 +25,13 @@ export const RecursiveNav: React.FC<{
     } = {}
   } = useWindowInfo();
 
+  const [canUseDOM, setCanUseDOM] = useState(false);
   const { activeJumplistIndex } = useJumplist();
-  const { asPath } = useRouter();
+  const { pathname, query } = useRouter();
+
+  useEffect(() => {
+    setCanUseDOM(true);
+  }, [])
 
   const hasItems = items && Array.isArray(items) && items.length > 0;
 
@@ -32,13 +40,17 @@ export const RecursiveNav: React.FC<{
       <CollapsibleGroup
         allowMultiple={midBreak}
       >
-        <nav className={classes.nav}>
+        <nav
+          className={[
+            classes.nav,
+            className
+          ].filter(Boolean).join(' ')}
+        >
           {items.map((item, index) => {
             const {
               type,
               label,
               href,
-              versionName,
               items: groupItems
             } = item;
 
@@ -54,8 +66,7 @@ export const RecursiveNav: React.FC<{
             }
 
             if (type === 'link' || type === 'overview') {
-              const pathWithoutHash = asPath.split('#')[0];
-              const isActiveLink = Boolean(href && pathWithoutHash === href);
+              const isActiveLink = Boolean(href && pathname === href);
 
               return (
                 <Hyperlink
@@ -68,7 +79,7 @@ export const RecursiveNav: React.FC<{
                     className={[
                       classes.itemLabel,
                       classes.linkLabel,
-                      isActiveLink && classes.itemIsActive,
+                      (canUseDOM && isActiveLink) && classes.itemIsActive,
                     ].filter(Boolean).join(' ')}
                   >
                     <div className={classes.linkBullet} />
@@ -79,7 +90,7 @@ export const RecursiveNav: React.FC<{
             }
 
             if (type === 'group') {
-              const isCurrentSection = asPath.startsWith(href || '');
+              const isCurrentSection = pathname.startsWith(href || '');
 
               return (
                 <Collapsible
@@ -109,12 +120,6 @@ export const RecursiveNav: React.FC<{
                             ].filter(Boolean).join(' ')}
                           >
                             {label}
-                            {isOpen && versionName && (
-                              <Fragment>
-                                &nbsp;
-                                <VersionNumber name={versionName} />
-                              </Fragment>
-                            )}
                           </Hyperlink>
                         </CollapsibleToggler>
                         <CollapsibleContent>
@@ -130,7 +135,7 @@ export const RecursiveNav: React.FC<{
             }
 
             if (type === 'jumplist' || type === 'subnav') {
-              const isCurrentSection = asPath.startsWith(href || '');
+              const isCurrentSection = pathname.startsWith(href || '');
 
               return (
                 <Collapsible
@@ -160,12 +165,6 @@ export const RecursiveNav: React.FC<{
                               size="small"
                             />
                             {label}
-                            {isOpen && versionName && (
-                              <Fragment>
-                                &nbsp;
-                                <VersionNumber name={versionName} />
-                              </Fragment>
-                            )}
                           </Hyperlink>
                         </CollapsibleToggler>
                         <CollapsibleContent>
@@ -181,14 +180,23 @@ export const RecursiveNav: React.FC<{
 
                                 let isActiveLink = false;
 
+                                let hrefToUse = itemHref;
+
                                 if (type === 'jumplist') isActiveLink = activeJumplistIndex === jumplistItemIndex;
-                                if (type === 'subnav') isActiveLink = itemHref === asPath;
+                                if (type === 'subnav') isActiveLink = itemHref === pathname;
+
+                                // keep query params on href if jumplist type
+                                if (type === 'jumplist' && itemHref && Object.keys(query).length > 0) {
+                                  const pathBeforeHash = itemHref.split('#')[0];
+                                  const hash = itemHref.split('#')[1];
+                                  hrefToUse = `${pathBeforeHash}?${QueryString.stringify(query)}${hash ? `#${hash}` : ''}`;
+                                }
 
                                 return (
                                   <Hyperlink
                                     underline={false}
                                     key={`${index}-${jumplistItemIndex}`}
-                                    href={itemHref}
+                                    href={hrefToUse}
                                     className={classes.jumplistLink}
                                   >
                                     <div

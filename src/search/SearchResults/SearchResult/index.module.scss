@@ -1,0 +1,88 @@
+@use "@scss/common" as *;
+
+.result {
+  border: 1px solid;
+  border-color: var(--color-gray-3);
+  border-radius: 2px;
+  background-color: transparent;
+
+  // &:first-child {
+  //   background-color: var(--color-gray-2);
+  // }
+
+  &:not(:last-child) {
+    margin-bottom: base(0.25);
+  }
+
+  &:hover {
+    background-color: var(--color-gray-2);
+    border-color: var(--color-gray-4);
+  }
+
+  @include mid-break {
+    &:hover {
+      background-color: transparent;
+      border-color: var(--color-gray-3);
+    }
+  }
+
+  &.forceDark {
+    border: 1px solid var(--color-gray-6);
+
+    &:hover {
+      background-color: var(--color-gray-2);
+    }
+
+    @include mid-break {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+.resultLink {
+  padding: base(0.5);
+  display: block;
+
+  & > *:not(:last-child) {
+    margin-bottom: base(0.15);
+  }
+}
+
+.title {
+  @include small;
+  margin: 0;
+  font-weight: bold;
+}
+
+.snippet {
+  @include small;
+}
+
+.remaining {
+  @include small;
+}
+
+:global(.isDark) {
+  &:local()  {
+    .result {
+      border-color: var(--color-gray-8);
+      // &:first-child {
+      //   background-color: var(--color-gray-8);
+      // }
+
+      &:hover {
+        background-color: var(--color-gray-8);
+        border-color: var(--color-gray-6);
+      }
+
+      @include mid-break {
+        &:hover {
+          background-color: transparent;
+          border-color: var(--color-gray-8);
+        }
+      }
+    }
+  }
+}

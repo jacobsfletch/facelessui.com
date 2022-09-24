@@ -1,0 +1,33 @@
+import { Doc } from '@root/layout/Doc';
+import { LogMouseInfo } from '@root/examples/LogMouseInfo';
+import { PackageInfo } from '@root/components/PackageInfo';
+
+{/* DOC_START */}
+
+# Mouse Info
+
+<PackageInfo packageSlug="mouse-info" />
+
+This is a utility to efficiently subscribe to window mouse events. As components in your application interact with mouse position, they compound mouse listeners which can be expensive to handle. To get around this, the `useMouseInfo` hook reads context from the `<MouseInfoProvider>` — which attaches only a single event listener to the window. These events are also piped through `requestAnimationFrame` so they are already optimized for performance.
+
+This utility also conveniently interprets mouse data for you, such as direction of mouse movement and percentage within viewport.
+
+## Key features
+
+- Attaches single mouse-related event listeners to the window for your entire app
+- Throttles these events through `requestAnimationFrame`
+- Provides critical information about the current mouse position
+
+Move your cursor to see the effect:
+
+<LogMouseInfo />
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/mouse-info/index.mdx`}
+  metaTitle="Mouse Info "
+  metaDescription="Overview of the @faceless-ui/mouse-info npm module."
+  metaURL="/docs/mouse-info"
+/>

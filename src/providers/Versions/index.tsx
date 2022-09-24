@@ -1,4 +1,5 @@
-import { getAllNPM, NPMDocument } from '@root/npm-api';
+import { getAllGitHubReleases, GitHubRelease } from '@root/github-api';
+import { getAllNPMReleases, NPMDocument } from '@root/npm-api';
 import React, {
   createContext,
   useContext,
@@ -6,12 +7,17 @@ import React, {
   useState,
 } from 'react';
 
-export type Versions = {
-  [key: string]: NPMDocument
+export type NPMVersions = {
+  [key: string]: NPMDocument | undefined
+}
+
+export type GithubVersions = {
+  [key: string]: GitHubRelease | undefined
 }
 
 interface IVersions {
-  versions: Versions
+  npmVersions: NPMVersions
+  githubVersions: GithubVersions
 }
 
 export const VersionsContext = createContext<IVersions>({} as IVersions);
@@ -19,25 +25,28 @@ export const useVersions = (): IVersions => useContext(VersionsContext);
 
 const VersionsProvider: React.FC<{
   children?: React.ReactChild | ((context: IVersions) => JSX.Element) // eslint-disable-line no-unused-vars
-  versions: Versions
 }> = (props) => {
   const {
     children,
-    versions: versionsFromProps
   } = props;
 
-  const [versions, setVersions] = useState(versionsFromProps || {})
+  const [npmVersions, setNPMVersions] = useState<NPMVersions>({})
+  const [githubVersions, setGithubVersions] = useState<GithubVersions>({})
 
   useEffect(() => {
     const doFetch = async () => {
-      const allVersions = await getAllNPM();
-      setVersions(allVersions);
+      const allNPMVersions = await getAllNPMReleases();
+      setNPMVersions(allNPMVersions);
+
+      const allGithubVersions = await getAllGitHubReleases();
+      setGithubVersions(allGithubVersions);
     }
     doFetch();
   }, [])
 
   const context = {
-    versions
+    npmVersions,
+    githubVersions,
   }
 
   return (

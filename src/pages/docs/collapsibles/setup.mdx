@@ -1,0 +1,60 @@
+import { Doc } from '@root/layout/Doc';
+import { InstallationCode } from '@components/InstallationCode';
+
+{/* DOC_START */}
+
+# Collapsibles Setup
+
+## Installation
+
+<InstallationCode name="collapsibles" />
+
+To create a new collapsible, wrap any section of your app with a [`<Collapsible>`](/docs/collapsibles/api#collapsible) component. This does not render anything to the DOM and provides context for the other components to work together. Then render a [`<CollapsibleContent>`](/docs/collapsibles/api#collapsiblecontent) component anywhere within this to have its height animated from 0 to auto-height on toggle. The easiest way to toggle a collapsible is with the [`<CollapsibleToggler>`](/docs/collapsibles/api#collapsibletoggler) component.
+
+```jsx
+import React from 'react';
+import { Collapsible, CollapsibleToggler, CollapsibleContent } from '@faceless-ui/collapsibles';
+
+export const MyComponent = () => {
+  return (
+    <Collapsible>
+      <CollapsibleToggler>
+        ...
+      </CollapsibleToggler>
+      <CollapsibleContent>
+        ...
+      </CollapsibleContent>
+    </Collapsible>
+  )
+}
+```
+
+Pro tip: set the `openOnInit` prop to have the collapsible open on first render. To create an accordion-like experience, wrap any number of collapsibles with the `<CollapsibleGroup>` component. When a collapsible is rendered inside a group it becomes partially controlled by that group. Set `allowMultiple` to false to have the group close all other collapsibles when one opens.
+
+```jsx
+import React from 'react';
+import { CollapsibleGroup, Collapsible } from '@faceless-ui/collapsibles';
+
+export const MyComponent = () => {
+  return (
+    <CollapsibleGroup>
+      <Collapsible openOnInit>
+        ...
+      </Collapsible>
+      <Collapsible>
+        ...
+      </Collapsible>
+    </CollapsibleGroup>
+  )
+}
+```
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/collapsibles/setup.mdx`}
+  metaTitle="Collapsibles Setup"
+  metaDescription="Setup documentation for the @faceless-ui/collapsibles npm module."
+  metaURL="/docs/collapsibles/setup"
+/>

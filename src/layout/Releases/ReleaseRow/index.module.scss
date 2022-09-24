@@ -2,7 +2,7 @@
 
 .releaseRow {
   position: relative;
-  border: 1px solid var(--color-gray-2);
+  background-color: var(--color-gray-1);
   padding: base();
   display: flex;
   flex-direction: column;
@@ -14,8 +14,10 @@
   }
 
   @include mid-break {
+    padding: base(0.5);
+
     &:not(:last-child) {
-      margin-bottom: base(0.5);
+      margin-bottom: base(0.25);
     }
   }
 }
@@ -41,7 +43,7 @@
 :global(.isDark) {
   &:local() {
     .releaseRow {
-      border: 1px solid var(--color-gray-9);
+      background-color: var(--color-gray-9);
     }
   }
 }

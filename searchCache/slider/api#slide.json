@@ -1,0 +1,1 @@
+{"title":"Slider API - Slide","content":"Each slide is a wrapper around the  Intersection Observer API, and syncs its isIntersecting status to the provider."}

@@ -1,0 +1,174 @@
+import { Doc } from '@root/layout/Doc';
+import { InstallationCode } from '@components/InstallationCode';
+
+{/* DOC_START */}
+
+# Jumplist Setup
+
+## Installation
+
+<InstallationCode name="jumplist" />
+
+To track elements as they enter and exit the viewport, you first need to wrap your app with the [`<JumplistProvider>`](/docs/jumplist/api#jumplistprovider). This does not render anything in the DOM and is where the [global settings](/docs/jumplist/api#jumplistprovider-props) are defined. This will maintain the state of every jumplist node in your app and provide this state through context.
+
+```jsx
+import React from 'react';
+import { JumplistProvider } from '@faceless-ui/jumplist';
+
+export const MyApp = () => {
+  return (
+    <JumplistProvider
+      threshold={0.05}
+      rootMargin="-100px 0px 0px 0px"
+    >
+      ...
+    </JumplistProvider>
+  )
+}
+```
+
+Then, use a [`<JumplistNode>`](/docs/jumplist/api#jumplistnode) for every element you want to track. The only required prop of this component is the `nodeID`, the unique string identifying each node.
+
+```jsx
+import React from 'react';
+import { JumplistNode } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <JumplistNode nodeID="node-1">
+        Node 1
+      </JumplistNode>
+      <JumplistNode nodeID="node-2">
+        Node 2
+      </JumplistNode>
+    </div>
+  )
+}
+```
+
+Every node is a wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), reporting their `isIntersecting` status to the [jumplist context](/docs/jumplist/api#jumplistprovider-context). You can access this from anywhere with the [`useJumplist`](/docs/jumplist/api#usejumplist) hook.
+
+```jsx
+import React from 'react';
+import { useJumplist } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  const { jumplist } = useJumplist();
+
+  return (
+    <div>
+      {jumplist.map((node, index) => {
+        const { isIntersecting } = node;
+        return (
+          <div key={index}>
+            {\`Node \${index} is intersecting: \${isIntersecting}\`}
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+```
+
+You could also pass a function as a child to the `<JumplistNode>` to immediately return the context of that node.
+
+```jsx
+import React from 'react';
+import { JumplistNode } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  return (
+    <JumplistNode nodeID="node-1">
+      {({ isIntersecting }) => (
+        <div>
+          {\`Is intersecting: \${isIntersecting}\`}
+        </div>
+      )}
+    </JumplistNode>
+  )
+}
+```
+
+## Navigation
+
+To navigate jumplist nodes we rely entirely on native HTML behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. You can also enable [smooth scrolling](#smooth-scrolling).
+
+```jsx
+import React from 'react';
+
+export const MyComponent = () => {
+  return (
+    <a href="#node-1">
+      Go to node 1
+    </a>
+  )
+}
+```
+
+Alternatively, you can navigate jumplist nodes directly using the `scrollToID` method. This does not inject a hash into the URL, but instead relies on the native browser [scrollIntoView](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView) API.
+
+```jsx
+import React from 'react';
+import { useJumplist } from '@faceless-ui/jumplist';
+
+export const MyComponent = () => {
+  const { scrollToID } = useJumplist();
+  return (
+    <button onClick={() => { scrollToID('node-1'); }}>
+      Jump to Node 1
+    </button>
+  )
+}
+```
+
+## Smooth-scrolling
+
+This package does not perform any smooth-scrolling of its own, and instead relies on native CSS [scroll-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior) property. Set this property on the root html element of your document.
+
+```css
+  html: { scroll-behavior: smooth; }
+```
+
+Or use the [smoothScroll](/docs/jumplist/api#smoothScroll) prop on the provider, which sets this property as inline CSS.
+
+There may also be cases where you want to temporarily disable smooth-scrolling, like between page transitions. To do this, you will need to add and remove this property dynamically using your app\'s existing router.
+
+### NextJS
+
+```jsx
+import { Router } from "next/router";
+import { useEffect } from "react"
+
+export const ScrollToTopOnRouteChange = () => {
+  useEffect(() => {
+    Router.events.on('routeChangeStart', () => {
+      // temporarily disable smooth-scrolling
+      document.documentElement.style.scrollBehavior = 'auto';
+    })
+
+    Router.events.on('routeChangeComplete', () => {
+      // scroll instantly to the top of the page
+      window.scroll({
+        top: 0,
+        left: 0,
+      });
+
+      // resume smooth-scrolling
+      document.documentElement.style.removeProperty('scroll-behavior');
+    });
+  }, []);
+
+  return null;
+}
+```
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/jumplist/setup.mdx`}
+  metaTitle="Jumplist Setup"
+  metaDescription="Setup documentation for the @faceless-ui/jumplist npm module."
+  metaURL="/docs/jumplist/setup"
+/>

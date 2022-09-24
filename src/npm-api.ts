@@ -77,8 +77,7 @@ export const getNPMVersion = async (packageName: string): Promise<NPMDocument> =
   throw new Error(error);
 };
 
-
-export const getAllNPM = async () => {
+export const getAllNPMReleases = async () => {
   const [
     windowInfo,
     scrollInfo,

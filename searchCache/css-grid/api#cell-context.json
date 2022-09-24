@@ -1,0 +1,1 @@
+{"title":"Grid API - Cell - Cell Context","content":"<PropName\n    name=\"cols\"\n    type=\"object\"\n    isContextProp\n  />\nThe number of currently available columns, per breakpoint.\n</JumplistNode>\n<JumplistNode nodeID=\"useCell\">"}

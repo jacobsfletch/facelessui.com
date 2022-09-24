@@ -6,10 +6,12 @@
   }
 }
 
-.mobileNav {
-  display: none;
-  @include mid-break {
-    margin-top: base();
-    display: flex;
+.content {
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
   }
 }

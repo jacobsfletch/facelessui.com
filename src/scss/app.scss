@@ -9,7 +9,7 @@
 
 :root {
   color-scheme: light dark;
-  --html-font-size: 18;
+  --html-font-size: 20;
   --html-line-height: 34;
 
   --font-family: #{$fontFamily};
@@ -50,7 +50,7 @@
   --stroke-width: 1px;
   --stroke-width-bold: 2px;
 
-  --shadow-1: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-1: 0px 2px 6px rgba(0, 0, 0, 0.075);
   --shadow-2: 0px 4px 10px rgba(0, 0, 0, 0.25);
 
   --col-gap: 2rem;
@@ -75,14 +75,14 @@ html {
   scroll-behavior: smooth;
   font-variant-ligatures: none;
 
-  @include mid-break {
-    @at-root {
-      :root {
-        --html-font-size: 16;
-        --html-line-height: 24;
-      }
-    }
-  }
+  // @include mid-break {
+  //   @at-root {
+  //     :root {
+  //       --html-font-size: 20;
+  //       --html-line-height: 30;
+  //     }
+  //   }
+  // }
 }
 
 h1 {
@@ -134,12 +134,6 @@ li {
 
   &:last-child {
     margin: 0;
-  }
-
-  @include mid-break {
-    &::before {
-      top: 10px;
-    }
   }
 }
 

@@ -1,0 +1,149 @@
+import { Doc } from '@root/layout/Doc';
+import { PropName } from '@root/components/PropName';
+
+{/* DOC_START */}
+
+# Window Info API
+
+## \<WindowInfoProvider\>
+
+```js
+import react from 'react';
+import WindowInfoProvider from '@faceless-ui/window-info';
+
+export const MyApp = () = (
+  <WindowInfoProvider
+    breakpoints={{
+      s: '(max-width: 768px)',
+      m: '(max-width: 1024px)',
+      l: '(max-width: 1680px)',
+      xl: '(max-width: 1920px)',
+    }}
+  >
+    ...
+  </WindowInfoProvider>
+);
+```
+
+### Props
+
+<PropName
+  name="breakpoints"
+  type="object"
+  required
+/>
+
+An object of named css-queries.
+
+<PropName
+  name="children"
+  type="React.ReactNode"
+  required
+/>
+
+React children.
+
+### Context
+
+<PropName
+  name="width"
+  type="number"
+  isContextProp
+/>
+
+Window width, in pixels
+
+<PropName
+  name="height"
+  type="number"
+  isContextProp
+/>
+
+Window height, in pixels
+
+<PropName
+  name="--vw"
+  type="number"
+  isContextProp
+/>
+
+CSS variable representing the viewport width
+
+<PropName
+  name="--vh"
+  type="number"
+  isContextProp
+/>
+
+CSS variable representing the viewport height
+
+<PropName
+  name="breakpoints"
+  type="object"
+  isContextProp
+/>
+
+The results of your breakpoints
+
+<PropName
+  name="eventsFired"
+  type="number"
+  isContextProp
+/>
+
+Number of animation frames completed
+
+## useWindowInfo
+
+This is a hook you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { useWindowInfo } from '@faceless-ui/window-info;
+
+export const MyComponent = () => {
+  const windowInfo = useWindowInfo();
+  return (
+    ...
+  )
+};
+```
+
+## withWindowInfo
+
+This is a higher-order component you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { withWindowInfo } from '@faceless-ui/window-info;
+
+export const MyComponent = withWindowInfo((props) => {
+  const { windowInfo } = props;
+  return (
+    ...
+  )
+};
+```
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  IWindowInfoContext,
+  Breakpoints,
+  WindowInfoProviderProps,
+  WindowInfoProps
+} from '@faceless-ui/window-info/dist/types';
+```
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/window-info/api.mdx"
+  metaTitle="Window Info API"
+  metaDescription="API documentation for the @faceless-ui/window-info npm module."
+  metaURL="/docs/window-info/api"
+/>

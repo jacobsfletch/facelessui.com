@@ -76,7 +76,7 @@ export const NextInDocs: React.FC<{
   useEffect(() => {
     const activeNavIndex = navLinks.findIndex((item) => {
       const { href } = item;
-      return Boolean(href && asPath === href);
+      return Boolean(href && asPath.startsWith(href));
     });
 
     const nextIndex = activeNavIndex + 1;

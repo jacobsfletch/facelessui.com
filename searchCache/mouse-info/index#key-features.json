@@ -1,0 +1,1 @@
+{"title":"Mouse Info - Key features","content":"- Attaches single mouse-related event listeners to the window for your entire app\n- Throttles these events through requestAnimationFrame\n- Provides critical information about the current mouse position\nMove your cursor to see the effect:\n<LogMouseInfo />"}

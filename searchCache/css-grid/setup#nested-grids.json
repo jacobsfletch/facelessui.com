@@ -1,0 +1,1 @@
+{"title":"Grid Setup - Nested grids","content":"Grids are easily nested. To do this, render a <Grid> component as a descendant of any <Cell>. Remember that number of columns reduce at each nesting, depending on the props of the collective cells before it.\nPro tip: grids do not need to be direct descendants of cells."}

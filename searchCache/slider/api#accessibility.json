@@ -1,0 +1,1 @@
+{"title":"Slider API - SliderButton - Accessibility","content":"The type attribute is automatically set to \"button\" when the htmlElement is button. Thearia-labelattribute is also preset and easily overridden.\n</JumplistNode>\n<JumplistNode nodeID=\"progress\">"}

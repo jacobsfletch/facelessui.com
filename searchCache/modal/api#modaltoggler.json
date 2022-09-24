@@ -1,0 +1,1 @@
+{"title":"Modal API - ModalToggler","content":"This is a button that will open or close a modal based on its current status. It\\'s a simple wrapper around the useModal  hook. It\\'s only required prop is a unique slug."}

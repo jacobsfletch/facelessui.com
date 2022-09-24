@@ -1,0 +1,34 @@
+import { Doc } from '@root/layout/Doc';
+import { LogWindowInfo } from '@root/examples/LogWindowInfo';
+import { PackageInfo } from '@root/components/PackageInfo';
+
+{/* DOC_START */}
+
+# Window Info
+
+<PackageInfo packageSlug="window-info" />
+
+This is a utility to efficiently subscribe to window resize events. As components in your application interact with window size, they compound resize listeners which can be expensive to handle. To get around this, the `useWindowInfo` hook reads context from the `<WindowInfoProvider>` — which attaches only a single event listener to the window. These events are also piped through `requestAnimationFrame` so they are already optimized for performance.
+
+The window info utility also conveniently watches breakpoints for you. This enables you to write highly-performant js-based media queries, which can match your exact CSS media queries. This can be useful for conditionally rendering JSX or any other css-in-js needs.
+
+## Key features
+
+- Attaches a single resize event listener to the window for your entire app
+- Throttles these events through `requestAnimationFrame`
+- Watches css media queries based on your custom breakpoints
+- Provides critical information about the current window
+
+Resize your window to see the effect:
+
+<LogWindowInfo />
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/window-info/index.mdx`}
+  metaTitle="Window Info "
+  metaDescription="Overview documentation for the @faceless-ui/window-info npm module."
+  metaURL="/docs/window-info"
+/>

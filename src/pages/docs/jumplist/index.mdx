@@ -1,0 +1,42 @@
+import { Doc } from '@root/layout/Doc';
+import { PackageInfo } from '@root/components/PackageInfo';
+
+{/* DOC_START */}
+
+# Jumplist
+
+<PackageInfo packageSlug="jumplist" />
+
+The jumplist package provides a way to track DOM elements as they enter and exit the viewport. This can be especially useful for pages with lengthy content, allowing you to style active and inactive menu items as the page is scrolled. When a menu item is clicked, the page is scrolled to the corresponding node using native browser behavior.
+
+Some common uses for this package include:
+
+- Table of contents
+- Jumplist menus
+- Dot navigation
+
+## How it works
+
+The jumplist is a lightweight, component-centric wrapper around the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) — so props mirror this API very closely. Global [jumplist settings](/docs/jumplist/api#jumplistprovider-props), like `threshold` and `rootMargin`, are defined at the top-level of your app on the `<JumplistProvider>`. This provides the [jumplist context](/docs/jumplist/api#jumplistprovider-context) for all the components and hooks to work together.
+
+As each `<JumplistNode>` traverses in and out of the viewport, its intersection status is reported to the jumplist provider. With the `useJumplist` hook you can access the `isIntersecting` property of each jumplist node. Other properties in the context like `currentJumplistIndex` and `activeJumplistIndex` are also helpful when multiple nodes, or none, are in the viewport. These can be used to style the active and inactive states of any navigation menu.
+
+There are two ways to scroll to a jumplist node, both of which rely entirely on native browser behavior. By adding a hash to the URL that matches the id of an element in the document, the browser will automatically scroll to that element. Then with the `scroll-behavior` CSS property, we can easily achieve [smooth-scrolling](/docs/jumplist/setup#smooth-scrolling). Alternatively, the `scrollToID` method on the provider which does not modify the URL, but instead, fires the browser\s native [`scrollIntoView`](https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView).
+
+If you need more granular control, see the [API](/docs/jumplist/api) for full details.
+
+## Key features
+
+- Tracks DOM elements as they enter and exit the viewport
+- Is a lightweight wrapper around the Intersection Observer API
+- Uses no third-party scroll packages
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/jumplist/index.mdx`}
+  metaTitle="Jumplist "
+  metaDescription="Overview of the @faceless-ui/jumplist npm module."
+  metaURL="/docs/jumplist"
+/>

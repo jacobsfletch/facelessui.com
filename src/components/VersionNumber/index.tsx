@@ -10,12 +10,12 @@ export const VersionNumber: React.FC<{
     name,
   } = props;
 
-  const { versions } = useVersions();
-  const version = versions?.[name]?.version;
+  const { githubVersions } = useVersions();
+  const version = githubVersions?.[name]?.tag_name;
 
   return (
     <InlineCode size="small">
-      {version ? `v${version}` : '...'}
+      {version || '...'}
     </InlineCode>
   )
 }

@@ -1,0 +1,172 @@
+import { Doc } from '@root/layout/Doc';
+import { PropName } from '@root/components/PropName';
+
+{/* DOC_START */}
+
+# Mouse Info API
+
+## \<MouseInfoProvider\>
+
+```js
+import react from 'react';
+import MouseInfoProvider from '@faceless-ui/mouse-info;
+
+export const MyApp = () = (
+  <MouseInfoProvider>
+    ...
+  </MouseInfoProvider>
+);
+```
+
+### Props
+
+<PropName
+  name="children"
+  type="React.ReactNode"
+/>
+
+React children.
+
+### Context
+
+<PropName
+  name="x"
+  type="number"
+  isContextProp
+/>
+
+Current mouse position along the x-axis
+
+<PropName
+  name="y"
+  type="number"
+  isContextProp
+/>
+
+Current mouse position along the y-axis
+
+<PropName
+  name="xDifference"
+  type="number"
+  isContextProp
+/>
+
+Last number of pixels moved along the x-axis
+
+<PropName
+  name="yDifference"
+  type="number"
+  isContextProp
+/>
+
+Last number of pixels moved along the y-axis
+
+<PropName
+  name="xDirection"
+  type="string"
+  isContextProp
+/>
+
+Direction of the last mouse movement along the x-axis
+
+<PropName
+  name="yDirection"
+  type="string"
+  isContextProp
+/>
+
+Direction of the last mouse movement along the y-axis
+
+<PropName
+  name="xPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage moved along the x-axis
+
+<PropName
+  name="yPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage moved along the y-axis
+
+<PropName
+  name="totalPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage moved along the both and x and y-axes
+
+<PropName
+  name="eventsFired"
+  type="number"
+  isContextProp
+/>
+
+Number of animation frames completed
+
+<PropName
+  name="isInViewport"
+  type="boolean"
+  isContextProp
+/>
+
+Toggled as the mouse enters and leaves the viewport
+
+## useMouseInfo
+
+This is a hook you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { useMouseInfo } from '@faceless-ui/mouse-info;
+
+export const MyComponent = () => {
+  const mouseInfo = useMouseInfo();
+  return (
+    ...
+  )
+};
+```
+
+## withMouseInfo
+
+This is a higher-order component you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { withMouseInfo } from '@faceless-ui/mouse-info;
+
+export const MyComponent = withMouseInfo((props) => {
+  const { mouseInfo } = props;
+  return (
+    ...
+  )
+};
+```
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  MouseInfoProviderProps,
+  MouseInfoProps,
+  IMouseInfoContext
+} from '@faceless-ui/mouse-info/dist/types';
+```
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/mouse-info/api.mdx"
+  metaTitle="Mouse Info API"
+  metaDescription="API documentation for the @faceless-ui/mouse-info npm module."
+  metaURL="/docs/mouse-info/api"
+/>

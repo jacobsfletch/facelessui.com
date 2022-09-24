@@ -17,6 +17,7 @@ export type HyperlinkProps = {
   colored?: boolean
   children?: React.ReactNode
   'aria-label'?: string
+  dimOnHover?: boolean
 }
 
 export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
@@ -32,6 +33,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
     underlineOnHover,
     colored,
     'aria-label': ariaLabel,
+    dimOnHover
   } = props;
 
   const sharedProps = {
@@ -40,7 +42,8 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
       classes.hyperlink,
       underline && classes.underline,
       (underline !== true && underlineOnHover) && classes.underlineOnHover,
-      colored && classes.colored
+      colored && classes.colored,
+      dimOnHover && classes.dimOnHover
     ].filter(Boolean).join(' '),
     onMouseEnter,
     onMouseLeave,
@@ -53,13 +56,29 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   }
 
   if (href) {
-    if (!newTab) {
+    const beginsWithSlash = href?.startsWith('/') || href?.startsWith('#');
+    let isLocal = beginsWithSlash;
+
+    // continue to check whether this is a local href by comparing the url origin
+    if (!beginsWithSlash) {
+      try {
+        const url = new URL(href);
+        if (url.origin !== process.env.NEXT_PUBLIC_APP_URL) {
+          isLocal = false;
+        }
+      } catch (e) {
+        console.error(e)
+      };
+    }
+
+
+    if (!newTab && isLocal) {
       return (
         <Link
           href={href}
           scroll={false}
         >
-          <a {...sharedProps} >
+          <a  {...sharedProps}>
             {children}
           </a>
         </Link>
@@ -70,6 +89,8 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
       <a
         href={href}
         {...sharedProps}
+        rel="noopener noreferrer"
+        target="_blank"
       >
         {children}
       </a>
@@ -77,9 +98,7 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
   }
 
   return (
-    <span
-      {...sharedProps}
-    >
+    <span {...sharedProps}>
       {children}
     </span>
   )

@@ -8,3 +8,11 @@
   overflow: auto;
   height: calc(100vh - #{base(4)});
 }
+
+.search {
+  margin-bottom: base(0.25);
+}
+
+.searchResults {
+  margin-top: base(0.25);
+}

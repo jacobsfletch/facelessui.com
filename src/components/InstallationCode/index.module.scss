@@ -2,6 +2,7 @@
 
 .installationCode {
   position: relative;
+  margin-bottom: base(0.5);
 }
 
 .codeBlockWrapper {
@@ -38,6 +39,10 @@
   overflow: auto;
   position: relative;
 
+  @include mid-break {
+    padding: base(0.25) base(0.5);
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -64,7 +69,7 @@
 :global(.isDark) {
   &:local() {
     .managerButton {
-      color: var(--color-white);
+      color: var(--color-gray-5);
     }
 
     .codeBlockWrapper {
@@ -86,12 +91,8 @@
 }
 
 .managerButton {
-  background-color: transparent;
-  background: none;
-  border: none;
-  color: inherit;
+  all: unset;
+  @include small;
   color: var(--color-gray-5);
   cursor: pointer;
-  text-decoration: underline;
-  padding: 0;
 }

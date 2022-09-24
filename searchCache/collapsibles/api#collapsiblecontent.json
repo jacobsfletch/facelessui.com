@@ -1,0 +1,1 @@
+{"title":"Collapsibles API - CollapsibleContent","content":"The height of this component will be animated from 0 to auto-height content when the collapsible is triggered. This is made possible through react-animate-height. This component has no required props."}

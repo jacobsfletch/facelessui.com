@@ -1,0 +1,33 @@
+import { Doc } from '@root/layout/Doc';
+import { LogScrollInfo } from '@root/examples/LogScrollInfo';
+import { PackageInfo } from '@root/components/PackageInfo';
+
+{/* DOC_START */}
+
+# Scroll Info
+
+<PackageInfo packageSlug="scroll-info" />
+
+This is a utility to efficiently subscribe to window scroll events. As components in your application interact with scroll position, they compound scroll listeners which can be expensive to handle. To get around this, the `useScrollInfo` hook reads context from the `<ScrollInfoProvider>` — which attaches only a single event listener to the window. These events are also piped through `requestAnimationFrame` so they are already optimized for performance.
+
+This utility also conveniently interprets scroll data for you, such as direction of scroll, scroll percentage, etc.
+
+## Key features
+
+- Attaches a single scroll listener to the window for your entire app
+- Throttles these events through `requestAnimationFrame`
+- Provides critical information about the current scroll position
+
+Scroll your window to see the effect:
+
+<LogScrollInfo />
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/scroll-info/index.mdx`}
+  metaTitle="Scroll Info "
+  metaDescription="Overview of the @faceless-ui/scroll-info npm module."
+  metaURL="/docs/scroll-info"
+/>

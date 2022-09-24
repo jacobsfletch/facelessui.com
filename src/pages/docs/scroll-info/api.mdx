@@ -1,0 +1,149 @@
+import { Doc } from '@root/layout/Doc';
+import { PropName } from '@root/components/PropName';
+
+{/* DOC_START */}
+
+# Scroll Info API
+
+## \<ScrollInfoProvider\>
+
+```js
+import react from 'react';
+import ScrollInfoProvider from '@faceless-ui/scroll-info;
+
+export const MyApp = () = (
+  <ScrollInfoProvider>
+    ...
+  </ScrollInfoProvider>
+);
+```
+
+## Props
+
+<PropName
+  name="children"
+  type="React.ReactNode"
+  required
+/>
+
+React children.
+
+### Context
+
+<PropName
+  name="x"
+  type=""
+  isContextProp
+/>
+
+Current scroll position along the x-axis
+
+<PropName
+  name="y"
+  type="number"
+  isContextProp
+/>
+
+Current scroll position along the y-axis
+
+<PropName
+  name="xDifference"
+  type="number"
+  isContextProp
+/>
+
+Last number of pixels scrolled along the x-axis
+
+<PropName
+  name="yDifference"
+  type="number"
+  isContextProp
+/>
+
+Last number of pixels scrolled along the y-axis
+
+<PropName
+  name="xPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage scrolled along the x-axis
+
+<PropName
+  name="yPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage scrolled along the y-axis
+
+<PropName
+  name="totalPercentage"
+  type="number"
+  isContextProp
+/>
+
+Percentage scrolled along the both and x and y-axes
+
+<PropName
+  name="eventsFired"
+  type="number"
+  isContextProp
+/>
+
+Number of animation frames completed
+
+## useScrollInfo
+
+This is a hook you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { useScrollInfo } from '@faceless-ui/scroll-info;
+
+export const MyComponent = () => {
+  const scrollInfo = useScrollInfo();
+  return (
+    ...
+  )
+};
+```
+
+## withScrollInfo
+
+This is a higher-order component you can use to access the [context](#context).
+
+```js
+import react from 'react';
+import { withScrollInfo } from '@faceless-ui/scroll-info;
+
+export const MyComponent = withScrollInfo((props) => {
+  const { scrollInfo } = props;
+  return (
+    ...
+  )
+};
+```
+
+## TypeScript
+
+All types can be directly imported.
+
+```js
+import {
+  ScrollInfoProviderProps,
+  ScrollInfoProps,
+  IScrollInfoContext
+} from '@faceless-ui/scroll-info/dist/types';
+```
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl="/scroll-info/api.mdx"
+  metaTitle="Scroll Info API"
+  metaDescription="API documentation for the @faceless-ui/scroll-info npm module."
+  metaURL="/docs/scroll-info/api"
+/>

@@ -1,0 +1,1 @@
+{"title":"Slider API - SliderProvider","content":"This component provides a new slider context to any section of your app. It has no required props and renders nothing in the DOM. This is where the slider settings are defined."}

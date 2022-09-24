@@ -1,0 +1,56 @@
+import { Doc } from '@root/layout/Doc';
+import { InstallationCode } from '@components/InstallationCode';
+
+{/* DOC_START */}
+
+# Window Info Setup
+
+## Installation
+
+<InstallationCode name="window-info" />
+
+First, wrap your app with the provider. This component does not render anything in the DOM, and should be placed nearest to the top of your app as possible to provide context to any components that need it. This is also where your breakpoints get defined.
+
+```jsx
+import { WindowInfoProvider } from '@faceless-ui/window-info';
+
+export const App = () => {
+  return (
+    <WindowInfoProvider
+      breakpoints={{
+        s: '(max-width: 768px)',
+        m: '(max-width: 1024px)',
+        l: '(max-width: 1680px)',
+        xl: '(max-width: 1920px)',
+      }}
+    >
+      ...
+    </WindowInfoProvider>
+  )
+}
+```
+
+Then consume the context however needed, most commonly with the `useWindowInfo` hook.
+
+```jsx
+import { useWindowInfo } from '@faceless-ui/window-info';
+
+export const MyComponent = (props) => {
+    const windowInfo = useWindowInfo();
+    return (
+      ...
+    );
+}
+```
+
+For more advanced setups, see the full [API reference](/docs/window-info/api).
+
+{/* DOC_END */}
+
+export default (props) => <Doc
+  {...props}
+  githubUrl={`/window-info/setup.mdx`}
+  metaTitle="Window Info Setup"
+  metaDescription="Setup documentation for the @faceless-ui/window-info npm module."
+  metaURL="/docs/window-info/setup"
+/>

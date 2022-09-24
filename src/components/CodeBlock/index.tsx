@@ -1,5 +1,5 @@
-import { useDarkMode } from '@root/providers/DarkMode';
 import React, { useCallback } from 'react';
+import { useDarkMode } from '@root/providers/DarkMode';
 import classes from './index.module.scss';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus, vs } from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -10,9 +10,12 @@ import { useNotifications } from '@root/providers/Notifications';
 import { CopyIcon } from '@root/icons/Copy';
 
 export const CodeBlock: React.FC<{
-  children: string
+  children?: React.ReactNode
 }> = (props) => {
-  const { children } = props;
+  const {
+    children,
+  } = props;
+
   const { isDark } = useDarkMode();
 
   const { setNotification } = useNotifications();
@@ -30,7 +33,6 @@ export const CodeBlock: React.FC<{
         language="javascript"
         style={isDark ? vscDarkPlus : vs}
         className={classes.pre}
-        wrapLongLines
         codeTagProps={{
           className: classes.code
         }}

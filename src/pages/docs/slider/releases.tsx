@@ -12,7 +12,7 @@ const DocLayout = (props: any) => {
   return (
     <Doc
       {...props}
-      githubUrl={`${process.env.NEXT_PUBLIC_GITHUB_URL}/slider/releases.tsx`}
+      githubUrl={`/slider/releases.tsx`}
       metaTitle="Slider Releases"
       metaDescription="Releases history  for the @faceless-ui/slider npm module."
       metaURL="/docs/slider/releases"
