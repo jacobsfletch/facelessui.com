@@ -83,7 +83,7 @@ export const SearchBar: React.FC<Props> = (props) => {
         <input
           ref={searchBarRef}
           type="text"
-          placeholder="Search (beta)"
+          placeholder="Search"
           className={[
             classes.input,
             hasValue && classes.hasValue

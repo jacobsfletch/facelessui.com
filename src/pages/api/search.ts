@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path')
-const cache = require('../../../search/cache/index.json');
+const cache = require('../../search/cache/index.json');
 
 import { SearchResult } from '@root/providers/SearchProvider';
 

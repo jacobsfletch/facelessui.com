@@ -18,7 +18,7 @@ export const SearchResult: React.FC<SearchResultType & {
   const hasSnippets = snippets && snippets.length > 0;
   const pathWithoutHash = path.split('#')[0];
   const hash = path.split('#')[1];
-  const href = `${pathWithoutHash}?highlight=1${hash ? `#${hash}` : ''}`;
+  const href = `${pathWithoutHash}${hash ? `#${hash}` : ''}`;
 
   return (
     <div

@@ -4,7 +4,7 @@
 
 build
 dist
-search/cache
+cache
 
 package.lock
 package-lock.json

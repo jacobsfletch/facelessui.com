@@ -1,7 +1,6 @@
 const fs = require('fs')
 const path = require('path')
 const glob = require('glob');
-const { match } = require('assert');
 
 // This file dynamically generates cached JSON from MDX files
 
@@ -12,19 +11,22 @@ function makeCache(jsxTransformations) {
   const makeIndex = async () => {
     // NOTE: first prepare the directory
     try {
-      fs.rmSync('search/cache', { recursive: true, force: true });
-      fs.mkdirSync('search/cache')
+      fs.rmSync('./src/search/cache', {
+        recursive: true,
+        force: true
+      });
+      fs.mkdirSync('./src/search/cache')
     } catch (e) {
-      fs.mkdirSync('search/cache')
+      fs.mkdirSync('./src/search/cache')
     }
 
     const invertedIndex = {}
 
-    const pages = await glob.sync('**/*.mdx', { cwd: 'src/pages/docs' });
+    const pages = await glob.sync('**/*.mdx', { cwd: './src/pages/docs' });
 
     if (pages && Array.isArray(pages) && pages.length > 0) {
       pages.forEach((filePath) => {
-        let pageContents = fs.readFileSync(path.join('src/pages/docs', filePath), 'utf8');
+        let pageContents = fs.readFileSync(path.join('./src/pages/docs', filePath), 'utf8');
 
         // NOTE: sanitize the MDX
         // first get only parts of the MDX files that are actual content, as indicated by the DOC_START and DOC_END keywords
@@ -76,9 +78,9 @@ function makeCache(jsxTransformations) {
           const pathToCheck = pathSegments.slice(0, index + 1).join('/');
           if (!pathToCheck.endsWith('.mdx')) {
             try {
-              fs.readdirSync(`search/cache/${pathToCheck}`)
+              fs.readdirSync(`./src/search/cache/${pathToCheck}`)
             } catch (e) {
-              fs.mkdirSync(`search/cache/${pathToCheck}`)
+              fs.mkdirSync(`./src/search/cache/${pathToCheck}`)
             }
           }
         })
@@ -88,7 +90,6 @@ function makeCache(jsxTransformations) {
         let breadcrumbs = [];
         let prevHeadingSize = 0;
 
-        let match;
         while (match = regex.exec(sanitizedPage)) {
           // first extract only the heading text
           const indexOfMatch = regex.lastIndex;
@@ -188,7 +189,7 @@ function makeCache(jsxTransformations) {
           // NOTE: write the file
           // TODO: do this synchronously
           try {
-            fs.writeFile(`search/cache${cachePath}.json`, json, function (err) {
+            fs.writeFile(`./src/search/cache${cachePath}.json`, json, function (err) {
               if (err) return console.log(err);
               // console.log("Doc cached.");
             })
@@ -201,7 +202,7 @@ function makeCache(jsxTransformations) {
 
     const indexAsJSON = JSON.stringify(invertedIndex);
 
-    fs.writeFile('search/cache/index.json', indexAsJSON, function (err) {
+    fs.writeFile('./src/search/cache/index.json', indexAsJSON, function (err) {
       if (err) return console.log(err);
       // console.log("Inverted index created.");
     });
@@ -219,8 +220,8 @@ makeCache({
   },
   'InstallationCode': () => '',
   'ClassPrefix': () => '',
-  'BasicProps': (string) => 'BASIC_PROPS',
-  'BasicContext': (string) => 'BASIC_CONTEXT',
+  'BasicProps': () => 'BASIC_PROPS',
+  'BasicContext': () => 'BASIC_CONTEXT',
   'PackageInfo': () => '',
   // 'JumplistNode': (arg) => 'JUMPLIST_NODE', // NOTE: this one is tricker because it's not self-closing
 });
