@@ -1,0 +1,1 @@
+{"title":"Snap Slider Example","content":"This slider snaps to each slide as the user navigates them. This uses CSS Scroll Snap behind the scenes. Scroll to see the effect.\n<SnapSliderExample />"}

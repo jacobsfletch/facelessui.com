@@ -1,0 +1,1 @@
+{"title":"Modal Routing - History API","content":"To allow the modal to handle URL changes using the History API, pass handleParamChange to the ModalProvider. The ?modal= param will appear in the URL as modals are navigated. Modals will also react to external changes to this param, so your app can load with an open modal. This enables you to directly link to modal content."}

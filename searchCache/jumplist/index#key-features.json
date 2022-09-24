@@ -1,0 +1,1 @@
+{"title":"Jumplist - Key features","content":"- Tracks DOM elements as they enter and exit the viewport\n- Is a lightweight wrapper around the Intersection Observer API\n- Uses no third-party scroll packages"}

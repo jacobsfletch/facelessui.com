@@ -4,6 +4,9 @@ const glob = require('glob');
 
 // This file dynamically generates cached JSON from MDX files
 
+const pathToRawDocs = './src/pages/docs';
+const cacheTarget = './searchCache';
+
 const toKebab = (str) => str.replace(/\s+/g, '-').toLowerCase();
 
 function makeCache(jsxTransformations) {
@@ -11,22 +14,22 @@ function makeCache(jsxTransformations) {
   const makeIndex = async () => {
     // NOTE: first prepare the directory
     try {
-      fs.rmSync('./src/search/cache', {
+      fs.rmSync(cacheTarget, {
         recursive: true,
         force: true
       });
-      fs.mkdirSync('./src/search/cache')
+      fs.mkdirSync(cacheTarget)
     } catch (e) {
-      fs.mkdirSync('./src/search/cache')
+      fs.mkdirSync(cacheTarget)
     }
 
     const invertedIndex = {}
 
-    const pages = await glob.sync('**/*.mdx', { cwd: './src/pages/docs' });
+    const pages = await glob.sync('**/*.mdx', { cwd: pathToRawDocs });
 
     if (pages && Array.isArray(pages) && pages.length > 0) {
       pages.forEach((filePath) => {
-        let pageContents = fs.readFileSync(path.join('./src/pages/docs', filePath), 'utf8');
+        let pageContents = fs.readFileSync(path.join(pathToRawDocs, filePath), 'utf8');
 
         // NOTE: sanitize the MDX
         // first get only parts of the MDX files that are actual content, as indicated by the DOC_START and DOC_END keywords
@@ -37,7 +40,7 @@ function makeCache(jsxTransformations) {
         if (jsxTransformations) {
           Object.keys(jsxTransformations).forEach((componentName) => {
             // NOTE same as above
-            const regexSelfClosing = new RegExp(`<${componentName}[\\s\\S]*?/>`, "gm"); // include multiline
+            const regexSelfClosing = new RegExp(`< ${componentName}[\\s\\S]*? />`, "gm"); // include multiline
             const matches = [...pageContents.matchAll(regexSelfClosing)];
 
             if (matches.length > 0) {
@@ -78,9 +81,9 @@ function makeCache(jsxTransformations) {
           const pathToCheck = pathSegments.slice(0, index + 1).join('/');
           if (!pathToCheck.endsWith('.mdx')) {
             try {
-              fs.readdirSync(`./src/search/cache/${pathToCheck}`)
+              fs.readdirSync(`${cacheTarget}/${pathToCheck}`)
             } catch (e) {
-              fs.mkdirSync(`./src/search/cache/${pathToCheck}`)
+              fs.mkdirSync(`${cacheTarget}/${pathToCheck}`)
             }
           }
         })
@@ -189,7 +192,7 @@ function makeCache(jsxTransformations) {
           // NOTE: write the file
           // TODO: do this synchronously
           try {
-            fs.writeFile(`./src/search/cache${cachePath}.json`, json, function (err) {
+            fs.writeFile(`${cacheTarget}${cachePath}.json`, json, function (err) {
               if (err) return console.log(err);
               // console.log("Doc cached.");
             })
@@ -202,7 +205,7 @@ function makeCache(jsxTransformations) {
 
     const indexAsJSON = JSON.stringify(invertedIndex);
 
-    fs.writeFile('./src/search/cache/index.json', indexAsJSON, function (err) {
+    fs.writeFile(`${cacheTarget}/index.json`, indexAsJSON, function (err) {
       if (err) return console.log(err);
       // console.log("Inverted index created.");
     });

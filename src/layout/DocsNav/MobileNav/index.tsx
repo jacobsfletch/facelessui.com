@@ -1,7 +1,7 @@
 import { Hamburger } from '@components/Hamburger';
 import { ModalToggler, useModal } from '@faceless-ui/modal';
 import { SearchIcon } from '@root/icons/SearchIcon';
-import { useSearch } from '@root/providers/SearchProvider';
+import { useSearch } from '@root/search/SearchProvider';
 import React, { Fragment, useEffect } from 'react';
 import classes from './index.module.scss';
 import { MobileNavModal } from './MobileNavModal';

@@ -1,8 +1,12 @@
-const fs = require('fs');
-const path = require('path')
-const cache = require('../../search/cache/index.json');
+import fs from 'fs';
+import path from 'path';
+import indexJSON from '../../../searchCache/index.json';
+import { SearchResult } from '@root/search/SearchProvider';
 
-import { SearchResult } from '@root/providers/SearchProvider';
+type MainIndex = Record<string, string[]>;
+const mainIndex: MainIndex = indexJSON;
+
+const pathToCache = 'searchCache';
 
 // To use this API, you can make a GET request to `/api/search` with the `?search=` query parameter
 // You can adjust the snippet padding by adding a the `?padding=` query parameter
@@ -19,7 +23,7 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
 
   searchWords.forEach(word => {
     if (word.length > 2) {
-      const match: string[] = cache[word];
+      const match: string[] = mainIndex[word];
 
       if (match && Array.isArray(match) && match.length > 0) {
         match.forEach(pathToPage => {
@@ -28,7 +32,7 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
             const pathWithoutDocs = pathToPage.replace('/docs', '');
 
             try {
-              let pageData = fs.readFileSync(path.join('search/cache', `${pathWithoutDocs}.json`), 'utf8');
+              let pageData = fs.readFileSync(path.join(process.cwd(), pathToCache, `${pathWithoutDocs}.json`), 'utf8');
               const pageJSON = JSON.parse(pageData);
               const {
                 title,

@@ -1,0 +1,1 @@
+{"title":"Jumplist API - JumplistProvider","content":"This component provides the jumplist context to your app. It does not have any required props and renders nothing in the DOM. This is where the global settings are defined."}

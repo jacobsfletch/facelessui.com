@@ -21,7 +21,7 @@ import { GoogleAnalytics } from '@components/GoogleAnalytics';
 import { OnRouteChange } from '@components/OnRouteChange';
 import { MDXProvider } from '@mdx-js/react'
 import { mdxComponents } from '@root/mdx';
-import { SearchProvider } from '@root/providers/SearchProvider';
+import { SearchProvider } from '@root/search/SearchProvider';
 import { MobileNav } from '@root/layout/DocsNav/MobileNav';
 
 import '../scss/app.scss';

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:cache": "node src/search/makeCache"
   },
   "dependencies": {
     "@faceless-ui/collapsibles": "^1.1.1",

@@ -2,9 +2,9 @@ import { Modal, useModal } from '@faceless-ui/modal';
 import React, { Fragment, useEffect } from 'react';
 import classes from './index.module.scss';
 import { useWindowInfo } from '@faceless-ui/window-info';
-import { SearchResults } from '@components/SearchResults';
-import { SearchBar } from '@components/SearchBar';
-import { useSearch } from '@root/providers/SearchProvider';
+import { SearchResults } from '@root/search/SearchResults';
+import { SearchBar } from '@root/search/SearchBar';
+import { useSearch } from '@root/search/SearchProvider';
 
 const suggestions = ['Modal', 'Slider', 'Accessibility']
 

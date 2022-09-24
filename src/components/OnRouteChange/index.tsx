@@ -25,21 +25,14 @@ export const OnRouteChange = () => {
       document.documentElement.style.removeProperty('scroll-behavior');
     }
 
-    const hashChangeComplete = () => {
-      // wait for the scroll to finish before closing the modal
-      // setTimeout(() => {
-      //   closeAll();
-      // }, 1000)
-    }
-
     Router.events.on('routeChangeStart', routeChangeStart)
     Router.events.on('routeChangeComplete', routeChangeComplete);
-    Router.events.on('hashChangeComplete', hashChangeComplete)
+    // Router.events.on('hashChangeComplete', hashChangeComplete)
 
     return () => {
       Router.events.off('routeChangeStart', routeChangeStart);
       Router.events.off('routeChangeComplete', routeChangeComplete);
-      Router.events.off('hashChangeComplete', hashChangeComplete);
+      // Router.events.off('hashChangeComplete', hashChangeComplete);
     }
   }, [
     closeAll,

@@ -1,0 +1,1 @@
+{"title":"Modal Routing - CloseModalOnRouteChange","content":"Often you will want to close all modals on route changes. This is a very common pattern that is very easily solved by tying into your apps existing router, and firing the closeAll method at the right time."}

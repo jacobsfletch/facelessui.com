@@ -1,0 +1,1 @@
+{"title":"Responsive Slider Example","content":"This is a responsive slider that shows two slides at a time on desktop, then only 1 slide at screens smaller than 576px wide. You can override any slider setting using any CSS media query using the breakpoints prop.\n<ResponsiveSliderExample />"}

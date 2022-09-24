@@ -1,0 +1,1 @@
+{"title":"Getting started - Web APIs","content":"Faceless UI components lean on Web APIs as much as possible. This reduces dependencies, increases compatibility and performance, and keeps Faceless UI on the cutting-edge. Properties and methods often mirror these APIs exactly and are fully extensible."}

@@ -31,11 +31,6 @@ module.exports = withMDX({
       // "react-dom": path.join(__dirname, "node_modules/react-dom")
     };
 
-    // on build, also build the search cache
-    if (isServer) {
-      require('./src/search/makeCache');
-    }
-
     return configCopy;
   },
   redirects: async () => ([

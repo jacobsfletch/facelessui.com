@@ -1,0 +1,1 @@
+{"title":"Window Info API - WindowInfoProvider - Props","content":"<PropName\n  name=\"breakpoints\"\n  type=\"object\"\n  required\n/>\nAn object of named css-queries.\n<PropName\n  name=\"children\"\n  type=\"React.ReactNode\"\n  required\n/>\nReact children."}

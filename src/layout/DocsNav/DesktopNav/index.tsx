@@ -2,10 +2,10 @@ import { nav } from '@root/docs-nav';
 import React, { useEffect } from 'react';
 import classes from './index.module.scss';
 import { RecursiveNav } from '../RecursiveNav';
-import { SearchBar } from '@components/SearchBar';
-import { SearchResults } from '@components/SearchResults';
+import { SearchBar } from '@root/search/SearchBar';
+import { SearchResults } from '@root/search/SearchResults';
 import { useWindowInfo } from '@faceless-ui/window-info';
-import { useSearch } from '@root/providers/SearchProvider';
+import { useSearch } from '@root/search/SearchProvider';
 import useClickAway from '@root/utilities/useClickAway';
 import { Router } from 'next/router';
 
