@@ -5,9 +5,9 @@ import {
   useRef,
   useState
 } from "react";
-import Router, { useRouter } from 'next/router';
 import useDebounce from "@root/utilities/useDebounce";
 import QueryString from "qs";
+import { Router } from "next/router";
 
 export type SearchResult = {
   path: string
@@ -19,13 +19,12 @@ export type SearchResults = SearchResult[]
 
 export type ISearchContext = {
   results?: SearchResults
-  search?: string
+  search: string
   setSearch?: (search: string) => void // eslint-disable-line no-unused-vars
   threshold?: number
   isLoading?: boolean
-  hasLoaded?: boolean
-  renderResults?: boolean
-  setRenderResults?: (renderResults: boolean) => void // eslint-disable-line no-unused-vars
+  searchBarRef?: React.RefObject<HTMLInputElement>
+  setClearSearchAfterNextRouteChange?: (clear: boolean) => void // eslint-disable-line no-unused-vars
 }
 
 export const SearchContext = createContext({} as ISearchContext);
@@ -40,33 +39,32 @@ export const SearchProvider: React.FC<{
     threshold = 3
   } = props;
 
+  const searchBarRef = useRef<HTMLInputElement>(null);
+
   const [results, setResults] = useState<SearchResult[] | undefined>(undefined);
+  const [clearSearchAfterNextRouteChange, setClearSearchAfterNextRouteChange] = useState(false);
 
-  const prevResults = useRef<SearchResult[] | undefined>(undefined);
-
-  const [renderResults, setRenderResults] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
 
-  const [search, setSearch] = useState(() => {
+  const [search, setSearch] = useState<string>(() => {
     // NOTE: initialized search from URL
     if (typeof window !== 'undefined') {
       const query = QueryString.parse(window.location.search, {
         ignoreQueryPrefix: true
       });
 
-      return query.search as string;
+      return query.search as string || '';
     }
+
+    return '';
   });
 
   const debouncedSearch = useDebounce(search, 50);
 
-  const router = useRouter();
-
   useEffect(() => {
     let loadingTimer: NodeJS.Timeout | undefined;
 
-    if (debouncedSearch && (debouncedSearch.length >= threshold)) {
+    if (debouncedSearch && debouncedSearch.length >= threshold) {
       // NOTE: delay the loading indicator to prevent flickering for fast searches
       loadingTimer = setTimeout(() => {
         setIsLoading(true);
@@ -80,42 +78,23 @@ export const SearchProvider: React.FC<{
         setResults(parsedJSON);
         setIsLoading(false);
       }
+
       doSearch();
     } else {
       if (loadingTimer) clearTimeout(loadingTimer);
+      setResults(undefined);
       setIsLoading(false);
     }
   }, [
-    router,
     debouncedSearch,
     threshold
   ]);
-
-  // NOTE: on route changes, clear the search ONLY if we clicked a result (i.e. 'highlight' is in the URL)
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      const query = new URLSearchParams(url.split('?')[1]);
-      const isHighlight = query.get('highlight');
-
-      if (isHighlight) {
-        setResults(undefined); // TODO: this isn't working, I think because the search is occurring twice, once on clear, but then again on the route change and search is prefilled still
-        setSearch('');
-        setRenderResults(false);
-      }
-    }
-
-    Router.events.on('routeChangeComplete', handleRouteChange)
-
-    return () => {
-      Router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, []);
 
   // NOTE: bind escape to hide results
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setRenderResults(false);
+        setSearch('');
       }
     }
 
@@ -127,29 +106,19 @@ export const SearchProvider: React.FC<{
   }, []);
 
   useEffect(() => {
-    const thresholdMet = Boolean(debouncedSearch && debouncedSearch.length >= threshold);
+    const clearSearch = () => {
+      if (clearSearchAfterNextRouteChange) {
+        setSearch('');
+        setClearSearchAfterNextRouteChange(false);
+      }
+    }
 
-    if (!thresholdMet) {
-      setRenderResults(false);
-    }
-    if (thresholdMet) {
-      setRenderResults(true);
-    }
-  }, [
-    debouncedSearch,
-    threshold
-  ])
+    Router.events.on('routeChangeComplete', clearSearch)
 
-  useEffect(() => {
-    const prev = prevResults.current;
-    if (!isLoading && results !== prev) {
-      setHasLoaded(true);
-      prevResults.current = results;
+    return () => {
+      Router.events.off('routeChangeComplete', clearSearch)
     }
-  }, [
-    isLoading,
-    results
-  ])
+  }, [clearSearchAfterNextRouteChange]);
 
   return (
     <SearchContext.Provider
@@ -159,9 +128,8 @@ export const SearchProvider: React.FC<{
         setSearch,
         threshold,
         isLoading,
-        hasLoaded,
-        renderResults,
-        setRenderResults
+        searchBarRef,
+        setClearSearchAfterNextRouteChange
       }}
     >
       {children}

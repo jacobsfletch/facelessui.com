@@ -1,13 +1,22 @@
 import { Modal, useModal } from '@faceless-ui/modal';
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import classes from './index.module.scss';
 import { useWindowInfo } from '@faceless-ui/window-info';
 import { SearchResults } from '@components/SearchResults';
 import { SearchBar } from '@components/SearchBar';
-import { InlineCode } from '@components/InlineCode';
+import { useSearch } from '@root/providers/SearchProvider';
+
+const suggestions = ['Modal', 'Slider', 'Accessibility']
 
 export const SearchModal: React.FC = () => {
   const { closeAll } = useModal();
+
+  const {
+    setSearch,
+    results
+  } = useSearch();
+
+  const [renderResults, setRenderResults] = React.useState(false);
 
   const {
     breakpoints: {
@@ -24,6 +33,10 @@ export const SearchModal: React.FC = () => {
     midBreak
   ]);
 
+  useEffect(() => {
+    setRenderResults(results !== undefined)
+  }, [results])
+
   return (
     <Modal
       slug="search"
@@ -35,18 +48,37 @@ export const SearchModal: React.FC = () => {
             <SearchBar />
           </div>
         )}
-        <div>
-          Suggestions:
-          &nbsp;
-          <InlineCode>
-            Slider
-          </InlineCode>
-          &nbsp;
-          <InlineCode>
-            transTime
-          </InlineCode>
-        </div>
-        <SearchResults />
+        {!renderResults && (
+          <p className={classes.suggestions}>
+            Suggestions:
+            &nbsp;
+            {suggestions.map((suggestion, index) => (
+              <button
+                key={index}
+                className={classes.suggestion}
+                onClick={() => {
+                  if (typeof setSearch === 'function') {
+                    setSearch(suggestion)
+                  }
+                }}
+                type="button"
+              >
+                <span className={classes.suggestionLabel}>
+                  {suggestion}
+                </span>
+                {index !== suggestions.length - 1 && (
+                  <Fragment>
+                    ,
+                    &nbsp;
+                  </Fragment>
+                )}
+              </button>
+            ))}
+          </p>
+        )}
+        {renderResults && (
+          <SearchResults />
+        )}
       </div>
     </Modal>
   )

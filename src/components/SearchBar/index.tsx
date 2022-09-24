@@ -6,21 +6,20 @@ import classes from './index.module.scss';
 
 type Props = {
   className?: string
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void // eslint-disable-line no-unused-vars
 }
 
 export const SearchBar: React.FC<Props> = (props) => {
   const {
     search: valueFromContext,
     setSearch: setSearchContext,
-    setRenderResults,
-    results
+    searchBarRef
   } = useSearch();
 
   const {
     className,
+    onFocus
   } = props;
-
-  const ref = useRef<HTMLInputElement>(null);
 
   const [internalValue, setInternalValue] = React.useState(valueFromContext || '');
   const debouncedSearch = useDebounce(internalValue, 50);
@@ -29,12 +28,12 @@ export const SearchBar: React.FC<Props> = (props) => {
 
   // enable keyboard shortcut
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (ref && ref.current && e.key === '/') {
+    if (searchBarRef && searchBarRef.current && e.key === '/') {
       e.preventDefault();
-      ref.current.focus();
+      searchBarRef.current.focus();
     }
   }, [
-    ref,
+    searchBarRef,
   ])
 
   useEffect(() => {
@@ -47,14 +46,17 @@ export const SearchBar: React.FC<Props> = (props) => {
   // report throttled search to context
   useEffect(() => {
     if (typeof setSearchContext === 'function') {
-      setSearchContext(debouncedSearch);
+      if (debouncedSearch !== valueFromContext) {
+        setSearchContext(debouncedSearch);
+      }
     }
   }, [
     debouncedSearch,
-    setSearchContext
+    setSearchContext,
+    valueFromContext
   ]);
 
-  // NOTE: this is necessary for UII hydration when server rendering
+  // NOTE: this is necessary for UI hydration when server rendering
   useEffect(() => {
     setHasValue(Boolean(internalValue));
   }, [internalValue])
@@ -79,7 +81,7 @@ export const SearchBar: React.FC<Props> = (props) => {
     >
       <label>
         <input
-          ref={ref}
+          ref={searchBarRef}
           type="text"
           placeholder="Search (beta)"
           className={[
@@ -89,9 +91,9 @@ export const SearchBar: React.FC<Props> = (props) => {
           onChange={(e) => {
             setInternalValue(e.target.value);
           }}
-          onFocus={() => {
-            if (typeof setRenderResults === 'function' && results && results.length > 0) {
-              setRenderResults(true)
+          onFocus={(e) => {
+            if (onFocus && typeof onFocus === 'function') {
+              onFocus(e)
             }
           }}
           value={internalValue}

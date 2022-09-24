@@ -67,7 +67,6 @@ export const Hyperlink: React.FC<HyperlinkProps> = (props) => {
           isLocal = false;
         }
       } catch (e) {
-        console.log(href);
         console.error(e)
       };
     }

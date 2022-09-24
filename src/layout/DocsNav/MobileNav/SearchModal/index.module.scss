@@ -32,11 +32,25 @@
 
   &::after {
     content: ' ';
-    padding-top: base(2.5);
+    padding-top: base(3);
     display: block;
   }
 }
 
 .searchBar {
   margin-bottom: base(0.5);
+}
+
+.suggestions {
+  @include small;
+  margin: 0;
+}
+
+.suggestion {
+  all: unset;
+  cursor: pointer;
+}
+
+.suggestionLabel {
+  text-decoration: underline;
 }

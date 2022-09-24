@@ -1,5 +1,5 @@
 import { Hyperlink } from '@components/Hyperlink';
-import { SearchResult as SearchResultType } from '@root/providers/SearchProvider';
+import { SearchResult as SearchResultType, useSearch } from '@root/providers/SearchProvider';
 import React from 'react';
 import classes from './index.module.scss';
 
@@ -12,6 +12,8 @@ export const SearchResult: React.FC<SearchResultType & {
     path,
     title
   } = props;
+
+  const { setClearSearchAfterNextRouteChange } = useSearch();
 
   const hasSnippets = snippets && snippets.length > 0;
   const pathWithoutHash = path.split('#')[0];
@@ -29,6 +31,11 @@ export const SearchResult: React.FC<SearchResultType & {
         href={href}
         underline={false}
         className={classes.resultLink}
+        onClick={() => {
+          if (typeof setClearSearchAfterNextRouteChange === 'function') {
+            setClearSearchAfterNextRouteChange(true);
+          }
+        }}
       >
         <p className={classes.title}>
           {title}

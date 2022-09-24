@@ -16,7 +16,6 @@ export const SearchResults: React.FC<{
     results,
     search,
     isLoading,
-    hasLoaded
   } = useSearch();
 
   const hasResults = results && results.length > 0;
@@ -34,7 +33,7 @@ export const SearchResults: React.FC<{
         className={classes.results}
         ref={ref}
       >
-        {!isLoading && hasLoaded && (
+        {!isLoading && (
           <Fragment>
             {!hasResults ? (
               <p className={classes.noResults}>

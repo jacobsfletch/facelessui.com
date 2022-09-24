@@ -14,17 +14,18 @@
   margin: 0;
   background-color: var(--color-white);
   color: var(--color-gray-10);
-  padding: 0 base(0.25);
+  padding: base(0.15) base(0.25);
   width: 100%;
   box-sizing: border-box;
   border-radius: 2px;
   border: 1px solid;
   border-color: var(--color-gray-4);
   cursor: text;
+  font-size: inherit; // this is require to avoid auto-zoom to input on mobile
 
   &:focus {
     background-color: var(--color-gray-2);
-    border-color: var(--color-gray-8);
+    border-color: var(--color-gray-4);
   }
 
   @include mid-break {
@@ -34,7 +35,7 @@
 
 .hasValue {
   background-color: var(--color-gray-2);
-  border-color: var(--color-gray-8);
+  border-color: var(--color-gray-4);
 }
 
 .clearButton {

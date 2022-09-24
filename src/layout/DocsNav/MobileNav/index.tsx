@@ -1,7 +1,8 @@
 import { Hamburger } from '@components/Hamburger';
 import { ModalToggler, useModal } from '@faceless-ui/modal';
 import { SearchIcon } from '@root/icons/SearchIcon';
-import React, { Fragment } from 'react';
+import { useSearch } from '@root/providers/SearchProvider';
+import React, { Fragment, useEffect } from 'react';
 import classes from './index.module.scss';
 import { MobileNavModal } from './MobileNavModal';
 import { SearchModal } from './SearchModal';
@@ -17,8 +18,21 @@ export const MobileNav: React.FC<{
     currentModal,
     oneIsOpen,
     closeAll,
-    open: openModal
+    open: openModal,
   } = useModal();
+
+  const { searchBarRef } = useSearch();
+
+  useEffect(() => {
+    if (currentModal === 'search') {
+      if (searchBarRef?.current) {
+        searchBarRef.current.focus();
+      }
+    }
+  }, [
+    currentModal,
+    searchBarRef
+  ])
 
   return (
     <Fragment>

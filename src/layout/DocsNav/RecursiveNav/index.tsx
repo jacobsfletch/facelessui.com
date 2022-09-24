@@ -2,10 +2,9 @@ import { Hyperlink } from "@components/Hyperlink";
 import { Collapsible, CollapsibleContent, CollapsibleGroup, CollapsibleToggler } from "@faceless-ui/collapsibles";
 import { NavItem } from "@root/docs-nav";
 import { Chevron } from "@root/icons/Chevron";
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import classes from './index.module.scss';
 import { useRouter } from "next/dist/client/router";
-import { VersionNumber } from "@components/VersionNumber";
 import { useJumplist } from '@faceless-ui/jumplist'
 import { useWindowInfo } from "@faceless-ui/window-info";
 import { useEffect } from "react";
@@ -52,7 +51,6 @@ export const RecursiveNav: React.FC<{
               type,
               label,
               href,
-              versionName,
               items: groupItems
             } = item;
 
@@ -122,13 +120,6 @@ export const RecursiveNav: React.FC<{
                             ].filter(Boolean).join(' ')}
                           >
                             {label}
-                            {isOpen && versionName && (
-                              <Fragment>
-                                &nbsp;
-                                &nbsp;
-                                <VersionNumber name={versionName} />
-                              </Fragment>
-                            )}
                           </Hyperlink>
                         </CollapsibleToggler>
                         <CollapsibleContent>
@@ -174,12 +165,6 @@ export const RecursiveNav: React.FC<{
                               size="small"
                             />
                             {label}
-                            {isOpen && versionName && (
-                              <Fragment>
-                                &nbsp;
-                                <VersionNumber name={versionName} />
-                              </Fragment>
-                            )}
                           </Hyperlink>
                         </CollapsibleToggler>
                         <CollapsibleContent>
