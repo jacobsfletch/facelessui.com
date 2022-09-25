@@ -25,6 +25,8 @@ export type ISearchContext = {
   isLoading?: boolean
   searchBarRef?: React.RefObject<HTMLInputElement>
   setClearSearchAfterNextRouteChange?: (clear: boolean) => void // eslint-disable-line no-unused-vars
+  thresholdMet?: boolean
+  showLoader?: boolean
 }
 
 export const SearchContext = createContext({} as ISearchContext);
@@ -33,10 +35,12 @@ export const useSearch = () => useContext(SearchContext);
 export const SearchProvider: React.FC<{
   children: React.ReactNode
   threshold?: number
+  loaderDelay?: number
 }> = (props) => {
   const {
     children,
-    threshold = 3
+    threshold = 3,
+    loaderDelay = 250
   } = props;
 
   const searchBarRef = useRef<HTMLInputElement>(null);
@@ -45,6 +49,7 @@ export const SearchProvider: React.FC<{
   const [clearSearchAfterNextRouteChange, setClearSearchAfterNextRouteChange] = useState(false);
 
   const [isLoading, setIsLoading] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
 
   const [search, setSearch] = useState<string>(() => {
     // NOTE: initialized search from URL
@@ -65,10 +70,12 @@ export const SearchProvider: React.FC<{
     let loadingTimer: NodeJS.Timeout | undefined;
 
     if (debouncedSearch && debouncedSearch.length >= threshold) {
+      setIsLoading(true);
+
       // NOTE: delay the loading indicator to prevent flickering for fast searches
       loadingTimer = setTimeout(() => {
-        setIsLoading(true);
-      }, 250);
+        setShowLoader(true);
+      }, loaderDelay);
 
       const doSearch = async () => {
         const req = await fetch(`/api/search?search=${debouncedSearch}`);
@@ -77,6 +84,7 @@ export const SearchProvider: React.FC<{
         clearTimeout(loadingTimer);
         setResults(parsedJSON);
         setIsLoading(false);
+        setShowLoader(false);
       }
 
       doSearch();
@@ -84,10 +92,12 @@ export const SearchProvider: React.FC<{
       if (loadingTimer) clearTimeout(loadingTimer);
       setResults(undefined);
       setIsLoading(false);
+      setShowLoader(false);
     }
   }, [
     debouncedSearch,
-    threshold
+    threshold,
+    loaderDelay
   ]);
 
   // NOTE: bind escape to hide results
@@ -129,7 +139,9 @@ export const SearchProvider: React.FC<{
         threshold,
         isLoading,
         searchBarRef,
-        setClearSearchAfterNextRouteChange
+        setClearSearchAfterNextRouteChange,
+        thresholdMet: debouncedSearch.length >= threshold,
+        showLoader,
       }}
     >
       {children}

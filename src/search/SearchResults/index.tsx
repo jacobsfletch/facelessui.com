@@ -9,13 +9,14 @@ export const SearchResults: React.FC<{
 }> = (props) => {
   const {
     forceDark,
-    className
+    className,
   } = props;
 
   const {
     results,
     search,
     isLoading,
+    showLoader
   } = useSearch();
 
   const hasResults = results && results.length > 0;
@@ -52,7 +53,7 @@ export const SearchResults: React.FC<{
             )}
           </Fragment>
         )}
-        {isLoading && (
+        {isLoading && showLoader && (
           <div>
             Loading...
           </div>

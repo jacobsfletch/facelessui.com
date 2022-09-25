@@ -10,11 +10,14 @@ import useClickAway from '@root/utilities/useClickAway';
 import { Router } from 'next/router';
 
 export const DesktopNav: React.FC = () => {
-  const [renderResults, setRenderResults] = React.useState(false);
-
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const { results } = useSearch();
+  const {
+    thresholdMet,
+    results
+  } = useSearch();
+
+  const [renderResults, setRenderResults] = React.useState(false);
 
   const {
     breakpoints: {
@@ -27,8 +30,8 @@ export const DesktopNav: React.FC = () => {
   });
 
   useEffect(() => {
-    setRenderResults(results !== undefined);
-  }, [results])
+    setRenderResults(Boolean(thresholdMet));
+  }, [thresholdMet])
 
   useEffect(() => {
     const handleRouteChange = () => {

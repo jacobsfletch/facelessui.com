@@ -13,11 +13,8 @@ export const SearchModal: React.FC = () => {
 
   const {
     setSearch,
-    search,
-    threshold
+    thresholdMet
   } = useSearch();
-
-  const [renderResults, setRenderResults] = React.useState(false);
 
   const {
     breakpoints: {
@@ -34,15 +31,6 @@ export const SearchModal: React.FC = () => {
     midBreak
   ]);
 
-  useEffect(() => {
-    if (threshold && typeof threshold === 'number') {
-      setRenderResults(search.length >= threshold);
-    }
-  }, [
-    search,
-    threshold
-  ])
-
   return (
     <Modal
       slug="search"
@@ -54,7 +42,7 @@ export const SearchModal: React.FC = () => {
             <SearchBar />
           </div>
         )}
-        {!renderResults && (
+        {!thresholdMet && (
           <p className={classes.suggestions}>
             Suggestions:
             &nbsp;
@@ -82,7 +70,7 @@ export const SearchModal: React.FC = () => {
             ))}
           </p>
         )}
-        {renderResults && (
+        {thresholdMet && (
           <SearchResults />
         )}
       </div>
