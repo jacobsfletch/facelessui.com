@@ -1,6 +1,6 @@
 import { Modal, useModal } from '@faceless-ui/modal';
 import React, { useEffect } from 'react';
-import { RecursiveNav } from '../../RecursiveNav';
+import { RecursiveNav } from '../DocsNav/RecursiveNav';
 import classes from './index.module.scss';
 import { nav } from '@root/docs-nav';
 import { useWindowInfo } from '@faceless-ui/window-info';

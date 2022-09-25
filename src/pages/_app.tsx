@@ -22,10 +22,12 @@ import { OnRouteChange } from '@components/OnRouteChange';
 import { MDXProvider } from '@mdx-js/react'
 import { mdxComponents } from '@root/mdx';
 import { SearchProvider } from '@root/search/SearchProvider';
-import { MobileNav } from '@root/layout/DocsNav/MobileNav';
+import { MobileNav } from '@root/layout/FixedBottomNav';
 
 import '../scss/app.scss';
 import { ModalContainer } from '@root/layout/ModalContainer';
+import { MobileNavModal } from '@root/layout/MobileNavModal';
+import { SearchModal } from '@root/layout/SearchModal';
 
 type NextPageWithLayout = NextPage & {
   Layout?: typeof Doc
@@ -104,6 +106,8 @@ const FacelessApp = (appProps: AppPropsWithLayout): React.ReactElement => {
                                 </Layout>
                                 <ModalContainer />
                                 <MobileNav />
+                                <MobileNavModal />
+                                <SearchModal />
                                 <Footer />
                                 <CustomCursor />
                               </Fragment>
