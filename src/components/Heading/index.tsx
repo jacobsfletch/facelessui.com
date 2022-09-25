@@ -47,7 +47,6 @@ export const Heading: React.FC<{
 
   return (
     <Element
-      id={idFromProps || kebab}
       className={[
         className,
         classes.heading,
@@ -58,6 +57,10 @@ export const Heading: React.FC<{
         textToCopy && classes.canCopy
       ].filter(Boolean).join(' ')}
     >
+      <span
+        id={idFromProps || kebab}
+        className={classes.headingScrollTo}
+      />
       <Hyperlink
         className={classes.headingAnchor}
         href={hrefFromProps || `#${kebab}`} // TODO: Fix this mismatch href from server to client

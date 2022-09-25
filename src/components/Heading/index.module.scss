@@ -2,6 +2,18 @@
 
 .heading {
   word-break: break-word;
+  position: s;
+}
+
+.headingScrollTo {
+  position: absolute;
+  bottom: calc(100% + #{base(2)});
+  left: 0;
+  width: 100%;
+
+  @include mid-break {
+    bottom: calc(100% + #{base(1)});
+  }
 }
 
 .headingAnchor {
