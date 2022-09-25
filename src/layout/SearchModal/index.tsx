@@ -13,7 +13,8 @@ export const SearchModal: React.FC = () => {
 
   const {
     setSearch,
-    results
+    search,
+    threshold
   } = useSearch();
 
   const [renderResults, setRenderResults] = React.useState(false);
@@ -34,8 +35,13 @@ export const SearchModal: React.FC = () => {
   ]);
 
   useEffect(() => {
-    setRenderResults(results !== undefined)
-  }, [results])
+    if (threshold && typeof threshold === 'number') {
+      setRenderResults(search.length >= threshold);
+    }
+  }, [
+    search,
+    threshold
+  ])
 
   return (
     <Modal

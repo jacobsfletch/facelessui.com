@@ -5,7 +5,7 @@ import { useSearch } from '@root/search/SearchProvider';
 import React, { Fragment, useEffect } from 'react';
 import classes from './index.module.scss';
 import { MobileNavModal } from './MobileNavModal';
-import { SearchModal } from './SearchModal';
+import { SearchModal } from '../../../layout/SearchModal';
 
 export const MobileNav: React.FC<{
   className?: string
