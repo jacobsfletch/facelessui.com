@@ -116,6 +116,10 @@ const search = async (req: NextApiRequest, res: NextApiResponse) => {
     }
   })
 
+  // bypass browser cache, let Vercel CDN cache instead (purges on every build)
+  // https://vercel.com/docs/concepts/functions/serverless-functions/edge-caching
+  res.setHeader('Cache-Control', 'max-age=0, s-maxage=31536000'); // one year
+
   return res.json(JSON.stringify(results));
 }
 
