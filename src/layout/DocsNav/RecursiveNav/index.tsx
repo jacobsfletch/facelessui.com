@@ -37,9 +37,7 @@ export const RecursiveNav: React.FC<{
 
   if (hasItems) {
     return (
-      <CollapsibleGroup
-        allowMultiple={midBreak}
-      >
+      <CollapsibleGroup allowMultiple={midBreak}>
         <nav
           className={[
             classes.nav,
@@ -98,7 +96,6 @@ export const RecursiveNav: React.FC<{
                   openOnInit={isCurrentSection}
                   open={isCurrentSection}
                 >
-                  {/* @ts-ignore */}
                   {({ isOpen }) => {
                     return (
                       <div className={classes.group}>
@@ -143,7 +140,6 @@ export const RecursiveNav: React.FC<{
                   openOnInit={isCurrentSection}
                   open={isCurrentSection}
                 >
-                  {/* @ts-ignore */}
                   {({ isOpen }) => {
                     return (
                       <div className={classes.jumplist}>
