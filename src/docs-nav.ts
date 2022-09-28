@@ -13,44 +13,50 @@ export const modalAPINav: NavItem[] = [
   {
     type: 'link',
     href: "/docs/modal/api#modalprovider",
+    label: 'ModalProvider',
     id: 'provider',
-    label: 'ModalProvider'
   },
   {
     type: 'link',
     href: "/docs/modal/api#modalcontainer",
+    label: 'ModalContainer',
     id: 'container',
-    label: 'ModalContainer'
   },
   {
     type: 'link',
     href: "/docs/modal/api#modal",
+    label: 'Modal',
     id: 'modal',
-    label: 'Modal'
   },
   {
     type: 'link',
     href: "/docs/modal/api#modaltoggler",
+    label: 'ModalToggler',
     id: 'toggler',
-    label: 'ModalToggler'
   },
   {
     type: 'link',
     href: "/docs/modal/api#usemodal",
+    label: 'useModal',
     id: 'useModal',
-    label: 'useModal'
   },
   {
     type: 'link',
     href: "/docs/modal/api#asmodal",
+    label: 'asModal',
     id: 'asModal',
-    label: 'asModal'
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/api#accessibility",
+    label: 'Accessibility',
+    id: 'accessibility',
   },
   {
     type: 'link',
     href: "/docs/modal/api#typescript",
     label: 'TypeScript',
-    id: 'link'
+    id: 'typescript',
   },
 ];
 
@@ -271,9 +277,15 @@ export const collapsiblesAPINav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/collapsibles/api#accessibility",
+    label: 'Accessibility',
+    id: 'accessibility'
+  },
+  {
+    type: 'link',
     href: "/docs/collapsibles/api#typescript",
     label: 'TypeScript',
-    id: 'link'
+    id: 'typescript'
   },
 ];
 

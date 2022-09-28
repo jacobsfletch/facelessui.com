@@ -166,10 +166,6 @@ export const MyComponent = () => {
   idPrefix='toggler'
 />
 
-### Accessibility
-
-The `type` attribute is automatically set to "button" when the [`htmlElement`](#toggler-htmlElement) is `button`. The `aria-label` attribute is also preset and easily overridden.
-
 </JumplistNode>
 
 <JumplistNode nodeID="group">
@@ -232,6 +228,25 @@ Standardizes all transition curves of the collapsibles within the group. Can be 
 The number of times the group has been toggled. Incremented every time a collapsible is opened or closed.
 
 <BasicContext  href="#collapsiblegroup-props" />
+
+</JumplistNode>
+
+<JumplistNode nodeID="accessibility">
+
+## Accessibility
+
+This package strictly follows the [WAI-ARIA patterns for accordions](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/):
+
+- `<CollapsibleContent>` has the following properties:
+  - `role` is `region`
+  - `aria-labelledby` is equal to the ID of the `<CollapsibleToggler>`
+- `<CollapsibleToggler>` is a `<button>` element with the following properties:
+  - `type` is `button`
+  - `aria-expanded` is toggled `true` or `false` based on [`isOpen`](#isopen)
+  - `aria-owns` is equal to the ID of the `<CollapsibleContent>`
+  - `aria-label` is "toggle collapsible" by default
+
+NOTE: To match aria attributes between DOM elements, a unique ID is generated using [`nanoid`](https://github.com/ai/nanoid). To opt out of this, just pass your own `id` to the `<Collapsible>` and it will be used instead.
 
 </JumplistNode>
 

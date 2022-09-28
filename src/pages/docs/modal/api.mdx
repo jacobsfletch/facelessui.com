@@ -248,12 +248,13 @@ Will prevent the document from scrolling while the modal is open. Defaults to tr
 
 <ClassPrefix />
 
+{/*
 <PropName
   name="callbacks"
   type="method"
 />
 
-{/* These methods still need documentation: onOpen
+These methods still need documentation: onOpen
   onClose
   onEnter
   onEntered
@@ -267,10 +268,6 @@ Will prevent the document from scrolling while the modal is open. Defaults to tr
   defaultElement='dialog'
   idPrefix='modal'
 />
-
-### Accessibility
-
-The `open` attribute is automatically set when the modal opens and closes and the [`htmlElement`](#modal-htmlElement) is `dialog`.
 
 </JumplistNode>
 
@@ -345,6 +342,14 @@ export const MyModal = asModal((props) => {
   )
 }, 'my-modal');
 ```
+
+</JumplistNode>
+
+<JumplistNode nodeID="accessibility">
+
+## Accessibility
+
+The `open` attribute is automatically set on `<Modal>` when the modal opens and closes and the [`htmlElement`](#modal-htmlElement) is `dialog`.
 
 </JumplistNode>
 
