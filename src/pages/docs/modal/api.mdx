@@ -349,7 +349,19 @@ export const MyModal = asModal((props) => {
 
 ## Accessibility
 
-The `open` attribute is automatically set on `<Modal>` when the modal opens and closes and the [`htmlElement`](#modal-htmlElement) is `dialog`.
+This package strictly follows the [WAI-ARIA patterns for dialogs](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/):
+
+- `<Modal>` is a `<dialog>` element with the following properties:
+  - `open` is toggled `true` or `false` based on [`isOpen`](#isopen)
+  - `aria-modal` is `true`
+  - `aria-label` is the [`slug`](#slug) of the `<Modal>`
+- `<ModalToggler>` is a `<button>` element with the following properties:
+  - `type` is `button`
+  - `aria-expanded` is toggled `true` or `false` based on [`isOpen`](#isopen)
+  - `aria-controls` is the [`slug`](#slug) of the `<Modal>`
+- Focus is trapped within open modals and restored when closed (unless [`trapFocus`](#trapfocus) is `false`)
+- Keyboard `Escape` key closes the modal
+- Clicking outside a modal closes it (unless [`closeOnBlur`](#closeonblur) is `false`)
 
 </JumplistNode>
 
