@@ -138,6 +138,13 @@ Stops and starts[`autoPlay`](#autoPlay). Set to `undefined` to return control ba
 Renders an invisible div at the end of your [`<SliderTrack>`](#slidertrack) used to align the last slide of your slider to various points along your track. Accepts a CSS value or number, with negative values beginning from track-right (i.e. 40, -25px, etc). Set to `trackLeft` to align to the left edge of your last slide to the left edge of your slider track. Set to `offsetLeft` to include your [`scrollOffset`](#scrollOffset).
 
 <PropName
+  name="id"
+  type="string"
+/>
+
+A unique ID used to match ARIA attributes between the slider components. Defaults to a random 6 character string using the [`nanoid`](https://github.com/ai/nanoid). See [accessibility](#accessibility) for full details.
+
+<PropName
   name="useFreeScroll [DEPRECATED]"
   type="boolean"
 />
@@ -324,10 +331,6 @@ Navigates the slider to the given index.
   defaultElement='button'
 />
 
-### Accessibility
-
-The `type` attribute is automatically set to "button" when the [`htmlElement`](#button-htmlElement) is `button`. The`aria-label`attribute is also preset and easily overridden.
-
 </JumplistNode>
 
 <JumplistNode nodeID="progress">
@@ -429,6 +432,33 @@ export const MyComponent = () => {
   )
 };
 ```
+
+</JumplistNode>
+
+<JumplistNode nodeID="accessibility">
+
+## Accessibility
+
+This package strictly follows the [WAI-ARIA pattern for carousels](https://www.w3.org/WAI/ARIA/apg/patterns/carousel/):
+
+- `<Slide>` has the following properties:
+  - `role` is `group`
+  - `aria-roledescription` is `slide`
+  - `aria-label` is `CURRENT_INDEX of TOTAL_SLIDES`
+- `<SliderTrack>` has the following properties:
+  - `aria-live` is either `polite` or `off` based on [`autoPlay`](#autoplay)
+- `<SliderButton>` is a `<button>` element with the following properties:
+  - `aria-label` is either `Go to previous slide`, `Go to next slide`, or `Go to slide SLIDE_INDEX`
+  - `aria-controls` is `SLIDER_ID`
+- `<DotNav>` renders `<button>` elements with the following properties:
+  - `aria-label` is either `Go to slide SLIDE_INDEX`
+  - `aria-controls` is `SLIDER_ID`
+
+You should also add the following to your own markup on the top-level element that contains the slider components. This is because this part of the DOM is out of the scope of this module:
+  - `aria-roledescription` should be `carousel`
+  - `aria-label` should be an accessible name not including the keyword `carousel`
+
+NOTE: To match aria attributes between DOM elements, a unique ID is generated using [`nanoid`](https://github.com/ai/nanoid). To opt out of this, just pass your own [`id`](#id) to the `<SliderProvider>` and it will be used instead.
 
 </JumplistNode>
 

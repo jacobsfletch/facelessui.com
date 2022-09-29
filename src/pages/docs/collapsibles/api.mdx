@@ -107,6 +107,13 @@ The root class for the collapsible. Appends [`classPrefix`](#classPrefix) to the
 
 Used internally to report the toggle to the nearest `<CollapsibleGroup>`, if nested.
 
+<PropName
+  name="id"
+  type="string"
+/>
+
+A unique ID used to match ARIA attributes between the collapsible components. Defaults to a random 6 character string using the [`nanoid`](https://github.com/ai/nanoid). See [accessibility](#accessibility) for full details.
+
 <BasicContext href="#collapsible-props" />
 
 </JumplistNode>
@@ -235,7 +242,7 @@ The number of times the group has been toggled. Incremented every time a collaps
 
 ## Accessibility
 
-This package strictly follows the [WAI-ARIA patterns for accordions](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/):
+This package strictly follows the [WAI-ARIA pattern for accordions](https://www.w3.org/WAI/ARIA/apg/patterns/accordion/):
 
 - `<CollapsibleContent>` has the following properties:
   - `role` is `region`
@@ -246,7 +253,7 @@ This package strictly follows the [WAI-ARIA patterns for accordions](https://www
   - `aria-owns` is equal to the ID of the `<CollapsibleContent>`
   - `aria-label` is "toggle collapsible" by default
 
-NOTE: To match aria attributes between DOM elements, a unique ID is generated using [`nanoid`](https://github.com/ai/nanoid). To opt out of this, just pass your own `id` to the `<Collapsible>` and it will be used instead.
+NOTE: To match aria attributes between DOM elements, a unique ID is generated using [`nanoid`](https://github.com/ai/nanoid). To opt out of this, just pass your own [`id`](#id) to the `<Collapsible>` and it will be used instead.
 
 </JumplistNode>
 

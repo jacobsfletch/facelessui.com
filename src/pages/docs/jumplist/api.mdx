@@ -171,10 +171,6 @@ A unique string to identify this node.
           defaultElement='button'
         />
 
-### Accessibility
-
-The `type` attribute is automatically set to "button" when the [htmlElement](#button-htmlElement) is `button`.
-
 </JumplistNode>
 
 <JumplistNode nodeID="useJumplist">
@@ -195,6 +191,22 @@ export const MyComponent = () => {
   )
 }
 ```
+
+</JumplistNode>
+
+<JumplistNode nodeID="accessibility">
+
+## Accessibility
+
+This package strictly follows the [WAI-ARIA standards](https://www.w3.org/WAI/ARIA):
+
+- `<JumplistButton>` is a `<button>` element with the following properties:
+  - `type` is `button`
+  - `aria-label` is `Scroll to region`
+
+- `<JumplistNode>` has the following properties:
+  - `role` is `region`
+  - `aria-labelledby` is equal to the ID of the `<JumplistButton>`
 
 </JumplistNode>
 

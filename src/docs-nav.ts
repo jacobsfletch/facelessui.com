@@ -114,7 +114,7 @@ export const cssGridAPINav: NavItem[] = [
     type: 'link',
     href: "/docs/css-grid/api#typescript",
     label: 'TypeScript',
-    id: 'link'
+    id: 'typescript'
   },
 ]
 
@@ -147,7 +147,7 @@ export const jumplistAPINav: NavItem[] = [
     type: 'link',
     href: "/docs/jumplist/api#typescript",
     label: 'TypeScript',
-    id: 'link'
+    id: 'typescript'
   },
 ]
 
@@ -196,9 +196,15 @@ export const sliderAPINav: NavItem[] = [
   },
   {
     type: 'link',
+    href: "/docs/slider/api#accessibility",
+    label: 'Accessibility',
+    id: 'accessibility'
+  },
+  {
+    type: 'link',
     href: "/docs/slider/api#typescript",
     label: 'TypeScript',
-    id: 'link'
+    id: 'typescript'
   },
 ]
 
