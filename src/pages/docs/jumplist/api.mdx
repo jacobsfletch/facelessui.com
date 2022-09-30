@@ -164,12 +164,24 @@ export const MyComponent = () => {
 
 ### \<JumplistButton\> Props
 
-A unique string to identify this node.
+<PropName
+  name="nodeID"
+  type="string"
+/>
 
-        <BasicProps
-          idPrefix="button"
-          defaultElement='button'
-        />
+A unique string to identify the target node that this button should navigate to.
+
+<PropName
+  name="direction"
+  type="string"
+/>
+
+When set, the button will navigate one node in the specified direction. Can be `prev` or `next`.
+
+<BasicProps
+  idPrefix="button"
+  defaultElement='button'
+/>
 
 </JumplistNode>
 
@@ -202,7 +214,7 @@ This package strictly follows the [WAI-ARIA standards](https://www.w3.org/WAI/AR
 
 - `<JumplistButton>` is a `<button>` element with the following properties:
   - `type` is `button`
-  - `aria-label` is `Scroll to region`
+  - `aria-label` is `Scroll to PREVIOUS, NEXT, or NODE_ID`
 
 - `<JumplistNode>` has the following properties:
   - `role` is `region`
@@ -218,12 +230,12 @@ All types can be directly imported.
 
 ```js
 import {
+  IJumplistContext,
+  JumplistProviderProps
   JumplistButtonProps,
   JumplistNodeProps,
-  IJumplistContext,
   JumplistNode,
   JumplistNodes,
-  JumplistProviderProps
 } from '@faceless-ui/jumplist/dist/types';
 ```
 

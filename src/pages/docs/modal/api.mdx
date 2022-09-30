@@ -50,6 +50,20 @@ The transition duration of modals and the modal container, in milliseconds. Defa
 
 If true, will set and reset the `?modal=` URL parameter using [`pushState`](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) from the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API). If sent a callback, will execute your function with a slug for you to handle, see [Routing](/docs/modal/routing) for more details.
 
+<PropName
+  name="trapFocus"
+  type="boolean"
+/>
+
+Traps and restores focus on using [focus-trap](https://github.com/focus-trap/focus-trap), a popular-open source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, focus is restored to the element used to open the modal. Defaults to `true`.
+
+<PropName
+  name="trapFocusOptions"
+  type="object"
+/>
+
+Additional options passed to [focus-trap](https://github.com/focus-trap/focus-trap).
+
 <ClassPrefix id="classPrefix" />
 
 <PropName
@@ -188,7 +202,7 @@ export const MyApp = () = (
 
 ## \<Modal\>
 
-Each modal is portaled into the [`<ModalContainer>`](#modalcontainer)  and receives transition classes when opened or closed. The only required prop is a unique `slug`.
+Each modal is portaled into the [`<ModalContainer>`](#modalcontainer)  and receives transition classes when opened or closed. The only required prop is a unique [`slug`](#slug).
 
 ```js
 import react from 'react';
@@ -203,7 +217,7 @@ export const MyModal = () => {
 };
 ```
 
-You can also pass a function as a child to conveniently access [modal context](#modalprovider-context). You could access the same context with the [`useModal`](#usemodal) hook, but this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
+You can also pass a function as a child to conveniently access [modal context](#modalprovider-context). Although could access the same context with the [`useModal`](#usemodal) hook, this would require a child component, see the official [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
 
 ```js
 import react from 'react';
@@ -359,9 +373,9 @@ This package strictly follows the [WAI-ARIA pattern for dialogs](https://www.w3.
   - `type` is `button`
   - `aria-expanded` is toggled `true` or `false` based on [`isOpen`](#isopen)
   - `aria-controls` is the [`slug`](#slug) of the `<Modal>`
-- Focus is trapped within open modals and restored when closed (unless [`trapFocus`](#trapfocus) is `false`)
+- Focus is trapped within open modals and restored when closed, see [`trapFocus`](#trapfocus)
 - Keyboard `Escape` key closes the modal
-- Clicking outside a modal closes it (unless [`closeOnBlur`](#closeonblur) is `false`)
+- Clicking outside a modal closes it, see [`closeOnBlur`](#closeonblur)
 
 </JumplistNode>
 

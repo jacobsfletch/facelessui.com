@@ -13,9 +13,9 @@ Some common uses for this package include:
 - Dropdowns
 - Accordions
 
-##### How it works
+## How it works
 
-The `<Collapsible>` component does not render anything in the DOM, but controls the state of any nested `<CollapsibleContent` — an element whose height is animated from 0 to the auto-height using [react-animate-height](https://github.com/Stanko/react-animate-height). This makes it possible to animate arbitrary content heights, a limitation of CSS alone.
+The `<Collapsible>` component does not render anything in the DOM, but controls the state of any nested `<CollapsibleContent` — an element whose height is animated from 0 to the auto-height using [React Animate Height](https://github.com/Stanko/react-animate-height). This makes it possible to animate arbitrary content heights, a limitation of CSS alone.
 
 To toggle the state of a collapsible there is a `<CollapsibleToggler>` component. This is a thin wrapper around the `useCollapsible` hook, firing the `open` method on click. This event propagates through the context to open or close the `<CollapsibleContent>`.
 
@@ -26,7 +26,10 @@ Transition times and curves are also easily customized using props. See the [API
 ## Key features
 
 - Remotely controlled
-- Groupable
+- [Groups](/docs/collapsibles/setup#collapsible-group)
+- [Transitions](/docs/collapsibles/setup#transitions)
+- [ARIA accessible](/docs/collapsibles/api#accessibility)
+- [Typed](/docs/collapsibles/api#typescript)
 
 {/* DOC_END */}
 

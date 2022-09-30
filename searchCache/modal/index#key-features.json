@@ -1,1 +1,1 @@
-{"title":"Modal - Key features","content":"- Allows you to render a modal from anywhere in your DOM tree\n- Built-in, fully customizable transitions\n- Optionally controlled via the URL, enabling direct links\n- Easily ties into your existing router, if desired\n- Focus-trapping\n- Fully ARIA accessible and easily extendable"}
+{"title":"Modal - Key features","content":"- React Portal\n- Transitions\n- Routing\n- Focus Trapping\n- Escape binding\n- Blur handling\n- ARIA accessible\n- Typed"}

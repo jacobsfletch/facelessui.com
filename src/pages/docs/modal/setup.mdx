@@ -69,9 +69,36 @@ export const MyComponent = (props) => {
 }
 ```
 
-{/* DOC_END */}
-
 It is also possible to open and close modals with the URL or your router, see [Routing](/docs/modal/routing) for full details. For more advanced setups, see the full [API reference](/docs/modal/api).
+
+## Transitions
+
+The modal component uses [React Transition Group](https://reactcommunity.org/react-transition-group/) to animate the opening and closing of the modal based on [`transTime`](/docs/modal/api#transtime). This will add and remove transition classes to your DOM element which you can target from a stylesheet.
+
+Here's a basic example in SCSS that fades a modal in and out. You can easily customize these classes using [`classPrefix`](/docs/modal/api#classPrefix) prop.
+
+```scss
+.modal {
+  will-change: opacity;
+  transition: opacity 250ms linear; // NOTE: must match your 'transTime' prop
+  opacity: 0;
+
+  &:global(.modal-item--appearActive),
+  &:global(.modal-item--appearDone),
+  &:global(.modal-item--enterActive),
+  &:global(.modal-item--enterDone) {
+    opacity: 1;
+  }
+
+  &:global(.modal-item--exitActive),
+  &:global(.modal-item--exitDone) {
+    opacity: 0;
+  }
+}
+
+````
+
+{/* DOC_END */}
 
 export default (props) => <Doc
   {...props}

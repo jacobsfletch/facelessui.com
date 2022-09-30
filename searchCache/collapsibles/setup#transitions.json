@@ -1,0 +1,1 @@
+{"title":"Collapsibles Setup - Transitions","content":"The open and animations are handled by React Animate Height. To customize the transition, use the transTime and transCurve props.\nSet these props on a <CollapsibleGroup> to standardize the timing of all instances of <Collapsible> within that group."}

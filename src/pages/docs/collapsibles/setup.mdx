@@ -9,7 +9,7 @@ import { InstallationCode } from '@components/InstallationCode';
 
 <InstallationCode name="collapsibles" />
 
-To create a new collapsible, wrap any section of your app with a [`<Collapsible>`](/docs/collapsibles/api#collapsible) component. This does not render anything to the DOM and provides context for the other components to work together. Then render a [`<CollapsibleContent>`](/docs/collapsibles/api#collapsiblecontent) component anywhere within this to have its height animated from 0 to auto-height on toggle. The easiest way to toggle a collapsible is with the [`<CollapsibleToggler>`](/docs/collapsibles/api#collapsibletoggler) component.
+To create a new collapsible, wrap any section of your app with a [`<Collapsible>`](/docs/collapsibles/api#collapsible) component. This does not render anything to the DOM and provides context for the other components to work together. Then render a [`<CollapsibleContent>`](/docs/collapsibles/api#collapsiblecontent) component anywhere within this to have its height animated from `0` to `auto` on toggle. The easiest way to toggle a collapsible is with the [`<CollapsibleToggler>`](/docs/collapsibles/api#collapsibletoggler) component.
 
 ```jsx
 import React from 'react';
@@ -29,7 +29,11 @@ export const MyComponent = () => {
 }
 ```
 
-Pro tip: set the `openOnInit` prop to have the collapsible open on first render. To create an accordion-like experience, wrap any number of collapsibles with the `<CollapsibleGroup>` component. When a collapsible is rendered inside a group it becomes partially controlled by that group. Set `allowMultiple` to false to have the group close all other collapsibles when one opens.
+Pro tip: set the `openOnInit` prop to have the collapsible open on first render.
+
+## Collapsible Group
+
+To create an accordion-like experience, wrap any number of collapsibles with the `<CollapsibleGroup>` component. When a collapsible is rendered inside a group it becomes partially controlled by that group. Set `allowMultiple` to false to have the group close all other collapsibles when one opens.
 
 ```jsx
 import React from 'react';
@@ -47,6 +51,35 @@ export const MyComponent = () => {
     </CollapsibleGroup>
   )
 }
+```
+
+## Transitions
+
+The open and animations are handled by [React Animate Height](https://github.com/Stanko/react-animate-height). To customize the transition, use the [`transTime`](/docs/collapsibles/api#transTime) and [`transCurve`](/docs/collapsibles/api#transCurve) props.
+
+```jsx
+<Collapsible
+  transTime={250}
+  transCurve="ease-in"
+>
+  ...
+</Collapsible>
+```
+
+Set these props on a `<CollapsibleGroup>` to standardize the timing of all instances of `<Collapsible>` within that group.
+
+```jsx
+<CollapsibleGroup
+  transTime={250}
+  transCurve="ease-in"
+>
+  <Collapsible>
+    ...
+  </Collapsible>
+  <Collapsible>
+    ...
+  </Collapsible>
+</CollapsibleGroup>
 ```
 
 {/* DOC_END */}
