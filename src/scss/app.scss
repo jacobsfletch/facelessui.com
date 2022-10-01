@@ -113,24 +113,31 @@ p {
   @include p;
 }
 
+ol {
+  @include ul;
+}
+
 ul {
   @include ul;
+
+  li {
+    list-style: none;
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: base(-0.5);
+      top: 16px;
+      width: 4px;
+      height: 4px;
+      background-color: currentColor;
+    }
+  }
 }
 
 li {
   @include li;
   position: relative;
-  list-style: none;
-
-  &::before {
-    position: absolute;
-    content: "";
-    left: base(-0.5);
-    top: 16px;
-    width: 4px;
-    height: 4px;
-    background-color: currentColor;
-  }
 
   &:last-child {
     margin: 0;

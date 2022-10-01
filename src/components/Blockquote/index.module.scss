@@ -1,0 +1,21 @@
+@use "@scss/common" as *;
+
+.blockquote {
+  padding-left: base();
+  margin: 0;
+  position: relative;
+
+  * > *:first-child {
+    margin-top: 0;
+  }
+
+  @include mid-break {
+    padding-left: base(0.75);
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  left: 0;
+}

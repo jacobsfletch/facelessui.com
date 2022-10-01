@@ -8,7 +8,7 @@ You can opt-in to having the modal react to changes in the URL, and push changes
 
 ## History API
 
-To allow the modal to handle URL changes using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), pass `handleParamChange` to the `ModalProvider`. The `?modal=` param will appear in the URL as modals are navigated. Modals will also react to external changes to this param, so your app can load with an open modal. This enables you to directly link to modal content.
+To allow the modal to handle URL changes using the [History API](https://developer.mozilla.org/en-US/docs/Web/API/History_API), pass [`handleParamChange`](/docs/modal/api#handleParamChange) to the `ModalProvider`. The `?modal=` param will appear in the URL as modals are navigated. Modals will also react to external changes to this param, so your app can load with an open modal. This enables you to directly link to modal content.
 
 ```jsx
 import { ModalProvider } from '@faceless-ui/modal';
@@ -24,7 +24,7 @@ export const MyApp = (props) => {
 
 ## Custom router
 
-If your app already uses a router, send a callback function to `handleParamChange` instead. Here are some examples using common router libraries.
+If your app already uses a router, send a callback function to [`handleParamChange`](/docs/modal/api#handleParamChange) instead. Here are some examples using common router libraries.
 
 ### NextJS
 
@@ -77,7 +77,7 @@ export default App = () => {
 
 ## \<CloseModalOnRouteChange\>
 
-Often you will want to close all modals on route changes. This is a very common pattern that is very easily solved by tying into your apps existing router, and firing the `closeAll` method at the right time.
+Often you will want to close all modals on route changes. This is a very common pattern that is very easily solved by tying into your apps existing router, and firing the [`closeAllModals`](/docs/modal/api#closeAllModals) method at the right time.
 
 ### NextJS
 
@@ -88,12 +88,12 @@ import { Router } from "next/router";
 import { useEffect } from "react"
 
 export const CloseModalOnRouteChange = () => {
-  const { closeAll } = useModal();
+  const { closeAllModals } = useModal();
   useEffect(() => {
     Router.events.on('routeChangeComplete', () => {
-      closeAll();
+      closeAllModals();
     });
-  }, [closeAll]);
+  }, [closeAllModals]);
 
   return null;
 }

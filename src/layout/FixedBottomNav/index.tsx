@@ -13,22 +13,22 @@ export const MobileNav: React.FC<{
   } = props;
 
   const {
-    currentModal,
-    oneIsOpen,
-    closeAll,
-    open: openModal,
+    isModalOpen,
+    oneModalIsOpen,
+    closeAllModals,
+    openModal,
   } = useModal();
 
   const { searchBarRef } = useSearch();
 
   useEffect(() => {
-    if (currentModal === 'search') {
+    if (isModalOpen('search')) {
       if (searchBarRef?.current) {
         searchBarRef.current.focus();
       }
     }
   }, [
-    currentModal,
+    isModalOpen,
     searchBarRef
   ])
 
@@ -39,7 +39,7 @@ export const MobileNav: React.FC<{
         className={[
           className,
           classes.mobileNavToggler,
-          (oneIsOpen && currentModal === 'search') && classes.hide,
+          (oneModalIsOpen && isModalOpen('search')) && classes.hide,
         ].filter(Boolean).join(' ')}
         aria-label="Open search modal"
       >
@@ -49,8 +49,8 @@ export const MobileNav: React.FC<{
       </ModalToggler>
       <button
         onClick={() => {
-          if (oneIsOpen) {
-            closeAll();
+          if (oneModalIsOpen) {
+            closeAllModals();
           } else {
             openModal('mobile-nav');
           }
@@ -58,12 +58,11 @@ export const MobileNav: React.FC<{
         className={[
           className,
           classes.mobileNavToggler,
-          // (oneIsOpen && currentModal !== 'mobile-nav') && classes.hide,
         ].filter(Boolean).join(' ')}
         aria-label="Open mobile navigation modal"
       >
         <div className={classes.icon}>
-          <Hamburger isOpen={currentModal === 'mobile-nav' || currentModal === 'search'} />
+          <Hamburger isOpen={isModalOpen('mobile-nav') || isModalOpen('search')} />
         </div>
       </button>
     </div>

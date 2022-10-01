@@ -55,14 +55,14 @@ If true, will set and reset the `?modal=` URL parameter using [`pushState`](http
   type="boolean"
 />
 
-Traps and restores focus on using [focus-trap](https://github.com/focus-trap/focus-trap), a popular-open source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, focus is restored to the element used to open the modal. Defaults to `true`.
+Traps and restores focus on using [`focus-trap`](https://github.com/focus-trap/focus-trap), a popular-open source package. When a modal is opened, the first tab index of the modal becomes focused, and subsequent tabs are cycled through the modal without returning back to the original document. When the modal is closed, focus is restored to the element used to open the modal. Defaults to `true`.
 
 <PropName
   name="trapFocusOptions"
   type="object"
 />
 
-Additional options passed to [focus-trap](https://github.com/focus-trap/focus-trap).
+Additional options passed to [`focus-trap`](https://github.com/focus-trap/focus-trap).
 
 <ClassPrefix id="classPrefix" />
 
@@ -83,44 +83,44 @@ Minifies the result of [`generateCSS`](#generateCSS). Defaults to `true`.
 ### \<ModalProvider\> Context
 
 <PropName
-  name="currentModal"
-  type="string"
+  name="openModal(slug: string)"
+  type="method"
   isContextProp
 />
 
-The slug of the currently open modal. Modals compare their slug with this value to determine their open status. If the page was loaded with a `?modal=x` URL parameter, this value will be used even if no matches are found.
+Opens the given slug and fires [`handleParamChange`](#handleParamChange).
 
 <PropName
-  name="oneIsOpen"
+  name="oneModalIsOpen"
   type="boolean"
+  isContextProps
+/>
+
+True when at least one modal has the `isOpen` property. The [`<ModalContainer>`](#modalcontainer) will undergo transition every time this changes.
+
+<PropName
+  name="isModalOpen(slug: string)"
+  type="function"
   isContextProp
 />
 
-True when [`currentModal`](#currentModal) has value. The [`<ModalContainer>`](#modalcontainer) will undergo transition every time this changes.
+A function used to determine if a particular modal is currently open.
 
 <PropName
-  name="open(slug: string)"
+  name="toggleModal(slug: string)"
   type="method"
   isContextProp
 />
 
-Sets [`currentModal`](#currentModal) to the given slug. Will either add modal to the URL parameters or fire the given callback function based on [`handleParamChange`](#handleParamChange).
+Takes the slug of any modal and opens or closes that modal based on its current status, using the [`openModal`](#openModal) and [`closeModal`](#closeModal) methods.
 
 <PropName
-  name="toggle(slug: string)"
+  name="closeAllModals()"
   type="method"
   isContextProp
 />
 
-Takes the slug of any modal and opens or closes that modal based on its current status, using the [`open`](#open) and [`close`](#close) methods.
-
-<PropName
-  name="closeAll()"
-  type="method"
-  isContextProp
-/>
-
-Resets [`currentModal`](#currentModal) and [`oneIsOpen`](#oneIsOpen). Will either remove modal from the URL parameters or fire the given callback function based on [`handleParamChange`](#handleParamChange). Unlocks all body scroll locks.
+Closes all modals and fires [`handleParamChange`](#handleParamChange). Unlocks all body scroll locks.
 
 <PropName
   name="closeOnBlur"
@@ -366,16 +366,17 @@ export const MyModal = asModal((props) => {
 This package strictly follows the [WAI-ARIA pattern for dialogs](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/):
 
 - `<Modal>` is a `<dialog>` element with the following properties:
-  - `open` is toggled `true` or `false` based on [`isOpen`](#isopen)
+  - `open` is toggled `true` or `false` based on [`isModalOpen`](#isModalOpen)
   - `aria-modal` is `true`
   - `aria-label` is the [`slug`](#slug) of the `<Modal>`
 - `<ModalToggler>` is a `<button>` element with the following properties:
   - `type` is `button`
-  - `aria-expanded` is toggled `true` or `false` based on [`isOpen`](#isopen)
+  - `aria-expanded` is toggled `true` or `false` based on [`isModalOpen`](#isModalOpen)
   - `aria-controls` is the [`slug`](#slug) of the `<Modal>`
-- Focus is trapped within open modals and restored when closed, see [`trapFocus`](#trapfocus)
+  - `aria-label` is `Open modal SLUG` or `Close modal SLUG` based on [`isModalOpen`](#isModalOpen)
+- Focus is trapped within open modals and restored when closed, see [`trapFocus`](#trapFocus)
 - Keyboard `Escape` key closes the modal
-- Clicking outside a modal closes it, see [`closeOnBlur`](#closeonblur)
+- Clicking outside a modal closes it, see [`closeOnBlur`](#closeOnBlur)
 
 </JumplistNode>
 

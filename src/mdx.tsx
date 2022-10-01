@@ -1,3 +1,4 @@
+import { Blockquote } from "@components/Blockquote";
 import { CodeBlock } from "@components/CodeBlock"
 import { Heading } from "@components/Heading";
 import { Hyperlink } from "@components/Hyperlink";
@@ -69,5 +70,10 @@ export const mdxComponents: MDXComponents = {
       </CodeBlock>
     )
   },
+  blockquote: (props) => (
+    <Blockquote
+      {...props}
+    />
+  ),
   // inlineCode: InlineCode
 }

@@ -8,7 +8,7 @@ const slides = Array.from(Array(6).keys()); // NOTE: create array from number
 const modalSlug = 'slider-lightbox';
 
 export const LightboxSliderExample = () => {
-  const { open: openModal } = useModal();
+  const { openModal } = useModal();
   const [sliderIndex, setSliderIndex] = useState<number>(0);
 
   return (

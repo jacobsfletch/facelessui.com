@@ -49,18 +49,18 @@ export const MyComponent = () => {
 }
 ```
 
-Alternatively, you could build your own button. To do this, the `toggle` method can be directly accessed from the [modal context](/docs/modal/api#modalprovider-context) with the [`useModal`](/docs/modal/api#usemodal) hook.
+Alternatively, you could build your own button. To do this, the [`toggleModal`](/docs/modal/api#toggleModal) method can be directly accessed from the [modal context](/docs/modal/api#modalprovider-context) with the [`useModal`](/docs/modal/api#usemodal) hook.
 
 ```jsx
 import React from 'react';
 import { useModal } from '@faceless-ui/modal';
 
 export const MyComponent = (props) => {
-  const { toggle } = useModal();
+  const { toggleModal } = useModal();
 
   return (
     <button
-      onClick={() => toggle('my-modal')}
+      onClick={() => toggleModal('my-modal')}
       type="button"
     >
       Toggle
@@ -95,7 +95,6 @@ Here's a basic example in SCSS that fades a modal in and out. You can easily cus
     opacity: 0;
   }
 }
-
 ````
 
 {/* DOC_END */}

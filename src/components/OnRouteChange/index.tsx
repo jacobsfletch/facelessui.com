@@ -4,7 +4,7 @@ import { Router } from "next/router";
 import { useEffect } from "react"
 
 export const OnRouteChange = () => {
-  const { closeAll } = useModal();
+  const { closeAllModals } = useModal();
   const { setHighlightCursor, setShowCustomCursor } = useCustomCursor();
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export const OnRouteChange = () => {
     };
 
     const routeChangeComplete = (newRoute: string) => {
-      closeAll();
+      closeAllModals();
       setHighlightCursor(false);
       setShowCustomCursor(newRoute === '/');
 
@@ -35,7 +35,7 @@ export const OnRouteChange = () => {
       // Router.events.off('hashChangeComplete', hashChangeComplete);
     }
   }, [
-    closeAll,
+    closeAllModals,
     setHighlightCursor,
     setShowCustomCursor
   ]);

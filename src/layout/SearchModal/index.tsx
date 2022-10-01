@@ -9,7 +9,7 @@ import { useSearch } from '@root/search/SearchProvider';
 const suggestions = ['Modal', 'Slider', 'Accessibility']
 
 export const SearchModal: React.FC = () => {
-  const { closeAll } = useModal();
+  const { closeAllModals } = useModal();
 
   const {
     setSearch,
@@ -24,10 +24,10 @@ export const SearchModal: React.FC = () => {
 
   useEffect(() => {
     if (!midBreak) {
-      closeAll();
+      closeAllModals();
     }
   }, [
-    closeAll,
+    closeAllModals,
     midBreak
   ]);
 

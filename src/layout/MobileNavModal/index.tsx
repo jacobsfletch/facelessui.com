@@ -6,7 +6,7 @@ import { nav } from '@root/docs-nav';
 import { useWindowInfo } from '@faceless-ui/window-info';
 
 export const MobileNavModal: React.FC = () => {
-  const { closeAll } = useModal();
+  const { closeAllModals } = useModal();
 
   const {
     breakpoints: {
@@ -16,10 +16,10 @@ export const MobileNavModal: React.FC = () => {
 
   useEffect(() => {
     if (!midBreak) {
-      closeAll();
+      closeAllModals();
     }
   }, [
-    closeAll,
+    closeAllModals,
     midBreak
   ])
 
