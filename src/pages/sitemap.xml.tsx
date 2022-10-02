@@ -40,6 +40,8 @@ const pages = [
   "/docs/collapsibles",
   "/docs/collapsibles/releases",
   "/docs/collapsibles/setup",
+  "/docs/collapsibles/examples/dropdown",
+  "/docs/collapsibles/examples/accordion",
   "/docs/window-info",
   "/docs/window-info/setup",
   "/docs/window-info/api",

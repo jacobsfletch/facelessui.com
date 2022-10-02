@@ -295,6 +295,20 @@ export const collapsiblesAPINav: NavItem[] = [
   },
 ];
 
+
+export const collapsiblesExamplesNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/collapsibles/examples/dropdown",
+    label: 'Dropdown',
+  },
+  {
+    type: 'link',
+    href: "/docs/collapsibles/examples/accordion",
+    label: 'Accordion',
+  },
+]
+
 export const nav: DocsNav = [
   {
     type: 'title',
@@ -470,6 +484,12 @@ export const nav: DocsNav = [
         href: "/docs/collapsibles/api",
         label: 'API Reference',
         items: collapsiblesAPINav
+      },
+      {
+        type: 'subnav',
+        href: "/docs/collapsibles/examples",
+        label: 'Examples',
+        items: collapsiblesExamplesNav
       },
       {
         type: 'link',

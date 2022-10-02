@@ -1,0 +1,68 @@
+@use "@scss/common" as *;
+
+.modal {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.75);
+  will-change: opacity;
+  transition: opacity var(--modal-trans-time) linear;
+  opacity: 0;
+
+  &:global(.modal-item--appearActive),
+  &:global(.modal-item--appearDone),
+  &:global(.modal-item--enterActive),
+  &:global(.modal-item--enterDone) {
+    opacity: 1;
+    &:local() {
+      .wrapper {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &:global(.modal-item--exitActive),
+  &:global(.modal-item--exitDone) {
+    opacity: 0;
+    &:local() {
+      .wrapper {
+        transform: translate3d(base(2), 0, 0);
+      }
+    }
+  }
+}
+
+.wrapper {
+  width: 400px;
+  background-color: white;
+  padding: base();
+  margin-right: 0;
+  margin-left: auto;
+  height: 100%;
+  transform: translate3d(base(2), 0, 0);
+  will-change: transform;;
+  transition: transform var(--modal-trans-time) linear;
+
+  @include mid-break {
+    width: calc(100% - #{base(3)});
+  }
+}
+
+.close {
+  color: white;
+  cursor: pointer;
+  margin-bottom: base(0.5);
+}
+
+.content {
+  color: var(--color-html);
+}
+
+:global(.isDark) {
+  &:local() {
+    .wrapper {
+      background-color: var(--color-gray-8);
+    }
+  }
+}
