@@ -3,7 +3,7 @@ import Margin from '@components/Margin';
 import Meta from '@components/Meta';
 import { NextInDocs } from '@components/NextInDocs';
 import { Cell, Grid } from '@faceless-ui/css-grid';
-import { JumplistNodes, useJumplist } from '@faceless-ui/jumplist/dist/JumplistProvider/context';
+import { JumplistNodes } from '@faceless-ui/jumplist/dist/JumplistProvider/context';
 import { useCustomCursor } from '@root/providers/CustomCursorProvider';
 import React, { Fragment, useEffect } from 'react';
 import { BlockContainer } from '../BlockContainer';
@@ -24,7 +24,6 @@ export const Doc: React.FC<{
     metaTitle,
     metaDescription,
     metaURL,
-    jumplist
   } = props;
 
   const {
@@ -34,24 +33,6 @@ export const Doc: React.FC<{
   useEffect(() => {
     setShowCustomCursor(false);
   }, [setShowCustomCursor])
-
-  const {
-    setJumplist,
-    clearJumplist
-  } = useJumplist();
-
-  useEffect(() => {
-    if (jumplist) {
-      setJumplist(jumplist);
-    }
-    return () => {
-      clearJumplist();
-    }
-  }, [
-    setJumplist,
-    clearJumplist,
-    jumplist
-  ])
 
   return (
     <Fragment>
