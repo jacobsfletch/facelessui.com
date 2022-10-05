@@ -142,7 +142,7 @@ Renders an invisible div at the end of your [`<SliderTrack>`](#slidertrack) used
   type="string"
 />
 
-A unique ID used to match ARIA attributes between the slider components. Defaults to a random 5 character string. See [accessibility](#accessibility) for full details.
+A unique ID used to match ARIA attributes between the slider components. Defaults to a random string from the [`useId`](https://reactjs.org/docs/hooks-reference.html#useid) hook. See [accessibility](#accessibility) for full details.
 
 <PropName
   name="useFreeScroll [DEPRECATED]"
@@ -458,7 +458,7 @@ You should also add the following to your own markup on the top-level element th
   - `aria-roledescription` should be `carousel`
   - `aria-label` should be an accessible name not including the keyword `carousel`
 
-NOTE: To match ARIA attributes between DOM elements, a random 5 character string is generated as the ID. To opt out of this, just pass your own [`id`](#id) to the `<SliderProvider>` and it will be used instead.
+NOTE: To match ARIA attributes between DOM elements, a random string is generated with the [`useId`](https://reactjs.org/docs/hooks-reference.html#useid) hook. To opt out of this, just pass your own [`id`](#id) to the `<SliderProvider>` and it will be used instead.
 
 </JumplistNode>
 
