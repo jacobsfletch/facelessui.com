@@ -9,6 +9,7 @@ import { Cell, Grid } from '@faceless-ui/css-grid';
 import { BlockContainer } from '@root/layout/BlockContainer';
 import React from 'react';
 import classes from './index.module.scss';
+import { StyledList } from '@components/StyledList';
 
 const Home: NextPage = () => {
   const {
@@ -48,7 +49,7 @@ const Home: NextPage = () => {
         <BlockContainer>
           <Grid>
             <Cell
-              cols={10}
+              cols={11}
               colsL={12}
               colsM={12}
             >
@@ -58,6 +59,28 @@ const Home: NextPage = () => {
                     An unstyled <span style={{ display: 'inline-block' }}>React+<wbr />Typescript</span> UI library for brands
                   </Hyperlink>
                 </h1>
+                <p className={classes.description}>
+                  Rapidly build user interfaces within any design system, free and open-source.
+                </p>
+                <StyledList
+                  items={[
+                    (
+                      <Fragment key={1}>
+                        ARIA-accessible
+                      </Fragment>
+                    ),
+                    (
+                      <Fragment key={2}>
+                        SSR-friendly
+                      </Fragment>
+                    ),
+                    (
+                      <Fragment key={4}>
+                        100% TypeScript
+                      </Fragment>
+                    )
+                  ]}
+                />
               </div>
             </Cell>
           </Grid>

@@ -5,6 +5,11 @@
   width: 100%;
   padding: 0;
   border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.75);
   will-change: opacity;
   transition: opacity var(--modal-trans-time) linear;
@@ -15,54 +20,47 @@
   &:global(.modal-item--enterActive),
   &:global(.modal-item--enterDone) {
     opacity: 1;
-    &:local() {
-      .wrapper {
-        transform: translate3d(0, 0, 0);
-      }
-    }
   }
 
   &:global(.modal-item--exitActive),
   &:global(.modal-item--exitDone) {
     opacity: 0;
-    &:local() {
-      .wrapper {
-        transform: translate3d(base(2), 0, 0);
-      }
-    }
   }
 }
 
 .wrapper {
-  width: 400px;
-  background-color: white;
-  padding: base();
-  margin-right: 0;
-  margin-left: auto;
-  height: 100%;
-  transform: translate3d(base(2), 0, 0);
-  will-change: transform;;
-  transition: transform var(--modal-trans-time) linear;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 
   @include mid-break {
     width: calc(100% - var(--mobile-gutter));
-    padding: base(0.5) var(--mobile-gutter);
   }
 }
 
 .close {
-  color: white;
-  cursor: pointer;
   margin-bottom: base(0.5);
 }
 
-.content {
-  color: var(--color-html);
+.menuItem {
+  all: unset;
+  @include h2;
+  cursor: pointer;
+  display: block;
+
+  &:not(:last-child) {
+    margin-bottom: base(0.25);
+  }
+
+  &:hover {
+    color: var(--color-gray-3);
+  }
 }
 
 :global(.isDark) {
   &:local() {
-    .wrapper {
+    .content {
       background-color: var(--color-gray-8);
     }
   }

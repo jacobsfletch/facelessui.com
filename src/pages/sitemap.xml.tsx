@@ -13,6 +13,8 @@ const pages = [
   "/docs/modal/examples",
   "/docs/modal/examples/drawer",
   "/docs/modal/examples/lightbox",
+  "/docs/modal/examples/mega-menu",
+  "/docs/modal/examples/drilldown-menu",
   "/docs/modal/releases",
   "/docs/slider",
   "/docs/slider/api",

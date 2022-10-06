@@ -3,6 +3,7 @@ import { ModalToggler, useModal } from '@faceless-ui/modal';
 import { SearchIcon } from '@root/icons/SearchIcon';
 import { useSearch } from '@root/search/SearchProvider';
 import React, { useEffect } from 'react';
+import { mobileNavModalSlug } from '../MobileNavModal';
 import classes from './index.module.scss';
 
 export const MobileNav: React.FC<{
@@ -52,7 +53,7 @@ export const MobileNav: React.FC<{
           if (oneModalIsOpen) {
             closeAllModals();
           } else {
-            openModal('mobile-nav');
+            openModal(mobileNavModalSlug);
           }
         }}
         className={[

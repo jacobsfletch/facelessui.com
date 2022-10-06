@@ -5,8 +5,10 @@ import classes from './index.module.scss';
 import { nav } from '@root/docs-nav';
 import { useWindowInfo } from '@faceless-ui/window-info';
 
+export const mobileNavModalSlug = 'mobile-nav';
+
 export const MobileNavModal: React.FC = () => {
-  const { closeAllModals } = useModal();
+  const { closeModal } = useModal();
 
   const {
     breakpoints: {
@@ -16,16 +18,16 @@ export const MobileNavModal: React.FC = () => {
 
   useEffect(() => {
     if (!midBreak) {
-      closeAllModals();
+      closeModal(mobileNavModalSlug)
     }
   }, [
-    closeAllModals,
+    closeModal,
     midBreak
-  ])
+  ]);
 
   return (
     <Modal
-      slug="mobile-nav"
+      slug={mobileNavModalSlug}
       className={classes.mobileNavModal}
     >
       <div className={classes.wrapper}>

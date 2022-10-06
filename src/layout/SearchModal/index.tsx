@@ -8,8 +8,10 @@ import { useSearch } from '@root/search/SearchProvider';
 
 const suggestions = ['Modal', 'Slider', 'Accessibility']
 
+export const searchModalSlug = 'search';
+
 export const SearchModal: React.FC = () => {
-  const { closeAllModals } = useModal();
+  const { closeModal } = useModal();
 
   const {
     setSearch,
@@ -24,16 +26,16 @@ export const SearchModal: React.FC = () => {
 
   useEffect(() => {
     if (!midBreak) {
-      closeAllModals();
+      closeModal(searchModalSlug);
     }
   }, [
-    closeAllModals,
+    closeModal,
     midBreak
   ]);
 
   return (
     <Modal
-      slug="search"
+      slug={searchModalSlug}
       className={classes.searchModal}
     >
       <div className={classes.wrapper}>

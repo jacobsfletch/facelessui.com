@@ -71,6 +71,16 @@ export const modalExamplesNav: NavItem[] = [
     href: "/docs/modal/examples/drawer",
     label: 'Drawer',
   },
+  {
+    type: 'link',
+    href: "/docs/modal/examples/mega-menu",
+    label: 'Mega Menu',
+  },
+  {
+    type: 'link',
+    href: "/docs/modal/examples/drilldown-menu",
+    label: 'Drilldown Menu',
+  },
 ]
 
 export const cssGridAPINav: NavItem[] = [

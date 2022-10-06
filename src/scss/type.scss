@@ -3,7 +3,7 @@
 @use "./vars.scss" as *;
 
 @mixin jumbo {
-  font-size: base(3.25);
+  font-size: base(3);
   line-height: 1;
   font-weight: 600;
   margin: 0 0 base();

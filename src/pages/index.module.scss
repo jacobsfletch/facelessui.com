@@ -33,6 +33,12 @@
   }
 }
 
+.description {
+  @include mid-break {
+    margin-bottom: base(0.25);
+  }
+}
+
 .componentsContainer {
   padding: base(2) 0;
   position: relative;

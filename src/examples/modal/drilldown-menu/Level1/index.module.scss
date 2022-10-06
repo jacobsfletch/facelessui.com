@@ -34,7 +34,7 @@
 }
 
 .wrapper {
-  width: 400px;
+  width: calc(100% - #{base(3)});
   background-color: white;
   padding: base();
   margin-right: 0;
@@ -43,6 +43,7 @@
   transform: translate3d(base(2), 0, 0);
   will-change: transform;;
   transition: transform var(--modal-trans-time) linear;
+  color: var(--color-html);
 
   @include mid-break {
     width: calc(100% - var(--mobile-gutter));
@@ -54,10 +55,6 @@
   color: white;
   cursor: pointer;
   margin-bottom: base(0.5);
-}
-
-.content {
-  color: var(--color-html);
 }
 
 :global(.isDark) {
