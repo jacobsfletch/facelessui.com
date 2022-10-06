@@ -195,17 +195,15 @@ export const RecursiveNav: React.FC<{
                                     href={hrefToUse}
                                     className={classes.jumplistLink}
                                   >
-                                    <div
+                                    <span
                                       className={[
                                         classes.jumplistLinkLabel,
                                         isActiveLink && classes.itemIsActive,
                                       ].filter(Boolean).join(' ')}
                                     >
-                                      <div className={classes.jumplistBullet} />
-                                      <small>
-                                        {jumplistItemLabel}
-                                      </small>
-                                    </div>
+                                      <span className={classes.jumplistBullet} />
+                                      {jumplistItemLabel}
+                                    </span>
                                   </Hyperlink>
                                 )
                               }

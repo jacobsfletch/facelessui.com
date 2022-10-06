@@ -8,8 +8,8 @@
 
 .heading {
   // @include h1;
-  margin-top: base(2);
-  margin-bottom: base(5);
+  margin-top: base();
+  margin-bottom: base(3);
 
   @include x-large-break {
     margin-top: base(2);
@@ -24,8 +24,13 @@
 
 .headingText {
   @include jumbo;
-  display: inline;
-  margin-bottom: 0;
+  margin-bottom: base(1.5);
+  @include large-break {
+    margin-bottom: base();
+  }
+  @include mid-break {
+    margin-bottom: base(0.5);
+  }
 }
 
 .componentsContainer {

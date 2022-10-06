@@ -36,6 +36,8 @@ const pages = [
   "/docs/jumplist/api",
   "/docs/jumplist/setup",
   "/docs/jumplist/releases",
+  "/docs/jumplist/examples/dotnav",
+  "/docs/jumplist/examples/sticky-menu",
   "/docs/collapsibles/api",
   "/docs/collapsibles",
   "/docs/collapsibles/releases",

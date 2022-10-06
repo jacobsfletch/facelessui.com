@@ -13,4 +13,8 @@ export async function middleware(req: NextRequest) {
   if (pathname === '/docs/collapsibles/examples') {
     return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/docs/collapsibles/examples/dropdown`)
   }
+
+  if (pathname === '/docs/jumplist/examples') {
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_APP_URL}/docs/jumplist/examples/dotnav`)
+  }
 }

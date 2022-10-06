@@ -33,9 +33,10 @@
 }
 
 .jumplistLinkLabel {
+  @include small;
+  margin: 0;
   color: var(--color-gray-4);
   position: relative;
-  line-height: 1.5;
 
   &:hover {
     color: var(--color-gray-5);
@@ -88,7 +89,16 @@
 
 .jumplistContent {
   padding-left: base(0.5);
-  padding-bottom: base(0.125);
+  padding-top: base(0.125);
+  padding-bottom: base(0.25);
+}
+
+.jumplistLink {
+  @include small;
+  display: block;
+  &:not(:last-child) {
+    margin-bottom: base(0.25);
+  }
 }
 
 .linkBullet {
@@ -106,7 +116,7 @@
   background-color: currentColor;
   position: absolute;
   left: base(-0.5);
-  top: 16px;
+  top: 10px;
 }
 
 .linkLabel {

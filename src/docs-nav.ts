@@ -151,6 +151,19 @@ export const jumplistAPINav: NavItem[] = [
   },
 ]
 
+export const jumplistExamplesNav: NavItem[] = [
+  {
+    type: 'link',
+    href: "/docs/jumplist/examples/dotnav",
+    label: 'Dotnav',
+  },
+  {
+    type: 'link',
+    href: "/docs/jumplist/examples/sticky-menu",
+    label: 'Sticky Menu',
+  },
+]
+
 export const sliderAPINav: NavItem[] = [
   {
     type: 'link',
@@ -294,7 +307,6 @@ export const collapsiblesAPINav: NavItem[] = [
     id: 'typescript'
   },
 ];
-
 
 export const collapsiblesExamplesNav: NavItem[] = [
   {
@@ -455,6 +467,12 @@ export const nav: DocsNav = [
         href: "/docs/jumplist/api",
         label: 'API Reference',
         items: jumplistAPINav
+      },
+      {
+        type: 'subnav',
+        label: 'Examples',
+        href: "/docs/jumplist/examples",
+        items: jumplistExamplesNav
       },
       {
         type: 'link',

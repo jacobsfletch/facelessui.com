@@ -1,0 +1,85 @@
+@use "@scss/common" as *;
+
+.section {
+  padding-top: base(7);
+  margin-top: base(-7);
+  margin-bottom: base();
+
+  @include mid-break {
+    padding-top: base(5.5);
+    margin-top: base(-5.5);
+    margin-bottom: base(0.5);
+  }
+}
+
+.menuContainer {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-gray-2);
+  margin-bottom: base();
+}
+
+.navToggler {
+  all: unset;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  padding: base(0.5) base();
+
+  @include mid-break {
+    padding: base(0.25) base(0.5);
+  }
+}
+
+.togglerText {
+  margin-right: base(0.5);
+  flex-grow: 1;
+}
+
+.togglerIcon {
+  flex-shrink: 0;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-gray-6);
+  padding: base(0.5) base();
+  margin: 0;
+
+  @include mid-break {
+    padding: base(0.25) base(0.5);
+  }
+}
+
+.navItem {
+  all: unset;
+  cursor: pointer;
+}
+
+.navItemActive {
+  &::before {
+    content: "– ";
+  }
+}
+
+.spacer {
+  height: 100vh;
+  background-color: var(--color-gray-1);
+}
+
+:global(.isDark) {
+  &:local() {
+    .menuContainer {
+      background-color: var(--color-gray-8);
+    }
+
+    .spacer {
+      background-color: vaR(--color-gray-9);
+    }
+  }
+}
