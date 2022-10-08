@@ -1,6 +1,6 @@
 @use "@scss/common" as *;
 
-.megaMenuExample {
+.aboutMegaMenuExample {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -15,6 +15,7 @@
   will-change: opacity;
   transition: opacity var(--modal-trans-time) linear;
   opacity: 0;
+  color: inherit;
 
   &:global(.modal-item--appearActive),
   &:global(.modal-item--appearDone),
@@ -42,6 +43,10 @@
 
 .close {
   margin-bottom: base();
+}
+
+.title {
+  @include h2;
 }
 
 .menuItem {

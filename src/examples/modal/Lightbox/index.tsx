@@ -2,21 +2,21 @@ import React, { Fragment } from 'react';
 import classes from './index.module.scss';
 import { Modal, ModalToggler } from '@faceless-ui/modal';
 
-const modalSlug = 'modal-lightbox';
+export const exampleLightboxModalSlug = 'modal-lightbox';
 
 export const LightboxModalExample = () => {
   return (
     <Fragment>
-      <ModalToggler slug={modalSlug}>
+      <ModalToggler slug={exampleLightboxModalSlug}>
         Open lightbox
       </ModalToggler>
       <Modal
-        slug={modalSlug}
+        slug={exampleLightboxModalSlug}
         className={classes.modal}
       >
         <div className={classes.wrapper}>
           <ModalToggler
-            slug={modalSlug}
+            slug={exampleLightboxModalSlug}
             className={classes.close}
           >
             Close

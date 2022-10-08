@@ -22,7 +22,12 @@ export const DrawerModalExample = () => {
             Close
           </ModalToggler>
           <div className={classes.content}>
-            Hello, world!
+            <p className={classes.title}>
+              This is a drawer
+            </p>
+            <p>
+              Hello, world!
+            </p>
           </div>
         </div>
       </Modal>

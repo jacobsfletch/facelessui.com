@@ -63,6 +63,7 @@ export const LightboxSliderExample = () => {
         </div>
       </Modal>
       <Hyperlink
+        className={classes.sandboxLink}
         href="https://codesandbox.io/s/lightbox-slider-0m8tyu"
         newTab
       >

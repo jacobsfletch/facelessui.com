@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.015);
   will-change: opacity;
   transition: opacity var(--modal-trans-time) linear;
   opacity: 0;
@@ -48,6 +48,10 @@
 
 :global(.isDark) {
   &:local() {
+    .modal {
+      background-color: rgba(0, 0, 0, 0.75);
+    }
+
     .content {
       background-color: var(--color-gray-8);
     }

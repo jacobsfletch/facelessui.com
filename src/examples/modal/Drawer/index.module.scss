@@ -56,8 +56,17 @@
   margin-bottom: base(0.5);
 }
 
+.title {
+  @include h2;
+  margin-bottom: base(0.25);
+}
+
 .content {
   color: var(--color-html);
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
 }
 
 :global(.isDark) {

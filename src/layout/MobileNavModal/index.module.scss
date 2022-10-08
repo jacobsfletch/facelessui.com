@@ -3,9 +3,9 @@
 .mobileNavModal {
   width: 100vw;
   height: calc(var(--vh) * 100);
-  background: transparent;
-  border: none;
+  background: var(--color-html-bg);
   color: var(--color-html);
+  border: none;
   overflow: auto;
   will-change: opacity;
   transition: opacity var(--modal-trans-time) linear;
