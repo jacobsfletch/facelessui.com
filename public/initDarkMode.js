@@ -1,5 +1,6 @@
 var setDarkStyles = function () {
   var root = document.documentElement;
+  root.style.setProperty('color-scheme', 'dark');
   root.style.setProperty('--color-html', 'var(--color-cream)');
   root.style.setProperty('--color-html-bg', 'var(--color-black)');
   root.classList.add('isDark');
@@ -7,6 +8,7 @@ var setDarkStyles = function () {
 
 var setLightStyles = function () {
   var root = document.documentElement;
+  root.style.setProperty('color-scheme', 'light');
   root.style.setProperty('--color-html', 'var(--color-gray-10)');
   root.style.setProperty('--color-html-bg', 'var(--color-white)');
   root.classList.remove('isDark');
