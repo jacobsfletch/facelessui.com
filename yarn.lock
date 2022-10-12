@@ -71,10 +71,10 @@
   resolved "https://registry.yarnpkg.com/@faceless-ui/jumplist/-/jumplist-2.0.0-alpha.2.tgz#d3779a4bc7e83af355154a698a2aaedb80a5401e"
   integrity sha512-nWAjgP/+et8Ye1Q5Bl3JCKQXXteB7KNIA6vFIkiAzKvWE8VkO7ryxUF3OoGh50VUG2aNVdRg7aVREjxnGgEPdQ==
 
-"@faceless-ui/modal@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@faceless-ui/modal/-/modal-2.0.0.tgz#fed257bafb22c915057af6856e8323281053e559"
-  integrity sha512-V70q2JzeTKg6tjD61+J/50Y93VwQeAYsV5YwQvkXnGXI4/iU31UEA4qEL4wRuO3yzacs7UXCmo+ZnKNr4+wfxA==
+"@faceless-ui/modal@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@faceless-ui/modal/-/modal-2.0.1.tgz#8a47299442eff450c09432cfaef35c5471becad6"
+  integrity sha512-z1PaaLxwuX+1In4vhUxODZndGKdCY+WIqzvtnas3CaYGGCVJBSJ4jfv9UEEGZzcahmSy+71bEL89cUT6d36j1Q==
   dependencies:
     body-scroll-lock "^3.1.5"
     focus-trap "^6.9.2"

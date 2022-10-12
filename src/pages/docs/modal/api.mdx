@@ -31,10 +31,10 @@ export const MyApp = () = (
 
 <PropName
   name="zIndex"
-  type="number"
+  type="string or number"
 />
 
-Applies z-index to the [`<ModalContainer>`](#modalcontainer). If [`generateCSS`](#generateCSS) is false, this prop is ignored. Defaults to `9999`.
+Applies z-index to the [`<ModalContainer>`](#modalcontainer). If [`generateCSS`](#generateCSS) is `false`, this prop is ignored. Defaults to `9999`.
 
 <PropName
   name="transTime"
@@ -81,6 +81,18 @@ Generates a tiny CSS stylesheet (~650B), rendered at the root of the provider. T
 Minifies the result of [`generateCSS`](#generateCSS). Defaults to `true`.
 
 ### \<ModalProvider\> Context
+
+<PropName
+  name="modalState"
+  type="object"
+  isContextProp
+/>
+
+An object of every registered modal, keyed by their slug. Each modal has the following properties:
+
+- `slug` - The slug of the modal
+- `isOpen` - `true` if the modal is open, `false` if closed
+- `openedOn` - the timestamp of when the modal was opened
 
 <PropName
   name="openModal(slug: string)"
@@ -375,7 +387,7 @@ This package strictly follows the [WAI-ARIA pattern for dialogs](https://www.w3.
   - `aria-controls` is the [`slug`](#slug) of the `<Modal>`
   - `aria-label` is `Open modal SLUG` or `Close modal SLUG` based on [`isModalOpen`](#isModalOpen)
 - Focus is trapped within open modals and restored when closed, see [`trapFocus`](#trapFocus)
-- Keyboard `Escape` key closes the modal
+- Keyboard `esc` key closes the modal in sequential order
 - Clicking outside a modal closes it, see [`closeOnBlur`](#closeOnBlur)
 
 </JumplistNode>

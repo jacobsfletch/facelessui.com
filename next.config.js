@@ -26,8 +26,8 @@ module.exports = withMDX({
       // IMPORTANT: the next lines are for development only
       // keep them commented out unless actively developing local react modules
       // react: path.join(__dirname, "node_modules/react"),
-      // "react-dom": path.join(__dirname, "node_modules/react-dom")
-      //  "@faceless-ui/grid": path.resolve(__dirname, "../../faceless-ui/grid"),
+      // "react-dom": path.join(__dirname, "node_modules/react-dom"),
+      // "@faceless-ui/modal": path.resolve(__dirname, "../../faceless-ui/modal"),
       // "@faceless-ui/slider": path.resolve(__dirname, "../../faceless-ui/slider"),
     };
 
