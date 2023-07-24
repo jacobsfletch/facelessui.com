@@ -18,7 +18,7 @@ This component provides the [modal context](#modalprovider-context) to your app.
 
 ```js
 import react from 'react';
-import { ModalProvider } from '@faceless-ui/modal;
+import { ModalProvider } from '@faceless-ui/modal';
 
 export const MyApp = () = (
   <ModalProvider>
@@ -195,7 +195,7 @@ This component will add an element to the DOM where every modal will portal into
 
 ```js
 import react from 'react';
-import { ModalContainer } from '@faceless-ui/modal;
+import { ModalContainer } from '@faceless-ui/modal';
 
 export const MyApp = () = (
   <ModalContainer>
@@ -218,7 +218,7 @@ Each modal is portaled into the [`<ModalContainer>`](#modalcontainer)  and recei
 
 ```js
 import react from 'react';
-import { Modal } from '@faceless-ui/modal;
+import { Modal } from '@faceless-ui/modal';
 
 export const MyModal = () => {
   return (
@@ -233,7 +233,7 @@ You can also pass a function as a child to conveniently access [modal context](#
 
 ```js
 import react from 'react';
-import { Modal } from '@faceless-ui/modal;
+import { Modal } from '@faceless-ui/modal';
 
 export const MyModal = () => {
   return (
@@ -305,7 +305,7 @@ This is a button that will open or close a modal based on its current status. It
 
 ```js
 import react from 'react';
-import { ModalToggler } from '@faceless-ui/modal;
+import { ModalToggler } from '@faceless-ui/modal';
 
 export const MyComponent = () => {
   return (
@@ -339,7 +339,7 @@ This is a hook you can use to access the [modal context](#modalprovider-context)
 
 ```js
 import react from 'react';
-import { useModal } from '@faceless-ui/modal;
+import { useModal } from '@faceless-ui/modal';
 
 export const MyComponent = () => {
   const modal = useModal();
@@ -359,7 +359,7 @@ For advanced setups, use this higher order component to create your own modal en
 
 ```js
 import react from 'react';
-import { asModal } from '@faceless-ui/modal;
+import { asModal } from '@faceless-ui/modal';
 
 export const MyModal = asModal((props) => {
   const { modal } = props;
